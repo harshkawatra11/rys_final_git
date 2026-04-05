@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html lang="en" data-default-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About — Rajdhani Yuva Sansad</title>
+    <meta name="description" content="Learn about Rajdhani Yuva Sansad — founded in 2017, RYS empowers youth through Model United Nations, Youth Parliaments, and policy-driven dialogue rooted in constitutional values.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=IM+Fell+English:ital@1&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="../rys-logo.png">
+    <link rel="stylesheet" href="../css/shared.css">
+    <link rel="stylesheet" href="../css/shared-light.css">
+    <link rel="stylesheet" href="../css/about.css">
+    <script>(function(){var t=localStorage.getItem('rys-theme')||document.documentElement.getAttribute('data-default-theme')||'dark';document.documentElement.setAttribute('data-theme',t);})();</script>
+</head>
+<body>
+
+    <!-- ═══ NAV ═══ -->
+    <nav>
+        <a href="../home/" class="nav-logo">
+            <img src="../rys-logo.png" alt="RYS" style="height:38px;width:auto;border-radius:50%;" onerror="this.style.display='none'">
+            <div class="nav-logo-text">Rajdhani Yuva Sansad<span>Est. 2017 · New Delhi</span></div>
+        </a>
+        <ul class="nav-links">
+            <li><a href="../home/">Home</a></li>
+            <li><a href="../about/" class="active">About</a></li>
+            <li><a href="../conferences/">Conferences</a></li>
+            <li><a href="../team/">Team</a></li>
+            <li><a href="../contact/">Contact</a></li>
+            <li><button class="theme-toggle-btn" aria-label="Toggle theme"><span class="theme-toggle-knob">🌙</span></button></li>
+            <li><a href="#" class="nav-btn">Register</a></li>
+        </ul>
+        <button class="nav-mobile-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
+    </nav>
+
+    <!-- Mobile Nav -->
+    <div class="mobile-nav-overlay">
+        <button class="mobile-nav-close">&times;</button>
+        <a href="../home/">Home</a>
+        <a href="../about/">About</a>
+        <a href="../conferences/">Conferences</a>
+        <a href="../team/">Team</a>
+        <a href="../contact/">Contact</a>
+        <button class="mobile-theme-toggle" style="background:none;border:1.5px solid var(--border-gold);color:inherit;font-size:.85rem;font-family:inherit;cursor:pointer;padding:.4rem 1.2rem;display:flex;align-items:center;gap:.6rem;"><span>🌙</span> Toggle Theme</button>
+        <a href="#">Register</a>
+    </div>
+
+    <main>
+
+        <!-- ═══ HERO ═══ -->
+        <section class="page-hero">
+            <div class="page-hero-bg"></div>
+            <canvas class="page-particles" id="heroParticles"></canvas>
+
+            <!-- Decorative Ashoka Chakra -->
+            <svg class="page-chakra" viewBox="0 0 200 200" fill="none">
+                <circle cx="100" cy="100" r="90" stroke="rgba(184,137,42,0.4)" stroke-width="0.5"/>
+                <circle cx="100" cy="100" r="70" stroke="rgba(184,137,42,0.3)" stroke-width="0.4"/>
+                <circle cx="100" cy="100" r="20" stroke="rgba(184,137,42,0.5)" stroke-width="0.6"/>
+                <g stroke="rgba(184,137,42,0.4)" stroke-width="0.4">
+                    <line x1="100" y1="10" x2="100" y2="190"/>
+                    <line x1="10" y1="100" x2="190" y2="100"/>
+                    <line x1="36.4" y1="36.4" x2="163.6" y2="163.6"/>
+                    <line x1="163.6" y1="36.4" x2="36.4" y2="163.6"/>
+                    <line x1="100" y1="10" x2="145" y2="27"/><line x1="100" y1="10" x2="55" y2="27"/>
+                    <line x1="190" y1="100" x2="173" y2="55"/><line x1="190" y1="100" x2="173" y2="145"/>
+                    <line x1="100" y1="190" x2="145" y2="173"/><line x1="100" y1="190" x2="55" y2="173"/>
+                    <line x1="10" y1="100" x2="27" y2="55"/><line x1="10" y1="100" x2="27" y2="145"/>
+                </g>
+            </svg>
+
+            <!-- Side Video Blocks (Local) -->
+            <div class="hero-side-video hero-side-video-left">
+                <video autoplay muted loop playsinline>
+                    <source src="../rys-images/about/videos-hero-five-seconds/52E00BBE-6E71-4B0F-A2A4-689628D465B3_1_102_o.jpeg" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+            <div class="hero-side-video hero-side-video-right">
+                <video autoplay muted loop playsinline>
+                    <source src="../rys-images/about/videos-hero-five-seconds/7DC1B68A-9B5F-45EA-AD85-D65223AAC680_1_102_o.jpeg" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+
+            <div class="page-hero-content">
+                <div class="hero-eyebrow">
+                    <span class="hero-eyebrow-line"></span>
+                    <span>Our Story</span>
+                    <span class="hero-eyebrow-line"></span>
+                </div>
+                <h1>Nation Building<br>Through Dialogue</h1>
+                <p class="page-hero-desc">Founded in 2017 by two young law students with a vision of nation building through imparting quality education by unconventional and interesting means.</p>
+                <div class="hero-badges">
+                    <div class="hero-badge-item"><span class="hero-badge-num" >2017</span><span class="hero-badge-label">Established</span></div>
+                    <div class="hero-badge-divider"></div>
+                    <div class="hero-badge-item"><span class="hero-badge-num" data-count="20+">20+</span><span class="hero-badge-label">Conferences</span></div>
+                    <div class="hero-badge-divider"></div>
+                    <div class="hero-badge-item"><span class="hero-badge-num" data-count="1 Lakh+">1 Lakh+</span><span class="hero-badge-label">Students Trained</span></div>
+                    <div class="hero-badge-divider"></div>
+                    <div class="hero-badge-item"><span class="hero-badge-num" data-count="1000+">1000+</span><span class="hero-badge-label">National Capacity</span></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ═══ WHO WE ARE ═══ -->
+        <section class="sec">
+            <p class="sec-tag">Who We Are</p>
+            <h2 class="sec-h2">The Spirit of RYS</h2>
+            <div class="who-section" style="max-width:850px; margin:0 auto;">
+                <div class="who-vision reveal">
+                    <div class="who-vision-tag">Our Vision</div>
+                    <p class="who-vision-quote">"संवाद ही हल है।"</p>
+                    <p class="who-vision-trans">— Dialogue is the only solution.</p>
+                </div>
+                <div class="who-text reveal reveal-d1">
+                    <p>Rajdhani Yuva Sansad (RYS) was founded in 2017 by two young law students with a vision of nation building through imparting quality education by unconventional and interesting means.</p>
+                    <p>The organisation began at the grassroot level, with its founding members serving as Executive Board and Jury members at conferences held across various cities including Delhi, Ghaziabad, Jodhpur, Sangrur, Moradabad, Ujjain, Rohtak, and Sonipat.</p>
+                    <p>Following this foundational experience, the team began visiting schools across Delhi NCR, proposing and initiating Youth Parliaments and Model United Nations sessions for students of middle school and high school.</p>
+                    <p>Through this platform, RYS aims to instill in its participants the values of critical thinking, respectful discourse, and a deep understanding of national issues, empowering them to be the torchbearers of change.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ═══ VALUES ═══ -->
+        <section class="sec sec-alt">
+            <p class="sec-tag">What We Stand For</p>
+            <h2 class="sec-h2">Our Values</h2>
+            <div class="values-grid" style="max-width:1100px; margin:0 auto;">
+                <div class="value-card tilt-card reveal">
+                    <div class="value-img" style="aspect-ratio:16/9; overflow:hidden; margin-bottom:1.2rem; border:1px solid var(--border-gold);">
+                        <img src="../rys-images/about/our-values/1.jpg" alt="Constitutional Literacy" style="width:100%;height:100%;object-fit:cover;filter:brightness(.8) saturate(.8);">
+                    </div>
+                    <div class="value-icon">⚖</div><h3 class="value-title">Constitutional Literacy</h3><p class="value-body">Instilling a deep understanding of the Indian Constitution, its principles, and the democratic framework that guides our nation.</p>
+                </div>
+                <div class="value-card tilt-card reveal reveal-d1">
+                    <div class="value-img" style="aspect-ratio:16/9; overflow:hidden; margin-bottom:1.2rem; border:1px solid var(--border-gold);">
+                        <img src="../rys-images/about/our-values/2.jpg" alt="Respectful Discourse" style="width:100%;height:100%;object-fit:cover;filter:brightness(.8) saturate(.8);">
+                    </div>
+                    <div class="value-icon">🗣</div><h3 class="value-title">Respectful Discourse</h3><p class="value-body">Fostering the values of critical thinking and respectful dialogue — believing that every perspective deserves a fair hearing.</p>
+                </div>
+                <div class="value-card tilt-card reveal reveal-d2">
+                    <div class="value-img" style="aspect-ratio:16/9; overflow:hidden; margin-bottom:1.2rem; border:1px solid var(--border-gold);">
+                        <img src="../rys-images/about/our-values/3.jpg" alt="Youth Empowerment" style="width:100%;height:100%;object-fit:cover;filter:brightness(.8) saturate(.8);">
+                    </div>
+                    <div class="value-icon">🌏</div><h3 class="value-title">Youth Empowerment</h3><p class="value-body">Empowering youngsters to be the torchbearers of change by engaging deeply with governance, diplomacy, and policy challenges.</p>
+                </div>
+                <div class="value-card tilt-card reveal reveal-d3">
+                    <div class="value-img" style="aspect-ratio:16/9; overflow:hidden; margin-bottom:1.2rem; border:1px solid var(--border-gold);">
+                        <img src="../rys-images/about/our-values/4.jpg" alt="Peaceful Communication" style="width:100%;height:100%;object-fit:cover;filter:brightness(.8) saturate(.8);">
+                    </div>
+                    <div class="value-icon">☮</div><h3 class="value-title">Peaceful Communication</h3><p class="value-body">Inspired by the values of Swami Vivekananda, Lord Buddha, and Mahatma Gandhi — focusing on resolving social problems through peaceful dialogue.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ═══ FOUNDERS ═══ -->
+        <section class="sec">
+            <p class="sec-tag">Visionary Leaders</p>
+            <h2 class="sec-h2">The Founders</h2>
+            <div class="founders-wrap" style="max-width:1000px; margin:0 auto;">
+                <div class="founder-card reversed reveal">
+                    <div class="founder-avatar">
+                        <img src="../adv-isha-kapoor.jpg" alt="Adv. Isha Kapoor">
+                    </div>
+                    <div>
+                        <h3 class="founder-name">Adv. Isha Kapoor</h3>
+                        <p class="founder-role">Co-Founder &amp; Advocate</p>
+                        <p class="founder-bio">Advocate and legal content creator with close to <strong>2 Million impressions on YouTube</strong> (VLAWGISH) and more than <strong>10 Million views on Instagram</strong> (@theishakapooor).</p>
+                        <p class="founder-bio">Co-authored &ldquo;Uniform Civil Code: Towards Unified Bharat,&rdquo; a landmark publication on the foundational legal and social framework of a unified civil code for India.</p>
+                    </div>
+                </div>
+                <div class="founder-card reveal">
+                    <div class="founder-avatar">
+                        <img src="../adv-jai-saini.jpg" alt="Adv. Jai Saini">
+                    </div>
+                    <div>
+                        <h3 class="founder-name">Adv. Jai Saini</h3>
+                        <p class="founder-role">Co-Founder &amp; Advocate</p>
+                        <p class="founder-bio">Practising advocate in New Delhi, known for his efficient contributions to the justice delivery system. Won the prestigious <strong>'Best Parliamentarian'</strong> award at the 'Mock Parliament 2018' held at the Parliament of India.</p>
+                        <p class="founder-bio">Co-authored &ldquo;Uniform Civil Code: Towards Unified Bharat,&rdquo; launched in the presence of Shri Adarsh Kumar Goel Ji, former Judge, Supreme Court of India.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ═══ DIGNITARIES ═══ -->
+        <section class="sec sec-alt">
+            <p class="sec-tag">Dignitaries</p>
+            <h2 class="sec-h2">Distinguished Guests</h2>
+                        <div class="dignitary-grid" style="max-width:1100px; margin:0 auto;">
+                <div class="dignitary-card reveal">
+                    <div class="dignitary-icon">🏛</div>
+                    <div>
+                        <h4 class="dignitary-cat-title">Union Ministers</h4>
+                        <ul class="dignitary-list">
+                            <li>Shri Arjun Ram Meghwal <span>— Hon'ble Union Minister of Law & Justice</span></li>
+                            <li>Shri Kamlesh Paswan <span>— Union Minister of State for Rural Development</span></li>
+                            <li>Smt. Raksha Nikhil Khadse <span>— Union Minister of State, Youth Affairs & Sports</span></li>
+                            <li>Shri Ajay Tamta <span>— Union Minister of State for Road Transport & Highways</span></li>
+                            <li>Shri Harsh Malhotra <span>— Union Minister of State, Corporate Affairs & Road Transport</span></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="dignitary-card reveal reveal-d1">
+                    <div class="dignitary-icon">📜</div>
+                    <div>
+                        <h4 class="dignitary-cat-title">Speakers & Legislators</h4>
+                        <ul class="dignitary-list">
+                            <li>Shri Harvinder Kalyan <span>— Hon'ble Speaker, Haryana Legislative Assembly</span></li>
+                            <li>Shri Krishan Lal Middha <span>— Hon'ble Deputy Speaker, Haryana Legislative Assembly</span></li>
+                            <li>Shri Ram Niwas Goel <span>— Former Speaker, Delhi Legislative Assembly</span></li>
+                            <li>Smt. Geeta Bhukkal <span>— Member, Haryana Legislative Assembly</span></li>
+                            <li>Smt. Pooja Chaudhary <span>— Member, Haryana Legislative Assembly</span></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="dignitary-card reveal reveal-d2">
+                    <div class="dignitary-icon">🏩</div>
+                    <div>
+                        <h4 class="dignitary-cat-title">Members of Parliament</h4>
+                        <ul class="dignitary-list">
+                            <li>Shri Anurag Thakur <span>— Hon'ble Member of Parliament</span></li>
+                            <li>Smt. Bansuri Swaraj <span>— Hon'ble Member of Parliament</span></li>
+                            <li>Dr. Kalpana Saini <span>— Hon'ble Member of Parliament</span></li>
+                            <li>Shri Manoj Tiwari <span>— Hon'ble Member of Parliament</span></li>
+                            <li>Shri Naresh Bansal <span>— Hon'ble Member of Parliament</span></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="dignitary-card reveal reveal-d3">
+                    <div class="dignitary-icon">⚖</div>
+                    <div>
+                        <h4 class="dignitary-cat-title">Legal Luminaries</h4>
+                        <ul class="dignitary-list">
+                            <li>HMJ Chandra Dhari Singh <span>— Judge, High Court of Delhi</span></li>
+                            <li>HMJ Manoj Ohri <span>— Judge, High Court of Delhi</span></li>
+                            <li>HMJ Vikas Mahajan <span>— Judge, High Court of Delhi</span></li>
+                            <li>HMJ Sachin Dutta <span>— Judge, High Court of Delhi</span></li>
+                            <li>Shri Chetan Sharma <span>— Additional Solicitor General of India, High Court of Delhi</span></li>
+                            <li>Adv. Piyush Gupta <span>— Deputy Advocate General, State of Uttarakhand</span></li>
+                            <li>Smt. Monika Arora <span>— Advocate, Supreme Court of India</span></li>
+                            <li>Shri Ashwini Upadhyay <span>— Advocate, Supreme Court of India</span></li>
+                            <li>Shri K.K. Manan <span>— Senior Advocate, High Court of Delhi</span></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="dignitary-card reveal">
+                    <div class="dignitary-icon">🌟</div>
+                    <div>
+                        <h4 class="dignitary-cat-title">Distinguished Personalities</h4>
+                        <ul class="dignitary-list">
+                            <li>Smt. Aman Preet Passy, IRS <span>— Indian Revenue Service Officer</span></li>
+                            <li>Shri Arunendra Nath Verma <span>— Retd. Wing Commander & Eminent Author</span></li>
+                            <li>Dr. Janak Raj Jai <span>— Author & Advocate, Supreme Court of India</span></li>
+                            <li>Shri Vijay Kumar Singh <span>— Vice Chairperson, Delhi Development Authority</span></li>
+                            <li>Prof. Dr. Seema Singh <span>— Faculty of Law, Delhi University</span></li>
+                            <li>Ms. Deepika Narayan Bhardwaj <span>— Filmmaker</span></li>
+                            <li>Shri Shiv Vats <span>— Academician & Content Creator</span></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="dignitary-card reveal reveal-d1">
+                    <div class="dignitary-icon">📺</div>
+                    <div>
+                        <h4 class="dignitary-cat-title">Media Personalities</h4>
+                        <ul class="dignitary-list">
+                            <li>Shri Nikhil Wath <span>— Senior Assistant Editor, The Lallantop</span></li>
+                            <li>Shri Deepak Tenguriya <span>— Researcher & Producer, The Lallantop</span></li>
+                            <li>Ms. Mehak Dhawan <span>— Instagram Influencer & YouTuber</span></li>
+                            <li>Shri Bhim Jain <span>— Instagram Influencer & YouTuber</span></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ═══ CORE TEAM ═══ -->
+        <section class="sec">
+            <p class="sec-tag">The Team</p>
+            <h2 class="sec-h2">The Minds Behind RYS</h2>
+            <div class="team-grid" style="max-width:1000px; margin:0 auto;">
+                <div class="team-cell reveal"><div class="team-avatar">JK</div><div class="team-name-t">Jatin Kapoor</div><div class="team-role-t">Head of Operations</div></div>
+                <div class="team-cell reveal reveal-d1"><div class="team-avatar">AC</div><div class="team-name-t">Avni Chauhan</div><div class="team-role-t">Core Team</div></div>
+                <div class="team-cell reveal reveal-d2"><div class="team-avatar">PN</div><div class="team-name-t">Parv Narendra</div><div class="team-role-t">Core Team</div></div>
+                <div class="team-cell reveal reveal-d3"><div class="team-avatar">TG</div><div class="team-name-t">Tanisha Gupta</div><div class="team-role-t">Core Team</div></div>
+                <div class="team-cell reveal"><div class="team-avatar">SK</div><div class="team-name-t">Shreya Kapoor</div><div class="team-role-t">Core Team</div></div>
+                <div class="team-cell reveal reveal-d1"><div class="team-avatar">ZM</div><div class="team-name-t">Zigyasa Mishra</div><div class="team-role-t">Core Team</div></div>
+                <div class="team-cell reveal reveal-d2"><div class="team-avatar">AK</div><div class="team-name-t">Arsh Khan</div><div class="team-role-t">Core Team</div></div>
+                <div class="team-cell reveal reveal-d3"><div class="team-avatar">KS</div><div class="team-name-t">Kartik Saraswat</div><div class="team-role-t">Core Team</div></div>
+            </div>
+        </section>
+
+        <!-- ═══ TIMELINE ═══ -->
+        <section class="sec sec-alt">
+            <p class="sec-tag">Our Legacy</p>
+            <h2 class="sec-h2">From 2017 to Today</h2>
+                        <div class="timeline-wrap">
+                <div class="timeline-item"><div class="timeline-dot"></div><div class="timeline-year-t">2017</div><h4 class="timeline-title-t">Founding Year</h4><p class="timeline-desc">It came into being as the vision of Adv. Isha Kapoor and Adv. Jai Saini was brought to life, rooted in the belief that "संवाद ही हल है।" Driven by an unwavering zeal to educate, empower, and engage the youth, it has grown into a platform where dialogue shapes perspective, voices find meaning, and young leaders are inspired to create impact through informed discourse.</p></div>
+                <div class="timeline-item"><div class="timeline-dot"></div><div class="timeline-year-t">2018</div><h4 class="timeline-title-t">Fostering Early Dialogue</h4><p class="timeline-desc">At St. Xavier's School, Civil Lines, Delhi, over 250 students came together for a vibrant exchange of ideas on pressing national and global issues. At Salwan Public School, Gurugram, an immersive mock parliamentary session was conducted, offering students hands-on experience of democratic governance.</p></div>
+                <div class="timeline-item"><div class="timeline-dot"></div><div class="timeline-year-t">2019</div><h4 class="timeline-title-t">Sajag Yuva Manch 1.0</h4><p class="timeline-desc">At Silverline Prestige School, Ghaziabad, around 250 students engaged in dynamic debates on diverse issues. A distinctive highlight involved deep explorations of India's partition, and the introduction of the 'Memer' portfolio in the International Press added an impactful, contemporary edge to traditional discourse.</p></div>
+                <div class="timeline-item"><div class="timeline-dot"></div><div class="timeline-year-t">2021</div><h4 class="timeline-title-t">Sajag Yuva Manch 2.0</h4><p class="timeline-desc">Sajag Yuva Manch 2.0 brought together ~250 students for carrying forward strong traditions of collaboration. At Bal Bharti Public School, Noida, an immersive mock parliament enabled students to navigate legislative procedures, greatly enhancing teamwork and public speaking skills.</p></div>
+                <div class="timeline-item"><div class="timeline-dot"></div><div class="timeline-year-t">2022</div><h4 class="timeline-title-t">1st Lawyers' Parliament Festival</h4><p class="timeline-desc">A monumental milestone bringing ~350 lawyers for a deeply enriching UCC discussion with Hon'ble Judges of the Delhi High Court. Followed by Sajag Yuva Manch 3.0 witnessing an impressive gathering of ~350 students to nurture diplomacy and critical thinking.</p></div>
+                <div class="timeline-item"><div class="timeline-dot"></div><div class="timeline-year-t">2023</div><h4 class="timeline-title-t">Sajag Yuva Manch 4.0</h4><p class="timeline-desc">Witnessed extraordinary participation from 500 students. Introduced a fictional superhero committee to uniquely blend imagination and intellect. Further extended vision with intensive parliamentary training at H.P. Children's Academy, Gorakhpur.</p></div>
+                <div class="timeline-item"><div class="timeline-dot"></div><div class="timeline-year-t">2024</div><h4 class="timeline-title-t">A Defining Year of Scale</h4><p class="timeline-desc">The historic Delhi Yuva Samvad at Vidhan Sabha brought 75 exceptional leaders. The 2nd National Lawyers' Parliament Festival at IIC saw ~500 legal professionals discussing New Criminal Laws. SYM 5.0 hosted 700+ delegates. Global Panchayat 1.0 and Bal Sansad 1.0 nurtured civic awareness.</p></div>
+                <div class="timeline-item"><div class="timeline-dot"></div><div class="timeline-year-t">2025</div><h4 class="timeline-title-t">Massive Expansion</h4><p class="timeline-desc">The 1st Haryana Yuva Samvad at Vidhan Sabha, Chandigarh. Gorakhpur Yuva Samvad emerged as a landmark youth confluence with 900+ delegates across 19 committees. SYM 6.0 engaged 600+ delegates with inspiring guests, alongside successfully executing Global Panchayat 2.0 and Bal Sansad 2.0.</p></div>
+                <div class="timeline-item"><div class="timeline-dot"></div><div class="timeline-year-t">2026</div><h4 class="timeline-title-t">Continuing the Legacy</h4><p class="timeline-desc">The 2nd Haryana Yuva Samvad held in Jan 2026 at Haryana Vidhan Sabha brought 70 young participants for rigorous legislative engagement in the premises of governance. The year is all set to witness SYM 6.0, Global Panchayat 3.0, Bal Sansad 3.0, and Yuva Sajhedari 3.0.</p></div>
+            </div>
+        </section>
+
+        <!-- ═══ MEDIA PRESENCE ═══ -->
+        <section class="sec" id="media-presence">
+            <p class="sec-tag">In the Spotlight</p>
+            <h2 class="sec-h2">Media Presence</h2>
+
+            <!-- Newspaper Masthead -->
+            <div class="np-wrap">
+            <div class="newspaper-masthead reveal">
+                <div class="masthead-rule"></div>
+                <div class="masthead-inner">
+                    <div class="masthead-left">
+                        <span class="masthead-edition">National Coverage</span>
+                        <span class="masthead-dot">✦</span>
+                        <span class="masthead-edition">PTI · TOI · HT · Bhaskar</span>
+                    </div>
+                    <div class="masthead-stats">
+                        <div class="masthead-stat"><span class="masthead-stat-num" data-count="15+">15+</span><span class="masthead-stat-label">Features</span></div>
+                        <div class="masthead-stat-div"></div>
+                        <div class="masthead-stat"><span class="masthead-stat-num" data-count="3">3</span><span class="masthead-stat-label">TV Interviews</span></div>
+                        <div class="masthead-stat-div"></div>
+                        <div class="masthead-stat"><span class="masthead-stat-num" data-count="2">2</span><span class="masthead-stat-label">PTI Wire</span></div>
+                        <div class="masthead-stat-div"></div>
+                        <div class="masthead-stat"><span class="masthead-stat-num" data-count="10+">10+</span><span class="masthead-stat-label">Outlets</span></div>
+                    </div>
+                    <div class="masthead-right">
+                        <span class="masthead-edition">Est. 2017 · New Delhi</span>
+                    </div>
+                </div>
+                <div class="masthead-rule masthead-rule-double"></div>
+            </div>
+
+            <!-- Year Tabs -->
+            <div class="media-tabs reveal">
+                <button class="media-tab-btn active" data-year="2026">2026 Coverage</button>
+                <button class="media-tab-btn" data-year="2025">2025 Coverage</button>
+            </div>
+
+            <!-- ══ 2026 COVERAGE ══ -->
+            <div class="media-tab-content active" id="media-2026">
+
+
+                <!-- Hero Story (Featured) -->
+                <div class="np-hero-story reveal">
+                    <a href="https://timesofindia.indiatimes.com/city/chandigarh/second-edition-of-haryana-yuva-samvad-begins-in-haryana-vidhan-sabha/articleshow/126589193.cms" target="_blank" rel="noopener" class="np-hero-link">
+                        <div class="np-hero-img-wrap">
+                            <img src="https://static.toiimg.com/thumb/msid-126589193,width-1280,height-720,resizemode-4/126589193.jpg" 
+                                 onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1577962917302-cd874c4e31d2?q=80&w=1200&auto=format&fit=crop';"
+                                 alt="Haryana Yuva Samvad 2026" class="np-hero-img">
+                            <div class="np-hero-img-overlay"></div>
+                            <div class="np-hero-img-caption">
+                                <span class="np-outlet-badge np-badge-toi">Times of India</span>
+                                <span class="np-img-credit">Haryana Vidhan Sabha, Chandigarh · January 2026</span>
+                            </div>
+                        </div>
+                        <div class="np-hero-body">
+                            <div class="np-dateline">Chandigarh, January 2026 · Times of India</div>
+                            <h3 class="np-hero-headline">Second Edition of Haryana Yuva Samvad Begins in Haryana Vidhan Sabha</h3>
+                            <div class="np-hero-deck">The second edition of the two-day 'Haryana Yuva Samvad' opened at the Haryana Vidhan Sabha on Friday, bringing together 65 participants from across the state for legislative dialogue, deliberation on sustainable growth, and policy simulation.</div>
+                            <span class="np-read-more">Read Full Article ↗</span>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- 3-column newspaper grid -->
+                <div class="np-columns reveal">
+                    <!-- Col 1 -->
+                    <div class="np-col">
+                        <div class="np-col-rule"></div>
+                        <a href="https://stg-www.hindustantimes.com/cities/chandigarh-news/real-strength-of-india-lies-in-its-people-haryana-vidhan-sabha-speaker-101768587714092.html" target="_blank" rel="noopener" class="np-article">
+                            <div class="np-article-img-wrap">
+                                <img src="https://images.unsplash.com/photo-1540910419892-4a36d2c3266c?q=80&w=600&auto=format&fit=crop" alt="Hindustan Times" class="np-article-img">
+                            </div>
+                            <span class="np-outlet-badge np-badge-ht">Hindustan Times</span>
+                            <div class="np-dateline">Chandigarh, 2026</div>
+                            <h4 class="np-headline">"Real Strength of India Lies in Its People" — Vidhan Sabha Speaker Harvinder Kalyan</h4>
+                            <p class="np-body">Speaker Harvinder Kalyan addressed participants at the Haryana Vidhan Sabha, emphasising India's strength lies in its people and their democratic engagement with governance.</p>
+                            <span class="np-read-more">Read Article ↗</span>
+                        </a>
+                    </div>
+
+                    <!-- Col 2 -->
+                    <div class="np-col">
+                        <div class="np-col-rule"></div>
+                        <a href="https://www.punjabnewsline.com/news/role-of-youth-crucial-in-realising-the-vision-of-viksit-bharat-by-2047-vidhan-sabha-speaker-harvinder-kalyan--99919" target="_blank" rel="noopener" class="np-article">
+                            <div class="np-article-img-wrap">
+                                <img src="https://images.unsplash.com/photo-1577962917302-cd874c4e31d2?q=80&w=600&auto=format&fit=crop" alt="Punjab Newsline" class="np-article-img">
+                            </div>
+                            <span class="np-outlet-badge np-badge-regional">Punjab Newsline</span>
+                            <div class="np-dateline">Chandigarh, 2026</div>
+                            <h4 class="np-headline">Role of Youth Crucial in Realising 'Viksit Bharat' by 2047 — Speaker Kalyan</h4>
+                            <p class="np-body">The role of youth is crucial in realising the vision of 'Viksit Bharat' by 2047, the Speaker urged participants at the Haryana Yuva Samvad conference.</p>
+                            <span class="np-read-more">Read Article ↗</span>
+                        </a>
+
+                        <!-- Pull Quote -->
+                        <div class="np-pull-quote">
+                            <div class="np-pull-quote-mark">"</div>
+                            <p>Youth are the voice of tomorrow — and today they spoke at the legislative hall of Haryana.</p>
+                            <cite>— Shri Harvinder Kalyan, Speaker, Haryana Vidhan Sabha</cite>
+                        </div>
+                    </div>
+
+                    <!-- Col 3 -->
+                    <div class="np-col">
+                        <div class="np-col-rule"></div>
+                        <a href="https://www.bhaskar.com/local/haryana/news/haryana-assembly-youth-dialogue-development-discussion-136958651.html" target="_blank" rel="noopener" class="np-article">
+                            <div class="np-article-img-wrap">
+                                <img src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?q=80&w=600&auto=format&fit=crop" alt="Dainik Bhaskar" class="np-article-img">
+                            </div>
+                            <span class="np-outlet-badge np-badge-regional">Dainik Bhaskar</span>
+                            <div class="np-dateline">Haryana, 2026</div>
+                            <h4 class="np-headline">Haryana Assembly Youth Dialogue: Development Discussion &amp; Solutions</h4>
+                            <p class="np-body">हरियाणा विधानसभा में दो दिवसीय हरियाणा युवा संवाद — youth presented development ideas and solutions for the state across four substantive sessions.</p>
+                            <span class="np-read-more">Read Article ↗</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- TV Coverage -->
+                <div class="np-tv-strip reveal">
+                    <div class="np-tv-header">
+                        <div class="np-section-rule"></div>
+                        <span class="np-section-label">📺 Television Coverage — 2026</span>
+                        <div class="np-section-rule"></div>
+                    </div>
+                    <div class="video-grid">
+                        <div class="video-card"><div class="video-embed"><iframe src="https://www.youtube.com/embed/P4nroOmr9I8" title="Total Haryana" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe></div><div class="video-info"><span class="video-channel">Total Haryana</span><p class="video-title">Haryana Yuva Samvad 2026 — Full Event Coverage</p></div></div>
+                        <div class="video-card"><div class="video-embed"><iframe src="https://www.youtube.com/embed/q7jIcasGXgE" title="STV Haryana" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe></div><div class="video-info"><span class="video-channel">STV Haryana</span><p class="video-title">Haryana Yuva Samvad 2026 — News Report</p></div></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ══ 2025 COVERAGE ══ -->
+            <div class="media-tab-content" id="media-2025">
+
+                <!-- Hero Story -->
+                <div class="np-hero-story reveal">
+                    <a href="https://theprint.in/india/two-day-haryana-yuva-samvad-begins-in-assembly-complex/2575633/?amp" target="_blank" rel="noopener" class="np-hero-link">
+                        <div class="np-hero-img-wrap">
+                            <img src="https://images.unsplash.com/photo-1558403194-611308249d50?q=80&w=1200&auto=format&fit=crop" alt="Haryana Yuva Samvad 2025" class="np-hero-img">
+                            <div class="np-hero-img-overlay"></div>
+                            <div class="np-hero-img-caption">
+                                <span class="np-outlet-badge np-badge-pti">PTI Wire</span>
+                                <span class="np-img-credit">Haryana Vidhan Sabha, Chandigarh · April 2025</span>
+                            </div>
+                        </div>
+                        <div class="np-hero-body">
+                            <div class="np-dateline">Chandigarh, April 2 (PTI) · The Print</div>
+                            <h3 class="np-hero-headline">Two-Day 'Haryana Yuva Samvad' Begins in Assembly Complex</h3>
+                            <div class="np-hero-deck">Young participants presented their views and creative solutions pertaining to Haryana's development. Topics discussed included digitalisation, smart cities, women empowerment, bridging the digital divide in rural Haryana, and e-governance models.</div>
+                            <span class="np-read-more">Read Full Article ↗</span>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- 3-col grid -->
+                <div class="np-columns reveal">
+                    <div class="np-col">
+                        <div class="np-col-rule"></div>
+                        <a href="https://www.devdiscourse.com/article/entertainment/3331699-empowering-haryanas-youth-voices-for-digitalisation-and-equality?amp" target="_blank" rel="noopener" class="np-article">
+                            <div class="np-article-img-wrap">
+                                <img src="https://images.unsplash.com/photo-1540910419892-4a36d2c3266c?q=80&w=600&auto=format&fit=crop" alt="Dev Discourse" class="np-article-img">
+                            </div>
+                            <span class="np-outlet-badge np-badge-regional">Dev Discourse</span>
+                            <div class="np-dateline">Chandigarh, 2025</div>
+                            <h4 class="np-headline">Empowering Haryana's Youth: Voices for Digitalisation and Equality</h4>
+                            <p class="np-body">Discussion revolved around digital infrastructure, creating smart cities, and fostering equality through technology in rural sectors of Haryana.</p>
+                            <span class="np-read-more">Read Article ↗</span>
+                        </a>
+                    </div>
+                    <div class="np-col">
+                        <div class="np-col-rule"></div>
+                        <a href="https://www.dailypioneer.com/2025/state-editions/two-day-yuva-samvad-samaroh-begins-in-hry-vidhan-sabha.html" target="_blank" rel="noopener" class="np-article">
+                            <div class="np-article-img-wrap">
+                                <img src="https://images.unsplash.com/photo-1577962917302-cd874c4e31d2?q=80&w=600&auto=format&fit=crop" alt="The Pioneer" class="np-article-img">
+                            </div>
+                            <span class="np-outlet-badge np-badge-regional">The Pioneer</span>
+                            <div class="np-dateline">Chandigarh, 2025</div>
+                            <h4 class="np-headline">Two-Day Yuva Samvad Samaroh Begins in Haryana Vidhan Sabha</h4>
+                            <p class="np-body">Coverage of the inaugural edition at the Haryana Assembly complex, with youth discussing state governance, digital transformation, and smart city policy.</p>
+                            <span class="np-read-more">Read Article ↗</span>
+                        </a>
+                        <div class="np-pull-quote">
+                            <div class="np-pull-quote-mark">"</div>
+                            <p>From school halls to the Vidhan Sabha — Rajdhani Yuva Sansad has built a credible platform for youth dialogue.</p>
+                            <cite>— Press Trust of India</cite>
+                        </div>
+                    </div>
+                    <div class="np-col">
+                        <div class="np-col-rule"></div>
+                        <a href="https://www.ptinews.com/story/national/two-day-haryana-yuva-samvad-begins-in-assembly-complex/2428032" target="_blank" rel="noopener" class="np-article">
+                            <div class="np-article-img-wrap">
+                                <img src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?q=80&w=600&auto=format&fit=crop" alt="PTI" class="np-article-img">
+                            </div>
+                            <span class="np-outlet-badge np-badge-pti">Press Trust of India</span>
+                            <div class="np-dateline">New Delhi (PTI Wire), 2025</div>
+                            <h4 class="np-headline">Two-Day Haryana Yuva Samvad Begins in Assembly Complex</h4>
+                            <p class="np-body">Official PTI wire — students present views on digitalisation, e-governance, women empowerment, and smart cities at Vidhan Sabha.</p>
+                            <span class="np-read-more">Read Article ↗</span>
+                        </a>
+
+                        <!-- Hindi press mini-block -->
+                        <div class="np-hindi-block">
+                            <div class="np-hindi-rule"></div>
+                            <span class="np-hindi-label">हिंदी मीडिया</span>
+                            <div class="np-hindi-item">
+                                <span class="np-hindi-outlet">Sandhya Hindi Dainik</span>
+                                <p class="np-hindi-headline">गोरखपुर में युवा शक्ति का संगम: 'गोरखपुर युवा संवाद' का भव्य शुभारंभ</p>
+                            </div>
+                            <div class="np-hindi-item">
+                                <span class="np-hindi-outlet">Sandhya Hindi Dainik</span>
+                                <p class="np-hindi-headline">द्वि-दिवसीय गोरखपुर युवा संवाद का हुआ समापन</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- TV -->
+                <div class="np-tv-strip reveal">
+                    <div class="np-tv-header">
+                        <div class="np-section-rule"></div>
+                        <span class="np-section-label">📺 Co-Founders Interview</span>
+                        <div class="np-section-rule"></div>
+                    </div>
+                    <div class="video-grid" style="max-width:500px; margin:0 auto;">
+                        <div class="video-card"><div class="video-embed"><iframe src="https://www.youtube.com/embed/-5z3-bW-pXU" title="Total TV Interview" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe></div><div class="video-info"><span class="video-channel">Total TV</span><p class="video-title">Exclusive Interview with the Co-Founders of Rajdhani Yuva Sansad</p></div></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Logo Ticker -->
+        <div class="logo-ticker">
+            <div class="logo-ticker-track">
+                <div class="logo-ticker-item">THE PRINT</div><div class="logo-ticker-dot"></div>
+                <div class="logo-ticker-item">PRESS TRUST OF INDIA</div><div class="logo-ticker-dot"></div>
+                <div class="logo-ticker-item">TIMES OF INDIA</div><div class="logo-ticker-dot"></div>
+                <div class="logo-ticker-item">HINDUSTAN TIMES</div><div class="logo-ticker-dot"></div>
+                <div class="logo-ticker-item">DAINIK BHASKAR</div><div class="logo-ticker-dot"></div>
+                <div class="logo-ticker-item">DEV DISCOURSE</div><div class="logo-ticker-dot"></div>
+                <div class="logo-ticker-item">PUNJAB KESARI</div><div class="logo-ticker-dot"></div>
+                <div class="logo-ticker-item">THE PIONEER</div><div class="logo-ticker-dot"></div>
+                <div class="logo-ticker-item">TOTAL TV</div><div class="logo-ticker-dot"></div>
+                <div class="logo-ticker-item">STV HARYANA</div><div class="logo-ticker-dot"></div>
+                <!-- duplicate -->
+                <div class="logo-ticker-item">THE PRINT</div><div class="logo-ticker-dot"></div>
+                <div class="logo-ticker-item">PRESS TRUST OF INDIA</div><div class="logo-ticker-dot"></div>
+                <div class="logo-ticker-item">TIMES OF INDIA</div><div class="logo-ticker-dot"></div>
+                <div class="logo-ticker-item">HINDUSTAN TIMES</div><div class="logo-ticker-dot"></div>
+                <div class="logo-ticker-item">DAINIK BHASKAR</div><div class="logo-ticker-dot"></div>
+                <div class="logo-ticker-item">DEV DISCOURSE</div><div class="logo-ticker-dot"></div>
+                <div class="logo-ticker-item">PUNJAB KESARI</div><div class="logo-ticker-dot"></div>
+                <div class="logo-ticker-item">THE PIONEER</div><div class="logo-ticker-dot"></div>
+                <div class="logo-ticker-item">TOTAL TV</div><div class="logo-ticker-dot"></div>
+                <div class="logo-ticker-item">STV HARYANA</div><div class="logo-ticker-dot"></div>
+            </div>
+        </div>
+
+        <!-- ═══ CTA ═══ -->
+        <section class="cta-strip">
+            <h2>Ready to Lead?</h2>
+            <p>Join 8,000+ youth who found their voice through RYS.</p>
+            <a href="#" class="btn-fire">Register As Delegate →</a>
+        </section>
+    </main>
+
+    <!-- ═══ FOOTER ═══ -->
+    <footer>
+        <div class="footer-grid">
+            <div>
+                <img src="../rys-logo.png" alt="RYS" class="footer-logo" onerror="this.style.display='none'">
+                <p class="footer-tagline">Empowering youth through constitutional dialogue, committee simulations, and policy-focused national forums since 2017.</p>
+            </div>
+            <div>
+                <h4 class="footer-col-title">Quick Links</h4>
+                <ul class="footer-links">
+                    <li><a href="../home/">Home</a></li>
+                    <li><a href="../about/">About</a></li>
+                    <li><a href="../conferences/">Conferences</a></li>
+                    <li><a href="../team/">Team</a></li>
+                    <li><a href="../contact/">Contact</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="footer-col-title">Flagship Events</h4>
+                <ul class="footer-links">
+                    <li><a href="../conferences/">Haryana Yuva Samvad 2026</a></li>
+                    <li><a href="../conferences/">Gorakhpur Yuva Samvad 2025</a></li>
+                    <li><a href="../conferences/">Delhi Yuva Samvad 2024</a></li>
+                    <li><a href="../conferences/">Amrit Kaal Youth Parliament</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="footer-col-title">Connect</h4>
+                <ul class="footer-links">
+                    <li><a href="../contact/">Contact Us</a></li>
+                    <li><a href="https://www.instagram.com/rajdhaaniyuvaasansad?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==">Instagram</a></li>
+                    <li><a href="https://www.linkedin.com/company/rajdhani-yuva-sansad/">LinkedIn</a></li>
+                    <li><a href="https://www.youtube.com/@RajdhaniYuvaSansad">YouTube</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Rajdhani Yuva Sansad. All Rights Reserved.</p>
+            <div class="footer-social">
+                <a href="https://www.instagram.com/rajdhaaniyuvaasansad?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==">Instagram ↗</a>
+                <a href="https://www.linkedin.com/company/rajdhani-yuva-sansad/">LinkedIn ↗</a>
+                <a href="https://www.youtube.com/@RajdhaniYuvaSansad">YouTube ↗</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/shared.js" defer></script>
+    <script src="../js/about.js" defer></script>
+</body>
+</html>
