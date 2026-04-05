@@ -13,6 +13,13 @@
     <link rel="stylesheet" href="../css/shared-light.css">
     <link rel="stylesheet" href="../css/contact.css">
     <script>(function(){var t=localStorage.getItem('rys-theme')||document.documentElement.getAttribute('data-default-theme')||'dark';document.documentElement.setAttribute('data-theme',t);})();</script>
+    <!-- EmailJS SDK -->
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script>
+      // ── EmailJS Public Key ──────────────────────────────────────────────────
+      // Replace YOUR_PUBLIC_KEY with the Public Key from emailjs.com → Account
+      (function(){ emailjs.init({ publicKey: 'YOUR_PUBLIC_KEY' }); })();
+    </script>
 </head>
 <body>
 
