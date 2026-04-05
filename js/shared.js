@@ -86,7 +86,7 @@ function animateCounters() {
       const t = Math.min((now - start) / duration, 1);
       const eased = 1 - Math.pow(1 - t, 3);
       const current = Math.round(num * eased);
-      el.textContent = current.toLocaleString() + suffix;
+      el.textContent = (num >= 1900 && num <= 2100 ? current : current.toLocaleString()) + suffix;
       if (t < 1) requestAnimationFrame(tick);
     }
     requestAnimationFrame(tick);

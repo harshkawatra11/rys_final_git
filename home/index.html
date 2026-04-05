@@ -1759,7 +1759,7 @@ function countUp(el){
     const p=Math.min((now-start)/dur,1);
     const e2=1-Math.pow(1-p,3);
     const v=Math.round(target*e2);
-    el.textContent=v.toLocaleString()+suffix;
+    el.textContent=(target >= 1900 && target <= 2100 ? v : v.toLocaleString())+suffix;
     if(p<1)requestAnimationFrame(update);
   })(start);
 }
