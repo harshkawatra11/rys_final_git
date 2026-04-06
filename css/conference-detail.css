@@ -52,12 +52,12 @@
 }
 .conf-detail-hero-content h1 {
   font-family: 'Cinzel', serif; font-size: clamp(2rem,5vw,3.4rem);
-  font-weight: 700; color: var(--cream); line-height: 1.1;
+  font-weight: 700; color: #F5ECD7; line-height: 1.1;
   margin-bottom: .4rem; letter-spacing: .02em;
 }
 .conf-detail-hero-content h1 .hindi-sub {
   display: block; font-family: 'IM Fell English', serif; font-style: italic;
-  font-size: clamp(1rem,2.2vw,1.4rem); color: var(--cream-mid);
+  font-size: clamp(1rem,2.2vw,1.4rem); color: #C9B97A;
   letter-spacing: .02em; margin-top: .3rem;
 }
 .conf-detail-meta-row {
@@ -65,7 +65,7 @@
   margin: 1.2rem 0 1.8rem;
 }
 .conf-detail-meta-item {
-  font-size: .74rem; color: var(--dim); letter-spacing: .04em;
+  font-size: .74rem; color: #F4EDD8; letter-spacing: .04em;
   display: flex; align-items: center; gap: .4rem;
 }
 .conf-detail-meta-item span { font-size: .9em; }
@@ -75,7 +75,7 @@
   display: flex; flex-wrap: wrap; gap: 0;
   border: 1px solid var(--border-gold);
   background: var(--glass-bg); backdrop-filter: blur(14px);
-  max-width: 640px;
+  max-width: 780px;
 }
 .conf-detail-stat {
   flex: 1; min-width: 120px; padding: 1.1rem 1.3rem;
@@ -85,6 +85,7 @@
 .conf-detail-stat-num {
   font-family: 'Cinzel', serif; font-size: 1.5rem; font-weight: 700;
   color: var(--saffron); display: block; line-height: 1;
+  white-space: nowrap;
 }
 .conf-detail-stat-label {
   font-size: .58rem; letter-spacing: .18em; text-transform: uppercase;
