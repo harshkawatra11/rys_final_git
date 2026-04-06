@@ -35,7 +35,7 @@
   --dim2:          rgba(244,237,216,0.72);
   --border-gold:   rgba(184,137,42,0.25);
   --border-saffron:rgba(212,80,10,0.22);
-  --shadow-deep:   0 24px 80px rgba(0,0,0,0.55);
+  --shadow-deep:   0 24px 80px rgba(53, 33, 33, 0.55);
 }
 
 /* ─── Light mode overrides ─── */
@@ -348,6 +348,7 @@ html[data-theme="light"] .theme-toggle-knob { transform:translateX(24px); backgr
   opacity: 0;
   animation: floatImgIn 1.2s forwards;
   transition: transform 0.3s ease-out;
+  aspect-ratio: 16 / 9;
 }
 .hfi img {
   width: 100%; height: 100%;
@@ -373,25 +374,25 @@ html[data-theme="light"] .theme-toggle-knob { transform:translateX(24px); backgr
 /* positions for the 4 floating images */
 .hfi--1 {
   top: 8%; left: 3%;
-  width: 220px; height: 280px;
+  width: 256px; height: auto;
   animation-delay: .3s;
   transform: rotate(-3deg);
 }
 .hfi--2 {
   top: 5%; right: 4%;
-  width: 200px; height: 250px;
+  width: 240px; height: auto;
   animation-delay: .5s;
   transform: rotate(2deg);
 }
 .hfi--3 {
   bottom: 10%; left: 5%;
-  width: 240px; height: 180px;
+  width: 288px; height: auto;
   animation-delay: .7s;
   transform: rotate(2deg);
 }
 .hfi--4 {
   bottom: 8%; right: 3%;
-  width: 230px; height: 190px;
+  width: 256px; height: auto;
   animation-delay: .9s;
   transform: rotate(-2deg);
 }
@@ -973,7 +974,7 @@ footer {
    RESPONSIVE
 ══════════════════════════════════════════ */
 @media(max-width:960px){
-  .hfi--1, .hfi--2, .hfi--3, .hfi--4 { width:140px !important; height:160px !important; }
+  .hfi--1, .hfi--2, .hfi--3, .hfi--4 { width:180px !important; height:auto !important; }
   .hfi--3, .hfi--4 { display:none; }
   .stats-band { grid-template-columns:repeat(3,1fr); }
   .stats-band .stat:nth-child(4) { border-top:1px solid var(--border-gold); }
@@ -1080,17 +1081,18 @@ footer {
   <!-- Floating image frames -->
   <div class="hero-floating-images" id="heroFloatingImages">
     <div class="hfi hfi--1">
-      <img src="https://images.unsplash.com/photo-1577962917302-cd874c4e31d2?q=80&w=700&auto=format&fit=crop" alt="Conference">
+      <img src="../rys-images/conferences/haryana_yuva_samvad_2026/hys-cover.jpg"Conference">
     </div>
     <div class="hfi hfi--2">
-      <img src="https://images.unsplash.com/photo-1540910419892-4a36d2c3266c?q=80&w=700&auto=format&fit=crop" alt="Session">
+      <img src="../rys-images/conferences/delhi_yuva_samvad_2024/dys-coveer.jpg"Conference">
     </div>
     <div class="hfi hfi--3">
-      <img src="https://images.unsplash.com/photo-1511632765486-a01980e01a18?q=80&w=700&auto=format&fit=crop" alt="Delegates">
+      <img src="../rys-images/conferences/bal_sansad_2/bs-2-cover.png"Conference">
     </div>
     <div class="hfi hfi--4">
-      <img src="https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?q=80&w=700&auto=format&fit=crop" alt="Discussion">
+      <img src="../rys-images/conferences/nlpf_2024/nlpf-cover.png"Conference">
     </div>
+    
   </div>
 
   <!-- Centred content -->
