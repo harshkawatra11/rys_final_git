@@ -2,6 +2,23 @@
    CONFERENCES PAGE — SCRIPTS
    ══════════════════════════════════════════════════════════════ */
 document.addEventListener('DOMContentLoaded', () => {
+  // ─── Auto-scroll to conference hash ───
+  const hash = window.location.hash.slice(1);
+  if (hash) {
+    const targetElement = document.getElementById(hash);
+    if (targetElement) {
+      setTimeout(() => {
+        const yOffset = -120;
+        const y = targetElement.getBoundingClientRect().top + window.pageYOffset + yOffset;
+        window.scrollTo({ top: y, behavior: 'smooth' });
+        
+        // Add highlight animation to draw attention
+        targetElement.classList.add('highlight-entry');
+        setTimeout(() => targetElement.classList.remove('highlight-entry'), 2000);
+      }, 100);
+    }
+  }
+
   // ─── Year Filter Pills ───
   const pills = document.querySelectorAll('.filter-pill');
   const yearGroups = document.querySelectorAll('.year-group');
