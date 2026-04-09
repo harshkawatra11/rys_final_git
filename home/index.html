@@ -115,8 +115,8 @@ body::after {
 /* ═══════════════════════════════════════
    CURSOR
 ══════════════════════════════════════════ */
-.cur { width:8px; height:8px; background:var(--saffron); border-radius:50%; position:fixed; pointer-events:none; z-index:10000; transform:translate(-50%,-50%); transition:transform .06s, width .2s, height .2s; }
-.cur-r { width:32px; height:32px; border:1.5px solid var(--saffron-mid); border-radius:50%; position:fixed; pointer-events:none; z-index:9999; transform:translate(-50%,-50%); transition:width .22s, height .22s, border-color .22s; }
+.cur { width:8px; height:8px; background:var(--saffron); border-radius:50%; position:fixed; pointer-events:none; z-index:10000; transform:translate(-50%,-50%); transition:transform .04s, width .15s, height .15s; }
+.cur-r { width:32px; height:32px; border:1.5px solid var(--saffron-mid); border-radius:50%; position:fixed; pointer-events:none; z-index:9999; transform:translate(-50%,-50%); transition:width .15s, height .15s, border-color .15s; }
 body:has(a:hover) .cur-r, body:has(button:hover) .cur-r { width:52px; height:52px; border-color:var(--gold-light); }
 
 /* ═══════════════════════════════════════
@@ -1762,7 +1762,7 @@ document.addEventListener('mousemove',e=>{
   c.style.left=mx+'px'; c.style.top=my+'px';
 });
 (function animCur(){
-  rx+=(mx-rx)*.12; ry+=(my-ry)*.12;
+  rx+=(mx-rx)*.25; ry+=(my-ry)*.25;
   cr.style.left=rx+'px'; cr.style.top=ry+'px';
   requestAnimationFrame(animCur);
 })();
