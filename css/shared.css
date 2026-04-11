@@ -279,7 +279,7 @@ nav.stuck {
 
 /* Hero stat badges */
 .hero-badges {
-  display: flex; gap: 2rem; justify-content: center; flex-wrap: wrap;
+  display: flex; gap: 2rem; justify-content: center; flex-wrap: nowrap;
   opacity: 0; animation: fadeUp .8s .65s forwards;
 }
 .hero-badge-item {
