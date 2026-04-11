@@ -17,7 +17,7 @@
   --saffron:       #D4500A;
   --saffron-mid:   #E8640A;
   --saffron-light: #F5893C;
-  --saffron-glow:  rgba(212,80,10,0.12);
+  --saffron-glow:  rgba(255, 183, 0, 0.12);
   --saffron-pale:  rgba(212,80,10,0.06);
   --gold:          #B8892A;
   --gold-light:    #D4A84B;
@@ -316,7 +316,7 @@ html[data-theme="light"] .theme-toggle-knob { transform:translateX(24px); backgr
   font-size: .92rem;
   color: var(--dim);
   line-height: 1.85;
-  max-width: 540px;
+  max-width: 720px;
   margin-bottom: 2rem;
   opacity: 0; animation: fadeUp .8s .7s forwards;
 }
@@ -370,97 +370,140 @@ html[data-theme="light"] .theme-toggle-knob { transform:translateX(24px); backgr
 }
 .btn-ghost:hover { border-color:var(--saffron); color:var(--saffron); background:var(--saffron-pale); }
 
-/* ── Floating image frames ── */
-.hero-floating-images {
+/* ══════════════════════════════════════════
+   HERO IMAGE WALL — 15-IMAGE INFINITE COLLAGE
+══════════════════════════════════════════ */
+.hero-image-wall-wrapper {
+  position: absolute;
+  /* Reduced bleed — show more of the wall */
+  top: -15%; bottom: -15%; left: -6%; right: -6%;
+  z-index: 1;
+  display: flex;
+  gap: 1vw;
+  transform: rotate(-5deg);
+  overflow: hidden;
+  pointer-events: none;
+  /* Overall opacity — second transparency dial */
+  opacity: 0.55;
+}
+
+.hero-wall-col {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1vw;
+}
+
+/* Each track must span more than the full screen height */
+.wall-track {
+  display: flex;
+  flex-direction: column;
+  gap: 1vw;
+  will-change: transform;
+}
+
+/* Upwards (odd columns) */
+.hero-wall-col:nth-child(odd) .wall-track {
+  animation: scrollWall 55s linear infinite;
+}
+
+/* Downwards (even columns) */
+.hero-wall-col:nth-child(even) .wall-track {
+  animation: scrollWall 65s linear infinite reverse;
+}
+
+@keyframes scrollWall {
+  0%   { transform: translateY(0); }
+  100% { transform: translateY(calc(-100% - 1vw)); }
+}
+
+.h-img-box {
+  width: 100%;
+  /* 16:9 landscape — shorter cards = more rows visible at once */
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  border-radius: 5px;
+  position: relative;
+  box-shadow: 0 6px 24px rgba(0,0,0,0.45);
+}
+
+.h-img-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  /* More transparent — heavy darken so text always wins */
+  filter: brightness(1.0) contrast(1.05) saturate(0.80);
+}
+
+/* ── Grand cinematic vignette overlay (lives above mosaic, below content) ── */
+.hero-vignette {
   position: absolute;
   inset: 0;
   z-index: 2;
   pointer-events: none;
+  background:
+    /* Strong centre glow — keeps text zone dark */
+    radial-gradient(ellipse 55% 65% at 50% 50%,
+      rgba(5,12,26,0.72) 0%,
+      rgba(5,12,26,0.20) 60%,
+      transparent 100%
+    ),
+    /* Gold warmth — bottom sweep */
+    linear-gradient(
+      to top,
+      rgba(5,12,26,0.95) 0%,
+      rgba(5,12,26,0.55) 22%,
+      transparent 50%
+    ),
+    /* Gold warmth — top sweep */
+    linear-gradient(
+      to bottom,
+      rgba(5,12,26,0.85) 0%,
+      transparent 35%
+    ),
+    /* Edge darkness left */
+    linear-gradient(
+      to right,
+      rgba(5,12,26,0.70) 0%,
+      transparent 30%
+    ),
+    /* Edge darkness right */
+    linear-gradient(
+      to left,
+      rgba(5,12,26,0.70) 0%,
+      transparent 30%
+    );
 }
-.hfi {
+
+/* Warm amber glow around hero center text */
+.hero-center-glow {
   position: absolute;
-  overflow: hidden;
-  border: 1px solid rgba(184,137,42,0.20);
-  box-shadow: 0 12px 48px rgba(0,0,0,.45), inset 0 0 0 1px rgba(255,255,255,0.04);
-  opacity: 0;
-  animation: floatImgIn 1.2s forwards;
-  transition: transform 0.3s ease-out;
-  aspect-ratio: 16 / 9;
-}
-.hfi img {
-  width: 100%; height: 100%;
-  object-fit: cover; display: block;
-  filter: var(--hfi-filter);
-  transition: filter .6s, transform .8s;
-}
-.hfi:hover {
-  pointer-events: auto;
-  z-index: 6;
-}
-.hfi:hover img {
-  filter: var(--hfi-filter-hover);
-  transform: scale(1.08);
-}
-.hfi::after {
-  content: '';
-  position: absolute; inset: 0;
-  background: linear-gradient(135deg, var(--img-overlay-start), var(--img-overlay-end));
+  left: 50%; top: 48%;
+  transform: translate(-50%, -50%);
+  width: 640px;
+  height: 480px;
+  border-radius: 50%;
+  background: radial-gradient(
+    ellipse,
+    rgba(212,80,10,0.13) 0%,
+    rgba(184,137,42,0.06) 40%,
+    transparent 70%
+  );
+  z-index: 3;
   pointer-events: none;
+  animation: pulseGlow 5s ease-in-out infinite;
+}
+@keyframes pulseGlow {
+  0%,100% { opacity: 1; transform: translate(-50%,-50%) scale(1); }
+  50%     { opacity: .6; transform: translate(-50%,-50%) scale(1.08); }
 }
 
-/* positions for the 4 floating images */
-.hfi--1 {
-  top: 8%; left: 3%;
-  width: 256px; height: auto;
-  animation-delay: .3s;
-  transform: rotate(-3deg);
-}
-.hfi--2 {
-  top: 5%; right: 4%;
-  width: 240px; height: auto;
-  animation-delay: .5s;
-  transform: rotate(2deg);
-}
-.hfi--3 {
-  bottom: 10%; left: 5%;
-  width: 288px; height: auto;
-  animation-delay: .7s;
-  transform: rotate(2deg);
-}
-.hfi--4 {
-  bottom: 8%; right: 3%;
-  width: 256px; height: auto;
-  animation-delay: .9s;
-  transform: rotate(-2deg);
-}
-
-@keyframes floatImgIn {
-  from { opacity: 0; transform: translateY(30px) scale(0.92); }
-  to   { opacity: 1; transform: translateY(0) scale(1); }
-}
-
-/* subtle float idle animation */
-.hfi--1 { animation: floatImgIn 1.2s .3s forwards, floatIdle1 6s 1.5s ease-in-out infinite; }
-.hfi--2 { animation: floatImgIn 1.2s .5s forwards, floatIdle2 7s 1.7s ease-in-out infinite; }
-.hfi--3 { animation: floatImgIn 1.2s .7s forwards, floatIdle3 5.5s 1.9s ease-in-out infinite; }
-.hfi--4 { animation: floatImgIn 1.2s .9s forwards, floatIdle4 6.5s 2.1s ease-in-out infinite; }
-
-@keyframes floatIdle1 {
-  0%,100% { transform: rotate(-3deg) translateY(0); }
-  50%     { transform: rotate(-3deg) translateY(-12px); }
-}
-@keyframes floatIdle2 {
-  0%,100% { transform: rotate(2deg) translateY(0); }
-  50%     { transform: rotate(2deg) translateY(-10px); }
-}
-@keyframes floatIdle3 {
-  0%,100% { transform: rotate(2deg) translateY(0); }
-  50%     { transform: rotate(2deg) translateY(-14px); }
-}
-@keyframes floatIdle4 {
-  0%,100% { transform: rotate(-2deg) translateY(0); }
-  50%     { transform: rotate(-2deg) translateY(-11px); }
-}
+/* ── Floating image frames (KEPT but now hidden — replaced by mosaic) ── */
+/* Preserve the class so no JS breaks */
+.hero-floating-images { display: none; }
+.hfi { display: none; }
 
 /* scroll indicator */
 .scroll-cue {
@@ -1058,7 +1101,7 @@ footer {
     <img src="https://harshkawatra11.github.io/rajdhaniyuvasansad/dash/rys-logo.png" alt="RYS" style="height:38px;width:auto;" onerror="this.style.display='none'">
     <div class="nav-logo-text">
       Rajdhani Yuva Sansad
-      <span>National Youth Parliament · Est. 2017</span>
+      <span>Est. 2017</span>
     </div>
   </a>
   <ul class="nav-links">
@@ -1086,7 +1129,7 @@ footer {
 
 <!-- ══════════════════════════ HERO ══════════════════════════ -->
 <section id="hero">
-  <div class="hero-bg-layers"></div>
+  <div class="hero-bg-layers" style="opacity:.35"></div>
 
   <!-- Pulsing concentric rings -->
   <div class="hero-ring hero-ring--1"></div>
@@ -1118,21 +1161,135 @@ footer {
     </g>
   </svg>
 
-  <!-- Floating image frames -->
-  <div class="hero-floating-images" id="heroFloatingImages">
-    <div class="hfi hfi--1">
-      <img src="../rys-images/conferences/haryana_yuva_samvad_2026/hys-cover.jpg"Conference">
-    </div>
-    <div class="hfi hfi--2">
-      <img src="../rys-images/conferences/delhi_yuva_samvad_2024/dys-coveer.jpg"Conference">
-    </div>
-    <div class="hfi hfi--3">
-      <img src="../rys-images/conferences/bal_sansad_2/bs-2-cover.png"Conference">
-    </div>
-    <div class="hfi hfi--4">
-      <img src="../rys-images/conferences/nlpf_2024/nlpf-cover.png"Conference">
+  <!-- ═══ 15-IMAGE INFINITE WALL BACKGROUND ═══ -->
+  <div class="hero-image-wall-wrapper" aria-hidden="true">
+    
+    <!-- COL 1 -->
+    <div class="hero-wall-col">
+      <div class="wall-track">
+        <div class="h-img-box"><img src="../rys-images/dash/hero/1775836398274.jpg" alt=""></div><div class="h-img-box"><img src="../rys-images/dash/hero/1775836429859.jpg" alt=""></div><div class="h-img-box"><img src="../rys-images/dash/hero/1775836430018.jpg" alt=""></div>
+        <div class="h-img-box"><img src="../rys-images/dash/hero/1775836398274.jpg" alt=""></div><div class="h-img-box"><img src="../rys-images/dash/hero/1775836429859.jpg" alt=""></div><div class="h-img-box"><img src="../rys-images/dash/hero/1775836430018.jpg" alt=""></div>
+        <div class="h-img-box"><img src="../rys-images/dash/hero/1775836398274.jpg" alt=""></div><div class="h-img-box"><img src="../rys-images/dash/hero/1775836429859.jpg" alt=""></div><div class="h-img-box"><img src="../rys-images/dash/hero/1775836430018.jpg" alt=""></div>
+        <div class="h-img-box"><img src="../rys-images/dash/hero/1775836398274.jpg" alt=""></div><div class="h-img-box"><img src="../rys-images/dash/hero/1775836429859.jpg" alt=""></div><div class="h-img-box"><img src="../rys-images/dash/hero/1775836430018.jpg" alt=""></div>
+      </div>
+      <div class="wall-track">
+        <div class="h-img-box"><img src="../rys-images/dash/hero/1775836398274.jpg" alt=""></div><div class="h-img-box"><img src="../rys-images/dash/hero/1775836429859.jpg" alt=""></div><div class="h-img-box"><img src="../rys-images/dash/hero/1775836430018.jpg" alt=""></div>
+        <div class="h-img-box"><img src="../rys-images/dash/hero/1775836398274.jpg" alt=""></div><div class="h-img-box"><img src="../rys-images/dash/hero/1775836429859.jpg" alt=""></div><div class="h-img-box"><img src="../rys-images/dash/hero/1775836430018.jpg" alt=""></div>
+        <div class="h-img-box"><img src="../rys-images/dash/hero/1775836398274.jpg" alt=""></div><div class="h-img-box"><img src="../rys-images/dash/hero/1775836429859.jpg" alt=""></div><div class="h-img-box"><img src="../rys-images/dash/hero/1775836430018.jpg" alt=""></div>
+        <div class="h-img-box"><img src="../rys-images/dash/hero/1775836398274.jpg" alt=""></div><div class="h-img-box"><img src="../rys-images/dash/hero/1775836429859.jpg" alt=""></div><div class="h-img-box"><img src="../rys-images/dash/hero/1775836430018.jpg" alt=""></div>
+      </div>
     </div>
     
+    <!-- COL 2 -->
+    <div class="hero-wall-col">
+      <div class="wall-track">
+        <div class="h-img-box"><img src="../rys-images/dash/hero/1775836619687.jpg" alt=""></div><div class="h-img-box"><img src="../rys-images/dash/hero/1775836723815.jpg" alt=""></div><div class="h-img-box"><img src="../rys-images/dash/hero/1775836788921.jpg" alt=""></div>
+        <div class="h-img-box"><img src="../rys-images/dash/hero/1775836619687.jpg" alt=""></div><div class="h-img-box"><img src="../rys-images/dash/hero/1775836723815.jpg" alt=""></div><div class="h-img-box"><img src="../rys-images/dash/hero/1775836788921.jpg" alt=""></div>
+        <div class="h-img-box"><img src="../rys-images/dash/hero/1775836619687.jpg" alt=""></div><div class="h-img-box"><img src="../rys-images/dash/hero/1775836723815.jpg" alt=""></div><div class="h-img-box"><img src="../rys-images/dash/hero/1775836788921.jpg" alt=""></div>
+        <div class="h-img-box"><img src="../rys-images/dash/hero/1775836619687.jpg" alt=""></div><div class="h-img-box"><img src="../rys-images/dash/hero/1775836723815.jpg" alt=""></div><div class="h-img-box"><img src="../rys-images/dash/hero/1775836788921.jpg" alt=""></div>
+      </div>
+      <div class="wall-track">
+        <div class="h-img-box"><img src="../rys-images/dash/hero/1775836619687.jpg" alt=""></div><div class="h-img-box"><img src="../rys-images/dash/hero/1775836723815.jpg" alt=""></div><div class="h-img-box"><img src="../rys-images/dash/hero/1775836788921.jpg" alt=""></div>
+        <div class="h-img-box"><img src="../rys-images/dash/hero/1775836619687.jpg" alt=""></div><div class="h-img-box"><img src="../rys-images/dash/hero/1775836723815.jpg" alt=""></div><div class="h-img-box"><img src="../rys-images/dash/hero/1775836788921.jpg" alt=""></div>
+        <div class="h-img-box"><img src="../rys-images/dash/hero/1775836619687.jpg" alt=""></div><div class="h-img-box"><img src="../rys-images/dash/hero/1775836723815.jpg" alt=""></div><div class="h-img-box"><img src="../rys-images/dash/hero/1775836788921.jpg" alt=""></div>
+        <div class="h-img-box"><img src="../rys-images/dash/hero/1775836619687.jpg" alt=""></div><div class="h-img-box"><img src="../rys-images/dash/hero/1775836723815.jpg" alt=""></div><div class="h-img-box"><img src="../rys-images/dash/hero/1775836788921.jpg" alt=""></div>
+      </div>
+    </div>
+    
+    <!-- COL 3 -->
+    <div class="hero-wall-col">
+      <div class="wall-track">
+        <div class="h-img-box"><img src="../rys-images/dash/hero/1775837109621.JPG" alt=""></div><div class="h-img-box"><img src="../rys-images/dash/hero/1775837411182.jpg" alt=""></div><div class="h-img-box"><img src="../rys-images/dash/hero/1775837524839.jpg" alt=""></div>
+        <div class="h-img-box"><img src="../rys-images/dash/hero/1775837109621.JPG" alt=""></div><div class="h-img-box"><img src="../rys-images/dash/hero/1775837411182.jpg" alt=""></div><div class="h-img-box"><img src="../rys-images/dash/hero/1775837524839.jpg" alt=""></div>
+        <div class="h-img-box"><img src="../rys-images/dash/hero/1775837109621.JPG" alt=""></div><div class="h-img-box"><img src="../rys-images/dash/hero/1775837411182.jpg" alt=""></div><div class="h-img-box"><img src="../rys-images/dash/hero/1775837524839.jpg" alt=""></div>
+        <div class="h-img-box"><img src="../rys-images/dash/hero/1775837109621.JPG" alt=""></div><div class="h-img-box"><img src="../rys-images/dash/hero/1775837411182.jpg" alt=""></div><div class="h-img-box"><img src="../rys-images/dash/hero/1775837524839.jpg" alt=""></div>
+      </div>
+      <div class="wall-track">
+        <div class="h-img-box"><img src="../rys-images/dash/hero/1775837109621.JPG" alt=""></div><div class="h-img-box"><img src="../rys-images/dash/hero/1775837411182.jpg" alt=""></div><div class="h-img-box"><img src="../rys-images/dash/hero/1775837524839.jpg" alt=""></div>
+        <div class="h-img-box"><img src="../rys-images/dash/hero/1775837109621.JPG" alt=""></div><div class="h-img-box"><img src="../rys-images/dash/hero/1775837411182.jpg" alt=""></div><div class="h-img-box"><img src="../rys-images/dash/hero/1775837524839.jpg" alt=""></div>
+        <div class="h-img-box"><img src="../rys-images/dash/hero/1775837109621.JPG" alt=""></div><div class="h-img-box"><img src="../rys-images/dash/hero/1775837411182.jpg" alt=""></div><div class="h-img-box"><img src="../rys-images/dash/hero/1775837524839.jpg" alt=""></div>
+        <div class="h-img-box"><img src="../rys-images/dash/hero/1775837109621.JPG" alt=""></div><div class="h-img-box"><img src="../rys-images/dash/hero/1775837411182.jpg" alt=""></div><div class="h-img-box"><img src="../rys-images/dash/hero/1775837524839.jpg" alt=""></div>
+      </div>
+    </div>
+    
+    <!-- COL 4 -->
+    <div class="hero-wall-col">
+      <div class="wall-track">
+        <div class="h-img-box"><img src="../rys-images/dash/hero/1775837524872.jpg" alt=""></div><div class="h-img-box"><img src="../rys-images/dash/hero/1775837524908.jpg" alt=""></div><div class="h-img-box"><img src="../rys-images/dash/hero/1775837620216.jpg" alt=""></div>
+        <div class="h-img-box"><img src="../rys-images/dash/hero/1775837524872.jpg" alt=""></div><div class="h-img-box"><img src="../rys-images/dash/hero/1775837524908.jpg" alt=""></div><div class="h-img-box"><img src="../rys-images/dash/hero/1775837620216.jpg" alt=""></div>
+        <div class="h-img-box"><img src="../rys-images/dash/hero/1775837524872.jpg" alt=""></div><div class="h-img-box"><img src="../rys-images/dash/hero/1775837524908.jpg" alt=""></div><div class="h-img-box"><img src="../rys-images/dash/hero/1775837620216.jpg" alt=""></div>
+        <div class="h-img-box"><img src="../rys-images/dash/hero/1775837524872.jpg" alt=""></div><div class="h-img-box"><img src="../rys-images/dash/hero/1775837524908.jpg" alt=""></div><div class="h-img-box"><img src="../rys-images/dash/hero/1775837620216.jpg" alt=""></div>
+      </div>
+      <div class="wall-track">
+        <div class="h-img-box"><img src="../rys-images/dash/hero/1775837524872.jpg" alt=""></div><div class="h-img-box"><img src="../rys-images/dash/hero/1775837524908.jpg" alt=""></div><div class="h-img-box"><img src="../rys-images/dash/hero/1775837620216.jpg" alt=""></div>
+        <div class="h-img-box"><img src="../rys-images/dash/hero/1775837524872.jpg" alt=""></div><div class="h-img-box"><img src="../rys-images/dash/hero/1775837524908.jpg" alt=""></div><div class="h-img-box"><img src="../rys-images/dash/hero/1775837620216.jpg" alt=""></div>
+        <div class="h-img-box"><img src="../rys-images/dash/hero/1775837524872.jpg" alt=""></div><div class="h-img-box"><img src="../rys-images/dash/hero/1775837524908.jpg" alt=""></div><div class="h-img-box"><img src="../rys-images/dash/hero/1775837620216.jpg" alt=""></div>
+        <div class="h-img-box"><img src="../rys-images/dash/hero/1775837524872.jpg" alt=""></div><div class="h-img-box"><img src="../rys-images/dash/hero/1775837524908.jpg" alt=""></div><div class="h-img-box"><img src="../rys-images/dash/hero/1775837620216.jpg" alt=""></div>
+      </div>
+    </div>
+    
+    <!-- COL 5 -->
+    <div class="hero-wall-col">
+      <div class="wall-track">
+        <div class="h-img-box"><img src="../rys-images/dash/hero/IMG_9930.PNG" alt=""></div><div class="h-img-box"><img src="../rys-images/dash/hero/IMG_9931.PNG" alt=""></div><div class="h-img-box"><img src="../rys-images/dash/hero/IMG_9932.PNG" alt=""></div>
+        <div class="h-img-box"><img src="../rys-images/dash/hero/IMG_9930.PNG" alt=""></div><div class="h-img-box"><img src="../rys-images/dash/hero/IMG_9931.PNG" alt=""></div><div class="h-img-box"><img src="../rys-images/dash/hero/IMG_9932.PNG" alt=""></div>
+        <div class="h-img-box"><img src="../rys-images/dash/hero/IMG_9930.PNG" alt=""></div><div class="h-img-box"><img src="../rys-images/dash/hero/IMG_9931.PNG" alt=""></div><div class="h-img-box"><img src="../rys-images/dash/hero/IMG_9932.PNG" alt=""></div>
+        <div class="h-img-box"><img src="../rys-images/dash/hero/IMG_9930.PNG" alt=""></div><div class="h-img-box"><img src="../rys-images/dash/hero/IMG_9931.PNG" alt=""></div><div class="h-img-box"><img src="../rys-images/dash/hero/IMG_9932.PNG" alt=""></div>
+      </div>
+      <div class="wall-track">
+        <div class="h-img-box"><img src="../rys-images/dash/hero/IMG_9930.PNG" alt=""></div><div class="h-img-box"><img src="../rys-images/dash/hero/IMG_9931.PNG" alt=""></div><div class="h-img-box"><img src="../rys-images/dash/hero/IMG_9932.PNG" alt=""></div>
+        <div class="h-img-box"><img src="../rys-images/dash/hero/IMG_9930.PNG" alt=""></div><div class="h-img-box"><img src="../rys-images/dash/hero/IMG_9931.PNG" alt=""></div><div class="h-img-box"><img src="../rys-images/dash/hero/IMG_9932.PNG" alt=""></div>
+        <div class="h-img-box"><img src="../rys-images/dash/hero/IMG_9930.PNG" alt=""></div><div class="h-img-box"><img src="../rys-images/dash/hero/IMG_9931.PNG" alt=""></div><div class="h-img-box"><img src="../rys-images/dash/hero/IMG_9932.PNG" alt=""></div>
+        <div class="h-img-box"><img src="../rys-images/dash/hero/IMG_9930.PNG" alt=""></div><div class="h-img-box"><img src="../rys-images/dash/hero/IMG_9931.PNG" alt=""></div><div class="h-img-box"><img src="../rys-images/dash/hero/IMG_9932.PNG" alt=""></div>
+      </div>
+    </div>
+    
+    <!-- COL 6 — cycling back through set 1+2 -->
+    <div class="hero-wall-col">
+      <div class="wall-track">
+        <div class="h-img-box"><img src="../rys-images/dash/hero/1775837524872.jpg" alt=""></div><div class="h-img-box"><img src="../rys-images/dash/hero/1775836723815.jpg" alt=""></div><div class="h-img-box"><img src="../rys-images/dash/hero/1775836430018.jpg" alt=""></div>
+        <div class="h-img-box"><img src="../rys-images/dash/hero/1775837524872.jpg" alt=""></div><div class="h-img-box"><img src="../rys-images/dash/hero/1775836723815.jpg" alt=""></div><div class="h-img-box"><img src="../rys-images/dash/hero/1775836430018.jpg" alt=""></div>
+        <div class="h-img-box"><img src="../rys-images/dash/hero/1775837524872.jpg" alt=""></div><div class="h-img-box"><img src="../rys-images/dash/hero/1775836723815.jpg" alt=""></div><div class="h-img-box"><img src="../rys-images/dash/hero/1775836430018.jpg" alt=""></div>
+        <div class="h-img-box"><img src="../rys-images/dash/hero/1775837524872.jpg" alt=""></div><div class="h-img-box"><img src="../rys-images/dash/hero/1775836723815.jpg" alt=""></div><div class="h-img-box"><img src="../rys-images/dash/hero/1775836430018.jpg" alt=""></div>
+      </div>
+      <div class="wall-track">
+        <div class="h-img-box"><img src="../rys-images/dash/hero/1775837524872.jpg" alt=""></div><div class="h-img-box"><img src="../rys-images/dash/hero/1775836723815.jpg" alt=""></div><div class="h-img-box"><img src="../rys-images/dash/hero/1775836430018.jpg" alt=""></div>
+        <div class="h-img-box"><img src="../rys-images/dash/hero/1775837524872.jpg" alt=""></div><div class="h-img-box"><img src="../rys-images/dash/hero/1775836723815.jpg" alt=""></div><div class="h-img-box"><img src="../rys-images/dash/hero/1775836430018.jpg" alt=""></div>
+        <div class="h-img-box"><img src="../rys-images/dash/hero/1775837524872.jpg" alt=""></div><div class="h-img-box"><img src="../rys-images/dash/hero/1775836723815.jpg" alt=""></div><div class="h-img-box"><img src="../rys-images/dash/hero/1775836430018.jpg" alt=""></div>
+        <div class="h-img-box"><img src="../rys-images/dash/hero/1775837524872.jpg" alt=""></div><div class="h-img-box"><img src="../rys-images/dash/hero/1775836723815.jpg" alt=""></div><div class="h-img-box"><img src="../rys-images/dash/hero/1775836430018.jpg" alt=""></div>
+      </div>
+    </div>
+
+    <!-- COL 7 — cycling through remaining images -->
+    <div class="hero-wall-col">
+      <div class="wall-track">
+        <div class="h-img-box"><img src="../rys-images/dash/hero/1775837109621.JPG" alt=""></div><div class="h-img-box"><img src="../rys-images/dash/hero/1775836619687.jpg" alt=""></div><div class="h-img-box"><img src="../rys-images/dash/hero/1775837620216.jpg" alt=""></div>
+        <div class="h-img-box"><img src="../rys-images/dash/hero/1775837109621.JPG" alt=""></div><div class="h-img-box"><img src="../rys-images/dash/hero/1775836619687.jpg" alt=""></div><div class="h-img-box"><img src="../rys-images/dash/hero/1775837620216.jpg" alt=""></div>
+        <div class="h-img-box"><img src="../rys-images/dash/hero/1775837109621.JPG" alt=""></div><div class="h-img-box"><img src="../rys-images/dash/hero/1775836619687.jpg" alt=""></div><div class="h-img-box"><img src="../rys-images/dash/hero/1775837620216.jpg" alt=""></div>
+        <div class="h-img-box"><img src="../rys-images/dash/hero/1775837109621.JPG" alt=""></div><div class="h-img-box"><img src="../rys-images/dash/hero/1775836619687.jpg" alt=""></div><div class="h-img-box"><img src="../rys-images/dash/hero/1775837620216.jpg" alt=""></div>
+      </div>
+      <div class="wall-track">
+        <div class="h-img-box"><img src="../rys-images/dash/hero/1775837109621.JPG" alt=""></div><div class="h-img-box"><img src="../rys-images/dash/hero/1775836619687.jpg" alt=""></div><div class="h-img-box"><img src="../rys-images/dash/hero/1775837620216.jpg" alt=""></div>
+        <div class="h-img-box"><img src="../rys-images/dash/hero/1775837109621.JPG" alt=""></div><div class="h-img-box"><img src="../rys-images/dash/hero/1775836619687.jpg" alt=""></div><div class="h-img-box"><img src="../rys-images/dash/hero/1775837620216.jpg" alt=""></div>
+        <div class="h-img-box"><img src="../rys-images/dash/hero/1775837109621.JPG" alt=""></div><div class="h-img-box"><img src="../rys-images/dash/hero/1775836619687.jpg" alt=""></div><div class="h-img-box"><img src="../rys-images/dash/hero/1775837620216.jpg" alt=""></div>
+        <div class="h-img-box"><img src="../rys-images/dash/hero/1775837109621.JPG" alt=""></div><div class="h-img-box"><img src="../rys-images/dash/hero/1775836619687.jpg" alt=""></div><div class="h-img-box"><img src="../rys-images/dash/hero/1775837620216.jpg" alt=""></div>
+      </div>
+    </div>
+    
+  </div>
+
+  <!-- Cinematic vignette overlay -->
+  <div class="hero-vignette" aria-hidden="true"></div>
+
+  <!-- Warm centre glow -->
+  <div class="hero-center-glow" aria-hidden="true"></div>
+
+  <!-- Floating image frames (legacy, hidden) -->
+  <div class="hero-floating-images" id="heroFloatingImages" aria-hidden="true">
+    <div class="hfi hfi--1"><img src="../rys-images/conferences/haryana_yuva_samvad_2026/hys-cover.jpg" alt=""></div>
+    <div class="hfi hfi--2"><img src="../rys-images/conferences/delhi_yuva_samvad_2024/dys-coveer.jpg" alt=""></div>
+    <div class="hfi hfi--3"><img src="../rys-images/conferences/bal_sansad_2/bs-2-cover.png" alt=""></div>
+    <div class="hfi hfi--4"><img src="../rys-images/conferences/nlpf_2024/nlpf-cover.png" alt=""></div>
   </div>
 
   <!-- Centred content -->
@@ -1150,7 +1307,7 @@ footer {
       "Where passion would meet dreams, a tale of excellence."
     </blockquote>
     <p class="hero-desc">
-      Founded in 2017 by Adv. Isha Kapoor &amp; Adv. Jai Saini, RYS empowers India's youth through constitutional literacy, Model United Nations, Youth Parliaments, and policy-driven national dialogue. From school halls to India's greatest legislative venues — we build tomorrow's leaders.
+      Founded in 2017 by Adv. Isha Kapoor and Adv. Jai Saini, RYS is committed to empowering India's youth through constitutional literacy, parliamentary values, international diplomacy, and policy-driven national dialogue. From school halls to some of India's greatest legislative venues, we make informed, articulate, and responsible individuals who are prepared to lead with purpose and conviction.
     </p>
     <div class="hero-actions">
       <a href="#upcoming" class="btn-fire">⚑ Explore Next Conference</a>
@@ -1704,7 +1861,7 @@ footer {
     <div class="footer-brand">
       <div class="footer-logo">
         Rajdhani Yuva Sansad
-        <span>National Youth Parliament · New Delhi</span>
+        <span>New Delhi</span>
       </div>
       <p>Empowering India's youth through constitutional dialogue, committee simulations, and policy-focused national forums since 2017. "संवाद ही हल है।"</p>
     </div>
