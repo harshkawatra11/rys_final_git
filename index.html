@@ -4,7 +4,7 @@
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>Rajdhani Yuva Sansad | Where Passion Meets Dreams</title>
-<link rel="icon" type="image/png" href="/rys-logo.png">
+<link rel="icon" type="image/png" href="/images/rys-logo.png">
 <script>(function(){var t=localStorage.getItem('rys-theme')||document.documentElement.getAttribute('data-default-theme')||'dark';document.documentElement.setAttribute('data-theme',t);})();</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=IM+Fell+English:ital@0;1&family=Cinzel:wght@400;600;700;900&family=Mulish:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Playwrite+IE&display=swap" rel="stylesheet">
@@ -1026,23 +1026,77 @@ footer {
 </head>
 <body>
 
+<!-- ══════════════════════════ LOADER ══════════════════════════ -->
+<div id="rys-loader" aria-hidden="true">
+  <div class="loader-content">
+    <img class="loader-logo" src="/images/rys-logo.png" alt="RYS" onerror="this.src='https://harshkawatra11.github.io/rajdhaniyuvasansad/dash/images/rys-logo.png'">
+    <div class="loader-text">
+      <span class="loader-word" id="lw1">RAJDHANI</span>
+      <span class="loader-word" id="lw2">YUVA</span>
+      <span class="loader-word" id="lw3">SANSAD</span>
+    </div>
+  </div>
+</div>
+<style>
+#rys-loader {
+  position:fixed; inset:0; z-index:99999;
+  background:#0A1628;
+  display:flex; align-items:center; justify-content:center;
+  transition: opacity .6s cubic-bezier(.4,0,.2,1), visibility .6s;
+  opacity:1; visibility:visible;
+}
+#rys-loader.loader-done {
+  opacity:0; visibility:hidden; pointer-events:none;
+}
+.loader-content {
+  display:flex; flex-direction:column; align-items:center; gap:1.2rem;
+}
+.loader-logo {
+  width:90px; height:90px;
+  border-radius:50%;
+  opacity:0;
+  transform:scale(.7);
+  animation: loaderLogoIn .5s cubic-bezier(.16,1,.3,1) forwards;
+}
+@keyframes loaderLogoIn {
+  to { opacity:1; transform:scale(1); }
+}
+.loader-text {
+  display:flex; gap:.55rem;
+  font-family:'Cinzel',serif;
+  font-weight:700;
+  font-size:clamp(1.1rem,3vw,1.6rem);
+  letter-spacing:.22em;
+  color:#F4EDD8;
+}
+.loader-word {
+  opacity:0;
+  transform:translateY(14px);
+  transition: opacity .35s cubic-bezier(.16,1,.3,1), transform .35s cubic-bezier(.16,1,.3,1);
+}
+.loader-word.show {
+  opacity:1;
+  transform:translateY(0);
+}
+</style>
+
 <div id="prog"></div>
 <div class="cur" id="c"></div>
 <div class="cur-r" id="cr"></div>
 
 <!-- ══════════════════════════ NAV ══════════════════════════ -->
 <nav id="nav">
-  <a href="../home/" class="nav-logo">
-    <img src="https://harshkawatra11.github.io/rajdhaniyuvasansad/dash/rys-logo.png" alt="RYS" style="height:38px;width:auto;" onerror="this.style.display='none'">
+  <a href="/" class="nav-logo">
+    <img src="https://harshkawatra11.github.io/rajdhaniyuvasansad/dash/images/rys-logo.png" alt="RYS" style="height:38px;width:auto;" onerror="this.style.display='none'">
     <div class="nav-logo-text">
       Rajdhani Yuva Sansad
       <span>Est. 2017</span>
     </div>
   </a>
   <ul class="nav-links">
-    <li><a href="../about/">About</a></li>
-    <li><a href="../conferences/">Conferences</a></li>
-            <li><a href="../contact/">Contact</a></li>
+    <li><a href="/about/">About</a></li>
+    <li><a href="/conferences/">Conferences</a></li>
+            <li><a href="/contact/">Contact</a></li>
     <li>
       <button class="theme-toggle-btn" aria-label="Toggle theme">
         <span class="theme-toggle-knob">🌙</span>
@@ -1056,8 +1110,8 @@ footer {
 <!-- Mobile Nav -->
 <div class="mobile-nav-overlay">
   <button class="mobile-nav-close">&times;</button>
-  <a href="../about/">About</a>
-  <a href="../conferences/">Conferences</a><a href="../contact/">Contact</a>
+  <a href="/about/">About</a>
+  <a href="/conferences/">Conferences</a><a href="/contact/">Contact</a>
   <button class="mobile-theme-toggle" style="background:none;border:1.5px solid var(--border-gold);color:inherit;font-size:.85rem;font-family:inherit;cursor:pointer;padding:.4rem 1.2rem;display:flex;align-items:center;gap:.6rem;"><span>🌙</span> Toggle Theme</button>
   <a href="#upcoming">Register</a>
 </div>
@@ -1102,112 +1156,112 @@ footer {
     <!-- COL 1 -->
     <div class="hero-wall-col">
       <div class="wall-track">
-        <div class="h-img-box"><img src="/rys-images/dash/hero/1775836398274.jpg" alt=""></div><div class="h-img-box"><img src="/rys-images/dash/hero/1775836429859.jpg" alt=""></div><div class="h-img-box"><img src="/rys-images/dash/hero/1775836430018.jpg" alt=""></div>
-        <div class="h-img-box"><img src="/rys-images/dash/hero/1775836398274.jpg" alt=""></div><div class="h-img-box"><img src="/rys-images/dash/hero/1775836429859.jpg" alt=""></div><div class="h-img-box"><img src="/rys-images/dash/hero/1775836430018.jpg" alt=""></div>
-        <div class="h-img-box"><img src="/rys-images/dash/hero/1775836398274.jpg" alt=""></div><div class="h-img-box"><img src="/rys-images/dash/hero/1775836429859.jpg" alt=""></div><div class="h-img-box"><img src="/rys-images/dash/hero/1775836430018.jpg" alt=""></div>
-        <div class="h-img-box"><img src="/rys-images/dash/hero/1775836398274.jpg" alt=""></div><div class="h-img-box"><img src="/rys-images/dash/hero/1775836429859.jpg" alt=""></div><div class="h-img-box"><img src="/rys-images/dash/hero/1775836430018.jpg" alt=""></div>
+        <div class="h-img-box"><img src="/images/dash/hero/1775836398274.jpg" alt=""></div><div class="h-img-box"><img src="/images/dash/hero/1775836429859.jpg" alt=""></div><div class="h-img-box"><img src="/images/dash/hero/1775836430018.jpg" alt=""></div>
+        <div class="h-img-box"><img src="/images/dash/hero/1775836398274.jpg" alt=""></div><div class="h-img-box"><img src="/images/dash/hero/1775836429859.jpg" alt=""></div><div class="h-img-box"><img src="/images/dash/hero/1775836430018.jpg" alt=""></div>
+        <div class="h-img-box"><img src="/images/dash/hero/1775836398274.jpg" alt=""></div><div class="h-img-box"><img src="/images/dash/hero/1775836429859.jpg" alt=""></div><div class="h-img-box"><img src="/images/dash/hero/1775836430018.jpg" alt=""></div>
+        <div class="h-img-box"><img src="/images/dash/hero/1775836398274.jpg" alt=""></div><div class="h-img-box"><img src="/images/dash/hero/1775836429859.jpg" alt=""></div><div class="h-img-box"><img src="/images/dash/hero/1775836430018.jpg" alt=""></div>
       </div>
       <div class="wall-track">
-        <div class="h-img-box"><img src="/rys-images/dash/hero/1775836398274.jpg" alt=""></div><div class="h-img-box"><img src="/rys-images/dash/hero/1775836429859.jpg" alt=""></div><div class="h-img-box"><img src="/rys-images/dash/hero/1775836430018.jpg" alt=""></div>
-        <div class="h-img-box"><img src="/rys-images/dash/hero/1775836398274.jpg" alt=""></div><div class="h-img-box"><img src="/rys-images/dash/hero/1775836429859.jpg" alt=""></div><div class="h-img-box"><img src="/rys-images/dash/hero/1775836430018.jpg" alt=""></div>
-        <div class="h-img-box"><img src="/rys-images/dash/hero/1775836398274.jpg" alt=""></div><div class="h-img-box"><img src="/rys-images/dash/hero/1775836429859.jpg" alt=""></div><div class="h-img-box"><img src="/rys-images/dash/hero/1775836430018.jpg" alt=""></div>
-        <div class="h-img-box"><img src="/rys-images/dash/hero/1775836398274.jpg" alt=""></div><div class="h-img-box"><img src="/rys-images/dash/hero/1775836429859.jpg" alt=""></div><div class="h-img-box"><img src="/rys-images/dash/hero/1775836430018.jpg" alt=""></div>
+        <div class="h-img-box"><img src="/images/dash/hero/1775836398274.jpg" alt=""></div><div class="h-img-box"><img src="/images/dash/hero/1775836429859.jpg" alt=""></div><div class="h-img-box"><img src="/images/dash/hero/1775836430018.jpg" alt=""></div>
+        <div class="h-img-box"><img src="/images/dash/hero/1775836398274.jpg" alt=""></div><div class="h-img-box"><img src="/images/dash/hero/1775836429859.jpg" alt=""></div><div class="h-img-box"><img src="/images/dash/hero/1775836430018.jpg" alt=""></div>
+        <div class="h-img-box"><img src="/images/dash/hero/1775836398274.jpg" alt=""></div><div class="h-img-box"><img src="/images/dash/hero/1775836429859.jpg" alt=""></div><div class="h-img-box"><img src="/images/dash/hero/1775836430018.jpg" alt=""></div>
+        <div class="h-img-box"><img src="/images/dash/hero/1775836398274.jpg" alt=""></div><div class="h-img-box"><img src="/images/dash/hero/1775836429859.jpg" alt=""></div><div class="h-img-box"><img src="/images/dash/hero/1775836430018.jpg" alt=""></div>
       </div>
     </div>
     
     <!-- COL 2 -->
     <div class="hero-wall-col">
       <div class="wall-track">
-        <div class="h-img-box"><img src="/rys-images/dash/hero/1775836619687.jpg" alt=""></div><div class="h-img-box"><img src="/rys-images/dash/hero/1775836723815.jpg" alt=""></div><div class="h-img-box"><img src="/rys-images/dash/hero/1775836788921.jpg" alt=""></div>
-        <div class="h-img-box"><img src="/rys-images/dash/hero/1775836619687.jpg" alt=""></div><div class="h-img-box"><img src="/rys-images/dash/hero/1775836723815.jpg" alt=""></div><div class="h-img-box"><img src="/rys-images/dash/hero/1775836788921.jpg" alt=""></div>
-        <div class="h-img-box"><img src="/rys-images/dash/hero/1775836619687.jpg" alt=""></div><div class="h-img-box"><img src="/rys-images/dash/hero/1775836723815.jpg" alt=""></div><div class="h-img-box"><img src="/rys-images/dash/hero/1775836788921.jpg" alt=""></div>
-        <div class="h-img-box"><img src="/rys-images/dash/hero/1775836619687.jpg" alt=""></div><div class="h-img-box"><img src="/rys-images/dash/hero/1775836723815.jpg" alt=""></div><div class="h-img-box"><img src="/rys-images/dash/hero/1775836788921.jpg" alt=""></div>
+        <div class="h-img-box"><img src="/images/dash/hero/1775836619687.jpg" alt=""></div><div class="h-img-box"><img src="/images/dash/hero/1775836723815.jpg" alt=""></div><div class="h-img-box"><img src="/images/dash/hero/1775836788921.jpg" alt=""></div>
+        <div class="h-img-box"><img src="/images/dash/hero/1775836619687.jpg" alt=""></div><div class="h-img-box"><img src="/images/dash/hero/1775836723815.jpg" alt=""></div><div class="h-img-box"><img src="/images/dash/hero/1775836788921.jpg" alt=""></div>
+        <div class="h-img-box"><img src="/images/dash/hero/1775836619687.jpg" alt=""></div><div class="h-img-box"><img src="/images/dash/hero/1775836723815.jpg" alt=""></div><div class="h-img-box"><img src="/images/dash/hero/1775836788921.jpg" alt=""></div>
+        <div class="h-img-box"><img src="/images/dash/hero/1775836619687.jpg" alt=""></div><div class="h-img-box"><img src="/images/dash/hero/1775836723815.jpg" alt=""></div><div class="h-img-box"><img src="/images/dash/hero/1775836788921.jpg" alt=""></div>
       </div>
       <div class="wall-track">
-        <div class="h-img-box"><img src="/rys-images/dash/hero/1775836619687.jpg" alt=""></div><div class="h-img-box"><img src="/rys-images/dash/hero/1775836723815.jpg" alt=""></div><div class="h-img-box"><img src="/rys-images/dash/hero/1775836788921.jpg" alt=""></div>
-        <div class="h-img-box"><img src="/rys-images/dash/hero/1775836619687.jpg" alt=""></div><div class="h-img-box"><img src="/rys-images/dash/hero/1775836723815.jpg" alt=""></div><div class="h-img-box"><img src="/rys-images/dash/hero/1775836788921.jpg" alt=""></div>
-        <div class="h-img-box"><img src="/rys-images/dash/hero/1775836619687.jpg" alt=""></div><div class="h-img-box"><img src="/rys-images/dash/hero/1775836723815.jpg" alt=""></div><div class="h-img-box"><img src="/rys-images/dash/hero/1775836788921.jpg" alt=""></div>
-        <div class="h-img-box"><img src="/rys-images/dash/hero/1775836619687.jpg" alt=""></div><div class="h-img-box"><img src="/rys-images/dash/hero/1775836723815.jpg" alt=""></div><div class="h-img-box"><img src="/rys-images/dash/hero/1775836788921.jpg" alt=""></div>
+        <div class="h-img-box"><img src="/images/dash/hero/1775836619687.jpg" alt=""></div><div class="h-img-box"><img src="/images/dash/hero/1775836723815.jpg" alt=""></div><div class="h-img-box"><img src="/images/dash/hero/1775836788921.jpg" alt=""></div>
+        <div class="h-img-box"><img src="/images/dash/hero/1775836619687.jpg" alt=""></div><div class="h-img-box"><img src="/images/dash/hero/1775836723815.jpg" alt=""></div><div class="h-img-box"><img src="/images/dash/hero/1775836788921.jpg" alt=""></div>
+        <div class="h-img-box"><img src="/images/dash/hero/1775836619687.jpg" alt=""></div><div class="h-img-box"><img src="/images/dash/hero/1775836723815.jpg" alt=""></div><div class="h-img-box"><img src="/images/dash/hero/1775836788921.jpg" alt=""></div>
+        <div class="h-img-box"><img src="/images/dash/hero/1775836619687.jpg" alt=""></div><div class="h-img-box"><img src="/images/dash/hero/1775836723815.jpg" alt=""></div><div class="h-img-box"><img src="/images/dash/hero/1775836788921.jpg" alt=""></div>
       </div>
     </div>
     
     <!-- COL 3 -->
     <div class="hero-wall-col">
       <div class="wall-track">
-        <div class="h-img-box"><img src="/rys-images/dash/hero/1775837109621.JPG" alt=""></div><div class="h-img-box"><img src="/rys-images/dash/hero/1775837411182.jpg" alt=""></div><div class="h-img-box"><img src="/rys-images/dash/hero/1775837524839.jpg" alt=""></div>
-        <div class="h-img-box"><img src="/rys-images/dash/hero/1775837109621.JPG" alt=""></div><div class="h-img-box"><img src="/rys-images/dash/hero/1775837411182.jpg" alt=""></div><div class="h-img-box"><img src="/rys-images/dash/hero/1775837524839.jpg" alt=""></div>
-        <div class="h-img-box"><img src="/rys-images/dash/hero/1775837109621.JPG" alt=""></div><div class="h-img-box"><img src="/rys-images/dash/hero/1775837411182.jpg" alt=""></div><div class="h-img-box"><img src="/rys-images/dash/hero/1775837524839.jpg" alt=""></div>
-        <div class="h-img-box"><img src="/rys-images/dash/hero/1775837109621.JPG" alt=""></div><div class="h-img-box"><img src="/rys-images/dash/hero/1775837411182.jpg" alt=""></div><div class="h-img-box"><img src="/rys-images/dash/hero/1775837524839.jpg" alt=""></div>
+        <div class="h-img-box"><img src="/images/dash/hero/1775837109621.JPG" alt=""></div><div class="h-img-box"><img src="/images/dash/hero/1775837411182.jpg" alt=""></div><div class="h-img-box"><img src="/images/dash/hero/1775837524839.jpg" alt=""></div>
+        <div class="h-img-box"><img src="/images/dash/hero/1775837109621.JPG" alt=""></div><div class="h-img-box"><img src="/images/dash/hero/1775837411182.jpg" alt=""></div><div class="h-img-box"><img src="/images/dash/hero/1775837524839.jpg" alt=""></div>
+        <div class="h-img-box"><img src="/images/dash/hero/1775837109621.JPG" alt=""></div><div class="h-img-box"><img src="/images/dash/hero/1775837411182.jpg" alt=""></div><div class="h-img-box"><img src="/images/dash/hero/1775837524839.jpg" alt=""></div>
+        <div class="h-img-box"><img src="/images/dash/hero/1775837109621.JPG" alt=""></div><div class="h-img-box"><img src="/images/dash/hero/1775837411182.jpg" alt=""></div><div class="h-img-box"><img src="/images/dash/hero/1775837524839.jpg" alt=""></div>
       </div>
       <div class="wall-track">
-        <div class="h-img-box"><img src="/rys-images/dash/hero/1775837109621.JPG" alt=""></div><div class="h-img-box"><img src="/rys-images/dash/hero/1775837411182.jpg" alt=""></div><div class="h-img-box"><img src="/rys-images/dash/hero/1775837524839.jpg" alt=""></div>
-        <div class="h-img-box"><img src="/rys-images/dash/hero/1775837109621.JPG" alt=""></div><div class="h-img-box"><img src="/rys-images/dash/hero/1775837411182.jpg" alt=""></div><div class="h-img-box"><img src="/rys-images/dash/hero/1775837524839.jpg" alt=""></div>
-        <div class="h-img-box"><img src="/rys-images/dash/hero/1775837109621.JPG" alt=""></div><div class="h-img-box"><img src="/rys-images/dash/hero/1775837411182.jpg" alt=""></div><div class="h-img-box"><img src="/rys-images/dash/hero/1775837524839.jpg" alt=""></div>
-        <div class="h-img-box"><img src="/rys-images/dash/hero/1775837109621.JPG" alt=""></div><div class="h-img-box"><img src="/rys-images/dash/hero/1775837411182.jpg" alt=""></div><div class="h-img-box"><img src="/rys-images/dash/hero/1775837524839.jpg" alt=""></div>
+        <div class="h-img-box"><img src="/images/dash/hero/1775837109621.JPG" alt=""></div><div class="h-img-box"><img src="/images/dash/hero/1775837411182.jpg" alt=""></div><div class="h-img-box"><img src="/images/dash/hero/1775837524839.jpg" alt=""></div>
+        <div class="h-img-box"><img src="/images/dash/hero/1775837109621.JPG" alt=""></div><div class="h-img-box"><img src="/images/dash/hero/1775837411182.jpg" alt=""></div><div class="h-img-box"><img src="/images/dash/hero/1775837524839.jpg" alt=""></div>
+        <div class="h-img-box"><img src="/images/dash/hero/1775837109621.JPG" alt=""></div><div class="h-img-box"><img src="/images/dash/hero/1775837411182.jpg" alt=""></div><div class="h-img-box"><img src="/images/dash/hero/1775837524839.jpg" alt=""></div>
+        <div class="h-img-box"><img src="/images/dash/hero/1775837109621.JPG" alt=""></div><div class="h-img-box"><img src="/images/dash/hero/1775837411182.jpg" alt=""></div><div class="h-img-box"><img src="/images/dash/hero/1775837524839.jpg" alt=""></div>
       </div>
     </div>
     
     <!-- COL 4 -->
     <div class="hero-wall-col">
       <div class="wall-track">
-        <div class="h-img-box"><img src="/rys-images/dash/hero/1775837524872.jpg" alt=""></div><div class="h-img-box"><img src="/rys-images/dash/hero/1775837524908.jpg" alt=""></div><div class="h-img-box"><img src="/rys-images/dash/hero/1775837620216.jpg" alt=""></div>
-        <div class="h-img-box"><img src="/rys-images/dash/hero/1775837524872.jpg" alt=""></div><div class="h-img-box"><img src="/rys-images/dash/hero/1775837524908.jpg" alt=""></div><div class="h-img-box"><img src="/rys-images/dash/hero/1775837620216.jpg" alt=""></div>
-        <div class="h-img-box"><img src="/rys-images/dash/hero/1775837524872.jpg" alt=""></div><div class="h-img-box"><img src="/rys-images/dash/hero/1775837524908.jpg" alt=""></div><div class="h-img-box"><img src="/rys-images/dash/hero/1775837620216.jpg" alt=""></div>
-        <div class="h-img-box"><img src="/rys-images/dash/hero/1775837524872.jpg" alt=""></div><div class="h-img-box"><img src="/rys-images/dash/hero/1775837524908.jpg" alt=""></div><div class="h-img-box"><img src="/rys-images/dash/hero/1775837620216.jpg" alt=""></div>
+        <div class="h-img-box"><img src="/images/dash/hero/1775837524872.jpg" alt=""></div><div class="h-img-box"><img src="/images/dash/hero/1775837524908.jpg" alt=""></div><div class="h-img-box"><img src="/images/dash/hero/1775837620216.jpg" alt=""></div>
+        <div class="h-img-box"><img src="/images/dash/hero/1775837524872.jpg" alt=""></div><div class="h-img-box"><img src="/images/dash/hero/1775837524908.jpg" alt=""></div><div class="h-img-box"><img src="/images/dash/hero/1775837620216.jpg" alt=""></div>
+        <div class="h-img-box"><img src="/images/dash/hero/1775837524872.jpg" alt=""></div><div class="h-img-box"><img src="/images/dash/hero/1775837524908.jpg" alt=""></div><div class="h-img-box"><img src="/images/dash/hero/1775837620216.jpg" alt=""></div>
+        <div class="h-img-box"><img src="/images/dash/hero/1775837524872.jpg" alt=""></div><div class="h-img-box"><img src="/images/dash/hero/1775837524908.jpg" alt=""></div><div class="h-img-box"><img src="/images/dash/hero/1775837620216.jpg" alt=""></div>
       </div>
       <div class="wall-track">
-        <div class="h-img-box"><img src="/rys-images/dash/hero/1775837524872.jpg" alt=""></div><div class="h-img-box"><img src="/rys-images/dash/hero/1775837524908.jpg" alt=""></div><div class="h-img-box"><img src="/rys-images/dash/hero/1775837620216.jpg" alt=""></div>
-        <div class="h-img-box"><img src="/rys-images/dash/hero/1775837524872.jpg" alt=""></div><div class="h-img-box"><img src="/rys-images/dash/hero/1775837524908.jpg" alt=""></div><div class="h-img-box"><img src="/rys-images/dash/hero/1775837620216.jpg" alt=""></div>
-        <div class="h-img-box"><img src="/rys-images/dash/hero/1775837524872.jpg" alt=""></div><div class="h-img-box"><img src="/rys-images/dash/hero/1775837524908.jpg" alt=""></div><div class="h-img-box"><img src="/rys-images/dash/hero/1775837620216.jpg" alt=""></div>
-        <div class="h-img-box"><img src="/rys-images/dash/hero/1775837524872.jpg" alt=""></div><div class="h-img-box"><img src="/rys-images/dash/hero/1775837524908.jpg" alt=""></div><div class="h-img-box"><img src="/rys-images/dash/hero/1775837620216.jpg" alt=""></div>
+        <div class="h-img-box"><img src="/images/dash/hero/1775837524872.jpg" alt=""></div><div class="h-img-box"><img src="/images/dash/hero/1775837524908.jpg" alt=""></div><div class="h-img-box"><img src="/images/dash/hero/1775837620216.jpg" alt=""></div>
+        <div class="h-img-box"><img src="/images/dash/hero/1775837524872.jpg" alt=""></div><div class="h-img-box"><img src="/images/dash/hero/1775837524908.jpg" alt=""></div><div class="h-img-box"><img src="/images/dash/hero/1775837620216.jpg" alt=""></div>
+        <div class="h-img-box"><img src="/images/dash/hero/1775837524872.jpg" alt=""></div><div class="h-img-box"><img src="/images/dash/hero/1775837524908.jpg" alt=""></div><div class="h-img-box"><img src="/images/dash/hero/1775837620216.jpg" alt=""></div>
+        <div class="h-img-box"><img src="/images/dash/hero/1775837524872.jpg" alt=""></div><div class="h-img-box"><img src="/images/dash/hero/1775837524908.jpg" alt=""></div><div class="h-img-box"><img src="/images/dash/hero/1775837620216.jpg" alt=""></div>
       </div>
     </div>
     
     <!-- COL 5 -->
     <div class="hero-wall-col">
       <div class="wall-track">
-        <div class="h-img-box"><img src="/rys-images/dash/hero/IMG_9930.PNG" alt=""></div><div class="h-img-box"><img src="/rys-images/dash/hero/IMG_9931.PNG" alt=""></div><div class="h-img-box"><img src="/rys-images/dash/hero/IMG_9932.PNG" alt=""></div>
-        <div class="h-img-box"><img src="/rys-images/dash/hero/IMG_9930.PNG" alt=""></div><div class="h-img-box"><img src="/rys-images/dash/hero/IMG_9931.PNG" alt=""></div><div class="h-img-box"><img src="/rys-images/dash/hero/IMG_9932.PNG" alt=""></div>
-        <div class="h-img-box"><img src="/rys-images/dash/hero/IMG_9930.PNG" alt=""></div><div class="h-img-box"><img src="/rys-images/dash/hero/IMG_9931.PNG" alt=""></div><div class="h-img-box"><img src="/rys-images/dash/hero/IMG_9932.PNG" alt=""></div>
-        <div class="h-img-box"><img src="/rys-images/dash/hero/IMG_9930.PNG" alt=""></div><div class="h-img-box"><img src="/rys-images/dash/hero/IMG_9931.PNG" alt=""></div><div class="h-img-box"><img src="/rys-images/dash/hero/IMG_9932.PNG" alt=""></div>
+        <div class="h-img-box"><img src="/images/dash/hero/IMG_9930.PNG" alt=""></div><div class="h-img-box"><img src="/images/dash/hero/IMG_9931.PNG" alt=""></div><div class="h-img-box"><img src="/images/dash/hero/IMG_9932.PNG" alt=""></div>
+        <div class="h-img-box"><img src="/images/dash/hero/IMG_9930.PNG" alt=""></div><div class="h-img-box"><img src="/images/dash/hero/IMG_9931.PNG" alt=""></div><div class="h-img-box"><img src="/images/dash/hero/IMG_9932.PNG" alt=""></div>
+        <div class="h-img-box"><img src="/images/dash/hero/IMG_9930.PNG" alt=""></div><div class="h-img-box"><img src="/images/dash/hero/IMG_9931.PNG" alt=""></div><div class="h-img-box"><img src="/images/dash/hero/IMG_9932.PNG" alt=""></div>
+        <div class="h-img-box"><img src="/images/dash/hero/IMG_9930.PNG" alt=""></div><div class="h-img-box"><img src="/images/dash/hero/IMG_9931.PNG" alt=""></div><div class="h-img-box"><img src="/images/dash/hero/IMG_9932.PNG" alt=""></div>
       </div>
       <div class="wall-track">
-        <div class="h-img-box"><img src="/rys-images/dash/hero/IMG_9930.PNG" alt=""></div><div class="h-img-box"><img src="/rys-images/dash/hero/IMG_9931.PNG" alt=""></div><div class="h-img-box"><img src="/rys-images/dash/hero/IMG_9932.PNG" alt=""></div>
-        <div class="h-img-box"><img src="/rys-images/dash/hero/IMG_9930.PNG" alt=""></div><div class="h-img-box"><img src="/rys-images/dash/hero/IMG_9931.PNG" alt=""></div><div class="h-img-box"><img src="/rys-images/dash/hero/IMG_9932.PNG" alt=""></div>
-        <div class="h-img-box"><img src="/rys-images/dash/hero/IMG_9930.PNG" alt=""></div><div class="h-img-box"><img src="/rys-images/dash/hero/IMG_9931.PNG" alt=""></div><div class="h-img-box"><img src="/rys-images/dash/hero/IMG_9932.PNG" alt=""></div>
-        <div class="h-img-box"><img src="/rys-images/dash/hero/IMG_9930.PNG" alt=""></div><div class="h-img-box"><img src="/rys-images/dash/hero/IMG_9931.PNG" alt=""></div><div class="h-img-box"><img src="/rys-images/dash/hero/IMG_9932.PNG" alt=""></div>
+        <div class="h-img-box"><img src="/images/dash/hero/IMG_9930.PNG" alt=""></div><div class="h-img-box"><img src="/images/dash/hero/IMG_9931.PNG" alt=""></div><div class="h-img-box"><img src="/images/dash/hero/IMG_9932.PNG" alt=""></div>
+        <div class="h-img-box"><img src="/images/dash/hero/IMG_9930.PNG" alt=""></div><div class="h-img-box"><img src="/images/dash/hero/IMG_9931.PNG" alt=""></div><div class="h-img-box"><img src="/images/dash/hero/IMG_9932.PNG" alt=""></div>
+        <div class="h-img-box"><img src="/images/dash/hero/IMG_9930.PNG" alt=""></div><div class="h-img-box"><img src="/images/dash/hero/IMG_9931.PNG" alt=""></div><div class="h-img-box"><img src="/images/dash/hero/IMG_9932.PNG" alt=""></div>
+        <div class="h-img-box"><img src="/images/dash/hero/IMG_9930.PNG" alt=""></div><div class="h-img-box"><img src="/images/dash/hero/IMG_9931.PNG" alt=""></div><div class="h-img-box"><img src="/images/dash/hero/IMG_9932.PNG" alt=""></div>
       </div>
     </div>
     
     <!-- COL 6 — cycling back through set 1+2 -->
     <div class="hero-wall-col">
       <div class="wall-track">
-        <div class="h-img-box"><img src="/rys-images/dash/hero/1775837524872.jpg" alt=""></div><div class="h-img-box"><img src="/rys-images/dash/hero/1775836723815.jpg" alt=""></div><div class="h-img-box"><img src="/rys-images/dash/hero/1775836430018.jpg" alt=""></div>
-        <div class="h-img-box"><img src="/rys-images/dash/hero/1775837524872.jpg" alt=""></div><div class="h-img-box"><img src="/rys-images/dash/hero/1775836723815.jpg" alt=""></div><div class="h-img-box"><img src="/rys-images/dash/hero/1775836430018.jpg" alt=""></div>
-        <div class="h-img-box"><img src="/rys-images/dash/hero/1775837524872.jpg" alt=""></div><div class="h-img-box"><img src="/rys-images/dash/hero/1775836723815.jpg" alt=""></div><div class="h-img-box"><img src="/rys-images/dash/hero/1775836430018.jpg" alt=""></div>
-        <div class="h-img-box"><img src="/rys-images/dash/hero/1775837524872.jpg" alt=""></div><div class="h-img-box"><img src="/rys-images/dash/hero/1775836723815.jpg" alt=""></div><div class="h-img-box"><img src="/rys-images/dash/hero/1775836430018.jpg" alt=""></div>
+        <div class="h-img-box"><img src="/images/dash/hero/1775837524872.jpg" alt=""></div><div class="h-img-box"><img src="/images/dash/hero/1775836723815.jpg" alt=""></div><div class="h-img-box"><img src="/images/dash/hero/1775836430018.jpg" alt=""></div>
+        <div class="h-img-box"><img src="/images/dash/hero/1775837524872.jpg" alt=""></div><div class="h-img-box"><img src="/images/dash/hero/1775836723815.jpg" alt=""></div><div class="h-img-box"><img src="/images/dash/hero/1775836430018.jpg" alt=""></div>
+        <div class="h-img-box"><img src="/images/dash/hero/1775837524872.jpg" alt=""></div><div class="h-img-box"><img src="/images/dash/hero/1775836723815.jpg" alt=""></div><div class="h-img-box"><img src="/images/dash/hero/1775836430018.jpg" alt=""></div>
+        <div class="h-img-box"><img src="/images/dash/hero/1775837524872.jpg" alt=""></div><div class="h-img-box"><img src="/images/dash/hero/1775836723815.jpg" alt=""></div><div class="h-img-box"><img src="/images/dash/hero/1775836430018.jpg" alt=""></div>
       </div>
       <div class="wall-track">
-        <div class="h-img-box"><img src="/rys-images/dash/hero/1775837524872.jpg" alt=""></div><div class="h-img-box"><img src="/rys-images/dash/hero/1775836723815.jpg" alt=""></div><div class="h-img-box"><img src="/rys-images/dash/hero/1775836430018.jpg" alt=""></div>
-        <div class="h-img-box"><img src="/rys-images/dash/hero/1775837524872.jpg" alt=""></div><div class="h-img-box"><img src="/rys-images/dash/hero/1775836723815.jpg" alt=""></div><div class="h-img-box"><img src="/rys-images/dash/hero/1775836430018.jpg" alt=""></div>
-        <div class="h-img-box"><img src="/rys-images/dash/hero/1775837524872.jpg" alt=""></div><div class="h-img-box"><img src="/rys-images/dash/hero/1775836723815.jpg" alt=""></div><div class="h-img-box"><img src="/rys-images/dash/hero/1775836430018.jpg" alt=""></div>
-        <div class="h-img-box"><img src="/rys-images/dash/hero/1775837524872.jpg" alt=""></div><div class="h-img-box"><img src="/rys-images/dash/hero/1775836723815.jpg" alt=""></div><div class="h-img-box"><img src="/rys-images/dash/hero/1775836430018.jpg" alt=""></div>
+        <div class="h-img-box"><img src="/images/dash/hero/1775837524872.jpg" alt=""></div><div class="h-img-box"><img src="/images/dash/hero/1775836723815.jpg" alt=""></div><div class="h-img-box"><img src="/images/dash/hero/1775836430018.jpg" alt=""></div>
+        <div class="h-img-box"><img src="/images/dash/hero/1775837524872.jpg" alt=""></div><div class="h-img-box"><img src="/images/dash/hero/1775836723815.jpg" alt=""></div><div class="h-img-box"><img src="/images/dash/hero/1775836430018.jpg" alt=""></div>
+        <div class="h-img-box"><img src="/images/dash/hero/1775837524872.jpg" alt=""></div><div class="h-img-box"><img src="/images/dash/hero/1775836723815.jpg" alt=""></div><div class="h-img-box"><img src="/images/dash/hero/1775836430018.jpg" alt=""></div>
+        <div class="h-img-box"><img src="/images/dash/hero/1775837524872.jpg" alt=""></div><div class="h-img-box"><img src="/images/dash/hero/1775836723815.jpg" alt=""></div><div class="h-img-box"><img src="/images/dash/hero/1775836430018.jpg" alt=""></div>
       </div>
     </div>
 
     <!-- COL 7 — cycling through remaining images -->
     <div class="hero-wall-col">
       <div class="wall-track">
-        <div class="h-img-box"><img src="/rys-images/dash/hero/1775837109621.JPG" alt=""></div><div class="h-img-box"><img src="/rys-images/dash/hero/1775836619687.jpg" alt=""></div><div class="h-img-box"><img src="/rys-images/dash/hero/1775837620216.jpg" alt=""></div>
-        <div class="h-img-box"><img src="/rys-images/dash/hero/1775837109621.JPG" alt=""></div><div class="h-img-box"><img src="/rys-images/dash/hero/1775836619687.jpg" alt=""></div><div class="h-img-box"><img src="/rys-images/dash/hero/1775837620216.jpg" alt=""></div>
-        <div class="h-img-box"><img src="/rys-images/dash/hero/1775837109621.JPG" alt=""></div><div class="h-img-box"><img src="/rys-images/dash/hero/1775836619687.jpg" alt=""></div><div class="h-img-box"><img src="/rys-images/dash/hero/1775837620216.jpg" alt=""></div>
-        <div class="h-img-box"><img src="/rys-images/dash/hero/1775837109621.JPG" alt=""></div><div class="h-img-box"><img src="/rys-images/dash/hero/1775836619687.jpg" alt=""></div><div class="h-img-box"><img src="/rys-images/dash/hero/1775837620216.jpg" alt=""></div>
+        <div class="h-img-box"><img src="/images/dash/hero/1775837109621.JPG" alt=""></div><div class="h-img-box"><img src="/images/dash/hero/1775836619687.jpg" alt=""></div><div class="h-img-box"><img src="/images/dash/hero/1775837620216.jpg" alt=""></div>
+        <div class="h-img-box"><img src="/images/dash/hero/1775837109621.JPG" alt=""></div><div class="h-img-box"><img src="/images/dash/hero/1775836619687.jpg" alt=""></div><div class="h-img-box"><img src="/images/dash/hero/1775837620216.jpg" alt=""></div>
+        <div class="h-img-box"><img src="/images/dash/hero/1775837109621.JPG" alt=""></div><div class="h-img-box"><img src="/images/dash/hero/1775836619687.jpg" alt=""></div><div class="h-img-box"><img src="/images/dash/hero/1775837620216.jpg" alt=""></div>
+        <div class="h-img-box"><img src="/images/dash/hero/1775837109621.JPG" alt=""></div><div class="h-img-box"><img src="/images/dash/hero/1775836619687.jpg" alt=""></div><div class="h-img-box"><img src="/images/dash/hero/1775837620216.jpg" alt=""></div>
       </div>
       <div class="wall-track">
-        <div class="h-img-box"><img src="/rys-images/dash/hero/1775837109621.JPG" alt=""></div><div class="h-img-box"><img src="/rys-images/dash/hero/1775836619687.jpg" alt=""></div><div class="h-img-box"><img src="/rys-images/dash/hero/1775837620216.jpg" alt=""></div>
-        <div class="h-img-box"><img src="/rys-images/dash/hero/1775837109621.JPG" alt=""></div><div class="h-img-box"><img src="/rys-images/dash/hero/1775836619687.jpg" alt=""></div><div class="h-img-box"><img src="/rys-images/dash/hero/1775837620216.jpg" alt=""></div>
-        <div class="h-img-box"><img src="/rys-images/dash/hero/1775837109621.JPG" alt=""></div><div class="h-img-box"><img src="/rys-images/dash/hero/1775836619687.jpg" alt=""></div><div class="h-img-box"><img src="/rys-images/dash/hero/1775837620216.jpg" alt=""></div>
-        <div class="h-img-box"><img src="/rys-images/dash/hero/1775837109621.JPG" alt=""></div><div class="h-img-box"><img src="/rys-images/dash/hero/1775836619687.jpg" alt=""></div><div class="h-img-box"><img src="/rys-images/dash/hero/1775837620216.jpg" alt=""></div>
+        <div class="h-img-box"><img src="/images/dash/hero/1775837109621.JPG" alt=""></div><div class="h-img-box"><img src="/images/dash/hero/1775836619687.jpg" alt=""></div><div class="h-img-box"><img src="/images/dash/hero/1775837620216.jpg" alt=""></div>
+        <div class="h-img-box"><img src="/images/dash/hero/1775837109621.JPG" alt=""></div><div class="h-img-box"><img src="/images/dash/hero/1775836619687.jpg" alt=""></div><div class="h-img-box"><img src="/images/dash/hero/1775837620216.jpg" alt=""></div>
+        <div class="h-img-box"><img src="/images/dash/hero/1775837109621.JPG" alt=""></div><div class="h-img-box"><img src="/images/dash/hero/1775836619687.jpg" alt=""></div><div class="h-img-box"><img src="/images/dash/hero/1775837620216.jpg" alt=""></div>
+        <div class="h-img-box"><img src="/images/dash/hero/1775837109621.JPG" alt=""></div><div class="h-img-box"><img src="/images/dash/hero/1775836619687.jpg" alt=""></div><div class="h-img-box"><img src="/images/dash/hero/1775837620216.jpg" alt=""></div>
       </div>
     </div>
     
@@ -1221,10 +1275,10 @@ footer {
 
   <!-- Floating image frames (legacy, hidden) -->
   <div class="hero-floating-images" id="heroFloatingImages" aria-hidden="true">
-    <div class="hfi hfi--1"><img src="/rys-images/conferences/haryana_yuva_samvad_2026/hys-cover.jpg" alt=""></div>
-    <div class="hfi hfi--2"><img src="/rys-images/conferences/delhi_yuva_samvad_2024/dys-coveer.jpg" alt=""></div>
-    <div class="hfi hfi--3"><img src="/rys-images/conferences/bal_sansad_2/bs-2-cover.png" alt=""></div>
-    <div class="hfi hfi--4"><img src="/rys-images/conferences/nlpf_2024/nlpf-cover.png" alt=""></div>
+    <div class="hfi hfi--1"><img src="/images/conferences/haryana_yuva_samvad_2026/hys-cover.jpg" alt=""></div>
+    <div class="hfi hfi--2"><img src="/images/conferences/delhi_yuva_samvad_2024/dys-coveer.jpg" alt=""></div>
+    <div class="hfi hfi--3"><img src="/images/conferences/bal_sansad_2/bs-2-cover.png" alt=""></div>
+    <div class="hfi hfi--4"><img src="/images/conferences/nlpf_2024/nlpf-cover.png" alt=""></div>
   </div>
 
   <!-- Centred content -->
@@ -1289,7 +1343,7 @@ footer {
     <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;">
       <div class="founder-card reveal reveal-left">
         <div class="founder-img-frame">
-          <img src="/adv-isha-kapoor.jpg" alt="Adv. Isha Kapoor">
+          <img src="/images/adv-isha-kapoor.jpg" alt="Adv. Isha Kapoor">
           <div class="founder-img-overlay">
             <div class="fi-name">Adv. Isha Kapoor</div>
             <div class="fi-title">Co-Founder, RYS</div>
@@ -1299,7 +1353,7 @@ footer {
       </div>
       <div class="founder-card reveal reveal-left reveal-d1">
         <div class="founder-img-frame">
-          <img src="/adv-jai-saini.jpg" alt="Adv. Jai Saini">
+          <img src="/images/adv-jai-saini.jpg" alt="Adv. Jai Saini">
           <div class="founder-img-overlay">
             <div class="fi-name">Adv. Jai Saini</div>
             <div class="fi-title">Co-Founder, RYS</div>
@@ -1343,7 +1397,7 @@ footer {
     <div class="carousel-track" id="carouselTrack">
 
       <div class="carousel-slide">
-        <img src="/rys-images/conferences/haryana_yuva_samvad_2026/hys-cover.jpg" alt="Haryana Yuva Samvad 2026">
+        <img src="/images/conferences/haryana_yuva_samvad_2026/hys-cover.jpg" alt="Haryana Yuva Samvad 2026">
         <div class="carousel-overlay">
           <div class="carousel-left">
             <span class="carousel-tag">Haryana Vidhan Sabha, Chandigarh</span>
@@ -1354,7 +1408,7 @@ footer {
       </div>
 
       <div class="carousel-slide">
-        <img src="/rys-images/conferences/gorakhpur_yuva_samvad_2025/gys-cover.jpg" alt="Gorakhpur Yuva Samvad 2025">
+        <img src="/images/conferences/gorakhpur_yuva_samvad_2025/gys-cover.jpg" alt="Gorakhpur Yuva Samvad 2025">
         <div class="carousel-overlay">
           <div class="carousel-left">
             <span class="carousel-tag">19 Committees, 900+ Participants</span>
@@ -1365,7 +1419,7 @@ footer {
       </div>
 
       <div class="carousel-slide">
-        <img src="/rys-images/conferences/sajag_yuva_manch_6/sym-cover.png" alt="Sajag Yuva Manch 6.0">
+        <img src="/images/conferences/sajag_yuva_manch_6/sym-cover.png" alt="Sajag Yuva Manch 6.0">
         <div class="carousel-overlay">
           <div class="carousel-left">
             <span class="carousel-tag">700+ Delegates Across 10 Committees</span>
@@ -1376,7 +1430,7 @@ footer {
       </div>
 
       <div class="carousel-slide">
-        <img src="/rys-images/conferences/delhi_yuva_samvad_2024/dys-coveer.jpg" alt="Delhi Yuva Samvad 2024">
+        <img src="/images/conferences/delhi_yuva_samvad_2024/dys-coveer.jpg" alt="Delhi Yuva Samvad 2024">
         <div class="carousel-overlay">
           <div class="carousel-left">
             <span class="carousel-tag">Delhi Vidhan Sabha, New Delhi</span>
@@ -1393,7 +1447,7 @@ footer {
             <span class="carousel-tag">A Legacy of 23+ Editions Across India</span>
             <h3 class="carousel-heading">Explore All Conferences</h3>
             <p class="carousel-desc">From school halls to the Parliament of India, discover our 9-year journey of empowering youth through continuous constitutional dialogue.</p>
-            <a href="../conferences/" class="btn-fire" style="margin-top: 1.2rem;">View All Records →</a>
+            <a href="/conferences/" class="btn-fire" style="margin-top: 1.2rem;">View All Records →</a>
           </div>
         </div>
       </div>
@@ -1424,82 +1478,82 @@ footer {
     <div class="flagship-scroll" id="flagshipScroll">
       <!-- Card 1 -->
       <div class="flagship-card">
-        <img class="flagship-card-img" src="/rys-images/conferences/haryana_yuva_samvad_2026/hys-cover.jpg" alt="HYS 2026">
+        <img class="flagship-card-img" src="/images/conferences/haryana_yuva_samvad_2026/hys-cover.jpg" alt="HYS 2026">
         <div class="flagship-card-body">
           <div class="flagship-card-date">16–17 January 2026 · Chandigarh</div>
           <div class="flagship-card-name">Haryana Yuva Samvad 2026</div>
           <div class="flagship-card-desc">Held at Haryana Vidhan Sabha in association with the Secretariat, focusing on sustainable growth, industrial policy, and legislative simulation.</div>
-          <a href="../conferences/haryana_yuva_samvad_2026/" class="flagship-card-cta">View Proceedings →</a>
+          <a href="/conferences/haryana_yuva_samvad_2026/" class="flagship-card-cta">View Proceedings →</a>
         </div>
       </div>
       <!-- Card 2 -->
       <div class="flagship-card">
-        <img class="flagship-card-img" src="/rys-images/conferences/gorakhpur_yuva_samvad_2025/gys-cover.jpg" alt="GYS 2025">
+        <img class="flagship-card-img" src="/images/conferences/gorakhpur_yuva_samvad_2025/gys-cover.jpg" alt="GYS 2025">
         <div class="flagship-card-body">
           <div class="flagship-card-date">11–12 October 2025 · Gorakhpur</div>
           <div class="flagship-card-name">Gorakhpur Yuva Samvad 2025</div>
           <div class="flagship-card-desc">A first-of-its-kind East UP edition with 19 committees and 900+ participants across parliamentary, UN, and press simulations.</div>
-          <a href="../conferences/#gorakhpur-yuva-samvad-2025" class="flagship-card-cta">View Proceedings →</a>
+          <a href="/conferences/#gorakhpur-yuva-samvad-2025" class="flagship-card-cta">View Proceedings →</a>
         </div>
       </div>
       <!-- Card 3 -->
       <div class="flagship-card">
-        <img class="flagship-card-img" src="/rys-images/conferences/sajag_yuva_manch_6/sym-cover.png" alt="SYM 6.0">
+        <img class="flagship-card-img" src="/images/conferences/sajag_yuva_manch_6/sym-cover.png" alt="SYM 6.0">
         <div class="flagship-card-body">
           <div class="flagship-card-date">22–23 August 2025 · Ghaziabad</div>
           <div class="flagship-card-name">Sajag Yuva Manch 6.0</div>
           <div class="flagship-card-desc">A large-scale multi-committee conference with 700+ delegates, committee crises, and strong focus on public policy literacy.</div>
-          <a href="../conferences/#sym-6" class="flagship-card-cta">View Proceedings →</a>
+          <a href="/conferences/#sym-6" class="flagship-card-cta">View Proceedings →</a>
         </div>
       </div>
       <!-- Card 4 -->
       <div class="flagship-card">
-        <img class="flagship-card-img" src="/rys-images/conferences/delhi_yuva_samvad_2024/dys-coveer.jpg" alt="DYS 2024">
+        <img class="flagship-card-img" src="/images/conferences/delhi_yuva_samvad_2024/dys-coveer.jpg" alt="DYS 2024">
         <div class="flagship-card-body">
           <div class="flagship-card-date">December 2024 · New Delhi</div>
           <div class="flagship-card-name">Delhi Yuva Samvad 2024</div>
           <div class="flagship-card-desc">75 selected participants from across India, 3-step rigorous selection, graced by Hon'ble Speaker Shri Ram Niwas Goel.</div>
-          <a href="../conferences/#delhi-yuva-samvad-2024" class="flagship-card-cta">View Proceedings →</a>
+          <a href="/conferences/#delhi-yuva-samvad-2024" class="flagship-card-cta">View Proceedings →</a>
         </div>
       </div>
       <!-- Card 5 -->
       <div class="flagship-card">
-        <img class="flagship-card-img" src="/rys-images/conferences/nlpf_2024/nlpf-cover.png" alt="NLPF 2024">
+        <img class="flagship-card-img" src="/images/conferences/nlpf_2024/nlpf-cover.png" alt="NLPF 2024">
         <div class="flagship-card-body">
           <div class="flagship-card-date">November 2024 · New Delhi</div>
           <div class="flagship-card-name">National Lawyers' Parliament Festival 2024</div>
           <div class="flagship-card-desc">A high-impact legal deliberation with ~500 lawyers and law students at the India International Centre on New Criminal Laws.</div>
-          <a href="../conferences/#nlpf-2" class="flagship-card-cta">View Proceedings →</a>
+          <a href="/conferences/#nlpf-2" class="flagship-card-cta">View Proceedings →</a>
         </div>
       </div>
       <!-- Card 7 -->
       <div class="flagship-card">
-        <img class="flagship-card-img" src="/rys-images/conferences/global_panchayat_2/global-panchayat-cover.jpg" alt="Global Panchayat 2.0">
+        <img class="flagship-card-img" src="/images/conferences/global_panchayat_2/global-panchayat-cover.jpg" alt="Global Panchayat 2.0">
         <div class="flagship-card-body">
           <div class="flagship-card-date">2025 · Delhi NCR</div>
           <div class="flagship-card-name">Global Panchayat 2.0</div>
           <div class="flagship-card-desc">7 committees bringing together youth to deliberate on global and national policies. Inaugural address by Sh. Ram Niwas Goel.</div>
-          <a href="../conferences/#global-panchayat-2" class="flagship-card-cta">View Proceedings →</a>
+          <a href="/conferences/#global-panchayat-2" class="flagship-card-cta">View Proceedings →</a>
         </div>
       </div>
       <!-- Card 8 -->
       <div class="flagship-card">
-        <img class="flagship-card-img" src="/rys-images/conferences/sajag_yuva_manch_5/cover.png" alt="SYM 5.0">
+        <img class="flagship-card-img" src="/images/conferences/sajag_yuva_manch_5/cover.png" alt="SYM 5.0">
         <div class="flagship-card-body">
           <div class="flagship-card-date">2024 · Ghaziabad</div>
           <div class="flagship-card-name">Sajag Yuva Manch 5.0</div>
           <div class="flagship-card-desc">A sweeping success with hundreds of delegates participating across dynamic committees and immersive simulations.</div>
-          <a href="../conferences/#sym-5" class="flagship-card-cta">View Proceedings →</a>
+          <a href="/conferences/#sym-5" class="flagship-card-cta">View Proceedings →</a>
         </div>
       </div>
       <!-- Card 9 -->
       <div class="flagship-card">
-        <img class="flagship-card-img" src="/rys-images/conferences/nlpf_2023/1.png" alt="NLPF 2023">
+        <img class="flagship-card-img" src="/images/conferences/nlpf_2023/1.png" alt="NLPF 2023">
         <div class="flagship-card-body">
           <div class="flagship-card-date">November 2023 · New Delhi</div>
           <div class="flagship-card-name">National Lawyers' Parliament 2023</div>
           <div class="flagship-card-desc">The preceding edition of India's premier legal deliberation forum, marking a monumental gathering for young legal minds.</div>
-          <a href="../conferences/#nlpf-1" class="flagship-card-cta">View Proceedings →</a>
+          <a href="/conferences/#nlpf-1" class="flagship-card-cta">View Proceedings →</a>
         </div>
       </div>
     </div>
@@ -1514,7 +1568,7 @@ footer {
     <p>From 250-student school simulations in 2018 to 900-delegate national conferences at India's foremost legislative halls — RYS has built a credible, growing platform for youth parliamentary dialogue across the nation.</p>
   </div>
   <div class="timeline-grid">
-    <a href="../conferences/#haryana-yuva-samvad-2026" class="tc reveal">
+    <a href="/conferences/#haryana-yuva-samvad-2026" class="tc reveal">
       <div class="tc-num">23</div>
       <div class="tc-year">Jan 2026</div>
       <div class="tc-name">Haryana Yuva Samvad 2026</div>
@@ -1522,7 +1576,7 @@ footer {
       <div class="tc-venue">Haryana Vidhan Sabha, Chandigarh</div>
       <div class="tc-link">View Proceedings &rarr;</div>
     </a>
-    <a href="../conferences/#global-panchayat-2" class="tc reveal reveal-d1">
+    <a href="/conferences/#global-panchayat-2" class="tc reveal reveal-d1">
       <div class="tc-num">22</div>
       <div class="tc-year">2025</div>
       <div class="tc-name">Global Panchayat 2.0</div>
@@ -1530,7 +1584,7 @@ footer {
       <div class="tc-venue">Delhi NCR</div>
       <div class="tc-link">View Proceedings &rarr;</div>
     </a>
-    <a href="../conferences/#gorakhpur-yuva-samvad-2025" class="tc reveal reveal-d2">
+    <a href="/conferences/#gorakhpur-yuva-samvad-2025" class="tc reveal reveal-d2">
       <div class="tc-num">21</div>
       <div class="tc-year">Oct 2025</div>
       <div class="tc-name">Gorakhpur Yuva Samvad</div>
@@ -1538,7 +1592,7 @@ footer {
       <div class="tc-venue">Gorakhpur, Uttar Pradesh</div>
       <div class="tc-link">View Proceedings &rarr;</div>
     </a>
-    <a href="../conferences/#sym-6" class="tc reveal">
+    <a href="/conferences/#sym-6" class="tc reveal">
       <div class="tc-num">19</div>
       <div class="tc-year">Aug 2025</div>
       <div class="tc-name">Sajag Yuva Manch 6.0</div>
@@ -1546,7 +1600,7 @@ footer {
       <div class="tc-venue">Silverline Prestige School, Ghaziabad</div>
       <div class="tc-link">View Proceedings &rarr;</div>
     </a>
-    <a href="../conferences/#delhi-yuva-samvad-2024" class="tc reveal reveal-d1">
+    <a href="/conferences/#delhi-yuva-samvad-2024" class="tc reveal reveal-d1">
       <div class="tc-num">17</div>
       <div class="tc-year">Dec 2024</div>
       <div class="tc-name">Delhi Yuva Samvad 2024</div>
@@ -1554,7 +1608,7 @@ footer {
       <div class="tc-venue">Delhi Vidhan Sabha, New Delhi</div>
       <div class="tc-link">View Proceedings &rarr;</div>
     </a>
-    <a href="../conferences/#nlpf-2" class="tc reveal reveal-d2">
+    <a href="/conferences/#nlpf-2" class="tc reveal reveal-d2">
       <div class="tc-num">16</div>
       <div class="tc-year">Nov 2024</div>
       <div class="tc-name">2nd National Lawyers' Parliament Festival</div>
@@ -1562,7 +1616,7 @@ footer {
       <div class="tc-venue">India International Centre, New Delhi</div>
       <div class="tc-link">View Proceedings &rarr;</div>
     </a>
-    <a href="../conferences/#st-xaviers-2018" class="tc reveal reveal-d1">
+    <a href="/conferences/#st-xaviers-2018" class="tc reveal reveal-d1">
       <div class="tc-num">01</div>
       <div class="tc-year">2018</div>
       <div class="tc-name">St. Xavier's School, Civil Lines</div>
@@ -1572,7 +1626,7 @@ footer {
     </a>
     <!-- Explore All Conferences Block -->
     <div class="tc reveal reveal-d2" style="display:flex; align-items:center; justify-content:center; border:none; background:transparent;">
-      <a href="../conferences/" class="btn-fire" style="padding: .9rem 2.2rem; font-size: .75rem;">Explore All 23 Conferences →</a>
+      <a href="/conferences/" class="btn-fire" style="padding: .9rem 2.2rem; font-size: .75rem;">Explore All 23 Conferences →</a>
     </div>
   </div>
 </section>
@@ -1684,37 +1738,37 @@ footer {
   <h2 class="sec-h2 reveal">The Visionary Minds</h2>
   <div class="team-grid">
     <div class="team-card reveal">
-      <div class="team-img"><img src="/rys-images/dash/team-8-core-members/jatin.jpg" alt="Jatin Kapoor"></div>
+      <div class="team-img"><img src="/images/dash/team-8-core-members/jatin.jpg" alt="Jatin Kapoor"></div>
       <div class="team-info"><div class="team-name">Mr. Jatin Kapoor</div><div class="team-role">Head of Operations</div></div>
     </div>
     <div class="team-card reveal reveal-d1">
-      <div class="team-img"><img src="/rys-images/dash/team-8-core-members/avni.jpg" alt="Avni Chauhan"></div>
+      <div class="team-img"><img src="/images/dash/team-8-core-members/avni.jpg" alt="Avni Chauhan"></div>
       <div class="team-info"><div class="team-name">Ms. Avni Chauhan</div><div class="team-role">Member, Core Team</div></div>
     </div>
     <div class="team-card reveal reveal-d2">
-      <div class="team-img"><img src="/rys-images/dash/team-8-core-members/parv.jpg" alt="Parv Narendra"></div>
+      <div class="team-img"><img src="/images/dash/team-8-core-members/parv.jpg" alt="Parv Narendra"></div>
       <div class="team-info"><div class="team-name">Mr. Parv Narendra</div><div class="team-role">Member, Core Team</div></div>
     </div>
     <div class="team-card reveal reveal-d3">
-      <div class="team-img"><img src="/rys-images/dash/team-8-core-members/tanisha.jpg" alt="Tanisha Gupta"></div>
+      <div class="team-img"><img src="/images/dash/team-8-core-members/tanisha.jpg" alt="Tanisha Gupta"></div>
       <div class="team-info"><div class="team-name">Ms. Tanisha Gupta</div><div class="team-role">Member, Core Team</div></div>
     </div>
   </div>
   <div class="team-grid-b">
     <div class="team-card reveal">
-      <div class="team-img"><img src="/rys-images/dash/team-8-core-members/shreya.jpg" alt="Shreya Kapoor"></div>
+      <div class="team-img"><img src="/images/dash/team-8-core-members/shreya.jpg" alt="Shreya Kapoor"></div>
       <div class="team-info"><div class="team-name">Ms. Shreya Kapoor</div><div class="team-role">Member, Core Team</div></div>
     </div>
     <div class="team-card reveal reveal-d1">
-      <div class="team-img"><img src="/rys-images/dash/team-8-core-members/zigyasa.jpg" alt="Zigyasa Mishra"></div>
+      <div class="team-img"><img src="/images/dash/team-8-core-members/zigyasa.jpg" alt="Zigyasa Mishra"></div>
       <div class="team-info"><div class="team-name">Ms. Zigyasa Mishra</div><div class="team-role">Member, Core Team</div></div>
     </div>
     <div class="team-card reveal reveal-d2">
-      <div class="team-img"><img src="/rys-images/dash/team-8-core-members/arsh.jpg" alt="Arsh Khan"></div>
+      <div class="team-img"><img src="/images/dash/team-8-core-members/arsh.jpg" alt="Arsh Khan"></div>
       <div class="team-info"><div class="team-name">Mr. Arsh Khan</div><div class="team-role">Member, Core Team</div></div>
     </div>
     <div class="team-card reveal reveal-d3">
-      <div class="team-img"><img src="/rys-images/dash/team-8-core-members/kartik.jpg" alt="Kartik Saraswat"></div>
+      <div class="team-img"><img src="/images/dash/team-8-core-members/kartik.jpg" alt="Kartik Saraswat"></div>
       <div class="team-info"><div class="team-name">Mr. Kartik Saraswat</div><div class="team-role">Member, Core Team</div></div>
     </div>
   </div>
@@ -1727,7 +1781,7 @@ footer {
     <h2 class="cta-h2">Join the next national dialogue.</h2>
     <p class="cta-sub">RYS continues to build India's youth leadership through constitutional dialogue, committee simulations, and policy-focused national forums. Your voice matters.</p>
   </div>
-  <a href="../contact/" class="btn-ivory">⚑ Register As Delegate</a>
+  <a href="/contact/" class="btn-ivory">⚑ Register As Delegate</a>
 </section>
 
 <!-- ══════════════════════════ FOOTER ══════════════════════════ -->
@@ -1743,7 +1797,7 @@ footer {
     <div class="footer-col">
       <h4>Navigate</h4>
       <ul>
-        <li><a href="../home/">Home</a></li>
+        <li><a href="/">Home</a></li>
         <li><a href="#founders">About RYS</a></li>
         <li><a href="#history">Conferences</a></li>
         <li><a href="#dignitaries">Dignitaries</a></li>
@@ -1753,17 +1807,17 @@ footer {
     <div class="footer-col">
       <h4>Recent Events</h4>
       <ul>
-        <li><a href="../conferences/haryana_yuva_samvad_2026/">Haryana Yuva Samvad 2026</a></li>
-        <li><a href="../conferences/gorakhpur_yuva_samvad_2025/">Gorakhpur Yuva Samvad 2025</a></li>
-        <li><a href="../conferences/sajag_yuva_manch_6/">Sajag Yuva Manch 6.0</a></li>
-        <li><a href="../conferences/nlpf_2024/">2nd Lawyers' Parliament 2024</a></li>
-        <li><a href="../conferences/delhi_yuva_samvad_2024/">Delhi Yuva Samvad 2024</a></li>
+        <li><a href="/conferences/haryana_yuva_samvad_2026/">Haryana Yuva Samvad 2026</a></li>
+        <li><a href="/conferences/gorakhpur_yuva_samvad_2025/">Gorakhpur Yuva Samvad 2025</a></li>
+        <li><a href="/conferences/sajag_yuva_manch_6/">Sajag Yuva Manch 6.0</a></li>
+        <li><a href="/conferences/nlpf_2024/">2nd Lawyers' Parliament 2024</a></li>
+        <li><a href="/conferences/delhi_yuva_samvad_2024/">Delhi Yuva Samvad 2024</a></li>
       </ul>
     </div>
     <div class="footer-col">
       <h4>Connect</h4>
       <ul>
-        <li><a href="../contact/">Contact Us</a></li>
+        <li><a href="/contact/">Contact Us</a></li>
         <li><a href="https://www.instagram.com/rajdhaaniyuvaasansad?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==">Instagram</a></li>
         <li><a href="https://www.youtube.com/@RajdhaniYuvaSansad">YouTube</a></li>
         <li><a href="https://www.linkedin.com/company/rajdhani-yuva-sansad/">LinkedIn</a></li>
@@ -1928,7 +1982,7 @@ function switchTab(btn,id){
     'gorakhpur-yuva-samvad-2025','global-panchayat-2','haryana-yuva-samvad-2026'];
   document.querySelectorAll('.tc').forEach(function(tc,i){
     if(i>=ids.length)return;
-    tc.addEventListener('click',function(){window.location.href='../conferences/#'+ids[i];});
+    tc.addEventListener('click',function(){window.location.href='/conferences/#'+ids[i];});
     var lnk=document.createElement('div');
     lnk.className='tc-link';
     lnk.textContent='View Details →';
@@ -1997,6 +2051,21 @@ if (mobileToggle && mobileOverlay) {
   if (btn) btn.addEventListener('click', function(){ applyTheme(root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark'); });
   var mBtn = document.querySelector('.mobile-theme-toggle');
   if (mBtn) mBtn.addEventListener('click', function(){ applyTheme(root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark'); });
+})();
+</script>
+<script>
+(function(){
+  var loader = document.getElementById('rys-loader');
+  if(!loader) return;
+  var words = [document.getElementById('lw1'), document.getElementById('lw2'), document.getElementById('lw3')];
+  var delay = 500;
+  words.forEach(function(w,i){
+    setTimeout(function(){ if(w) w.classList.add('show'); }, delay + i * 250);
+  });
+  setTimeout(function(){
+    loader.classList.add('loader-done');
+    setTimeout(function(){ loader.remove(); }, 700);
+  }, delay + 250 * words.length + 600);
 })();
 </script>
 </body>
