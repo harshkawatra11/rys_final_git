@@ -1328,54 +1328,112 @@ footer {
 </section>
 
 <!-- ══════════════════════════ MAJOR HIGHLIGHTS ══════════════════════════ -->
-<section class="sec" style="background:var(--navy);padding:3rem 5vw;">
-  <div style="max-width:1100px;margin:0 auto;">
-    <p class="sec-tag" style="text-align:center;">Institutional Recognition</p>
-    <h2 class="sec-h2" style="text-align:center;margin-bottom:2.5rem;">Major Highlights</h2>
-    
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.5rem;">
-      <!-- Highlight 1 -->
-      <div class="reveal" style="border:1px solid var(--border-gold);padding:1.8rem;background:var(--glass-bg);backdrop-filter:blur(12px);">
-        <div style="font-size:2rem;margin-bottom:.8rem;">🏛</div>
-        <h3 style="font-family:'Cinzel',serif;font-size:0.95rem;font-weight:700;color:var(--cream);line-height:1.4;margin:0 0 .8rem;">
-          Official Government Feature
-        </h3>
-        <p style="font-size:0.8rem;color:var(--dim);line-height:1.7;margin:0;">
-          Haryana Yuva Samvad featured on the official press notes of the Haryana Vidhan Sabha. Speaker Harvinder Kalyan affirmed: <em>"Communication is the key to resolving any problem."</em>
-        </p>
+<style>
+  .mh{position:relative;padding:5rem 5vw 4rem;background:var(--navy-deep);overflow:hidden}
+  .mh::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--gold-light),transparent)}
+  .mh::after{content:'';position:absolute;bottom:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--gold-light),transparent)}
+  .mh-inner{max-width:1100px;margin:0 auto;position:relative;z-index:1}
+  .mh-tag{font-family:'Cinzel',serif;font-size:.65rem;letter-spacing:.35em;text-transform:uppercase;color:var(--gold-light);text-align:center;margin-bottom:.6rem}
+  .mh-h2{font-family:'Cinzel',serif;font-size:clamp(1.6rem,3.5vw,2.4rem);font-weight:700;color:var(--cream);text-align:center;margin-bottom:.8rem}
+  .mh-rule{width:60px;height:2px;background:linear-gradient(90deg,var(--saffron),var(--gold));margin:0 auto 3rem;border-radius:2px}
+
+  /* ── timeline spine ── */
+  .mh-timeline{position:relative;padding-left:3rem}
+  .mh-timeline::before{content:'';position:absolute;left:11px;top:0;bottom:0;width:2px;background:linear-gradient(180deg,var(--saffron),var(--gold-light) 50%,var(--saffron));opacity:.35}
+
+  .mh-item{position:relative;margin-bottom:2.8rem;padding-left:1.2rem}
+  .mh-item:last-child{margin-bottom:0}
+
+  /* dot on spine */
+  .mh-dot{position:absolute;left:-3rem;top:4px;width:24px;height:24px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.75rem;background:var(--navy);border:2px solid var(--gold-light);z-index:2;transition:transform .35s,border-color .35s,box-shadow .35s}
+  .mh-item:hover .mh-dot{transform:scale(1.25);border-color:var(--saffron);box-shadow:0 0 12px rgba(212,80,10,.35)}
+
+  .mh-label{font-family:'Cinzel',serif;font-size:.6rem;letter-spacing:.25em;text-transform:uppercase;color:var(--saffron-light);margin-bottom:.35rem;display:inline-block}
+  .mh-title{font-family:'Cinzel',serif;font-size:1.05rem;font-weight:700;color:var(--cream);line-height:1.45;margin-bottom:.55rem}
+  .mh-desc{font-size:.82rem;color:var(--dim2);line-height:1.75;max-width:680px}
+  .mh-desc em{color:var(--cream);font-style:italic}
+  .mh-pills{display:flex;flex-wrap:wrap;gap:.45rem;margin-top:.7rem}
+  .mh-pill{font-size:.6rem;letter-spacing:.08em;padding:.25rem .7rem;border-radius:100px;border:1px solid var(--border-gold);color:var(--cream-mid);background:rgba(166,124,16,.06);white-space:nowrap;transition:background .3s,color .3s}
+  .mh-pill:hover{background:rgba(166,124,16,.15);color:var(--cream)}
+
+  /* ambient glow */
+  .mh-glow{position:absolute;width:340px;height:340px;border-radius:50%;filter:blur(120px);opacity:.08;pointer-events:none}
+  .mh-glow--1{top:-100px;right:-60px;background:var(--saffron)}
+  .mh-glow--2{bottom:-80px;left:-80px;background:var(--gold)}
+
+  @media(max-width:640px){
+    .mh{padding:3.5rem 5vw 3rem}
+    .mh-timeline{padding-left:2.4rem}
+    .mh-timeline::before{left:9px}
+    .mh-dot{left:-2.4rem;width:20px;height:20px;font-size:.65rem}
+    .mh-item{padding-left:.8rem}
+    .mh-title{font-size:.95rem}
+    .mh-desc{font-size:.78rem}
+  }
+</style>
+<section class="mh">
+  <div class="mh-glow mh-glow--1"></div>
+  <div class="mh-glow mh-glow--2"></div>
+  <div class="mh-inner">
+    <p class="mh-tag reveal">Institutional Recognition</p>
+    <h2 class="mh-h2 reveal">Major Highlights</h2>
+    <div class="mh-rule reveal"></div>
+
+    <div class="mh-timeline">
+      <!-- 1 — Government -->
+      <div class="mh-item reveal">
+        <span class="mh-dot">🏛</span>
+        <span class="mh-label">Legislative</span>
+        <h3 class="mh-title">Official Haryana Vidhan Sabha Feature</h3>
+        <p class="mh-desc">Haryana Yuva Samvad featured on the official press notes of the State Legislature. Speaker Harvinder Kalyan affirmed — <em>"Communication is the key to resolving any problem."</em></p>
+        <div class="mh-pills">
+          <span class="mh-pill">Vidhan Sabha Press Note</span>
+          <span class="mh-pill">Speaker's Endorsement</span>
+        </div>
       </div>
-      
-      <!-- Highlight 2 -->
-      <div class="reveal reveal-d1" style="border:1px solid var(--border-gold);padding:1.8rem;background:var(--glass-bg);backdrop-filter:blur(12px);">
-        <div style="font-size:2rem;margin-bottom:.8rem;">📡</div>
-        <h3 style="font-family:'Cinzel',serif;font-size:0.95rem;font-weight:700;color:var(--cream);line-height:1.4;margin:0 0 .8rem;">
-          PTI Wire Distribution
-        </h3>
-        <p style="font-size:0.8rem;color:var(--dim);line-height:1.7;margin:0;">
-          Picked up by Press Trust of India and syndicated across The Print, Latestly, NDTV, and 15+ national outlets — a mark of genuine national news relevance.
-        </p>
+
+      <!-- 2 — Wire Service -->
+      <div class="mh-item reveal reveal-d1">
+        <span class="mh-dot">📡</span>
+        <span class="mh-label">National Wire</span>
+        <h3 class="mh-title">Press Trust of India — Syndicated Nationwide</h3>
+        <p class="mh-desc">Picked up by PTI and syndicated across The Print, Latestly, NDTV, and 15+ national outlets — a mark of genuine national news relevance.</p>
+        <div class="mh-pills">
+          <span class="mh-pill">PTI</span>
+          <span class="mh-pill">NDTV</span>
+          <span class="mh-pill">The Print</span>
+          <span class="mh-pill">Latestly</span>
+          <span class="mh-pill">15+ Outlets</span>
+        </div>
       </div>
-      
-      <!-- Highlight 3 -->
-      <div class="reveal reveal-d2" style="border:1px solid var(--border-gold);padding:1.8rem;background:var(--glass-bg);backdrop-filter:blur(12px);">
-        <div style="font-size:2rem;margin-bottom:.8rem;">📺</div>
-        <h3 style="font-family:'Cinzel',serif;font-size:0.95rem;font-weight:700;color:var(--cream);line-height:1.4;margin:0 0 .8rem;">
-          Television Feature
-        </h3>
-        <p style="font-size:0.8rem;color:var(--dim);line-height:1.7;margin:0;">
-          Featured on Total TV with Co-Founder interviews (2025), full coverage on Total Haryana, and news reporting by STV Haryana (2026).
-        </p>
+
+      <!-- 3 — Television -->
+      <div class="mh-item reveal reveal-d2">
+        <span class="mh-dot">📺</span>
+        <span class="mh-label">Broadcast</span>
+        <h3 class="mh-title">Television — Interviews & Live Coverage</h3>
+        <p class="mh-desc">Featured on Total TV with Co-Founder interviews (2025), full coverage on Total Haryana, and news reporting by STV Haryana (2026).</p>
+        <div class="mh-pills">
+          <span class="mh-pill">Total TV</span>
+          <span class="mh-pill">Total Haryana</span>
+          <span class="mh-pill">STV Haryana</span>
+        </div>
       </div>
-      
-      <!-- Highlight 4 -->
-      <div class="reveal reveal-d3" style="border:1px solid var(--border-gold);padding:1.8rem;background:var(--glass-bg);backdrop-filter:blur(12px);">
-        <div style="font-size:2rem;margin-bottom:.8rem;">📰</div>
-        <h3 style="font-family:'Cinzel',serif;font-size:0.95rem;font-weight:700;color:var(--cream);line-height:1.4;margin:0 0 .8rem;">
-          Print & Digital Media
-        </h3>
-        <p style="font-size:0.8rem;color:var(--dim);line-height:1.7;margin:0;">
-          Times of India, Hindustan Times, Dainik Bhaskar, The Pioneer, Dev Discourse, India Education Diary, and 10+ more outlets — English, Hindi, and regional language coverage.
-        </p>
+
+      <!-- 4 — Print & Digital -->
+      <div class="mh-item reveal reveal-d3">
+        <span class="mh-dot">📰</span>
+        <span class="mh-label">Print &amp; Digital</span>
+        <h3 class="mh-title">National & Regional Press Coverage</h3>
+        <p class="mh-desc">Times of India, Hindustan Times, Dainik Bhaskar, The Pioneer, Dev Discourse, India Education Diary, and 10+ more outlets — English, Hindi, and regional language coverage.</p>
+        <div class="mh-pills">
+          <span class="mh-pill">Times of India</span>
+          <span class="mh-pill">Hindustan Times</span>
+          <span class="mh-pill">Dainik Bhaskar</span>
+          <span class="mh-pill">The Pioneer</span>
+          <span class="mh-pill">Dev Discourse</span>
+          <span class="mh-pill">10+ More</span>
+        </div>
       </div>
     </div>
   </div>
