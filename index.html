@@ -635,6 +635,18 @@ html[data-theme="light"] .theme-toggle-knob { transform:translateX(24px); backgr
   color:var(--gold-light); letter-spacing:.12em; text-transform:uppercase;
   margin-bottom:1.2rem;
 }
+.pub-books-row {
+  display:flex; gap:2rem; justify-content:center; margin-bottom:1.8rem;
+}
+.pub-book-cover {
+  width:140px; flex-shrink:0;
+  border:1px solid var(--border-gold);
+  box-shadow:0 4px 24px rgba(0,0,0,.35);
+  transition:transform .3s, box-shadow .3s;
+  overflow:hidden;
+}
+.pub-book-cover:hover { transform:translateY(-4px) scale(1.02); box-shadow:0 8px 32px rgba(212,80,10,.2); }
+.pub-book-cover img { width:100%; display:block; }
 .pub-grid { display:grid; grid-template-columns:1fr 1fr; gap:.8rem; }
 @media(max-width:640px){ .pub-grid { grid-template-columns:1fr; } }
 .pub-card {
@@ -999,7 +1011,7 @@ html[data-theme="light"] .flagship-strip::after  { background:linear-gradient(to
    SPONSORS
 ══════════════════════════════════════════ */
 #sponsors-sec {
-  background: var(--navy); padding:4rem 0 3.5rem; overflow:hidden;
+  background: var(--navy); padding:4rem 5vw 3.5rem; overflow:hidden;
   border-top:1px solid var(--border-gold); border-bottom:1px solid var(--border-gold);
 }
 .sponsors-heading {
@@ -1011,31 +1023,33 @@ html[data-theme="light"] .flagship-strip::after  { background:linear-gradient(to
   content:''; display:block; width:60px; height:2px;
   background:var(--saffron); margin:.8rem auto 0;
 }
-.sponsors-track-wrap {
-  position:relative; width:100%;
-  mask-image:linear-gradient(to right, transparent, black 8%, black 92%, transparent);
-  -webkit-mask-image:linear-gradient(to right, transparent, black 8%, black 92%, transparent);
+.partners-grid {
+  display:flex; flex-wrap:wrap; justify-content:center; gap:2.5rem 3rem;
+  max-width:1000px; margin:0 auto;
 }
-.sponsors-track {
-  display:flex; gap:3rem; align-items:center; white-space:nowrap;
-  animation:scrollLogos 40s linear infinite;
-  width:max-content;
+.partner-item {
+  display:flex; flex-direction:column; align-items:center; gap:.8rem;
+  text-decoration:none; color:inherit;
+  transition:transform .3s;
 }
-.sponsors-track img {
-  height:50px; width:auto; opacity:.55; filter:grayscale(.4);
-  transition:opacity .3s, filter .3s;
-  flex-shrink:0;
+.partner-item:hover { transform:translateY(-3px); }
+.partner-logo-wrap {
+  width:130px; height:80px; display:flex; align-items:center; justify-content:center;
+  background:rgba(255,255,255,.06); border:1px solid var(--border-gold);
+  padding:.6rem; overflow:hidden;
 }
-.sponsors-track img:hover { opacity:1; filter:grayscale(0); }
-@keyframes scrollLogos {
-  0%   { transform:translateX(0); }
-  100% { transform:translateX(-50%); }
+.partner-logo-wrap img {
+  max-width:100%; max-height:100%; object-fit:contain;
+  filter:grayscale(.3); transition:filter .3s;
 }
-@keyframes scrollLogosRtl {
-  0%   { transform:translateX(-50%); }
-  100% { transform:translateX(0); }
+.partner-item:hover .partner-logo-wrap img { filter:grayscale(0); }
+.partner-label {
+  font-family:'Cinzel',serif; font-size:.6rem; font-weight:700;
+  color:var(--gold-light); letter-spacing:.14em; text-transform:uppercase;
+  text-align:center;
 }
-.sponsors-track-rtl { animation-name:scrollLogosRtl; }
+.partner-link { cursor:pointer; }
+@media(max-width:480px){ .partners-grid { gap:2rem 1.5rem; } .partner-logo-wrap { width:100px; height:65px; } }
 
 /* ═══════════════════════════════════════
    FOOTER
@@ -1600,7 +1614,11 @@ Their journey spans institutional engagement across the states of Delhi, Uttar P
       <p>Their combined experience, nationwide practice, and specialized knowledge in cyber law underscore a forward-thinking approach to modern legal practice.</p>
 
       <div class="pub-section">
-        <div class="pub-section-title">📖 Co-authored Publications</div>
+        <div class="pub-section-title">📖 Co-authored Works</div>
+        <div class="pub-books-row">
+          <div class="pub-book-cover"><img src="/images/ek-desh-ek-chunaav.jpeg" alt="Ek Desh Ek Chunaav"></div>
+          <div class="pub-book-cover"><img src="/images/uniform-civil-code-cover.jpeg" alt="Uniform Civil Code: Towards Unified Bharat"></div>
+        </div>
         <div class="pub-grid">
           <div class="pub-card">
             <div class="pub-type">Book</div>
@@ -2045,58 +2063,30 @@ Their journey spans institutional engagement across the states of Delhi, Uttar P
   <a href="/contact/" class="btn-ivory">⚑ Register As Delegate</a>
 </section>
 
-<!-- ══════════════════════════ SPONSORS ══════════════════════════ -->
+<!-- ══════════════════════════ PARTNERS ══════════════════════════ -->
 <section id="sponsors-sec">
-  <h2 class="sponsors-heading">Our Sponsors</h2>
-  <div class="sponsors-track-wrap">
-    <div class="sponsors-track">
-      <img src="https://placehold.co/160x60/0b1120/c9a84c?text=Sponsor+1" alt="Sponsor 1">
-      <img src="https://placehold.co/160x60/0b1120/c9a84c?text=Sponsor+2" alt="Sponsor 2">
-      <img src="https://placehold.co/160x60/0b1120/c9a84c?text=Sponsor+3" alt="Sponsor 3">
-      <img src="https://placehold.co/160x60/0b1120/c9a84c?text=Sponsor+4" alt="Sponsor 4">
-      <img src="https://placehold.co/160x60/0b1120/c9a84c?text=Sponsor+5" alt="Sponsor 5">
-      <img src="https://placehold.co/160x60/0b1120/c9a84c?text=Sponsor+6" alt="Sponsor 6">
-      <img src="https://placehold.co/160x60/0b1120/c9a84c?text=Sponsor+7" alt="Sponsor 7">
-      <img src="https://placehold.co/160x60/0b1120/c9a84c?text=Sponsor+8" alt="Sponsor 8">
-      <img src="https://placehold.co/160x60/0b1120/c9a84c?text=Sponsor+9" alt="Sponsor 9">
-      <img src="https://placehold.co/160x60/0b1120/c9a84c?text=Sponsor+10" alt="Sponsor 10">
-      <!-- duplicate for seamless loop -->
-      <img src="https://placehold.co/160x60/0b1120/c9a84c?text=Sponsor+1" alt="Sponsor 1">
-      <img src="https://placehold.co/160x60/0b1120/c9a84c?text=Sponsor+2" alt="Sponsor 2">
-      <img src="https://placehold.co/160x60/0b1120/c9a84c?text=Sponsor+3" alt="Sponsor 3">
-      <img src="https://placehold.co/160x60/0b1120/c9a84c?text=Sponsor+4" alt="Sponsor 4">
-      <img src="https://placehold.co/160x60/0b1120/c9a84c?text=Sponsor+5" alt="Sponsor 5">
-      <img src="https://placehold.co/160x60/0b1120/c9a84c?text=Sponsor+6" alt="Sponsor 6">
-      <img src="https://placehold.co/160x60/0b1120/c9a84c?text=Sponsor+7" alt="Sponsor 7">
-      <img src="https://placehold.co/160x60/0b1120/c9a84c?text=Sponsor+8" alt="Sponsor 8">
-      <img src="https://placehold.co/160x60/0b1120/c9a84c?text=Sponsor+9" alt="Sponsor 9">
-      <img src="https://placehold.co/160x60/0b1120/c9a84c?text=Sponsor+10" alt="Sponsor 10">
+  <h2 class="sponsors-heading">Our Partners & Collaborators</h2>
+  <div class="partners-grid">
+    <div class="partner-item">
+      <div class="partner-logo-wrap"><img src="/images/casemine-sponsor.jpeg" alt="Casemine"></div>
+      <div class="partner-label">Supporting Partner</div>
     </div>
-  </div>
-  <div class="sponsors-track-wrap" style="margin-top:1.2rem;">
-    <div class="sponsors-track sponsors-track-rtl">
-      <img src="https://placehold.co/160x60/0b1120/c9a84c?text=Sponsor+11" alt="Sponsor 11">
-      <img src="https://placehold.co/160x60/0b1120/c9a84c?text=Sponsor+12" alt="Sponsor 12">
-      <img src="https://placehold.co/160x60/0b1120/c9a84c?text=Sponsor+13" alt="Sponsor 13">
-      <img src="https://placehold.co/160x60/0b1120/c9a84c?text=Sponsor+14" alt="Sponsor 14">
-      <img src="https://placehold.co/160x60/0b1120/c9a84c?text=Sponsor+15" alt="Sponsor 15">
-      <img src="https://placehold.co/160x60/0b1120/c9a84c?text=Sponsor+16" alt="Sponsor 16">
-      <img src="https://placehold.co/160x60/0b1120/c9a84c?text=Sponsor+17" alt="Sponsor 17">
-      <img src="https://placehold.co/160x60/0b1120/c9a84c?text=Sponsor+18" alt="Sponsor 18">
-      <img src="https://placehold.co/160x60/0b1120/c9a84c?text=Sponsor+19" alt="Sponsor 19">
-      <img src="https://placehold.co/160x60/0b1120/c9a84c?text=Sponsor+20" alt="Sponsor 20">
-      <!-- duplicate for seamless loop -->
-      <img src="https://placehold.co/160x60/0b1120/c9a84c?text=Sponsor+11" alt="Sponsor 11">
-      <img src="https://placehold.co/160x60/0b1120/c9a84c?text=Sponsor+12" alt="Sponsor 12">
-      <img src="https://placehold.co/160x60/0b1120/c9a84c?text=Sponsor+13" alt="Sponsor 13">
-      <img src="https://placehold.co/160x60/0b1120/c9a84c?text=Sponsor+14" alt="Sponsor 14">
-      <img src="https://placehold.co/160x60/0b1120/c9a84c?text=Sponsor+15" alt="Sponsor 15">
-      <img src="https://placehold.co/160x60/0b1120/c9a84c?text=Sponsor+16" alt="Sponsor 16">
-      <img src="https://placehold.co/160x60/0b1120/c9a84c?text=Sponsor+17" alt="Sponsor 17">
-      <img src="https://placehold.co/160x60/0b1120/c9a84c?text=Sponsor+18" alt="Sponsor 18">
-      <img src="https://placehold.co/160x60/0b1120/c9a84c?text=Sponsor+19" alt="Sponsor 19">
-      <img src="https://placehold.co/160x60/0b1120/c9a84c?text=Sponsor+20" alt="Sponsor 20">
+    <div class="partner-item">
+      <div class="partner-logo-wrap"><img src="/images/judiciary-wallah.jpeg" alt="PW Judiciary Wallah"></div>
+      <div class="partner-label">Knowledge Partner</div>
     </div>
+    <div class="partner-item">
+      <div class="partner-logo-wrap"><img src="/images/organiser-sponsor.jpeg" alt="Organiser"></div>
+      <div class="partner-label">Media Partner</div>
+    </div>
+    <a href="https://www.livelaw.in/amp/lawschool/parliament-lawyers-for-justice-rajdhani-yuva-sansad-uniform-civil-code-new-criminal-laws-270005" target="_blank" rel="noopener" class="partner-item partner-link">
+      <div class="partner-logo-wrap"><img src="/images/live-law-sponsor.png" alt="Live Law"></div>
+      <div class="partner-label">Media Partner</div>
+    </a>
+    <a href="https://articles.manupatra.com/article-details/2nd-National-Lawyers-Parliament-Festival-2024" target="_blank" rel="noopener" class="partner-item partner-link">
+      <div class="partner-logo-wrap"><img src="/images/manupatra-sponsor.jpg" alt="Manupatra"></div>
+      <div class="partner-label">Media Partner</div>
+    </a>
   </div>
 </section>
 
