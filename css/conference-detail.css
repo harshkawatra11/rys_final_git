@@ -158,6 +158,35 @@
   transition: transform .3s, border-color .3s;
 }
 .conf-guest-card:hover { transform: translateY(-3px); border-color: rgba(212,80,10,.3); }
+
+/* ─── MP PHOTO PANEL ─── */
+.conf-mp-photos {
+  display: none; flex-wrap: wrap; gap: 1.5rem; justify-content: center;
+  margin-top: 1.5rem; padding-top: 1.5rem;
+  border-top: 1px solid var(--border-gold);
+  animation: fadeInDown .3s ease;
+}
+.conf-mp-photos.open { display: flex; }
+.conf-mp-photo-item { display: flex; flex-direction: column; align-items: center; gap: .6rem; }
+.conf-mp-photos img {
+  width: 160px; height: 190px; object-fit: cover; object-position: top center;
+  border: 2px solid var(--border-gold);
+}
+.conf-mp-photo-caption {
+  font-family: 'Cinzel', serif; font-size: .67rem; font-weight: 700;
+  color: var(--cream); text-align: center; letter-spacing: .03em;
+}
+.conf-guest-mp { cursor: pointer; }
+.conf-guest-mp:hover { border-color: rgba(212,80,10,.45); }
+.conf-guest-mp .conf-guest-role-hint {
+  font-size: .62rem; color: var(--saffron, #d4500a);
+  display: block; margin-top: .3rem; letter-spacing: .05em;
+}
+@keyframes fadeInDown {
+  from { opacity: 0; transform: translateY(-8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
 .conf-guest-icon {
   width: 44px; height: 44px; flex-shrink: 0;
   display: flex; align-items: center; justify-content: center;
