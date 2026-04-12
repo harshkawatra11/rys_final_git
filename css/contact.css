@@ -9,7 +9,7 @@
   position:relative; z-index:10;
 }
 .contact-strip-inner {
-  display:grid; grid-template-columns:repeat(4, 1fr);
+  display:grid; grid-template-columns:repeat(3, 1fr);
   gap:1px; max-width:1100px; margin:0 auto;
   background:var(--glass-border);
 }
