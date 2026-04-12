@@ -839,26 +839,23 @@ html[data-theme="light"] .flagship-strip::after  { background:linear-gradient(to
 .dig-name { font-family:'Cinzel',serif; font-size:1rem; font-weight:600; color:var(--cream); margin-bottom:.3rem; }
 .dig-role { font-size:.72rem; color:var(--gold-light); font-style:italic; line-height:1.4; }
 
-/* MP photo toggle panel */
-.dig-panel .conf-mp-photos {
-  display:none; flex-wrap:wrap; gap:1.5rem; justify-content:center;
-  margin-top:1.5rem; padding:1.5rem 1rem 1rem;
+/* MP photos row */
+.mp-photos-row {
+  display:flex; align-items:center; justify-content:center; gap:3rem;
+  margin-top:0; padding:2rem 1rem;
   border-top:1px solid var(--border-gold);
-  animation:fadeInDown .3s ease;
 }
-.dig-panel .conf-mp-photos.open { display:flex; }
-.dig-panel .conf-mp-photo-item { display:flex; flex-direction:column; align-items:center; gap:.6rem; }
-.dig-panel .conf-mp-photos img {
-  width:150px; height:180px; object-fit:cover; object-position:top center;
+.mp-photo-item { display:flex; flex-direction:column; align-items:center; gap:.7rem; }
+.mp-photo-item img {
+  width:280px; height:158px; object-fit:cover; object-position:top center;
   border:2px solid var(--border-gold);
 }
-.dig-panel .conf-mp-photo-caption {
+.mp-photo-caption {
   font-family:'Cinzel',serif; font-size:.67rem; font-weight:700;
   color:var(--cream); text-align:center; letter-spacing:.03em;
 }
-@keyframes fadeInDown {
-  from { opacity:0; transform:translateY(-8px); }
-  to   { opacity:1; transform:translateY(0); }
+.mp-photos-divider {
+  width:1px; height:120px; background:var(--border-gold); flex-shrink:0;
 }
 
 /* ═══════════════════════════════════════
@@ -1821,13 +1818,14 @@ Their journey spans institutional engagement across the states of Delhi, Uttar P
   <div id="t3" class="dig-panel">
     <div class="dig-grid">
       <div class="dig-card"><div class="dig-name">Smt. Bansuri Swaraj</div><div class="dig-role">Hon'ble Member of Parliament</div></div>
-      <div class="dig-card conf-guest-mp" style="cursor:pointer" onclick="document.getElementById('home-mp-photos').classList.toggle('open')"><div class="dig-name">Dr. Kalpana Saini</div><div class="dig-role">Hon'ble Member of Parliament<span class="conf-guest-role-hint" style="display:block;font-size:.6rem;color:#d4500a;margin-top:.25rem;letter-spacing:.05em;">▼ View Photo</span></div></div>
+      <div class="dig-card"><div class="dig-name">Dr. Kalpana Saini</div><div class="dig-role">Hon'ble Member of Parliament</div></div>
       <div class="dig-card"><div class="dig-name">Shri Manoj Tiwari</div><div class="dig-role">Hon'ble Member of Parliament</div></div>
-      <div class="dig-card conf-guest-mp" style="cursor:pointer" onclick="document.getElementById('home-mp-photos').classList.toggle('open')"><div class="dig-name">Shri Naresh Bansal</div><div class="dig-role">Hon'ble Member of Parliament<span class="conf-guest-role-hint" style="display:block;font-size:.6rem;color:#d4500a;margin-top:.25rem;letter-spacing:.05em;">▼ View Photo</span></div></div>
+      <div class="dig-card"><div class="dig-name">Shri Naresh Bansal</div><div class="dig-role">Hon'ble Member of Parliament</div></div>
     </div>
-    <div id="home-mp-photos" class="conf-mp-photos">
-      <div class="conf-mp-photo-item"><img src="/images/kalpana_sainii.png" alt="Dr. Kalpana Saini"><div class="conf-mp-photo-caption">Dr. Kalpana Saini</div></div>
-      <div class="conf-mp-photo-item"><img src="/images/naresh_bansal.jpg" alt="Shri Naresh Bansal"><div class="conf-mp-photo-caption">Shri Naresh Bansal</div></div>
+    <div class="mp-photos-row">
+      <div class="mp-photo-item"><img src="/images/kalpana_sainii.png" alt="Dr. Kalpana Saini"><div class="mp-photo-caption">Dr. Kalpana Saini</div></div>
+      <div class="mp-photos-divider"></div>
+      <div class="mp-photo-item"><img src="/images/naresh_bansal.jpg" alt="Shri Naresh Bansal"><div class="mp-photo-caption">Shri Naresh Bansal</div></div>
     </div>
   </div>
 
@@ -1907,26 +1905,26 @@ Their journey spans institutional engagement across the states of Delhi, Uttar P
       <div class="team-info"><div class="team-name">Mr. Parv Narendra</div><div class="team-role">Member, Core Team</div></div>
     </div>
     <div class="team-card reveal reveal-d3">
-      <div class="team-img"><img src="/images/dash-team-tanisha.jpg" alt="Tanisha Gupta"></div>
-      <div class="team-info"><div class="team-name">Ms. Tanisha Gupta</div><div class="team-role">Member, Core Team</div></div>
+      <div class="team-img"><img src="/images/dash-team-shreya.jpg" alt="Shreya Kapoor"></div>
+      <div class="team-info"><div class="team-name">Ms. Shreya Kapoor</div><div class="team-role">Member, Core Team</div></div>
     </div>
   </div>
   <div class="team-grid-b">
     <div class="team-card reveal">
-      <div class="team-img"><img src="/images/dash-team-shreya.jpg" alt="Shreya Kapoor"></div>
-      <div class="team-info"><div class="team-name">Ms. Shreya Kapoor</div><div class="team-role">Member, Core Team</div></div>
+      <div class="team-img"><img src="/images/dash-team-tanisha.jpg" alt="Tanisha Gupta"></div>
+      <div class="team-info"><div class="team-name">Ms. Tanisha Gupta</div><div class="team-role">Member, Core Team</div></div>
     </div>
     <div class="team-card reveal reveal-d1">
-      <div class="team-img"><img src="/images/dash-team-zigyasa.jpg" alt="Zigyasa Mishra"></div>
-      <div class="team-info"><div class="team-name">Ms. Zigyasa Mishra</div><div class="team-role">Member, Core Team</div></div>
-    </div>
-    <div class="team-card reveal reveal-d2">
       <div class="team-img"><img src="/images/dash-team-arsh.jpg" alt="Arsh Khan"></div>
       <div class="team-info"><div class="team-name">Mr. Arsh Khan</div><div class="team-role">Member, Core Team</div></div>
     </div>
-    <div class="team-card reveal reveal-d3">
+    <div class="team-card reveal reveal-d2">
       <div class="team-img"><img src="/images/dash-team-kartik.jpg" alt="Kartik Saraswat"></div>
       <div class="team-info"><div class="team-name">Mr. Kartik Saraswat</div><div class="team-role">Member, Core Team</div></div>
+    </div>
+    <div class="team-card reveal reveal-d3">
+      <div class="team-img"><img src="/images/dash-team-zigyasa.jpg" alt="Zigyasa Mishra"></div>
+      <div class="team-info"><div class="team-name">Ms. Zigyasa Mishra</div><div class="team-role">Member, Core Team</div></div>
     </div>
   </div>
 </section>
