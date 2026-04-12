@@ -628,6 +628,48 @@ html[data-theme="light"] .theme-toggle-knob { transform:translateX(24px); backgr
 .fh-text p { font-size:.84rem; color:var(--dim); line-height:1.6; margin:0; }
 .fh-text strong { color:var(--gold-light); display:block; margin-bottom:.25rem; font-size:.78rem; letter-spacing:.1em; text-transform:uppercase; }
 
+/* Publications cards */
+.pub-section { margin:2rem 0; }
+.pub-section-title {
+  font-family:'Cinzel',serif; font-size:.78rem; font-weight:700;
+  color:var(--gold-light); letter-spacing:.12em; text-transform:uppercase;
+  margin-bottom:1.2rem;
+}
+.pub-grid { display:grid; grid-template-columns:1fr 1fr; gap:.8rem; }
+@media(max-width:640px){ .pub-grid { grid-template-columns:1fr; } }
+.pub-card {
+  padding:1.2rem 1.4rem; border:1px solid var(--border-gold);
+  background:var(--glass-bg); backdrop-filter:blur(10px);
+  position:relative; display:flex; flex-direction:column; gap:.3rem;
+  transition:border-color .3s, transform .3s;
+}
+.pub-card:hover { border-color:rgba(212,80,10,.35); transform:translateY(-2px); }
+.pub-card-link { text-decoration:none; color:inherit; cursor:pointer; }
+.pub-type {
+  font-size:.58rem; font-weight:700; letter-spacing:.16em; text-transform:uppercase;
+  color:var(--saffron); opacity:.85;
+}
+.pub-title {
+  font-family:'Cinzel',serif; font-size:.82rem; font-weight:600;
+  color:var(--cream); line-height:1.4;
+}
+.pub-year {
+  font-size:.66rem; color:var(--gold-light); letter-spacing:.08em;
+}
+.pub-meta {
+  font-size:.72rem; color:var(--dim); line-height:1.5;
+}
+.pub-meta strong { display:inline; font-size:inherit; letter-spacing:0; text-transform:none; color:var(--cream-mid,#d4caba); }
+.pub-cite {
+  font-size:.64rem; color:var(--dim2,#666); font-style:italic; line-height:1.5;
+}
+.pub-link-hint {
+  font-size:.65rem; color:var(--saffron); letter-spacing:.06em;
+  margin-top:auto; padding-top:.3rem;
+  transition:letter-spacing .2s;
+}
+.pub-card-link:hover .pub-link-hint { letter-spacing:.12em; }
+
 .vision-quote {
   margin-top:2rem;
   padding: 1.6rem 2rem;
@@ -952,6 +994,43 @@ html[data-theme="light"] .flagship-strip::after  { background:linear-gradient(to
   position:relative; z-index:1;
 }
 .btn-ivory:hover { transform:translateY(-2px); box-shadow:0 10px 28px rgba(0,0,0,.2); }
+
+/* ═══════════════════════════════════════
+   SPONSORS
+══════════════════════════════════════════ */
+#sponsors-sec {
+  background: var(--navy); padding:4rem 0 3.5rem; overflow:hidden;
+  border-top:1px solid var(--border-gold); border-bottom:1px solid var(--border-gold);
+}
+.sponsors-heading {
+  font-family:'Cinzel',serif; font-size:clamp(1.1rem,2vw,1.6rem); font-weight:700;
+  color:var(--cream); text-align:center; letter-spacing:.18em; text-transform:uppercase;
+  margin-bottom:2.5rem; position:relative;
+}
+.sponsors-heading::after {
+  content:''; display:block; width:60px; height:2px;
+  background:var(--saffron); margin:.8rem auto 0;
+}
+.sponsors-track-wrap {
+  position:relative; width:100%;
+  mask-image:linear-gradient(to right, transparent, black 8%, black 92%, transparent);
+  -webkit-mask-image:linear-gradient(to right, transparent, black 8%, black 92%, transparent);
+}
+.sponsors-track {
+  display:flex; gap:3rem; align-items:center; white-space:nowrap;
+  animation:scrollLogos 40s linear infinite;
+  width:max-content;
+}
+.sponsors-track img {
+  height:50px; width:auto; opacity:.55; filter:grayscale(.4);
+  transition:opacity .3s, filter .3s;
+  flex-shrink:0;
+}
+.sponsors-track img:hover { opacity:1; filter:grayscale(0); }
+@keyframes scrollLogos {
+  0%   { transform:translateX(0); }
+  100% { transform:translateX(-50%); }
+}
 
 /* ═══════════════════════════════════════
    FOOTER
@@ -1515,13 +1594,35 @@ Their journey spans institutional engagement across the states of Delhi, Uttar P
       <p>Collectively, they bring recognized expertise in <strong>Cyber Law</strong>, positioning themselves at the forefront of evolving digital legal challenges. As cyber law experts, they are committed to addressing complex issues in the digital space while actively contributing to meaningful legal discourse and public engagement.</p>
       <p>Their combined experience, nationwide practice, and specialized knowledge in cyber law underscore a forward-thinking approach to modern legal practice.</p>
 
-      <div class="founders-highlight">
-        <div class="fh-icon">📖</div>
-        <div class="fh-text">
-          <strong>Co-authored Publications</strong>
-          <p>"Uniform Civil Code: Towards Unified Bharat" — launched in the presence of Hon'ble Justice Adarsh Kumar Goel, former Judge, Supreme Court of India.</p>
-          <p style="margin-top:.5rem;">"Cyber Law & Digital Rights" — a comprehensive study on emerging cyber jurisprudence in India.</p>
-          <p style="margin-top:.5rem;">"Ek Desh Ek Chunav" — an insightful exploration of India's electoral processes and democratic engagement.</p>
+      <div class="pub-section">
+        <div class="pub-section-title">📖 Co-authored Publications</div>
+        <div class="pub-grid">
+          <div class="pub-card">
+            <div class="pub-type">Book</div>
+            <div class="pub-title">Ek Desh Ek Chunaav</div>
+            <div class="pub-year">2025</div>
+            <div class="pub-meta">Co-authored · Published by <strong>Prabhat Prakashan</strong></div>
+          </div>
+          <div class="pub-card">
+            <div class="pub-type">Book</div>
+            <div class="pub-title">Uniform Civil Code: Towards Unified Bharat</div>
+            <div class="pub-year">2023</div>
+            <div class="pub-meta">Co-authored · Published by <strong>Blue Rose Publishers</strong></div>
+          </div>
+          <a href="http://lawjournals.stmjournals.in/index.php/jfal/article/view/135" target="_blank" rel="noopener" class="pub-card pub-card-link">
+            <div class="pub-type">Research Paper</div>
+            <div class="pub-title">From Shah Bano to Shayara Bano: Developing the Rights of Muslim Women</div>
+            <div class="pub-year">2019</div>
+            <div class="pub-meta">Published in Journal of Family &amp; Adoption Law (STM Journals)</div>
+            <div class="pub-cite">Kapoor, Isha Kapoor. Vol. 1, Issue 1, pp. 18–30, Feb 2019.</div>
+            <span class="pub-link-hint">View Paper →</span>
+          </a>
+          <a href="https://www.legalserviceindia.com/legal/article-4507-the-journey-of-anticipatory-bail-in-india.html" target="_blank" rel="noopener" class="pub-card pub-card-link">
+            <div class="pub-type">Research Paper</div>
+            <div class="pub-title">The Journey of Anticipatory Bail in India</div>
+            <div class="pub-meta">Co-authored · Published on <strong>Legal Service India</strong></div>
+            <span class="pub-link-hint">View Article →</span>
+          </a>
         </div>
       </div>
 
@@ -1937,6 +2038,56 @@ Their journey spans institutional engagement across the states of Delhi, Uttar P
     <p class="cta-sub">RYS continues to build India's youth leadership through constitutional dialogue, committee simulations, and policy-focused national forums. Your voice matters.</p>
   </div>
   <a href="/contact/" class="btn-ivory">⚑ Register As Delegate</a>
+</section>
+
+<!-- ══════════════════════════ SPONSORS ══════════════════════════ -->
+<section id="sponsors-sec">
+  <h2 class="sponsors-heading">Our Sponsors</h2>
+  <div class="sponsors-track-wrap">
+    <div class="sponsors-track">
+      <img src="https://placehold.co/160x60/0b1120/c9a84c?text=Sponsor+1" alt="Sponsor 1">
+      <img src="https://placehold.co/160x60/0b1120/c9a84c?text=Sponsor+2" alt="Sponsor 2">
+      <img src="https://placehold.co/160x60/0b1120/c9a84c?text=Sponsor+3" alt="Sponsor 3">
+      <img src="https://placehold.co/160x60/0b1120/c9a84c?text=Sponsor+4" alt="Sponsor 4">
+      <img src="https://placehold.co/160x60/0b1120/c9a84c?text=Sponsor+5" alt="Sponsor 5">
+      <img src="https://placehold.co/160x60/0b1120/c9a84c?text=Sponsor+6" alt="Sponsor 6">
+      <img src="https://placehold.co/160x60/0b1120/c9a84c?text=Sponsor+7" alt="Sponsor 7">
+      <img src="https://placehold.co/160x60/0b1120/c9a84c?text=Sponsor+8" alt="Sponsor 8">
+      <img src="https://placehold.co/160x60/0b1120/c9a84c?text=Sponsor+9" alt="Sponsor 9">
+      <img src="https://placehold.co/160x60/0b1120/c9a84c?text=Sponsor+10" alt="Sponsor 10">
+      <img src="https://placehold.co/160x60/0b1120/c9a84c?text=Sponsor+11" alt="Sponsor 11">
+      <img src="https://placehold.co/160x60/0b1120/c9a84c?text=Sponsor+12" alt="Sponsor 12">
+      <img src="https://placehold.co/160x60/0b1120/c9a84c?text=Sponsor+13" alt="Sponsor 13">
+      <img src="https://placehold.co/160x60/0b1120/c9a84c?text=Sponsor+14" alt="Sponsor 14">
+      <img src="https://placehold.co/160x60/0b1120/c9a84c?text=Sponsor+15" alt="Sponsor 15">
+      <img src="https://placehold.co/160x60/0b1120/c9a84c?text=Sponsor+16" alt="Sponsor 16">
+      <img src="https://placehold.co/160x60/0b1120/c9a84c?text=Sponsor+17" alt="Sponsor 17">
+      <img src="https://placehold.co/160x60/0b1120/c9a84c?text=Sponsor+18" alt="Sponsor 18">
+      <img src="https://placehold.co/160x60/0b1120/c9a84c?text=Sponsor+19" alt="Sponsor 19">
+      <img src="https://placehold.co/160x60/0b1120/c9a84c?text=Sponsor+20" alt="Sponsor 20">
+      <!-- duplicate set for seamless loop -->
+      <img src="https://placehold.co/160x60/0b1120/c9a84c?text=Sponsor+1" alt="Sponsor 1">
+      <img src="https://placehold.co/160x60/0b1120/c9a84c?text=Sponsor+2" alt="Sponsor 2">
+      <img src="https://placehold.co/160x60/0b1120/c9a84c?text=Sponsor+3" alt="Sponsor 3">
+      <img src="https://placehold.co/160x60/0b1120/c9a84c?text=Sponsor+4" alt="Sponsor 4">
+      <img src="https://placehold.co/160x60/0b1120/c9a84c?text=Sponsor+5" alt="Sponsor 5">
+      <img src="https://placehold.co/160x60/0b1120/c9a84c?text=Sponsor+6" alt="Sponsor 6">
+      <img src="https://placehold.co/160x60/0b1120/c9a84c?text=Sponsor+7" alt="Sponsor 7">
+      <img src="https://placehold.co/160x60/0b1120/c9a84c?text=Sponsor+8" alt="Sponsor 8">
+      <img src="https://placehold.co/160x60/0b1120/c9a84c?text=Sponsor+9" alt="Sponsor 9">
+      <img src="https://placehold.co/160x60/0b1120/c9a84c?text=Sponsor+10" alt="Sponsor 10">
+      <img src="https://placehold.co/160x60/0b1120/c9a84c?text=Sponsor+11" alt="Sponsor 11">
+      <img src="https://placehold.co/160x60/0b1120/c9a84c?text=Sponsor+12" alt="Sponsor 12">
+      <img src="https://placehold.co/160x60/0b1120/c9a84c?text=Sponsor+13" alt="Sponsor 13">
+      <img src="https://placehold.co/160x60/0b1120/c9a84c?text=Sponsor+14" alt="Sponsor 14">
+      <img src="https://placehold.co/160x60/0b1120/c9a84c?text=Sponsor+15" alt="Sponsor 15">
+      <img src="https://placehold.co/160x60/0b1120/c9a84c?text=Sponsor+16" alt="Sponsor 16">
+      <img src="https://placehold.co/160x60/0b1120/c9a84c?text=Sponsor+17" alt="Sponsor 17">
+      <img src="https://placehold.co/160x60/0b1120/c9a84c?text=Sponsor+18" alt="Sponsor 18">
+      <img src="https://placehold.co/160x60/0b1120/c9a84c?text=Sponsor+19" alt="Sponsor 19">
+      <img src="https://placehold.co/160x60/0b1120/c9a84c?text=Sponsor+20" alt="Sponsor 20">
+    </div>
+  </div>
 </section>
 
 <!-- ══════════════════════════ FOOTER ══════════════════════════ -->
