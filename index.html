@@ -839,6 +839,28 @@ html[data-theme="light"] .flagship-strip::after  { background:linear-gradient(to
 .dig-name { font-family:'Cinzel',serif; font-size:1rem; font-weight:600; color:var(--cream); margin-bottom:.3rem; }
 .dig-role { font-size:.72rem; color:var(--gold-light); font-style:italic; line-height:1.4; }
 
+/* MP photo toggle panel */
+.dig-panel .conf-mp-photos {
+  display:none; flex-wrap:wrap; gap:1.5rem; justify-content:center;
+  margin-top:1.5rem; padding:1.5rem 1rem 1rem;
+  border-top:1px solid var(--border-gold);
+  animation:fadeInDown .3s ease;
+}
+.dig-panel .conf-mp-photos.open { display:flex; }
+.dig-panel .conf-mp-photo-item { display:flex; flex-direction:column; align-items:center; gap:.6rem; }
+.dig-panel .conf-mp-photos img {
+  width:150px; height:180px; object-fit:cover; object-position:top center;
+  border:2px solid var(--border-gold);
+}
+.dig-panel .conf-mp-photo-caption {
+  font-family:'Cinzel',serif; font-size:.67rem; font-weight:700;
+  color:var(--cream); text-align:center; letter-spacing:.03em;
+}
+@keyframes fadeInDown {
+  from { opacity:0; transform:translateY(-8px); }
+  to   { opacity:1; transform:translateY(0); }
+}
+
 /* ═══════════════════════════════════════
    TEAM
 ══════════════════════════════════════════ */
