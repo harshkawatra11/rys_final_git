@@ -1011,7 +1011,7 @@ html[data-theme="light"] .flagship-strip::after  { background:linear-gradient(to
    SPONSORS
 ══════════════════════════════════════════ */
 #sponsors-sec {
-  background: var(--navy); padding:4rem 5vw 3.5rem; overflow:hidden;
+  background: var(--navy); padding:4rem 0 3.5rem; overflow:hidden;
   border-top:1px solid var(--border-gold); border-bottom:1px solid var(--border-gold);
 }
 .sponsors-heading {
@@ -1023,33 +1023,41 @@ html[data-theme="light"] .flagship-strip::after  { background:linear-gradient(to
   content:''; display:block; width:60px; height:2px;
   background:var(--saffron); margin:.8rem auto 0;
 }
-.partners-grid {
-  display:flex; flex-wrap:wrap; justify-content:center; gap:2.5rem 3rem;
-  max-width:1000px; margin:0 auto;
+.sponsors-track-wrap {
+  position:relative; width:100%;
+  mask-image:linear-gradient(to right, transparent 0px, black 200px, black calc(100% - 200px), transparent 100%);
+  -webkit-mask-image:linear-gradient(to right, transparent 0px, black 200px, black calc(100% - 200px), transparent 100%);
 }
-.partner-item {
-  display:flex; flex-direction:column; align-items:center; gap:.8rem;
-  text-decoration:none; color:inherit;
+.sponsors-track {
+  display:flex; gap:3.5rem; align-items:flex-start; white-space:nowrap;
+  animation:scrollLogos 22s linear infinite;
+  width:max-content;
+}
+.sponsor-item {
+  display:inline-flex; flex-direction:column; align-items:center; gap:.6rem;
+  flex-shrink:0; text-decoration:none; color:inherit; cursor:default;
   transition:transform .3s;
 }
-.partner-item:hover { transform:translateY(-3px); }
-.partner-logo-wrap {
-  width:130px; height:80px; display:flex; align-items:center; justify-content:center;
-  background:rgba(255,255,255,.06); border:1px solid var(--border-gold);
+.sponsor-item[href]:hover { transform:translateY(-3px); }
+.sponsor-logo-wrap {
+  width:140px; height:80px; display:flex; align-items:center; justify-content:center;
+  background:rgba(255,255,255,.05); border:1px solid var(--border-gold);
   padding:.6rem; overflow:hidden;
 }
-.partner-logo-wrap img {
+.sponsor-logo-wrap img {
   max-width:100%; max-height:100%; object-fit:contain;
   filter:grayscale(.3); transition:filter .3s;
 }
-.partner-item:hover .partner-logo-wrap img { filter:grayscale(0); }
-.partner-label {
-  font-family:'Cinzel',serif; font-size:.6rem; font-weight:700;
-  color:var(--gold-light); letter-spacing:.14em; text-transform:uppercase;
+.sponsor-item:hover .sponsor-logo-wrap img { filter:grayscale(0); }
+.sponsor-label {
+  font-family:'Cinzel',serif; font-size:.58rem; font-weight:700;
+  color:var(--gold-light); letter-spacing:.13em; text-transform:uppercase;
   text-align:center;
 }
-.partner-link { cursor:pointer; }
-@media(max-width:480px){ .partners-grid { gap:2rem 1.5rem; } .partner-logo-wrap { width:100px; height:65px; } }
+@keyframes scrollLogos {
+  0%   { transform:translateX(0); }
+  100% { transform:translateX(-50%); }
+}
 
 /* ═══════════════════════════════════════
    FOOTER
@@ -2066,27 +2074,20 @@ Their journey spans institutional engagement across the states of Delhi, Uttar P
 <!-- ══════════════════════════ PARTNERS ══════════════════════════ -->
 <section id="sponsors-sec">
   <h2 class="sponsors-heading">Our Partners & Collaborators</h2>
-  <div class="partners-grid">
-    <div class="partner-item">
-      <div class="partner-logo-wrap"><img src="/images/casemine-sponsor.jpeg" alt="Casemine"></div>
-      <div class="partner-label">Supporting Partner</div>
+  <div class="sponsors-track-wrap">
+    <div class="sponsors-track">
+      <div class="sponsor-item"><div class="sponsor-logo-wrap"><img src="/images/casemine-sponsor.jpeg" alt="Casemine"></div><div class="sponsor-label">Supporting Partner</div></div>
+      <div class="sponsor-item"><div class="sponsor-logo-wrap"><img src="/images/judiciary-wallah.jpeg" alt="PW Judiciary Wallah"></div><div class="sponsor-label">Knowledge Partner</div></div>
+      <div class="sponsor-item"><div class="sponsor-logo-wrap"><img src="/images/organiser-sponsor.jpeg" alt="Organiser"></div><div class="sponsor-label">Media Partner</div></div>
+      <a href="https://www.livelaw.in/amp/lawschool/parliament-lawyers-for-justice-rajdhani-yuva-sansad-uniform-civil-code-new-criminal-laws-270005" target="_blank" rel="noopener" class="sponsor-item"><div class="sponsor-logo-wrap"><img src="/images/live-law-sponsor.png" alt="Live Law"></div><div class="sponsor-label">Media Partner</div></a>
+      <a href="https://articles.manupatra.com/article-details/2nd-National-Lawyers-Parliament-Festival-2024" target="_blank" rel="noopener" class="sponsor-item"><div class="sponsor-logo-wrap"><img src="/images/manupatra-sponsor.jpg" alt="Manupatra"></div><div class="sponsor-label">Media Partner</div></a>
+      <!-- duplicate for seamless loop -->
+      <div class="sponsor-item"><div class="sponsor-logo-wrap"><img src="/images/casemine-sponsor.jpeg" alt="Casemine"></div><div class="sponsor-label">Supporting Partner</div></div>
+      <div class="sponsor-item"><div class="sponsor-logo-wrap"><img src="/images/judiciary-wallah.jpeg" alt="PW Judiciary Wallah"></div><div class="sponsor-label">Knowledge Partner</div></div>
+      <div class="sponsor-item"><div class="sponsor-logo-wrap"><img src="/images/organiser-sponsor.jpeg" alt="Organiser"></div><div class="sponsor-label">Media Partner</div></div>
+      <a href="https://www.livelaw.in/amp/lawschool/parliament-lawyers-for-justice-rajdhani-yuva-sansad-uniform-civil-code-new-criminal-laws-270005" target="_blank" rel="noopener" class="sponsor-item"><div class="sponsor-logo-wrap"><img src="/images/live-law-sponsor.png" alt="Live Law"></div><div class="sponsor-label">Media Partner</div></a>
+      <a href="https://articles.manupatra.com/article-details/2nd-National-Lawyers-Parliament-Festival-2024" target="_blank" rel="noopener" class="sponsor-item"><div class="sponsor-logo-wrap"><img src="/images/manupatra-sponsor.jpg" alt="Manupatra"></div><div class="sponsor-label">Media Partner</div></a>
     </div>
-    <div class="partner-item">
-      <div class="partner-logo-wrap"><img src="/images/judiciary-wallah.jpeg" alt="PW Judiciary Wallah"></div>
-      <div class="partner-label">Knowledge Partner</div>
-    </div>
-    <div class="partner-item">
-      <div class="partner-logo-wrap"><img src="/images/organiser-sponsor.jpeg" alt="Organiser"></div>
-      <div class="partner-label">Media Partner</div>
-    </div>
-    <a href="https://www.livelaw.in/amp/lawschool/parliament-lawyers-for-justice-rajdhani-yuva-sansad-uniform-civil-code-new-criminal-laws-270005" target="_blank" rel="noopener" class="partner-item partner-link">
-      <div class="partner-logo-wrap"><img src="/images/live-law-sponsor.png" alt="Live Law"></div>
-      <div class="partner-label">Media Partner</div>
-    </a>
-    <a href="https://articles.manupatra.com/article-details/2nd-National-Lawyers-Parliament-Festival-2024" target="_blank" rel="noopener" class="partner-item partner-link">
-      <div class="partner-logo-wrap"><img src="/images/manupatra-sponsor.jpg" alt="Manupatra"></div>
-      <div class="partner-label">Media Partner</div>
-    </a>
   </div>
 </section>
 
