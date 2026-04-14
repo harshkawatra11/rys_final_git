@@ -83,6 +83,24 @@
         
         
         
+    
+        <!-- ═══ PHOTO GALLERY ═══ -->
+        <section class="conf-sec" id="gallery">
+            <div class="conf-sec-inner wide">
+                <div class="conf-eyebrow">Gallery</div>
+                <h2>Event in <em>Pictures</em></h2>
+                <div class="cd-gallery-grid">
+                        <div class="cd-gallery-item"><img src="/images/nlpf_2023-1.png" alt="Event photo" loading="lazy"><span class="cd-gallery-zoom">⬚</span></div>
+                        <div class="cd-gallery-item"><img src="/images/nlpf_2023-2.png" alt="Event photo" loading="lazy"><span class="cd-gallery-zoom">⬚</span></div>
+                        <div class="cd-gallery-item"><img src="/images/nlpf_2023-3.png" alt="Event photo" loading="lazy"><span class="cd-gallery-zoom">⬚</span></div>
+                        <div class="cd-gallery-item"><img src="/images/nlpf_2023-4.jpg" alt="Event photo" loading="lazy"><span class="cd-gallery-zoom">⬚</span></div>
+                        <div class="cd-gallery-item"><img src="/images/nlpf_2023-5.jpg" alt="Event photo" loading="lazy"><span class="cd-gallery-zoom">⬚</span></div>
+                        <div class="cd-gallery-item"><img src="/images/nlpf_2023-6.jpg" alt="Event photo" loading="lazy"><span class="cd-gallery-zoom">⬚</span></div>
+                        <div class="cd-gallery-item"><img src="/images/nlpf_2023-7.jpg" alt="Event photo" loading="lazy"><span class="cd-gallery-zoom">⬚</span></div>
+                        <div class="cd-gallery-item"><img src="/images/nlpf_2023-8.jpg" alt="Event photo" loading="lazy"><span class="cd-gallery-zoom">⬚</span></div>
+                </div>
+            </div>
+        </section>
     </main>
     <div class="conf-back">
         <a href="/conferences/" class="conf-back-link">← Back to All Conferences</a>
@@ -107,6 +125,16 @@
             <p style="font-size:.66rem;color:var(--dim2);letter-spacing:.08em;">&copy; 2026 Rajdhani Yuva Sansad. All Rights Reserved.</p>
         </div>
     </footer>
+    <!-- Lightbox -->
+    <div class="cd-lightbox" id="cdLightbox">
+        <button class="cd-lb-close" aria-label="Close">&times;</button>
+        <button class="cd-lb-prev" aria-label="Previous">&#8249;</button>
+        <button class="cd-lb-next" aria-label="Next">&#8250;</button>
+        <img src="" alt="">
+        <span class="cd-lb-counter"></span>
+    </div>
+
     <script src="/js/shared.js" defer></script>
+    <script src="/js/conference-detail.js" defer></script>
 </body>
 </html>

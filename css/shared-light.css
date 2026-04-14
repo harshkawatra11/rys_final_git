@@ -81,6 +81,51 @@ html[data-theme="light"] .ch-strip img {
 }
 html[data-theme="light"] .ch-desc { color:var(--dim); }
 
+/* ─── Conference Detail light overrides ─── */
+html[data-theme="light"] .conf-detail-hero-overlay {
+  background:
+    linear-gradient(0deg,
+      rgba(250,248,243,.95) 0%,
+      rgba(250,248,243,.5) 40%,
+      rgba(250,248,243,.2) 70%,
+      rgba(250,248,243,.35) 100%),
+    radial-gradient(ellipse 60% 50% at 30% 70%, rgba(212,80,10,.04) 0%, transparent 70%);
+}
+html[data-theme="light"] .conf-detail-hero-bg img {
+  filter:brightness(.7) saturate(.6);
+}
+html[data-theme="light"] .conf-detail-hero-content h1 { color:var(--cream); }
+html[data-theme="light"] .conf-detail-hero-content h1 .hindi-sub { color:var(--gold); }
+html[data-theme="light"] .conf-detail-hero-content h1 .cd-word { color:var(--cream); }
+html[data-theme="light"] .conf-detail-meta-item { color:var(--dim); }
+html[data-theme="light"] .conf-detail-stats {
+  background:rgba(250,248,243,.7);
+  border-color:rgba(184,137,42,.2);
+}
+html[data-theme="light"] .conf-detail-stat { border-color:rgba(184,137,42,.12); }
+html[data-theme="light"] .cd-hero-scroll span { color:var(--dim2); }
+html[data-theme="light"] .cd-hero-scroll-line { background:linear-gradient(180deg, var(--saffron), transparent); }
+html[data-theme="light"] .conf-quote::before { color:rgba(212,80,10,.06); }
+html[data-theme="light"] .cd-gallery-item img { filter:brightness(.92) saturate(.9); }
+html[data-theme="light"] .cd-gallery-item::after {
+  background:linear-gradient(180deg, transparent 50%, rgba(250,248,243,.4) 100%);
+}
+html[data-theme="light"] .cd-lightbox { background:rgba(250,248,243,.94); }
+html[data-theme="light"] .cd-lightbox img {
+  border-color:rgba(184,137,42,.2);
+  box-shadow:0 20px 80px rgba(0,0,0,.15);
+}
+html[data-theme="light"] .cd-lb-close { color:var(--dim); }
+html[data-theme="light"] .cd-lb-close:hover { color:var(--saffron); }
+html[data-theme="light"] .cd-lb-prev, html[data-theme="light"] .cd-lb-next {
+  background:rgba(250,248,243,.8); border-color:rgba(184,137,42,.2); color:var(--dim);
+}
+html[data-theme="light"] .cd-lb-prev:hover, html[data-theme="light"] .cd-lb-next:hover {
+  background:rgba(212,80,10,.1); color:var(--saffron);
+}
+html[data-theme="light"] .cd-lb-counter { color:var(--dim2); }
+html[data-theme="light"] .conf-key-highlights li { background:rgba(255,255,255,.6); }
+
 html[data-theme="light"] footer {
   background:var(--navy-mid);
   border-top:1px solid var(--border-gold);
