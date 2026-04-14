@@ -68,6 +68,7 @@
 }
 .conf-detail-hero-content h1 .cd-word {
   display: inline-block;
+  margin-right: .3em;
   opacity: 0; transform: translateY(35px);
   animation: cdFadeUp .7s ease forwards;
 }
