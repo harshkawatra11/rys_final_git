@@ -143,6 +143,13 @@ html[data-theme="light"] .carousel-overlay {
 html[data-theme="light"] .carousel-overlay .carousel-heading,
 html[data-theme="light"] .carousel-overlay .carousel-tag { color: #F4EDD8; }
 html[data-theme="light"] .carousel-overlay .carousel-desc { color: rgba(244,237,216,0.7); }
+html[data-theme="light"] .tc-explore {
+  background: linear-gradient(135deg, var(--saffron) 0%, rgba(212,80,10,.85) 100%);
+}
+html[data-theme="light"] .tc-explore .btn-fire {
+  background: var(--cream) !important;
+  color: var(--saffron) !important;
+}
 /* ─────────────────────────────── */
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -896,6 +903,102 @@ html[data-theme="light"] .flagship-strip::after  { background:linear-gradient(to
 .tc-venue { font-size:.72rem; color:var(--gold-light); margin-top:.5rem; font-style:italic; }
 .tc-link { font-size:.58rem; letter-spacing:.12em; text-transform:uppercase; color:var(--saffron); margin-top:.7rem; font-weight:600; display:inline-block; }
 
+/* Explore All CTA card */
+.tc-explore-strip {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 3.5rem 5vw;
+  margin-top: 2px;
+  background: linear-gradient(135deg, var(--saffron) 0%, #B34008 100%);
+  text-decoration: none;
+  position: relative;
+  overflow: hidden;
+  transition: filter .3s;
+}
+.tc-explore-strip::before {
+  content: 'संवाद ही हल है।';
+  position: absolute;
+  right: 4%; bottom: -20%;
+  font-family: 'Cinzel', serif;
+  font-size: clamp(3rem, 8vw, 9rem);
+  font-weight: 900;
+  color: rgba(255,255,255,.07);
+  white-space: nowrap;
+  pointer-events: none;
+  font-style: italic;
+}
+.tc-explore-strip:hover { filter: brightness(1.08); }
+.tc-explore-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 1200px;
+  gap: 2rem;
+  flex-wrap: wrap;
+  position: relative;
+  z-index: 1;
+}
+.tc-explore-eyebrow {
+  font-size: .65rem;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,.65);
+  margin-bottom: .5rem;
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+}
+.tc-explore-eyebrow::before { content: ''; width: 18px; height: 1px; background: rgba(255,255,255,.4); }
+.tc-explore-label {
+  font-family: 'Cinzel', serif;
+  font-size: clamp(1.2rem, 2.5vw, 2rem);
+  font-weight: 700;
+  color: #fff;
+  line-height: 1.2;
+}
+.tc-explore-cta {
+  flex-shrink: 0;
+  background: #fff;
+  color: var(--saffron);
+  padding: 1rem 2.6rem;
+  font-family: 'Cinzel', serif;
+  font-size: .76rem;
+  font-weight: 700;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  border-radius: 2px;
+  white-space: nowrap;
+  transition: transform .2s, box-shadow .2s;
+  display: inline-block;
+}
+.tc-explore-strip:hover .tc-explore-cta { transform: translateY(-2px); box-shadow: 0 10px 28px rgba(0,0,0,.2); }
+@media(max-width:640px){
+  .tc-explore-inner { flex-direction: column; align-items: flex-start; gap: 1.2rem; }
+}
+
+/* old .tc-explore kept for compat */
+.tc-explore { display: none; }
+.tc-explore:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px rgba(212,80,10,.3);
+}
+.tc-explore::before { display: none !important; }
+.tc-explore .btn-fire {
+  background: var(--white) !important;
+  color: var(--saffron) !important;
+  font-size: .78rem !important;
+  letter-spacing: .12em !important;
+  padding: 1rem 2.4rem !important;
+  border-radius: 2px;
+}
+.tc-explore .btn-fire:hover {
+  transform: scale(1.03);
+  box-shadow: 0 8px 24px rgba(0,0,0,.25) !important;
+}
+
 /* ═══════════════════════════════════════
    DIGNITARIES
 ══════════════════════════════════════════ */
@@ -948,11 +1051,19 @@ html[data-theme="light"] .flagship-strip::after  { background:linear-gradient(to
   display:flex; align-items:center; justify-content:center; gap:3rem;
   margin-top:0; padding:2rem 1rem;
   border-top:1px solid var(--border-gold);
+  flex-wrap:wrap;
 }
 .mp-photo-item { display:flex; flex-direction:column; align-items:center; gap:.7rem; }
 .mp-photo-item img {
   width:280px; height:158px; object-fit:cover; object-position:top center;
   border:2px solid var(--border-gold);
+}
+.mp-video-item { display:flex; flex-direction:column; align-items:center; gap:.7rem; }
+.mp-video-item video {
+  width:280px; height:158px; object-fit:cover;
+  border:2px solid var(--border-gold);
+  display:block;
+  background:#000;
 }
 .mp-photo-caption {
   font-family:'Cinzel',serif; font-size:.67rem; font-weight:700;
@@ -2044,7 +2155,24 @@ Their journey spans institutional engagement across the states of Delhi, Uttar P
       <div class="tc-venue">India International Centre, New Delhi</div>
       <div class="tc-link">View Proceedings &rarr;</div>
     </a>
-    <a href="/conferences/#st-xaviers-2018" class="tc reveal reveal-d1">
+    <!-- Explore All Conferences Block -->
+    <a href="/conferences/#haryana-yuva-samvad-2025" class="tc reveal">
+      <div class="tc-num">18</div>
+      <div class="tc-year">Feb 2025</div>
+      <div class="tc-name">Haryana Yuva Samvad 2025</div>
+      <div class="tc-detail">1st edition · Held at Haryana Vidhan Sabha · 60 selected youth from across the state · Honoured by the Hon'ble Speaker.</div>
+      <div class="tc-venue">Haryana Vidhan Sabha, Chandigarh</div>
+      <div class="tc-link">View Proceedings &rarr;</div>
+    </a>
+    <a href="/conferences/#nlpf-1" class="tc reveal reveal-d1">
+      <div class="tc-num">13</div>
+      <div class="tc-year">Nov 2023</div>
+      <div class="tc-name">1st National Lawyers' Parliament Festival</div>
+      <div class="tc-detail">India's first legal deliberation forum · 400+ lawyers &amp; law students · Marking a milestone for youth in law.</div>
+      <div class="tc-venue">New Delhi</div>
+      <div class="tc-link">View Proceedings &rarr;</div>
+    </a>
+    <a href="/conferences/#st-xaviers-2018" class="tc reveal reveal-d2">
       <div class="tc-num">01</div>
       <div class="tc-year">2018</div>
       <div class="tc-name">St. Xavier's School, Civil Lines</div>
@@ -2052,11 +2180,16 @@ Their journey spans institutional engagement across the states of Delhi, Uttar P
       <div class="tc-venue">Delhi</div>
       <div class="tc-link">View Proceedings &rarr;</div>
     </a>
-    <!-- Explore All Conferences Block -->
-    <div class="tc reveal reveal-d2" style="display:flex; align-items:center; justify-content:center; border:none; background:transparent;">
-      <a href="/conferences/" class="btn-fire" style="padding: .9rem 2.2rem; font-size: .75rem;">Explore All 23 Grand Conferences →</a>
-    </div>
   </div>
+
+  <!-- Explore CTA Strip -->
+  <a href="/conferences/" class="tc-explore-strip reveal reveal-d2">
+    <div class="tc-explore-inner">
+      <div class="tc-explore-eyebrow">A Legacy of 23+ Grand Conferences Across India</div>
+      <div class="tc-explore-label">Explore the full conference archive</div>
+      <span class="tc-explore-cta">View All Conferences &nbsp;&rarr;</span>
+    </div>
+  </a>
 </section>
 
 <!-- ══════════════════════════ DIGNITARIES ══════════════════════════ -->
@@ -2102,6 +2235,11 @@ Their journey spans institutional engagement across the states of Delhi, Uttar P
     </div>
     <div class="mp-photos-row">
       <div class="mp-photo-item"><img src="/images/kalpana_sainii.png" alt="Dr. Kalpana Saini"><div class="mp-photo-caption">Dr. Kalpana Saini</div></div>
+      <div class="mp-photos-divider"></div>
+      <div class="mp-video-item">
+        <video id="manoj-tiwari-video" src="/images/manoj-tiwari-video.mp4" muted playsinline loop preload="none"></video>
+        <div class="mp-photo-caption">Shri Manoj Tiwari</div>
+      </div>
       <div class="mp-photos-divider"></div>
       <div class="mp-photo-item"><img src="/images/naresh_bansal.jpg" alt="Shri Naresh Bansal"><div class="mp-photo-caption">Shri Naresh Bansal</div></div>
     </div>
@@ -2359,6 +2497,9 @@ function switchTab(btn,id){
   document.querySelectorAll('.dig-panel').forEach(p=>p.classList.remove('active'));
   btn.classList.add('active');
   document.getElementById(id).classList.add('active');
+  // Play Manoj Tiwari video when MP tab (t3) is active, pause otherwise
+  const mpVid = document.getElementById('manoj-tiwari-video');
+  if(mpVid){ id==='t3' ? mpVid.play() : (mpVid.pause(), mpVid.currentTime=0); }
 }
 
 /* ─ Interactive hero: mouse parallax on floating images ─ */
