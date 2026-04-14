@@ -94,6 +94,55 @@ html[data-theme="light"] body { background:#FAF8F3; color:#1A1A1A; }
 html[data-theme="light"] nav.stuck { background:rgba(250,248,243,0.95) !important; box-shadow:0 1px 0 rgba(184,137,42,0.18); }
 html[data-theme="light"] .mobile-nav-overlay { background:rgba(250,248,243,0.97); }
 html[data-theme="light"] footer { background:#EDE8DE; }
+
+/* ─── Light-mode hero section fixes ─── */
+html[data-theme="light"] .hero-vignette {
+  background:
+    radial-gradient(ellipse 55% 65% at 50% 50%,
+      rgba(250,248,243,0.78) 0%,
+      rgba(250,248,243,0.30) 60%,
+      transparent 100%
+    ),
+    linear-gradient(to top,
+      rgba(250,248,243,0.97) 0%,
+      rgba(250,248,243,0.60) 22%,
+      transparent 50%
+    ),
+    linear-gradient(to bottom,
+      rgba(250,248,243,0.90) 0%,
+      transparent 35%
+    ),
+    linear-gradient(to right,
+      rgba(250,248,243,0.75) 0%,
+      transparent 30%
+    ),
+    linear-gradient(to left,
+      rgba(250,248,243,0.75) 0%,
+      transparent 30%
+    );
+}
+html[data-theme="light"] .hero-center-glow {
+  background: radial-gradient(
+    ellipse,
+    rgba(212,80,10,0.08) 0%,
+    rgba(184,137,42,0.04) 40%,
+    transparent 70%
+  );
+}
+html[data-theme="light"] .hero-image-wall-wrapper { opacity:0.35; }
+html[data-theme="light"] .h-img-box img { filter: brightness(1.1) contrast(1.0) saturate(0.7); }
+html[data-theme="light"] .hero-ring { border-color: rgba(212,80,10,0.10); }
+html[data-theme="light"] .hero-ring--2 { border-color: rgba(184,137,42,0.08); }
+html[data-theme="light"] .hero-ring--3 { border-color: rgba(212,80,10,0.06); }
+html[data-theme="light"] .chakra-bg { color: #1A1A1A; }
+html[data-theme="light"] .scroll-cue span { color: #888; }
+html[data-theme="light"] .scroll-cue-line { background: linear-gradient(#888, transparent); }
+html[data-theme="light"] .carousel-overlay {
+  background:linear-gradient(to top, rgba(10,22,40,0.88) 0%, rgba(10,22,40,0.35) 55%, transparent 100%);
+}
+html[data-theme="light"] .carousel-overlay .carousel-heading,
+html[data-theme="light"] .carousel-overlay .carousel-tag { color: #F4EDD8; }
+html[data-theme="light"] .carousel-overlay .carousel-desc { color: rgba(244,237,216,0.7); }
 /* ─────────────────────────────── */
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -701,8 +750,9 @@ html[data-theme="light"] .theme-toggle-knob { transform:translateX(24px); backgr
 .showcase-sec .sec-h2 { text-align:center; }
 .carousel-wrap { position:relative; max-width:1200px; margin:0 auto; overflow:hidden; border-radius:10px; height:520px; }
 .carousel-track { display:flex; height:100%; transition:transform .6s cubic-bezier(.77,0,.175,1); }
-.carousel-slide { min-width:100%; height:100%; position:relative; flex-shrink:0; }
-.carousel-slide img { width:100%; height:100%; object-fit:cover; display:block; }
+.carousel-slide { min-width:100%; height:100%; position:relative; flex-shrink:0; display:block; text-decoration:none; color:inherit; cursor:pointer; }
+.carousel-slide img { width:100%; height:100%; object-fit:cover; display:block; transition:filter .4s; }
+.carousel-slide:hover img { filter:brightness(1.05); }
 .carousel-overlay {
   position:absolute; inset:0;
   background:linear-gradient(to top, var(--carousel-overlay-start) 0%, var(--carousel-overlay-mid) 55%, transparent 100%);
@@ -721,9 +771,9 @@ html[data-theme="light"] .theme-toggle-knob { transform:translateX(24px); backgr
   font-size:1.4rem; transition:background .25s, color .25s;
 }
 .carousel-btn:hover { background:var(--cream); color:var(--navy); }
-.carousel-dots { position:absolute; bottom:1.5rem; left:50%; transform:translateX(-50%); display:flex; gap:.5rem; }
-.carousel-dot { width:8px; height:8px; border-radius:50%; background:var(--carousel-dot); cursor:pointer; transition:width .3s, background .3s, border-radius .3s; }
-.carousel-dot.active { background:var(--cream); width:26px; border-radius:4px; }
+.carousel-dots { position:absolute; bottom:1.5rem; left:50%; transform:translateX(-50%); display:flex; gap:.35rem; }
+.carousel-dot { width:6px; height:6px; border-radius:50%; background:var(--carousel-dot); cursor:pointer; transition:width .3s, background .3s, border-radius .3s; }
+.carousel-dot.active { background:var(--cream); width:20px; border-radius:3px; }
 
 @media(max-width:768px){
   .carousel-wrap { height:380px; border-radius:6px; }
@@ -1678,61 +1728,150 @@ Their journey spans institutional engagement across the states of Delhi, Uttar P
   <div class="carousel-wrap" style="margin-top:2.5rem;">
     <div class="carousel-track" id="carouselTrack">
 
-      <div class="carousel-slide">
-        <img src="/images/haryana_yuva_samvad_2026-cover.jpg" alt="Haryana Yuva Samvad 2026">
-        <div class="carousel-overlay">
-          <div class="carousel-left">
-            <span class="carousel-tag">Haryana Vidhan Sabha, Chandigarh</span>
-            <h3 class="carousel-heading">Haryana Yuva Samvad 2026</h3>
-            <p class="carousel-desc">2nd edition hosted with Haryana Vidhan Sabha — 60+ selected participants, near 50% women representation, honoured by the Hon'ble Speaker.</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="carousel-slide">
-        <img src="/images/gorakhpur_yuva_samvad_2025-cover.jpg" alt="Gorakhpur Yuva Samvad 2025">
-        <div class="carousel-overlay">
-          <div class="carousel-left">
-            <span class="carousel-tag">19 Committees, 900+ Participants</span>
-            <h3 class="carousel-heading">Gorakhpur Yuva Samvad 2025</h3>
-            <p class="carousel-desc">A two-day flagship forum in East Uttar Pradesh driving youth leadership through parliamentary and diplomatic simulation.</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="carousel-slide">
+      <!-- 1. Sajag Yuva Manch 6.0 -->
+      <a class="carousel-slide" href="https://youtu.be/2JDgr5Sf2sQ?si=fmR5wffOOCB9vUuD" target="_blank" rel="noopener">
         <img src="/images/sajag_yuva_manch_6-cover.png" alt="Sajag Yuva Manch 6.0">
         <div class="carousel-overlay">
           <div class="carousel-left">
-            <span class="carousel-tag">700+ Delegates Across 10 Committees</span>
+            <span class="carousel-tag">▶ Watch After-Movie</span>
             <h3 class="carousel-heading">Sajag Yuva Manch 6.0</h3>
-            <p class="carousel-desc">Hosted in Ghaziabad with immersive simulations, committee crises, and intensive youth policy debates.</p>
+            <p class="carousel-desc">700+ delegates across 10 committees — immersive simulations, committee crises, and intensive youth policy debates in Ghaziabad.</p>
           </div>
         </div>
-      </div>
+      </a>
 
-      <div class="carousel-slide">
-        <img src="/images/delhi_yuva_samvad_2024-cover.jpg" alt="Delhi Yuva Samvad 2024">
+      <!-- 2. Haryana Yuva Samvad 2.0 -->
+      <a class="carousel-slide" href="https://youtu.be/lxhR3Wt4qv8?si=jFRXAh87WHg0-XTr" target="_blank" rel="noopener">
+        <img src="/images/haryana_yuva_samvad_2025-cover.jpg" alt="Haryana Yuva Samvad 2.0">
         <div class="carousel-overlay">
           <div class="carousel-left">
-            <span class="carousel-tag">Delhi Vidhan Sabha, New Delhi</span>
-            <h3 class="carousel-heading">Delhi Yuva Samvad 2024</h3>
-            <p class="carousel-desc">A focused two-day legislative forum with 75 selected participants from across India discussing key national issues.</p>
+            <span class="carousel-tag">▶ Watch After-Movie</span>
+            <h3 class="carousel-heading">Haryana Yuva Samvad 2.0</h3>
+            <p class="carousel-desc">Held at Haryana Vidhan Sabha — focused legislative simulation with youth from across the state.</p>
           </div>
         </div>
-      </div>
+      </a>
 
-      <div class="carousel-slide">
-        <img src="https://images.unsplash.com/photo-1558403194-611308249d50?q=80&w=1470&auto=format&fit=crop" alt="Explore All Conferences">
+      <!-- 3. Yuva Sajhedari 2.0 -->
+      <a class="carousel-slide" href="https://youtu.be/sE6000k_oOY?feature=shared" target="_blank" rel="noopener">
+        <img src="/images/yuva_sajhedari_2-cover.jpg" alt="Yuva Sajhedari 2.0">
         <div class="carousel-overlay">
           <div class="carousel-left">
-            <span class="carousel-tag">A Legacy of 23+ Grand Conferences Across India</span>
-            <h3 class="carousel-heading">Explore All Conferences</h3>
-            <p class="carousel-desc">From school halls to the Parliament of India, discover our 9-year journey of empowering youth through constitutional values, parliamentary dialogue, and international diplomacy.</p>
-            <a href="/conferences/" class="btn-fire" style="margin-top: 1.2rem;">View All Records →</a>
+            <span class="carousel-tag">▶ Watch After-Movie</span>
+            <h3 class="carousel-heading">Yuva Sajhedari 2.0</h3>
+            <p class="carousel-desc">A collaborative youth partnership forum bringing together young minds for policy-driven national dialogue.</p>
           </div>
         </div>
-      </div>
+      </a>
+
+      <!-- 4. Bal Sansad 2.0 -->
+      <a class="carousel-slide" href="https://youtu.be/Sxneoe6zF2s?si=pljAMOq1KiHaKdYQ" target="_blank" rel="noopener">
+        <img src="/images/bal_sansad_2-cover.png" alt="Bal Sansad 2.0">
+        <div class="carousel-overlay">
+          <div class="carousel-left">
+            <span class="carousel-tag">▶ Watch After-Movie</span>
+            <h3 class="carousel-heading">Bal Sansad 2.0</h3>
+            <p class="carousel-desc">Children's parliament simulation empowering young voices through constitutional literacy and parliamentary values.</p>
+          </div>
+        </div>
+      </a>
+
+      <!-- 5. Haryana Yuva Samvad -->
+      <a class="carousel-slide" href="https://youtu.be/oqVwVEcF-H0?si=PEe7HDPoCpY8LTFR" target="_blank" rel="noopener">
+        <img src="/images/haryana_yuva_samvad_2026-cover.jpg" alt="Haryana Yuva Samvad">
+        <div class="carousel-overlay">
+          <div class="carousel-left">
+            <span class="carousel-tag">▶ Watch After-Movie</span>
+            <h3 class="carousel-heading">Haryana Yuva Samvad</h3>
+            <p class="carousel-desc">A landmark legislative forum at Haryana Vidhan Sabha, honoured by the Hon'ble Speaker.</p>
+          </div>
+        </div>
+      </a>
+
+      <!-- 6. Delhi Yuva Samvad -->
+      <a class="carousel-slide" href="https://youtu.be/Ljim-Zm6sNo?si=KRK2ML1nwE8X3820" target="_blank" rel="noopener">
+        <img src="/images/delhi_yuva_samvad_2024-cover.jpg" alt="Delhi Yuva Samvad">
+        <div class="carousel-overlay">
+          <div class="carousel-left">
+            <span class="carousel-tag">▶ Watch After-Movie</span>
+            <h3 class="carousel-heading">Delhi Yuva Samvad</h3>
+            <p class="carousel-desc">75 selected participants from across India at Delhi Vidhan Sabha — graced by Hon'ble Speaker Shri Ram Niwas Goel.</p>
+          </div>
+        </div>
+      </a>
+
+      <!-- 7. 2nd National Lawyers Parliament Festival -->
+      <a class="carousel-slide" href="https://youtu.be/T8dD7LjTmCw?si=HgCZQg7tbC6Ejkmj" target="_blank" rel="noopener">
+        <img src="/images/nlpf_2024-cover.png" alt="2nd National Lawyers Parliament Festival">
+        <div class="carousel-overlay">
+          <div class="carousel-left">
+            <span class="carousel-tag">▶ Watch After-Movie</span>
+            <h3 class="carousel-heading">2nd National Lawyers Parliament Festival</h3>
+            <p class="carousel-desc">~500 lawyers & law students at India International Centre deliberating on New Criminal Laws.</p>
+          </div>
+        </div>
+      </a>
+
+      <!-- 8. Bal Sansad 1.0 -->
+      <a class="carousel-slide" href="https://youtu.be/zdqjk90rmYY?si=m1P6wr36-QCHpCpN" target="_blank" rel="noopener">
+        <img src="/images/bal_sansad_1-cover.png" alt="Bal Sansad 1.0">
+        <div class="carousel-overlay">
+          <div class="carousel-left">
+            <span class="carousel-tag">▶ Watch After-Movie</span>
+            <h3 class="carousel-heading">Bal Sansad 1.0</h3>
+            <p class="carousel-desc">The inaugural edition of our children's parliament — where young minds first took the floor.</p>
+          </div>
+        </div>
+      </a>
+
+      <!-- 9. Yuva Sajhedari 1.0 -->
+      <a class="carousel-slide" href="https://youtu.be/UkaoUjaBvT0?si=y5PpN4j2qej9KpyX" target="_blank" rel="noopener">
+        <img src="/images/yuva_sajhedari_1-cover.jpg" alt="Yuva Sajhedari 1.0">
+        <div class="carousel-overlay">
+          <div class="carousel-left">
+            <span class="carousel-tag">▶ Watch After-Movie</span>
+            <h3 class="carousel-heading">Yuva Sajhedari 1.0</h3>
+            <p class="carousel-desc">The first edition of our youth partnership forum — igniting collaborative spirit among India's youth.</p>
+          </div>
+        </div>
+      </a>
+
+      <!-- 10. Gorakhpur Yuva Samvad -->
+      <a class="carousel-slide" href="https://www.instagram.com/reel/DRU9hurEib2/?igsh=MTNlMnJnc25nbTdnZw==" target="_blank" rel="noopener">
+        <img src="/images/gorakhpur_yuva_samvad_2025-cover.jpg" alt="Gorakhpur Yuva Samvad">
+        <div class="carousel-overlay">
+          <div class="carousel-left">
+            <span class="carousel-tag">▶ Watch After-Movie</span>
+            <h3 class="carousel-heading">Gorakhpur Yuva Samvad</h3>
+            <p class="carousel-desc">900+ participants, 19 committees — one of the largest youth parliamentary confluences in East UP.</p>
+          </div>
+        </div>
+      </a>
+
+      <!-- 11. Global Panchayat 1.0 -->
+      <a class="carousel-slide" href="https://www.instagram.com/reel/DCMcxkrStso/?igsh=MXR1bnFydWFzOXRrag==" target="_blank" rel="noopener">
+        <img src="/images/global_panchayat_1-cover.jpg" alt="Global Panchayat 1.0">
+        <div class="carousel-overlay">
+          <div class="carousel-left">
+            <span class="carousel-tag">▶ Watch After-Movie</span>
+            <h3 class="carousel-heading">Global Panchayat 1.0</h3>
+            <p class="carousel-desc">Youth deliberating on global and national policies — a platform for international diplomacy and dialogue.</p>
+          </div>
+        </div>
+      </a>
+
+      <!-- 12. Explore More -->
+      <a class="carousel-slide" href="https://www.youtube.com/@RajdhaniYuvaSansad" target="_blank" rel="noopener">
+        <img src="/images/dash-hero-1.jpg" alt="Explore More Conferences">
+        <div class="carousel-overlay" style="align-items:center;justify-content:center;text-align:center;">
+          <div class="carousel-left" style="max-width:640px;text-align:center;">
+            <span class="carousel-tag">Rajdhani Yuva Sansad · YouTube</span>
+            <h3 class="carousel-heading">Explore More Conferences</h3>
+            <p class="carousel-desc">Watch all our after-movies, event highlights, and behind-the-scenes content on our official YouTube channel.</p>
+            <span class="btn-fire" style="margin-top:1.2rem;display:inline-flex;">Visit YouTube Channel →</span>
+          </div>
+        </div>
+      </a>
 
     </div>
 
@@ -1746,6 +1885,13 @@ Their journey spans institutional engagement across the states of Delhi, Uttar P
       <div class="carousel-dot" data-index="2"></div>
       <div class="carousel-dot" data-index="3"></div>
       <div class="carousel-dot" data-index="4"></div>
+      <div class="carousel-dot" data-index="5"></div>
+      <div class="carousel-dot" data-index="6"></div>
+      <div class="carousel-dot" data-index="7"></div>
+      <div class="carousel-dot" data-index="8"></div>
+      <div class="carousel-dot" data-index="9"></div>
+      <div class="carousel-dot" data-index="10"></div>
+      <div class="carousel-dot" data-index="11"></div>
     </div>
   </div>
 </section>
