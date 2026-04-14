@@ -45,61 +45,107 @@
 
     <main>
 
-        <!-- ═══ HERO ═══ -->
-        <section class="page-hero">
-            <div class="page-hero-bg"></div>
-            <canvas class="page-particles" id="heroParticles"></canvas>
+        <!-- ═══ HERO — CINEMATIC FULL-VIEWPORT ═══ -->
+        <section class="about-hero" id="aboutHero">
 
-            <!-- Decorative Ashoka Chakra -->
-            <svg class="page-chakra" viewBox="0 0 200 200" fill="none">
-                <circle cx="100" cy="100" r="90" stroke="rgba(184,137,42,0.4)" stroke-width="0.5"/>
-                <circle cx="100" cy="100" r="70" stroke="rgba(184,137,42,0.3)" stroke-width="0.4"/>
-                <circle cx="100" cy="100" r="20" stroke="rgba(184,137,42,0.5)" stroke-width="0.6"/>
-                <g stroke="rgba(184,137,42,0.4)" stroke-width="0.4">
-                    <line x1="100" y1="10" x2="100" y2="190"/>
-                    <line x1="10" y1="100" x2="190" y2="100"/>
-                    <line x1="36.4" y1="36.4" x2="163.6" y2="163.6"/>
-                    <line x1="163.6" y1="36.4" x2="36.4" y2="163.6"/>
-                    <line x1="100" y1="10" x2="145" y2="27"/><line x1="100" y1="10" x2="55" y2="27"/>
-                    <line x1="190" y1="100" x2="173" y2="55"/><line x1="190" y1="100" x2="173" y2="145"/>
-                    <line x1="100" y1="190" x2="145" y2="173"/><line x1="100" y1="190" x2="55" y2="173"/>
-                    <line x1="10" y1="100" x2="27" y2="55"/><line x1="10" y1="100" x2="27" y2="145"/>
-                </g>
-            </svg>
+          <!-- Background: 5-image mosaic with parallax -->
+          <div class="ah-mosaic" aria-hidden="true">
+            <div class="ah-mosaic-img ah-m1"><img src="/images/about-spirit-of-rys-1.jpg" alt=""></div>
+            <div class="ah-mosaic-img ah-m2"><img src="/images/about-spirit-of-rys-2.jpg" alt=""></div>
+            <div class="ah-mosaic-img ah-m3"><img src="/images/about-spirit-of-rys-3.jpg" alt=""></div>
+            <div class="ah-mosaic-img ah-m4"><img src="/images/about-spirit-of-rys-4.jpg" alt=""></div>
+            <div class="ah-mosaic-img ah-m5"><img src="/images/about-spirit-of-rys-5.jpg" alt=""></div>
+          </div>
 
-            <!-- Side Video Blocks (Local) -->
-            <div class="hero-side-video hero-side-video-left">
-                <video autoplay muted loop playsinline>
-                    <source src="/images/about-videos-hero-1.jpeg" type="video/mp4">
-                    Your browser does not support the video tag.
-                </video>
-            </div>
-            <div class="hero-side-video hero-side-video-right">
-                <video autoplay muted loop playsinline>
-                    <source src="/images/about-videos-hero-2.jpeg" type="video/mp4">
-                    Your browser does not support the video tag.
-                </video>
+          <!-- Cinematic vignette -->
+          <div class="ah-vignette" aria-hidden="true"></div>
+
+          <!-- Floating Ashoka Chakra -->
+          <svg class="ah-chakra" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="50" cy="50" r="48" stroke="currentColor" stroke-width=".3"/>
+            <circle cx="50" cy="50" r="36" stroke="currentColor" stroke-width=".3"/>
+            <circle cx="50" cy="50" r="4" fill="currentColor"/>
+            <g stroke="currentColor" stroke-width=".25">
+              <line x1="50" y1="14" x2="50" y2="2"/><line x1="50" y1="86" x2="50" y2="98"/>
+              <line x1="86" y1="50" x2="98" y2="50"/><line x1="14" y1="50" x2="2" y2="50"/>
+              <line x1="72.97" y1="27.03" x2="81.82" y2="18.18"/><line x1="27.03" y1="72.97" x2="18.18" y2="81.82"/>
+              <line x1="72.97" y1="72.97" x2="81.82" y2="81.82"/><line x1="27.03" y1="27.03" x2="18.18" y2="18.18"/>
+              <line x1="63.64" y1="15.63" x2="67.86" y2="3.53"/><line x1="36.36" y1="84.37" x2="32.14" y2="96.47"/>
+              <line x1="84.37" y1="63.64" x2="96.47" y2="67.86"/><line x1="15.63" y1="36.36" x2="3.53" y2="32.14"/>
+              <line x1="84.37" y1="36.36" x2="96.47" y2="32.14"/><line x1="15.63" y1="63.64" x2="3.53" y2="67.86"/>
+              <line x1="63.64" y1="84.37" x2="67.86" y2="96.47"/><line x1="36.36" y1="15.63" x2="32.14" y2="3.53"/>
+              <line x1="77.78" y1="17.37" x2="83.98" y2="6.04"/><line x1="22.22" y1="82.63" x2="16.02" y2="93.96"/>
+              <line x1="82.63" y1="77.78" x2="93.96" y2="83.98"/><line x1="17.37" y1="22.22" x2="6.04" y2="16.02"/>
+              <line x1="82.63" y1="22.22" x2="93.96" y2="16.02"/><line x1="17.37" y1="77.78" x2="6.04" y2="83.98"/>
+              <line x1="77.78" y1="82.63" x2="83.98" y2="93.96"/><line x1="22.22" y1="17.37" x2="16.02" y2="6.04"/>
+            </g>
+          </svg>
+
+          <!-- Particle canvas -->
+          <canvas class="page-particles" id="heroParticles"></canvas>
+
+          <!-- Content layer -->
+          <div class="ah-content">
+            <!-- Eyebrow -->
+            <div class="ah-eyebrow">
+              <span class="ah-ey-line"></span>
+              <span class="ah-ey-text">Est. 2017 · New Delhi</span>
+              <span class="ah-ey-line"></span>
             </div>
 
-            <div class="page-hero-content">
-                <div class="hero-eyebrow">
-                    <span class="hero-eyebrow-line"></span>
-                    <span>Our Story</span>
-                    <span class="hero-eyebrow-line"></span>
-                </div>
-                <h1>Nation Building<br>Through Dialogue</h1>
-                <p class="page-hero-desc">Founded in 2017 by two young law students with a clear purpose to serve the nation through structured dialogue rooted in parliamentary values, constitutional learning and international diplomacy.</p>
-                <div class="hero-badges">
-                    <div class="hero-badge-item"><span class="hero-badge-num" data-count="2017">2017</span><span class="hero-badge-label">Established</span></div>
-                    <div class="hero-badge-divider"></div>
-                    <div class="hero-badge-item"><span class="hero-badge-num" data-count="23+">23+</span><span class="hero-badge-label">Grand Conferences</span></div>
-                    <div class="hero-badge-divider"></div>
-                    <div class="hero-badge-item"><span class="hero-badge-num" data-count="1 Lakh+">1 Lakh+</span><span class="hero-badge-label">Students Trained</span></div>
-                    <div class="hero-badge-divider"></div>
-                    <div class="hero-badge-item"><span class="hero-badge-num" data-count="1000+">1000+</span><span class="hero-badge-label">National Capacity</span></div>
-                </div>
+            <!-- Sanskrit verse — floating above the title -->
+            <div class="ah-verse">'संवाद ही हल है।'</div>
+
+            <!-- Main headline with reveal animation -->
+            <h1 class="ah-h1">
+              <span class="ah-h1-line"><span class="ah-h1-word">Nation</span> <span class="ah-h1-word">Building</span></span>
+              <span class="ah-h1-line"><span class="ah-h1-word">Through</span> <span class="ah-h1-word ah-h1-italic">Dialogue</span></span>
+            </h1>
+
+            <!-- Subtitle with left accent bar -->
+            <div class="ah-subtitle">
+              <div class="ah-sub-bar"></div>
+              <p>Founded in 2017 by Adv. Isha Kapoor and Adv. Jai Saini — two young law students with a clear purpose to serve the nation through structured dialogue rooted in parliamentary values, constitutional learning and international diplomacy.</p>
             </div>
+
+            <!-- Two founder portrait frames -->
+            <div class="ah-founders-duo">
+              <div class="ah-founder-frame ah-ff-left">
+                <img src="/images/adv-isha-kapoor.jpg" alt="Adv. Isha Kapoor">
+                <div class="ah-ff-label">Adv. Isha Kapoor<span>Co-Founder</span></div>
+              </div>
+              <div class="ah-founder-divider">
+                <div class="ah-fd-line"></div>
+                <div class="ah-fd-icon">⚖</div>
+                <div class="ah-fd-line"></div>
+              </div>
+              <div class="ah-founder-frame ah-ff-right">
+                <img src="/images/adv-jai-saini.jpg" alt="Adv. Jai Saini">
+                <div class="ah-ff-label">Adv. Jai Saini<span>Co-Founder</span></div>
+              </div>
+            </div>
+
+            <!-- CTA -->
+            <div class="ah-actions">
+              <a href="#founders-deep" class="btn-fire">Meet the Founders</a>
+              <a href="/conferences/" class="btn-ghost">23+ Conferences →</a>
+            </div>
+          </div>
+
+          <!-- Scroll cue -->
+          <div class="ah-scroll">
+            <span>Scroll to Explore</span>
+            <div class="ah-scroll-line"></div>
+          </div>
         </section>
+
+        <!-- Stats strip — sits right below hero -->
+        <div class="ah-stats-band">
+          <div class="ah-stat"><span class="ah-stat-num" data-count="2017">2017</span><span class="ah-stat-label">Established</span></div>
+          <div class="ah-stat"><span class="ah-stat-num" data-count="23">23+</span><span class="ah-stat-label">Grand Conferences</span></div>
+          <div class="ah-stat"><span class="ah-stat-num">1 Lakh+</span><span class="ah-stat-label">Students Trained</span></div>
+          <div class="ah-stat"><span class="ah-stat-num" data-count="1000">1,000+</span><span class="ah-stat-label">National Capacity</span></div>
+        </div>
 
         <!-- ═══ WHO WE ARE ═══ -->
         <section class="sec">
@@ -171,7 +217,7 @@
         </section>
 
         <!-- ═══ FOUNDERS ═══ -->
-        <section class="sec">
+        <section class="sec" id="founders-deep">
             <p class="sec-tag">Visionary Leaders</p>
             <h2 class="sec-h2">The Founders</h2>
             <div class="founders-wrap" style="max-width:1000px; margin:0 auto;">

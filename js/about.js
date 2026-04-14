@@ -18,11 +18,23 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // ─── Parallax on hero chakra ───
-  const chakra = document.querySelector('.page-chakra');
+  const chakra = document.querySelector('.ah-chakra');
   if (chakra) {
     window.addEventListener('scroll', () => {
       const scroll = window.scrollY;
       chakra.style.transform = `translate(-50%,-50%) rotate(${scroll * 0.05}deg)`;
+    }, { passive: true });
+  }
+
+  // ─── Mosaic image parallax ───
+  const mosaicImgs = document.querySelectorAll('.ah-mosaic-img img');
+  if (mosaicImgs.length) {
+    window.addEventListener('scroll', () => {
+      const y = window.scrollY * 0.08;
+      mosaicImgs.forEach((img, i) => {
+        const offset = (i % 2 === 0) ? y : -y * 0.6;
+        img.style.transform = `translateY(${offset}px) scale(1.08)`;
+      });
     }, { passive: true });
   }
 

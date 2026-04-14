@@ -1,6 +1,37 @@
 /* ══════════════════════════════════════════════════════════════
    CONTACT PAGE — SCRIPTS
    ══════════════════════════════════════════════════════════════ */
+
+/* ─── WhatsApp Notification via CallMeBot ────────────────────────────────────
+   ONE-TIME SETUP (do this once from the RYS WhatsApp number):
+   1. Open WhatsApp and send this message to +34 644 59 78 64:
+         I allow callmebot to send me messages
+   2. Within seconds, CallMeBot replies with your personal API key.
+   3. Replace CALLMEBOT_PHONE and CALLMEBOT_APIKEY below with your values.
+   ─────────────────────────────────────────────────────────────────────────── */
+const CALLMEBOT_PHONE  = 'YOUR_PHONE_WITH_COUNTRY_CODE'; // e.g. 919876543210 (no +)
+const CALLMEBOT_APIKEY = 'YOUR_CALLMEBOT_APIKEY';
+
+function sendWhatsAppNotification(name, email, phone, subject, message) {
+  const text = [
+    '📋 *New Contact Form Submission*',
+    '━━━━━━━━━━━━━━━━━━━━',
+    `👤 *Name:* ${name}`,
+    `📧 *Email:* ${email}`,
+    `📞 *Phone:* ${phone}`,
+    `📌 *Subject:* ${subject}`,
+    '━━━━━━━━━━━━━━━━━━━━',
+    `💬 *Message:*\n${message}`,
+    '━━━━━━━━━━━━━━━━━━━━',
+    '_Sent via rajdhaniyuvasansad.com_'
+  ].join('\n');
+
+  const url = `https://api.callmebot.com/whatsapp.php?phone=${CALLMEBOT_PHONE}&text=${encodeURIComponent(text)}&apikey=${CALLMEBOT_APIKEY}`;
+
+  // no-cors: we don't need a response — the request fires and WA delivers the message
+  fetch(url, { mode: 'no-cors' }).catch(() => {/* silent — email already sent */});
+}
+
 document.addEventListener('DOMContentLoaded', () => {
 
   // ─── FAQ Accordion ───
@@ -16,10 +47,6 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // ─── Form Submit via EmailJS ───────────────────────────────────────────────
-  // EmailJS credentials — replace these three values:
-  //   SERVICE_ID  : your Email Service ID  (emailjs.com → Email Services)
-  //   TEMPLATE_ID : your Template ID       (emailjs.com → Email Templates)
-  // Public Key is already set in contact/index.html <head>
   const EMAILJS_SERVICE_ID  = 'YOUR_SERVICE_ID';
   const EMAILJS_TEMPLATE_ID = 'YOUR_TEMPLATE_ID';
 
@@ -56,6 +83,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
       emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, templateParams)
         .then(() => {
+          // Send WhatsApp notification after email succeeds
+          sendWhatsAppNotification(name, email, phone, subjectLabel, message);
           if (formFields) formFields.style.display = 'none';
           if (formSuccess) formSuccess.classList.add('show');
         })

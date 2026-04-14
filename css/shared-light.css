@@ -35,6 +35,24 @@ html[data-theme="light"] .page-hero-bg {
 }
 html[data-theme="light"] .page-chakra { opacity:0.04; }
 
+/* ─── About Hero light-mode overrides ─── */
+html[data-theme="light"] .ah-vignette {
+  background:
+    linear-gradient(180deg, rgba(250,248,243,.88) 0%, rgba(250,248,243,.45) 35%, rgba(250,248,243,.55) 65%, rgba(250,248,243,.92) 100%),
+    radial-gradient(ellipse 70% 50% at 50% 50%, transparent 0%, rgba(250,248,243,.7) 100%);
+}
+html[data-theme="light"] .ah-mosaic-img img {
+  filter:grayscale(20%) brightness(.8);
+}
+html[data-theme="light"] .ah-chakra { color:rgba(184,137,42,.06); }
+html[data-theme="light"] .ah-subtitle p { color:var(--dim); }
+html[data-theme="light"] .ah-founder-frame img {
+  box-shadow:0 8px 30px rgba(0,0,0,.12);
+}
+html[data-theme="light"] .ah-stats-band {
+  background:rgba(250,248,243,.85);
+}
+
 html[data-theme="light"] footer {
   background:var(--navy-mid);
   border-top:1px solid var(--border-gold);
