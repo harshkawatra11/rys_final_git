@@ -53,6 +53,20 @@ html[data-theme="light"] .ah-stats-band {
   background:rgba(250,248,243,.85);
 }
 
+/* Redesigned sections light overrides */
+html[data-theme="light"] .rys-spirit-quote {
+  background:linear-gradient(145deg, rgba(184,137,42,.06), transparent 70%);
+}
+html[data-theme="light"] .val-item:hover {
+  box-shadow:0 20px 50px rgba(0,0,0,.08);
+}
+html[data-theme="light"] .tl-card:hover {
+  box-shadow:0 12px 40px rgba(0,0,0,.08);
+}
+html[data-theme="light"] .tl-node {
+  box-shadow:0 0 14px rgba(212,80,10,.2);
+}
+
 html[data-theme="light"] footer {
   background:var(--navy-mid);
   border-top:1px solid var(--border-gold);

@@ -39,6 +39,20 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // ─── Timeline stagger animation ───
+  const tlEntries = document.querySelectorAll('.tl-entry');
+  if (tlEntries.length) {
+    const tObserver = new IntersectionObserver((entries) => {
+      entries.forEach((e) => {
+        if (e.isIntersecting) {
+          e.target.classList.add('visible');
+          tObserver.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.15 });
+    tlEntries.forEach(el => tObserver.observe(el));
+  }
+
+  // Legacy timeline support
   const timelineItems = document.querySelectorAll('.timeline-item');
   if (timelineItems.length) {
     const tObserver = new IntersectionObserver((entries) => {
