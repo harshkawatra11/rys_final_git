@@ -316,11 +316,24 @@
 }
 .val-item {
   flex:0 0 calc(25% - 1.2rem); min-width:230px;
-  padding:2.4rem 1.6rem; text-align:center;
+  padding:0; text-align:center;
   background:var(--glass-bg); backdrop-filter:blur(14px);
   border:1px solid var(--glass-border);
   position:relative; overflow:hidden;
   transition:transform .4s, box-shadow .4s, border-color .4s;
+}
+.val-img {
+  width:100%; aspect-ratio:16/9; overflow:hidden;
+  border-bottom:1px solid var(--border-gold);
+}
+.val-img img {
+  width:100%; height:100%; object-fit:cover; display:block;
+  filter:brightness(.75) saturate(.85);
+  transition:transform .5s, filter .5s;
+}
+.val-item:hover .val-img img {
+  transform:scale(1.06);
+  filter:brightness(.85) saturate(1);
 }
 .val-item::before {
   content:''; position:absolute; top:0; left:0; right:0;
@@ -328,6 +341,7 @@
   background:linear-gradient(90deg,var(--saffron),var(--gold));
   transform:scaleX(0); transform-origin:left;
   transition:transform .4s ease;
+  z-index:2;
 }
 .val-item:hover {
   transform:translateY(-6px);
@@ -338,10 +352,11 @@
 .val-icon-ring {
   width:60px; height:60px;
   display:flex; align-items:center; justify-content:center;
-  font-size:1.5rem; margin:0 auto 1.2rem;
+  font-size:1.5rem; margin:-30px auto 0;
   border:1.5px solid var(--border-gold);
   border-radius:50%;
-  background:linear-gradient(135deg, var(--saffron-pale), transparent);
+  background:var(--navy-deep, #0E1B30);
+  position:relative; z-index:1;
   transition:border-color .3s, box-shadow .3s;
 }
 .val-item:hover .val-icon-ring {
@@ -350,10 +365,11 @@
 }
 .val-name {
   font-family:'Cinzel',serif; font-size:.78rem; font-weight:700;
-  color:var(--cream); letter-spacing:.06em; margin-bottom:.7rem;
+  color:var(--cream); letter-spacing:.06em; margin:.8rem 1.6rem .7rem;
 }
 .val-desc {
   font-size:.78rem; color:var(--dim); line-height:1.75;
+  padding:0 1.6rem 2rem;
 }
 @media(max-width:960px) {
   .val-item { flex:0 0 calc(50% - .8rem); min-width:0; }
