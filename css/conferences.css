@@ -2,6 +2,170 @@
    CONFERENCES PAGE — SPECIFIC STYLES
    ══════════════════════════════════════════════════════════════ */
 
+/* ═══════════════════════════════════════
+   CINEMATIC CONFERENCE HERO
+   ═══════════════════════════════════════ */
+.conf-hero {
+  position:relative; min-height:100vh;
+  display:flex; align-items:center; justify-content:center;
+  overflow:hidden; z-index:1;
+}
+
+/* ─── Film-strip Background ─── */
+.ch-filmstrip {
+  position:absolute; inset:0; z-index:0;
+  display:flex; flex-direction:column;
+  justify-content:center; gap:4px;
+  opacity:1;
+}
+.ch-strip {
+  display:flex; gap:4px; height:42%;
+  width:max-content;
+}
+.ch-strip img {
+  height:100%; width:auto; aspect-ratio:16/10;
+  object-fit:cover; display:block;
+  filter:grayscale(35%) brightness(.45);
+}
+.ch-strip-top { animation:chScrollLeft 60s linear infinite; }
+.ch-strip-bot { animation:chScrollRight 55s linear infinite; }
+@keyframes chScrollLeft {
+  from { transform:translateX(0); }
+  to   { transform:translateX(-50%); }
+}
+@keyframes chScrollRight {
+  from { transform:translateX(-50%); }
+  to   { transform:translateX(0); }
+}
+
+/* ─── Vignette ─── */
+.ch-vignette {
+  position:absolute; inset:0; z-index:1; pointer-events:none;
+  background:
+    linear-gradient(180deg, rgba(10,22,40,.9) 0%, rgba(10,22,40,.45) 30%, rgba(10,22,40,.45) 70%, rgba(10,22,40,.92) 100%),
+    radial-gradient(ellipse 65% 55% at 50% 50%, transparent 0%, rgba(10,22,40,.65) 100%);
+}
+
+/* ─── Particles ─── */
+.conf-hero .page-particles {
+  position:absolute; inset:0; z-index:1; pointer-events:none;
+}
+
+/* ─── Content ─── */
+.ch-content {
+  position:relative; z-index:2;
+  max-width:800px; width:90%; margin:0 auto;
+  text-align:center; padding:6rem 0 4rem;
+}
+
+/* Eyebrow */
+.ch-eyebrow {
+  display:flex; align-items:center; gap:1rem;
+  justify-content:center; margin-bottom:1.5rem;
+  opacity:0; animation:chFadeUp .8s .3s ease forwards;
+}
+.ch-ey-line { width:40px; height:1px; background:var(--border-gold); }
+.ch-ey-text {
+  font-size:.6rem; letter-spacing:.28em; text-transform:uppercase;
+  color:var(--gold); font-weight:600;
+}
+
+/* Headline */
+.ch-h1 {
+  font-family:'Cinzel',serif; font-weight:700;
+  font-size:clamp(2.2rem,5.5vw,4.2rem);
+  color:var(--cream); line-height:1.12; letter-spacing:.03em;
+  margin-bottom:1.5rem;
+}
+.ch-h1-line { display:block; overflow:hidden; }
+.ch-h1-word {
+  display:inline-block;
+  opacity:0; transform:translateY(100%);
+  animation:chWordReveal .7s ease forwards;
+}
+.ch-h1-line:nth-child(1) .ch-h1-word:nth-child(1) { animation-delay:.5s; }
+.ch-h1-line:nth-child(1) .ch-h1-word:nth-child(2) { animation-delay:.6s; }
+.ch-h1-line:nth-child(2) .ch-h1-word:nth-child(1) { animation-delay:.7s; }
+.ch-h1-line:nth-child(2) .ch-h1-word:nth-child(2) { animation-delay:.8s; }
+@keyframes chWordReveal {
+  to { opacity:1; transform:translateY(0); }
+}
+.ch-h1-italic {
+  font-family:'IM Fell English',serif; font-style:italic;
+  color:var(--saffron);
+}
+
+/* Description */
+.ch-desc {
+  font-size:.9rem; color:rgba(244,237,216,.65);
+  line-height:1.85; max-width:620px; margin:0 auto 2rem;
+  opacity:0; animation:chFadeUp .8s .9s ease forwards;
+}
+
+/* Stats */
+.ch-stats {
+  display:flex; align-items:center; justify-content:center;
+  gap:2rem; flex-wrap:wrap; margin-bottom:2rem;
+  opacity:0; animation:chFadeUp .8s 1.05s ease forwards;
+}
+.ch-stat { text-align:center; }
+.ch-stat-num {
+  display:block; font-family:'Cinzel',serif;
+  font-size:1.5rem; font-weight:700; color:var(--saffron); line-height:1;
+}
+.ch-stat-label {
+  font-size:.55rem; letter-spacing:.15em; text-transform:uppercase;
+  color:var(--dim); margin-top:.3rem; display:block;
+}
+.ch-stat-div {
+  width:1px; height:32px; background:var(--border-gold);
+}
+
+/* Actions */
+.ch-actions {
+  display:flex; gap:1.2rem; justify-content:center; flex-wrap:wrap;
+  opacity:0; animation:chFadeUp .8s 1.2s ease forwards;
+}
+
+/* Scroll cue */
+.ch-scroll {
+  position:absolute; bottom:2rem; left:0; right:0;
+  z-index:3; display:flex; flex-direction:column;
+  align-items:center; justify-content:center; gap:.5rem;
+  opacity:0; animation:chFadeUp .8s 1.5s ease forwards;
+}
+.ch-scroll span {
+  font-size:.55rem; letter-spacing:.22em; text-transform:uppercase;
+  color:var(--dim); font-weight:500;
+}
+.ch-scroll-line {
+  width:1px; height:28px;
+  background:linear-gradient(180deg,var(--saffron),transparent);
+  animation:chScrollPulse 2s ease-in-out infinite;
+}
+@keyframes chScrollPulse {
+  0%,100% { opacity:1; transform:scaleY(1); }
+  50%     { opacity:.4; transform:scaleY(.6); }
+}
+@keyframes chFadeUp {
+  from { opacity:0; transform:translateY(24px); }
+  to   { opacity:1; transform:translateY(0); }
+}
+
+/* ─── Responsive: Conference Hero ─── */
+@media(max-width:768px) {
+  .conf-hero { min-height:100svh; }
+  .ch-strip { height:35%; }
+  .ch-h1 { font-size:clamp(1.8rem,8vw,2.8rem); }
+  .ch-desc { font-size:.84rem; }
+  .ch-stats { gap:1.2rem; }
+  .ch-stat-num { font-size:1.2rem; }
+  .ch-stat-div { height:24px; }
+}
+@media(max-width:480px) {
+  .ch-actions { flex-direction:column; align-items:center; }
+}
+
 /* ─── FILTER BAR ─── */
 .filter-bar {
   position:sticky; top:56px; z-index:100;

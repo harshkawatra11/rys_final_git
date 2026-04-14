@@ -42,33 +42,77 @@
     </div>
 
     <main>
-        <!-- ═══ HERO ═══ -->
-        <section class="page-hero">
-            <div class="page-hero-bg"></div>
-            <canvas class="page-particles" id="heroParticles"></canvas>
-            <svg class="page-chakra" viewBox="0 0 200 200" fill="none">
-                <circle cx="100" cy="100" r="90" stroke="rgba(184,137,42,0.4)" stroke-width="0.5"/>
-                <circle cx="100" cy="100" r="70" stroke="rgba(184,137,42,0.3)" stroke-width="0.4"/>
-                <circle cx="100" cy="100" r="20" stroke="rgba(184,137,42,0.5)" stroke-width="0.6"/>
-                <g stroke="rgba(184,137,42,0.4)" stroke-width="0.4">
-                    <line x1="100" y1="10" x2="100" y2="190"/><line x1="10" y1="100" x2="190" y2="100"/>
-                    <line x1="36.4" y1="36.4" x2="163.6" y2="163.6"/><line x1="163.6" y1="36.4" x2="36.4" y2="163.6"/>
-                </g>
-            </svg>
-            <div class="page-hero-content">
-                <div class="hero-eyebrow"><span class="hero-eyebrow-line"></span><span>Conference Portfolio</span><span class="hero-eyebrow-line"></span></div>
-                <h1>Our Conferences<br>& Events</h1>
-                <p class="page-hero-desc">From the halls of Haryana Vidhan Sabha to school auditoriums across India — explore every conference, forum, and initiative organised by Rajdhani Yuva Sansad since 2017.</p>
-                <div class="hero-badges">
-                    <div class="hero-badge-item"><span class="hero-badge-num" data-count="20+">0</span><span class="hero-badge-label">Conferences</span></div>
-                    <div class="hero-badge-divider"></div>
-                    <div class="hero-badge-item"><span class="hero-badge-num" data-count="1 Lakh+">0</span><span class="hero-badge-label">Students Trained</span></div>
-                    <div class="hero-badge-divider"></div>
-                    <div class="hero-badge-item"><span class="hero-badge-num" data-count="50+">0</span><span class="hero-badge-label">Committees</span></div>
-                    <div class="hero-badge-divider"></div>
-                    <div class="hero-badge-item"><span class="hero-badge-num" data-count="8">0</span><span class="hero-badge-label">Years Active</span></div>
-                </div>
+        <!-- ═══ HERO — CINEMATIC CONFERENCE PORTFOLIO ═══ -->
+        <section class="conf-hero" id="confHero">
+
+          <!-- Background: scrolling image strip -->
+          <div class="ch-filmstrip" aria-hidden="true">
+            <div class="ch-strip ch-strip-top">
+              <img src="/images/haryana_yuva_samvad_2026-cover.jpg" alt=""><img src="/images/gorakhpur_yuva_samvad_2025-cover.jpg" alt=""><img src="/images/delhi_yuva_samvad_2024-cover.jpg" alt=""><img src="/images/global_panchayat_2-cover.jpg" alt=""><img src="/images/sajag_yuva_manch_4-cover.jpg" alt=""><img src="/images/haryana_yuva_samvad_2025-cover.jpg" alt="">
+              <img src="/images/haryana_yuva_samvad_2026-cover.jpg" alt=""><img src="/images/gorakhpur_yuva_samvad_2025-cover.jpg" alt=""><img src="/images/delhi_yuva_samvad_2024-cover.jpg" alt=""><img src="/images/global_panchayat_2-cover.jpg" alt=""><img src="/images/sajag_yuva_manch_4-cover.jpg" alt=""><img src="/images/haryana_yuva_samvad_2025-cover.jpg" alt="">
             </div>
+            <div class="ch-strip ch-strip-bot">
+              <img src="/images/st_xaviers_delhi-cover.jpg" alt=""><img src="/images/global_panchayat_1-cover.jpg" alt=""><img src="/images/bal_bharti_noida-cover.jpg" alt=""><img src="/images/yuva_sajhedari_2-cover.jpg" alt=""><img src="/images/hp_academy_gorakhpur-cover.jpg" alt=""><img src="/images/sajag_yuva_manch_1-cover.jpg" alt="">
+              <img src="/images/st_xaviers_delhi-cover.jpg" alt=""><img src="/images/global_panchayat_1-cover.jpg" alt=""><img src="/images/bal_bharti_noida-cover.jpg" alt=""><img src="/images/yuva_sajhedari_2-cover.jpg" alt=""><img src="/images/hp_academy_gorakhpur-cover.jpg" alt=""><img src="/images/sajag_yuva_manch_1-cover.jpg" alt="">
+            </div>
+          </div>
+
+          <!-- Vignette -->
+          <div class="ch-vignette" aria-hidden="true"></div>
+
+          <!-- Particles -->
+          <canvas class="page-particles" id="heroParticles"></canvas>
+
+          <!-- Content -->
+          <div class="ch-content">
+            <div class="ch-eyebrow">
+              <span class="ch-ey-line"></span>
+              <span class="ch-ey-text">Conference Portfolio</span>
+              <span class="ch-ey-line"></span>
+            </div>
+
+            <h1 class="ch-h1">
+              <span class="ch-h1-line"><span class="ch-h1-word">Our</span> <span class="ch-h1-word ch-h1-italic">Conferences</span></span>
+              <span class="ch-h1-line"><span class="ch-h1-word">&</span> <span class="ch-h1-word">Events</span></span>
+            </h1>
+
+            <p class="ch-desc">From the halls of Haryana Vidhan Sabha to school auditoriums across India — explore every conference, forum, and initiative organised by Rajdhani Yuva Sansad since 2017.</p>
+
+            <!-- Stats row -->
+            <div class="ch-stats">
+              <div class="ch-stat">
+                <span class="ch-stat-num">23+</span>
+                <span class="ch-stat-label">Conferences</span>
+              </div>
+              <div class="ch-stat-div"></div>
+              <div class="ch-stat">
+                <span class="ch-stat-num">1 Lakh+</span>
+                <span class="ch-stat-label">Students Trained</span>
+              </div>
+              <div class="ch-stat-div"></div>
+              <div class="ch-stat">
+                <span class="ch-stat-num">50+</span>
+                <span class="ch-stat-label">Committees</span>
+              </div>
+              <div class="ch-stat-div"></div>
+              <div class="ch-stat">
+                <span class="ch-stat-num">8</span>
+                <span class="ch-stat-label">Years Active</span>
+              </div>
+            </div>
+
+            <!-- CTA -->
+            <div class="ch-actions">
+              <a href="#conf-2026" class="btn-fire">Latest Conference →</a>
+              <a href="/contact/" class="btn-ghost">Register as Delegate</a>
+            </div>
+          </div>
+
+          <!-- Scroll cue -->
+          <div class="ch-scroll">
+            <span>Scroll to Explore</span>
+            <div class="ch-scroll-line"></div>
+          </div>
         </section>
 
         <!-- ═══ FILTER BAR ═══ -->
@@ -97,7 +141,7 @@
             <div style="max-width:1200px; margin:0 auto;">
 
                 <!-- ═══ 2026 ═══ -->
-                <div class="year-group" data-year="2026">
+                <div class="year-group" data-year="2026" id="conf-2026">
                     <div class="year-header"><div class="year-number">2026</div><div class="year-line"></div><div class="year-count">1 Conference</div></div>
                     <div class="conf-cards-grid">
                         <div class="conf-card-featured" id="haryana-yuva-samvad-2026">

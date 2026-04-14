@@ -67,6 +67,17 @@ html[data-theme="light"] .tl-node {
   box-shadow:0 0 14px rgba(212,80,10,.2);
 }
 
+/* Conference hero light overrides */
+html[data-theme="light"] .ch-vignette {
+  background:
+    linear-gradient(180deg, rgba(250,248,243,.92) 0%, rgba(250,248,243,.4) 30%, rgba(250,248,243,.4) 70%, rgba(250,248,243,.92) 100%),
+    radial-gradient(ellipse 65% 55% at 50% 50%, transparent 0%, rgba(250,248,243,.65) 100%);
+}
+html[data-theme="light"] .ch-strip img {
+  filter:grayscale(15%) brightness(.75);
+}
+html[data-theme="light"] .ch-desc { color:var(--dim); }
+
 html[data-theme="light"] footer {
   background:var(--navy-mid);
   border-top:1px solid var(--border-gold);
