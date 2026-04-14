@@ -239,6 +239,21 @@
   grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
   gap: .8rem;
 }
+
+/* ─── PRESS CLIPPINGS GRID ─── */
+.cd-press-clippings {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1rem;
+}
+.cd-press-clip {
+  aspect-ratio: auto;
+}
+.cd-press-clip img {
+  width: 100%; height: 100%; object-fit: contain;
+  background: #fff;
+}
+
 .cd-gallery-item {
   position: relative; overflow: hidden; cursor: pointer;
   aspect-ratio: 4/3; border: 1px solid var(--glass-border);
