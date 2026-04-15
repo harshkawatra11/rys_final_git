@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en" data-default-theme="dark">
 <head>
     <meta charset="UTF-8">
@@ -20,7 +20,7 @@
     <nav>
         <a href="/" class="nav-logo">
             <img src="/images/rys-logo.png" alt="RYS" style="height:38px;width:auto;border-radius:50%;" onerror="this.style.display='none'">
-            <div class="nav-logo-text">Rajdhani Yuva Sansad<span>Est. 2017 · New Delhi</span></div>
+            <div class="nav-logo-text">Rajdhani Yuva Sansad<span>Est. 2017</span></div>
         </a>
         <ul class="nav-links">
             <li><a href="/">Home</a></li>
@@ -49,52 +49,124 @@
         <section class="upcoming-hero">
             <div class="upcoming-hero-bg"></div>
             <div class="upcoming-hero-overlay"></div>
+            <canvas id="heroParticles"></canvas>
+
+            <!-- Floating decorations -->
+            <div class="uc-float-decor uc-float-decor--1"></div>
+            <div class="uc-float-decor uc-float-decor--2"></div>
+            <div class="uc-float-decor uc-float-decor--3"></div>
+            <div class="uc-float-decor uc-float-decor--4"></div>
+
             <div class="upcoming-hero-content">
                 <div class="hero-eyebrow">
                     <span class="hero-eyebrow-line"></span>
                     <span>Upcoming Events</span>
                     <span class="hero-eyebrow-line"></span>
                 </div>
-                <h1>Explore Upcoming<br>Conferences</h1>
+                <h1 id="heroTitle"></h1>
                 <p class="upcoming-hero-desc">Be part of the next chapter in India's largest youth-led parliamentary dialogue platform. Register now and join delegates from across the nation.</p>
+
+                <!-- Countdown to next event -->
+                <div class="uc-countdown" id="ucCountdown">
+                    <div class="uc-countdown-item">
+                        <span class="uc-countdown-num" data-countdown="days">--</span>
+                        <span class="uc-countdown-label">Days</span>
+                    </div>
+                    <span class="uc-countdown-sep">:</span>
+                    <div class="uc-countdown-item">
+                        <span class="uc-countdown-num" data-countdown="hours">--</span>
+                        <span class="uc-countdown-label">Hours</span>
+                    </div>
+                    <span class="uc-countdown-sep">:</span>
+                    <div class="uc-countdown-item">
+                        <span class="uc-countdown-num" data-countdown="mins">--</span>
+                        <span class="uc-countdown-label">Minutes</span>
+                    </div>
+                    <span class="uc-countdown-sep">:</span>
+                    <div class="uc-countdown-item">
+                        <span class="uc-countdown-num" data-countdown="secs">--</span>
+                        <span class="uc-countdown-label">Seconds</span>
+                    </div>
+                </div>
+
+                <a href="#spotlight" class="btn-fire uc-magnetic">⚑ Explore Events</a>
+            </div>
+
+            <div class="uc-scroll-hint">
+                <span>Scroll</span>
+                <div class="uc-scroll-line"></div>
             </div>
         </section>
 
-        <!-- ═══ UPCOMING CONFERENCES ═══ -->
-        <section class="sec">
+        <!-- ═══ MARQUEE ═══ -->
+        <div class="uc-marquee-wrap">
+            <div class="uc-marquee" id="ucMarquee">
+                <span>Rajdhani Yuva Sansad <i class="uc-marquee-dot"></i></span>
+                <span>23+ Grand Conferences <i class="uc-marquee-dot"></i></span>
+                <span>1 Lakh+ Students Trained <i class="uc-marquee-dot"></i></span>
+                <span>9 Years of Impact <i class="uc-marquee-dot"></i></span>
+                <span>Constitutional Values <i class="uc-marquee-dot"></i></span>
+                <span>Parliamentary Dialogue <i class="uc-marquee-dot"></i></span>
+                <span>International Diplomacy <i class="uc-marquee-dot"></i></span>
+                <span>Youth Leadership <i class="uc-marquee-dot"></i></span>
+                <!-- Duplicate for seamless loop -->
+                <span>Rajdhani Yuva Sansad <i class="uc-marquee-dot"></i></span>
+                <span>23+ Grand Conferences <i class="uc-marquee-dot"></i></span>
+                <span>1 Lakh+ Students Trained <i class="uc-marquee-dot"></i></span>
+                <span>9 Years of Impact <i class="uc-marquee-dot"></i></span>
+                <span>Constitutional Values <i class="uc-marquee-dot"></i></span>
+                <span>Parliamentary Dialogue <i class="uc-marquee-dot"></i></span>
+                <span>International Diplomacy <i class="uc-marquee-dot"></i></span>
+                <span>Youth Leadership <i class="uc-marquee-dot"></i></span>
+            </div>
+        </div>
+
+        <!-- ═══ SPOTLIGHT — FEATURED CONFERENCE ═══ -->
+        <section class="sec" id="spotlight">
+            <p class="sec-tag">Next Up</p>
+            <h2 class="sec-h2">Featured Conference</h2>
+            <div class="uc-divider"></div>
+
+            <div class="uc-spotlight reveal">
+                <div class="uc-spotlight-card">
+                    <div class="uc-spotlight-img">
+                        <img src="/images/sajag_yuva_manch_6-cover.png" alt="Sajag Yuva Manch 7.0" loading="lazy">
+                        <div class="uc-spotlight-img-overlay"></div>
+                        <div class="uc-spotlight-badge">Registration Open</div>
+                    </div>
+                    <div class="uc-spotlight-body">
+                        <div class="uc-spotlight-date">
+                            <span>📅</span>
+                            <span>Coming Soon · 2026</span>
+                        </div>
+                        <h3 class="uc-spotlight-title">Sajag Yuva Manch 7.0</h3>
+                        <p class="uc-spotlight-desc">The seventh edition of RYS's flagship school-level conference — multi-committee parliamentary and diplomatic simulations for 700+ delegates. Step into the shoes of policymakers and shape the future.</p>
+                        <div class="uc-spotlight-tags">
+                            <span class="uc-spotlight-tag">📍 Delhi NCR</span>
+                            <span class="uc-spotlight-tag">👥 700+ Delegates</span>
+                            <span class="uc-spotlight-tag">🏛 Multiple Committees</span>
+                            <span class="uc-spotlight-tag">⚖ Constitutional Values</span>
+                        </div>
+                        <a href="/contact/" class="uc-spotlight-cta">Register Now</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ═══ MORE UPCOMING CONFERENCES ═══ -->
+        <section class="sec sec-alt">
             <p class="sec-tag">What's Next</p>
-            <h2 class="sec-h2">Upcoming Grand Conferences</h2>
+            <h2 class="sec-h2">More Upcoming Conferences</h2>
+            <div class="uc-divider"></div>
 
             <div class="upcoming-grid">
 
                 <!-- Conference Card 1 -->
-                <div class="upcoming-card reveal">
-                    <div class="upcoming-card-badge">Registration Open</div>
-                    <div class="upcoming-card-img">
-                        <img src="/images/sajag_yuva_manch_6-cover.png" alt="Sajag Yuva Manch 7.0">
-                        <div class="upcoming-card-img-overlay"></div>
-                    </div>
-                    <div class="upcoming-card-body">
-                        <div class="upcoming-card-date">
-                            <span class="upcoming-card-date-icon">📅</span>
-                            <span>Coming Soon · 2026</span>
-                        </div>
-                        <h3 class="upcoming-card-title">Sajag Yuva Manch 7.0</h3>
-                        <p class="upcoming-card-desc">The seventh edition of RYS's flagship school-level conference — multi-committee parliamentary and diplomatic simulations for 700+ delegates.</p>
-                        <div class="upcoming-card-details">
-                            <div class="upcoming-card-detail"><span>📍</span> Delhi NCR</div>
-                            <div class="upcoming-card-detail"><span>👥</span> 700+ Expected Delegates</div>
-                            <div class="upcoming-card-detail"><span>🏛</span> Multiple Committees</div>
-                        </div>
-                        <a href="/contact/" class="upcoming-card-cta">Register Interest →</a>
-                    </div>
-                </div>
-
-                <!-- Conference Card 2 -->
-                <div class="upcoming-card reveal reveal-d1">
+                <div class="upcoming-card uc-tilt-card uc-stagger">
+                    <div class="upcoming-card-glow"></div>
                     <div class="upcoming-card-badge">Coming Soon</div>
                     <div class="upcoming-card-img">
-                        <img src="/images/global_panchayat_2-cover.jpg" alt="Global Panchayat 3.0">
+                        <img src="/images/global_panchayat_2-cover.jpg" alt="Global Panchayat 3.0" loading="lazy">
                         <div class="upcoming-card-img-overlay"></div>
                     </div>
                     <div class="upcoming-card-body">
@@ -106,18 +178,19 @@
                         <p class="upcoming-card-desc">The third edition of the Global Panchayat series — bringing together youth to deliberate on governance, diplomacy, and international policy.</p>
                         <div class="upcoming-card-details">
                             <div class="upcoming-card-detail"><span>📍</span> Delhi NCR</div>
-                            <div class="upcoming-card-detail"><span>🌐</span> International Diplomacy Focus</div>
-                            <div class="upcoming-card-detail"><span>🏛</span> Parliamentary Simulation</div>
+                            <div class="upcoming-card-detail"><span>🌐</span> Intl. Diplomacy</div>
+                            <div class="upcoming-card-detail"><span>🏛</span> Parliamentary Sim</div>
                         </div>
                         <a href="/contact/" class="upcoming-card-cta">Register Interest →</a>
                     </div>
                 </div>
 
-                <!-- Conference Card 3 -->
-                <div class="upcoming-card reveal reveal-d2">
+                <!-- Conference Card 2 -->
+                <div class="upcoming-card uc-tilt-card uc-stagger">
+                    <div class="upcoming-card-glow"></div>
                     <div class="upcoming-card-badge">Coming Soon</div>
                     <div class="upcoming-card-img">
-                        <img src="/images/bal_sansad_2-cover.png" alt="Bal Sansad 3.0">
+                        <img src="/images/bal_sansad_2-cover.png" alt="Bal Sansad 3.0" loading="lazy">
                         <div class="upcoming-card-img-overlay"></div>
                     </div>
                     <div class="upcoming-card-body">
@@ -130,17 +203,18 @@
                         <div class="upcoming-card-details">
                             <div class="upcoming-card-detail"><span>📍</span> Delhi NCR</div>
                             <div class="upcoming-card-detail"><span>🎓</span> School-Level</div>
-                            <div class="upcoming-card-detail"><span>⚖</span> Constitutional Values</div>
+                            <div class="upcoming-card-detail"><span>⚖</span> Constitutional</div>
                         </div>
                         <a href="/contact/" class="upcoming-card-cta">Register Interest →</a>
                     </div>
                 </div>
 
-                <!-- Conference Card 4 -->
-                <div class="upcoming-card reveal reveal-d3">
+                <!-- Conference Card 3 -->
+                <div class="upcoming-card uc-tilt-card uc-stagger">
+                    <div class="upcoming-card-glow"></div>
                     <div class="upcoming-card-badge">Coming Soon</div>
                     <div class="upcoming-card-img">
-                        <img src="/images/yuva_sajhedari_2-cover.png" alt="Yuva Sajhedari 3.0">
+                        <img src="/images/yuva_sajhedari_2-cover.jpg" alt="Yuva Sajhedari 3.0" loading="lazy">
                         <div class="upcoming-card-img-overlay"></div>
                     </div>
                     <div class="upcoming-card-body">
@@ -152,7 +226,7 @@
                         <p class="upcoming-card-desc">Building collaborative leadership through interactive platforms — empowering youth with the spirit of tolerance, dialogue, and democratic engagement.</p>
                         <div class="upcoming-card-details">
                             <div class="upcoming-card-detail"><span>📍</span> Delhi NCR</div>
-                            <div class="upcoming-card-detail"><span>🤝</span> Collaborative Platform</div>
+                            <div class="upcoming-card-detail"><span>🤝</span> Collaborative</div>
                             <div class="upcoming-card-detail"><span>🗣</span> Dialogue & Debate</div>
                         </div>
                         <a href="/contact/" class="upcoming-card-cta">Register Interest →</a>
@@ -162,26 +236,27 @@
         </section>
 
         <!-- ═══ WHY ATTEND ═══ -->
-        <section class="sec sec-alt">
+        <section class="sec">
             <p class="sec-tag">Why Attend</p>
             <h2 class="sec-h2">What You'll Experience</h2>
+            <div class="uc-divider"></div>
             <div class="why-grid">
-                <div class="why-card reveal">
+                <div class="why-card uc-stagger">
                     <div class="why-icon">⚖</div>
                     <h3>Constitutional Values</h3>
                     <p>Deep engagement with the Indian Constitution, its principles, and the democratic framework that shapes our nation.</p>
                 </div>
-                <div class="why-card reveal reveal-d1">
+                <div class="why-card uc-stagger">
                     <div class="why-icon">🏛</div>
                     <h3>Parliamentary Values</h3>
                     <p>Experience real legislative procedure, debate, and policy-making through immersive parliamentary simulations.</p>
                 </div>
-                <div class="why-card reveal reveal-d2">
+                <div class="why-card uc-stagger">
                     <div class="why-icon">🌐</div>
                     <h3>International Diplomacy</h3>
                     <p>Engage in diplomatic simulations, cross-cultural dialogue, and global policy discussions at the highest level.</p>
                 </div>
-                <div class="why-card reveal reveal-d3">
+                <div class="why-card uc-stagger">
                     <div class="why-icon">🎓</div>
                     <h3>Leadership Development</h3>
                     <p>Build public speaking, critical thinking, negotiation, and teamwork skills alongside delegates from across India.</p>
@@ -190,38 +265,41 @@
         </section>
 
         <!-- ═══ PAST HIGHLIGHTS ═══ -->
-        <section class="sec">
+        <section class="sec sec-alt">
             <p class="sec-tag">Track Record</p>
             <h2 class="sec-h2">23+ Grand Conferences & Counting</h2>
+            <div class="uc-divider"></div>
             <div class="highlights-stats">
-                <div class="highlight-stat reveal">
-                    <span class="highlight-stat-num">23+</span>
+                <div class="highlight-stat uc-stagger">
+                    <span class="highlight-stat-num" data-count="23+">0</span>
                     <span class="highlight-stat-label">Grand Conferences</span>
                 </div>
-                <div class="highlight-stat reveal reveal-d1">
-                    <span class="highlight-stat-num">1 Lakh+</span>
+                <div class="highlight-stat uc-stagger">
+                    <span class="highlight-stat-num" data-count="100000+">0</span>
                     <span class="highlight-stat-label">Students Trained</span>
                 </div>
-                <div class="highlight-stat reveal reveal-d2">
-                    <span class="highlight-stat-num">9</span>
+                <div class="highlight-stat uc-stagger">
+                    <span class="highlight-stat-num" data-count="9">0</span>
                     <span class="highlight-stat-label">Years of Impact</span>
                 </div>
-                <div class="highlight-stat reveal reveal-d3">
-                    <span class="highlight-stat-num">1000+</span>
+                <div class="highlight-stat uc-stagger">
+                    <span class="highlight-stat-num" data-count="1000+">0</span>
                     <span class="highlight-stat-label">National Capacity</span>
                 </div>
             </div>
             <div style="text-align:center;margin-top:3rem;">
-                <a href="/conferences/" class="btn-fire">View All 23 Grand Conferences →</a>
+                <a href="/conferences/" class="btn-fire uc-magnetic">View All 23 Grand Conferences →</a>
             </div>
         </section>
 
         <!-- ═══ CTA ═══ -->
         <section class="upcoming-cta">
+            <div class="upcoming-cta-bg"></div>
+            <canvas id="ctaParticles"></canvas>
             <h2>Your Voice Matters.</h2>
             <p>Join India's largest youth-led platform for constitutional dialogue, parliamentary values, and international diplomacy.</p>
             <div class="upcoming-cta-actions">
-                <a href="/contact/" class="btn-fire">⚑ Register As Delegate</a>
+                <a href="/contact/" class="btn-fire uc-magnetic">⚑ Register As Delegate</a>
                 <a href="/conferences/" class="btn-ghost">Explore Past Conferences →</a>
             </div>
         </section>
@@ -272,5 +350,6 @@
     </footer>
 
     <script src="/js/shared.js" defer></script>
+    <script src="/js/upcoming.js" defer></script>
 </body>
 </html>

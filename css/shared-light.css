@@ -126,6 +126,23 @@ html[data-theme="light"] .cd-lb-prev:hover, html[data-theme="light"] .cd-lb-next
 html[data-theme="light"] .cd-lb-counter { color:var(--dim2); }
 html[data-theme="light"] .conf-key-highlights li { background:rgba(255,255,255,.6); }
 
+/* ─── Upcoming page light overrides ─── */
+html[data-theme="light"] .upcoming-hero-bg {
+  background:
+    radial-gradient(ellipse 80% 60% at 50% 40%, rgba(212,80,10,.05) 0%, transparent 55%),
+    radial-gradient(ellipse 90% 90% at 50% 50%, rgba(240,236,227,.8) 0%, var(--navy) 100%);
+}
+html[data-theme="light"] .uc-countdown-item { background:rgba(255,255,255,.7); }
+html[data-theme="light"] .uc-spotlight-card { background:var(--navy-mid); }
+html[data-theme="light"] .uc-spotlight-img img { filter:brightness(.85) saturate(.9); }
+html[data-theme="light"] .upcoming-card { background:var(--navy-mid); }
+html[data-theme="light"] .upcoming-card-img img { filter:brightness(.85) saturate(.9); }
+html[data-theme="light"] .why-card { background:var(--navy-mid); }
+html[data-theme="light"] .highlight-stat { background:var(--navy-mid); }
+html[data-theme="light"] .uc-marquee-wrap { background:var(--navy-mid); }
+html[data-theme="light"] .uc-float-decor--1 { border-color:rgba(212,80,10,.08); }
+html[data-theme="light"] .uc-float-decor--2 { border-color:rgba(184,137,42,.08); }
+
 html[data-theme="light"] footer {
   background:var(--navy-mid);
   border-top:1px solid var(--border-gold);
