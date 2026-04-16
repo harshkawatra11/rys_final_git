@@ -85,14 +85,21 @@ html[data-theme="light"] .ch-desc { color:var(--dim); }
 html[data-theme="light"] .conf-detail-hero-overlay {
   background:
     linear-gradient(0deg,
-      rgba(250,248,243,.95) 0%,
-      rgba(250,248,243,.5) 40%,
-      rgba(250,248,243,.2) 70%,
-      rgba(250,248,243,.35) 100%),
-    radial-gradient(ellipse 60% 50% at 30% 70%, rgba(212,80,10,.04) 0%, transparent 70%);
+      rgba(250,248,243,.88) 0%,
+      rgba(250,248,243,.35) 25%,
+      rgba(250,248,243,.1) 50%,
+      rgba(250,248,243,.25) 80%,
+      rgba(250,248,243,.45) 100%),
+    radial-gradient(ellipse 60% 50% at 30% 70%, rgba(212,80,10,.03) 0%, transparent 70%);
 }
-html[data-theme="light"] .conf-detail-hero-bg img {
-  filter:brightness(.7) saturate(.6);
+html[data-theme="light"] .cd-cine-center img {
+  filter: brightness(.88) saturate(.82);
+}
+html[data-theme="light"] .cd-cine-cell img {
+  filter: brightness(.62) saturate(.6);
+}
+html[data-theme="light"] .cd-cine-cell:hover img {
+  filter: brightness(.82) saturate(.8);
 }
 html[data-theme="light"] .conf-detail-hero-content h1 { color:var(--cream); }
 html[data-theme="light"] .conf-detail-hero-content h1 .hindi-sub { color:var(--gold); }

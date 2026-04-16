@@ -995,8 +995,8 @@
 
 /* ─── 3-Column Newspaper Grid ─── */
 .np-columns {
-  display:grid; grid-template-columns:repeat(3,1fr);
-  gap:0; max-width:1200px; margin:0 auto 2.5rem;
+  display:grid; grid-template-columns:repeat(2,1fr);
+  gap:0; max-width:1000px; margin:0 auto 2.5rem;
   border:1px solid var(--glass-border);
   background:var(--glass-bg); backdrop-filter:blur(14px);
 }

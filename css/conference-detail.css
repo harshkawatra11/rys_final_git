@@ -31,111 +31,139 @@
   width: 100%; height: 100%; object-fit: cover;
 }
 
-/* ─── ORBITAL COLLAGE LAYER ─── */
-.cd-orbital {
+/* ─── CINEMATIC 3-PANEL HERO ─── */
+.cd-cine-wrap {
   position: absolute; inset: 0; z-index: 0;
-  display: flex; align-items: center; justify-content: center;
+  display: grid;
+  grid-template-columns: 21% 1fr 21%;
 }
 
-/* Cover image — large, centered, hero of the section */
-.cd-orb-cover {
-  position: absolute;
-  width: min(50vw, 520px); height: min(60vh, 440px);
-  left: 50%; top: 45%; transform: translate(-50%, -50%);
-  z-index: 2; overflow: hidden;
-  border: 1px solid rgba(184,137,42,.3);
-  box-shadow:
-    0 0 80px rgba(212,80,10,.12),
-    0 20px 80px rgba(0,0,0,.5),
-    inset 0 0 80px rgba(10,22,40,.3);
-  opacity: 0;
-  animation: cdOrbCoverIn 1.2s cubic-bezier(.25,.46,.45,.94) .2s forwards;
+/* Left & right side columns — two cells stacked */
+.cd-cine-col {
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  position: relative;
 }
-.cd-orb-cover img {
+
+/* Every cell and center: full bleed images */
+.cd-cine-cell,
+.cd-cine-center { overflow: hidden; position: relative; }
+
+/* Side cell images — slightly desaturated, zoom breathing */
+.cd-cine-cell img {
   width: 100%; height: 100%; object-fit: cover; display: block;
-  filter: brightness(.7) saturate(.8);
-  transition: filter .6s ease, transform 8s ease;
+  filter: brightness(.58) saturate(.62);
+  transition: filter .6s ease;
 }
-.cd-detail-hero.cd-loaded .cd-orb-cover img,
-.conf-detail-hero.cd-loaded .cd-orb-cover img {
-  transform: scale(1.05);
+.cd-cine-cell:hover img { filter: brightness(.78) saturate(.82); }
+
+/* Breathing parallax — independent rhythm per cell */
+.cd-cine-left  .cd-cine-cell:nth-child(1) img { animation: cineBreathe1 13s ease-in-out infinite; }
+.cd-cine-left  .cd-cine-cell:nth-child(2) img { animation: cineBreathe2 11s ease-in-out infinite .5s; }
+.cd-cine-right .cd-cine-cell:nth-child(1) img { animation: cineBreathe2 12s ease-in-out infinite 1s; }
+.cd-cine-right .cd-cine-cell:nth-child(2) img { animation: cineBreathe1 10s ease-in-out infinite 1.5s; }
+
+@keyframes cineBreathe1 {
+  0%,100% { transform: scale(1.06) translate(0, 0); }
+  50%     { transform: scale(1.0)  translate(0.8%, -0.8%); }
 }
-.cd-orb-cover::after {
+@keyframes cineBreathe2 {
+  0%,100% { transform: scale(1.0)  translate(0, 0); }
+  50%     { transform: scale(1.06) translate(-0.6%, 0.6%); }
+}
+
+/* Staggered fade-in for side cells */
+.cd-cine-cell { opacity: 0; animation: cineCellIn .9s cubic-bezier(.25,.46,.45,.94) forwards; }
+.cd-cine-left  .cd-cine-cell:nth-child(1) { animation-delay: .45s; }
+.cd-cine-left  .cd-cine-cell:nth-child(2) { animation-delay: .65s; }
+.cd-cine-right .cd-cine-cell:nth-child(1) { animation-delay: .55s; }
+.cd-cine-right .cd-cine-cell:nth-child(2) { animation-delay: .75s; }
+
+@keyframes cineCellIn {
+  from { opacity: 0; transform: scale(.96); }
+  to   { opacity: 1; transform: scale(1.0); }
+}
+
+/* Horizontal divider between the two cells within each side column */
+.cd-cine-cell + .cd-cine-cell::before {
+  content: ''; position: absolute;
+  left: 12%; right: 12%; top: 0; height: 1px;
+  background: linear-gradient(to right, transparent, rgba(184,137,42,.45) 30%, rgba(184,137,42,.45) 70%, transparent);
+  z-index: 4; pointer-events: none;
+}
+
+/* Thin vertical golden dividers — left col right edge and right col left edge */
+.cd-cine-left::after,
+.cd-cine-right::before {
+  content: ''; position: absolute; top: 0; bottom: 0; width: 1px;
+  background: linear-gradient(to bottom,
+    transparent 0%,
+    rgba(184,137,42,.45) 15%,
+    rgba(184,137,42,.65) 50%,
+    rgba(184,137,42,.45) 85%,
+    transparent 100%);
+  z-index: 4; pointer-events: none;
+}
+.cd-cine-left::after  { right: 0; }
+.cd-cine-right::before { left: 0; }
+
+/* Center cover image */
+.cd-cine-center {
+  opacity: 0;
+  animation: cineCoverIn 1.1s cubic-bezier(.22,.61,.36,1) .2s forwards;
+}
+.cd-cine-center img {
+  width: 100%; height: 100%; object-fit: cover; display: block;
+  filter: brightness(.88) saturate(.93);
+  animation: cineKenBurns 20s ease-in-out infinite;
+}
+@keyframes cineCoverIn {
+  from { opacity: 0; transform: scale(.97); }
+  to   { opacity: 1; transform: scale(1); }
+}
+@keyframes cineKenBurns {
+  0%   { transform: scale(1.05) translate(0, 0); }
+  50%  { transform: scale(1.0)  translate(0.4%, -0.4%); }
+  100% { transform: scale(1.05) translate(0, 0); }
+}
+
+/* Golden border glow on center column edges */
+.cd-cine-center::before {
   content: ''; position: absolute; inset: 0;
-  border: 1px solid rgba(184,137,42,.2);
-  pointer-events: none;
+  border-left:  1px solid rgba(184,137,42,.3);
+  border-right: 1px solid rgba(184,137,42,.3);
+  z-index: 3; pointer-events: none;
+  animation: cineBorderGlow 5s ease-in-out infinite;
 }
-/* Subtle golden glow ring around cover */
-.cd-orb-cover::before {
-  content: ''; position: absolute; inset: -3px;
-  border: 1px solid rgba(184,137,42,.15);
-  box-shadow: 0 0 40px rgba(184,137,42,.08);
-  pointer-events: none; z-index: -1;
+/* Inner shadow to deepen corners */
+.cd-cine-center::after {
+  content: ''; position: absolute; inset: 0;
+  box-shadow: inset 0 0 120px rgba(10,22,40,.28);
+  z-index: 3; pointer-events: none;
 }
-
-@keyframes cdOrbCoverIn {
-  from { opacity: 0; transform: translate(-50%, -50%) scale(.85); }
-  to   { opacity: 1; transform: translate(-50%, -50%) scale(1); }
-}
-
-/* Satellite gallery images — positioned absolutely, floating */
-.cd-orb-sat {
-  position: absolute; overflow: hidden; z-index: 1;
-  box-shadow: 0 8px 40px rgba(0,0,0,.5);
-  border: 1px solid rgba(184,137,42,.12);
-  opacity: 0;
-  animation: cdOrbSatIn .9s cubic-bezier(.25,.46,.45,.94) forwards;
-  transition: transform .5s ease, box-shadow .5s ease, filter .5s ease;
-}
-.cd-orb-sat img {
-  width: 100%; height: 100%; object-fit: cover; display: block;
-  filter: brightness(.45) saturate(.55);
-  transition: filter .5s ease;
-}
-.cd-orb-sat:hover {
-  z-index: 5 !important;
-  transform: scale(1.12) !important;
-  box-shadow: 0 16px 60px rgba(212,80,10,.2), 0 0 40px rgba(0,0,0,.4) !important;
-}
-.cd-orb-sat:hover img {
-  filter: brightness(.75) saturate(.85);
+@keyframes cineBorderGlow {
+  0%,100% { border-color: rgba(184,137,42,.25); }
+  50%     { border-color: rgba(184,137,42,.55); box-shadow: -6px 0 28px rgba(184,137,42,.07), 6px 0 28px rgba(184,137,42,.07); }
 }
 
-/* Each satellite gets unique position, size, rotation, and float animation */
-.cd-orb-sat:nth-child(2)  { animation-delay: .3s; }
-.cd-orb-sat:nth-child(3)  { animation-delay: .45s; }
-.cd-orb-sat:nth-child(4)  { animation-delay: .55s; }
-.cd-orb-sat:nth-child(5)  { animation-delay: .65s; }
-.cd-orb-sat:nth-child(6)  { animation-delay: .75s; }
-.cd-orb-sat:nth-child(7)  { animation-delay: .85s; }
-.cd-orb-sat:nth-child(8)  { animation-delay: .95s; }
-.cd-orb-sat:nth-child(9)  { animation-delay: 1s; }
-.cd-orb-sat:nth-child(10) { animation-delay: 1.1s; }
-.cd-orb-sat:nth-child(11) { animation-delay: 1.15s; }
-.cd-orb-sat:nth-child(12) { animation-delay: 1.2s; }
-
-@keyframes cdOrbSatIn {
-  from { opacity: 0; transform: scale(.6) rotate(5deg); }
-  to   { opacity: 1; transform: scale(1) rotate(0deg); }
+/* Mobile: hide side columns */
+@media(max-width:768px) {
+  .cd-cine-left,.cd-cine-right { display: none; }
+  .cd-cine-wrap { grid-template-columns: 1fr; }
 }
 
-/* Gentle floating drift animations — different for each image */
-@keyframes cdFloat1 { 0%,100%{transform:translate(0,0) rotate(0deg)} 50%{transform:translate(8px,-12px) rotate(1.5deg)} }
-@keyframes cdFloat2 { 0%,100%{transform:translate(0,0) rotate(0deg)} 50%{transform:translate(-10px,8px) rotate(-1deg)} }
-@keyframes cdFloat3 { 0%,100%{transform:translate(0,0) rotate(0deg)} 50%{transform:translate(6px,10px) rotate(2deg)} }
-@keyframes cdFloat4 { 0%,100%{transform:translate(0,0) rotate(0deg)} 50%{transform:translate(-8px,-6px) rotate(-1.5deg)} }
-
-/* Vignette / dark overlay */
+/* Vignette / dark overlay — heavy only at bottom for text, whisper-light elsewhere */
 .conf-detail-hero-overlay {
   position: absolute; inset: 0; z-index: 1;
   background:
     linear-gradient(0deg,
-      rgba(10,22,40,0.98) 0%,
-      rgba(10,22,40,0.65) 25%,
-      rgba(10,22,40,0.2) 50%,
-      rgba(10,22,40,0.35) 75%,
-      rgba(10,22,40,0.6) 100%),
-    radial-gradient(ellipse 50% 40% at 50% 45%, transparent 0%, rgba(10,22,40,.5) 100%);
+      rgba(10,22,40,0.93) 0%,
+      rgba(10,22,40,0.55) 16%,
+      rgba(10,22,40,0.08) 35%,
+      rgba(10,22,40,0.04) 55%,
+      rgba(10,22,40,0.1)  78%,
+      rgba(10,22,40,0.32) 100%),
+    radial-gradient(ellipse 60% 55% at 50% 48%, transparent 0%, rgba(10,22,40,.18) 100%);
   pointer-events: none;
 }
 
@@ -145,8 +173,8 @@
   pointer-events: none;
 }
 .cd-hero-particle {
-  position: absolute; width: 2px; height: 2px; border-radius: 50%;
-  background: rgba(184,137,42,.4);
+  position: absolute; width: 3px; height: 3px; border-radius: 50%;
+  background: rgba(184,137,42,.55);
   animation: cdParticleFloat 10s ease-in-out infinite;
 }
 @keyframes cdParticleFloat {
