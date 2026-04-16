@@ -1627,20 +1627,37 @@ footer {
   .mh-timeline{position:relative;padding-left:3rem}
   .mh-timeline::before{content:'';position:absolute;left:11px;top:0;bottom:0;width:2px;background:linear-gradient(180deg,var(--saffron),var(--gold-light) 50%,var(--saffron));opacity:.35}
 
-  .mh-item{position:relative;margin-bottom:2.8rem;padding-left:1.2rem}
+  .mh-item{position:relative;margin-bottom:3.5rem;padding-left:1.5rem;transition:transform .3s ease}
   .mh-item:last-child{margin-bottom:0}
+  .mh-item:hover{transform:translateX(6px)}
 
   /* dot on spine */
-  .mh-dot{position:absolute;left:-3rem;top:4px;width:24px;height:24px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.75rem;background:var(--navy);border:2px solid var(--gold-light);z-index:2;transition:transform .35s,border-color .35s,box-shadow .35s}
-  .mh-item:hover .mh-dot{transform:scale(1.25);border-color:var(--saffron);box-shadow:0 0 12px rgba(212,80,10,.35)}
+  .mh-dot{position:absolute;left:-3rem;top:4px;width:30px;height:30px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.85rem;background:var(--navy);border:2px solid var(--gold-light);z-index:2;transition:transform .35s,border-color .35s,box-shadow .35s}
+  .mh-item:hover .mh-dot{transform:scale(1.25);border-color:var(--saffron);box-shadow:0 0 20px rgba(212,80,10,.45)}
 
-  .mh-label{font-family:'Cinzel',serif;font-size:.6rem;letter-spacing:.25em;text-transform:uppercase;color:var(--saffron-light);margin-bottom:.35rem;display:inline-block}
-  .mh-title{font-family:'Cinzel',serif;font-size:1.05rem;font-weight:700;color:var(--cream);line-height:1.45;margin-bottom:.55rem}
-  .mh-desc{font-size:.82rem;color:var(--dim2);line-height:1.75;max-width:680px}
+  .mh-label{font-family:'Cinzel',serif;font-size:.68rem;letter-spacing:.25em;text-transform:uppercase;color:var(--saffron-light);margin-bottom:.4rem;display:inline-block}
+  .mh-title{font-family:'Cinzel',serif;font-size:1.25rem;font-weight:700;color:var(--cream);line-height:1.45;margin-bottom:.6rem}
+  .mh-desc{font-size:.88rem;color:var(--dim2);line-height:1.8;max-width:780px}
   .mh-desc em{color:var(--cream);font-style:italic}
   .mh-pills{display:flex;flex-wrap:wrap;gap:.45rem;margin-top:.7rem}
-  .mh-pill{font-size:.6rem;letter-spacing:.08em;padding:.25rem .7rem;border-radius:100px;border:1px solid var(--border-gold);color:var(--cream-mid);background:rgba(166,124,16,.06);white-space:nowrap;transition:background .3s,color .3s}
-  .mh-pill:hover{background:rgba(166,124,16,.15);color:var(--cream)}
+  .mh-pill{font-size:.65rem;letter-spacing:.08em;padding:.35rem .9rem;border-radius:100px;border:1px solid var(--border-gold);color:var(--cream-mid);background:rgba(166,124,16,.06);white-space:nowrap;transition:all .3s ease;text-decoration:none;display:inline-flex;align-items:center;gap:.3rem;cursor:pointer}
+  .mh-pill:hover{background:rgba(212,80,10,.15);color:var(--cream);border-color:var(--saffron);transform:translateY(-2px);box-shadow:0 4px 16px rgba(212,80,10,.15)}
+  .mh-pill[href]{cursor:pointer}
+  .mh-pill[href]::after{content:'↗';font-size:.55rem;opacity:.5;transition:opacity .3s, transform .3s}
+  .mh-pill[href]:hover::after{opacity:1;transform:translateX(2px) translateY(-2px)}
+
+  /* Link cards for featured links */
+  .mh-links{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:.8rem;margin-top:1.2rem}
+  .mh-link-card{display:flex;align-items:center;gap:1rem;padding:1rem 1.3rem;background:var(--glass-bg);border:1px solid var(--glass-border);text-decoration:none;transition:all .35s ease;position:relative;overflow:hidden}
+  .mh-link-card::before{content:'';position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--saffron);transform:scaleY(0);transition:transform .35s ease;transform-origin:bottom}
+  .mh-link-card:hover{border-color:rgba(212,80,10,.3);transform:translateY(-3px);box-shadow:0 8px 30px rgba(0,0,0,.2)}
+  .mh-link-card:hover::before{transform:scaleY(1)}
+  .mh-link-icon{font-size:1.3rem;flex-shrink:0;width:42px;height:42px;display:flex;align-items:center;justify-content:center;border:1px solid var(--border-gold);border-radius:50%;background:rgba(166,124,16,.05);transition:background .3s}
+  .mh-link-card:hover .mh-link-icon{background:rgba(212,80,10,.1)}
+  .mh-link-title{font-family:'Cinzel',serif;font-size:.8rem;font-weight:700;color:var(--cream);letter-spacing:.03em}
+  .mh-link-outlet{font-size:.62rem;color:var(--dim);letter-spacing:.1em;text-transform:uppercase;margin-top:.2rem}
+  .mh-link-arrow{font-size:.85rem;color:var(--saffron);margin-left:auto;opacity:.4;transition:opacity .3s, transform .3s}
+  .mh-link-card:hover .mh-link-arrow{opacity:1;transform:translateX(4px)}
 
   /* ambient glow */
   .mh-glow{position:absolute;width:340px;height:340px;border-radius:50%;filter:blur(120px);opacity:.08;pointer-events:none}
@@ -1655,6 +1672,7 @@ footer {
     .mh-item{padding-left:.8rem}
     .mh-title{font-size:.95rem}
     .mh-desc{font-size:.78rem}
+    .mh-links{grid-template-columns:1fr}
   }
 </style>
 <section class="mh">
@@ -1673,8 +1691,20 @@ footer {
         <h3 class="mh-title">Official Haryana Vidhan Sabha Feature</h3>
         <p class="mh-desc">Haryana Yuva Samvad featured on the official press notes of the State Legislature. Speaker Harvinder Kalyan affirmed — <em>"Communication is the key to resolving any problem."</em></p>
         <div class="mh-pills">
-          <span class="mh-pill">Vidhan Sabha Press Note</span>
-          <span class="mh-pill">Speaker's Endorsement</span>
+          <a href="https://www.hindustantimes.com/cities/chandigarh-news/real-strength-of-india-lies-in-its-people-haryana-vidhan-sabha-speaker-101768587714092.html" target="_blank" rel="noopener" class="mh-pill">Vidhan Sabha Press Note</a>
+          <a href="/conferences/haryana_yuva_samvad_2026/" class="mh-pill">Speaker's Endorsement</a>
+        </div>
+        <div class="mh-links">
+          <a href="https://www.hindustantimes.com/cities/chandigarh-news/real-strength-of-india-lies-in-its-people-haryana-vidhan-sabha-speaker-101768587714092.html" target="_blank" rel="noopener" class="mh-link-card">
+            <span class="mh-link-icon">📄</span>
+            <div><div class="mh-link-title">"Real Strength of India Lies in Its People"</div><div class="mh-link-outlet">Hindustan Times</div></div>
+            <span class="mh-link-arrow">→</span>
+          </a>
+          <a href="/conferences/haryana_yuva_samvad_2026/" class="mh-link-card">
+            <span class="mh-link-icon">🏛</span>
+            <div><div class="mh-link-title">Haryana Yuva Samvad 2026 — Conference Page</div><div class="mh-link-outlet">RYS Conference</div></div>
+            <span class="mh-link-arrow">→</span>
+          </a>
         </div>
       </div>
 
@@ -1685,11 +1715,23 @@ footer {
         <h3 class="mh-title">Press Trust of India — Syndicated Nationwide</h3>
         <p class="mh-desc">Picked up by PTI and syndicated across The Print, Latestly, NDTV, and 15+ national outlets — a mark of genuine national news relevance.</p>
         <div class="mh-pills">
-          <span class="mh-pill">PTI</span>
-          <span class="mh-pill">NDTV</span>
-          <span class="mh-pill">The Print</span>
-          <span class="mh-pill">Latestly</span>
+          <a href="https://www.ptinews.com/story/national/two-day-haryana-yuva-samvad-begins-in-assembly-complex/2428032" target="_blank" rel="noopener" class="mh-pill">PTI</a>
+          <a href="https://theprint.in/india/two-day-haryana-yuva-samvad-begins-in-assembly-complex/2575633/?amp" target="_blank" rel="noopener" class="mh-pill">The Print</a>
+          <a href="https://www.latestly.com/agency-news/latest-news-two-day-haryana-yuva-samvad-begins-in-assembly-complex-6753736.html/amp" target="_blank" rel="noopener" class="mh-pill">Latestly</a>
+          <a href="https://www.devdiscourse.com/article/entertainment/3331699-empowering-haryanas-youth-voices-for-digitalisation-and-equality?amp" target="_blank" rel="noopener" class="mh-pill">Dev Discourse</a>
           <span class="mh-pill">15+ Outlets</span>
+        </div>
+        <div class="mh-links">
+          <a href="https://www.ptinews.com/story/national/two-day-haryana-yuva-samvad-begins-in-assembly-complex/2428032" target="_blank" rel="noopener" class="mh-link-card">
+            <span class="mh-link-icon">📡</span>
+            <div><div class="mh-link-title">Two-Day Haryana Yuva Samvad Begins in Assembly Complex</div><div class="mh-link-outlet">Press Trust of India — Official Wire</div></div>
+            <span class="mh-link-arrow">→</span>
+          </a>
+          <a href="https://theprint.in/india/two-day-haryana-yuva-samvad-begins-in-assembly-complex/2575633/?amp" target="_blank" rel="noopener" class="mh-link-card">
+            <span class="mh-link-icon">📰</span>
+            <div><div class="mh-link-title">Haryana Yuva Samvad — National Coverage</div><div class="mh-link-outlet">The Print</div></div>
+            <span class="mh-link-arrow">→</span>
+          </a>
         </div>
       </div>
 
@@ -1700,9 +1742,21 @@ footer {
         <h3 class="mh-title">Television — Interviews & Live Coverage</h3>
         <p class="mh-desc">Featured on Total TV with Co-Founder interviews (2025), full coverage on Total Haryana, and news reporting by STV Haryana (2026).</p>
         <div class="mh-pills">
+          <a href="https://www.youtube.com/embed/P4nroOmr9I8" target="_blank" rel="noopener" class="mh-pill">Total Haryana</a>
+          <a href="https://www.youtube.com/embed/q7jIcasGXgE" target="_blank" rel="noopener" class="mh-pill">STV Haryana</a>
           <span class="mh-pill">Total TV</span>
-          <span class="mh-pill">Total Haryana</span>
-          <span class="mh-pill">STV Haryana</span>
+        </div>
+        <div class="mh-links">
+          <a href="https://www.youtube.com/watch?v=P4nroOmr9I8" target="_blank" rel="noopener" class="mh-link-card">
+            <span class="mh-link-icon">▶</span>
+            <div><div class="mh-link-title">Full Event Coverage — Haryana Yuva Samvad 2026</div><div class="mh-link-outlet">Total Haryana · YouTube</div></div>
+            <span class="mh-link-arrow">→</span>
+          </a>
+          <a href="https://www.youtube.com/watch?v=q7jIcasGXgE" target="_blank" rel="noopener" class="mh-link-card">
+            <span class="mh-link-icon">▶</span>
+            <div><div class="mh-link-title">News Report — Haryana Yuva Samvad</div><div class="mh-link-outlet">STV Haryana · YouTube</div></div>
+            <span class="mh-link-arrow">→</span>
+          </a>
         </div>
       </div>
 
@@ -1713,12 +1767,24 @@ footer {
         <h3 class="mh-title">National & Regional Press Coverage</h3>
         <p class="mh-desc">Times of India, Hindustan Times, Dainik Bhaskar, The Pioneer, Dev Discourse, India Education Diary, and 10+ more outlets — English, Hindi, and regional language coverage.</p>
         <div class="mh-pills">
-          <span class="mh-pill">Times of India</span>
-          <span class="mh-pill">Hindustan Times</span>
-          <span class="mh-pill">Dainik Bhaskar</span>
-          <span class="mh-pill">The Pioneer</span>
-          <span class="mh-pill">Dev Discourse</span>
-          <span class="mh-pill">10+ More</span>
+          <a href="https://timesofindia.indiatimes.com/city/chandigarh/second-edition-of-haryana-yuva-samvad-begins-in-haryana-vidhan-sabha/articleshow/126589193.cms" target="_blank" rel="noopener" class="mh-pill">Times of India</a>
+          <a href="https://www.hindustantimes.com/cities/chandigarh-news/real-strength-of-india-lies-in-its-people-haryana-vidhan-sabha-speaker-101768587714092.html" target="_blank" rel="noopener" class="mh-pill">Hindustan Times</a>
+          <a href="https://www.bhaskar.com/local/haryana/news/haryana-assembly-youth-dialogue-development-discussion-136958651.html" target="_blank" rel="noopener" class="mh-pill">Dainik Bhaskar</a>
+          <a href="https://www.dailypioneer.com/2025/state-editions/two-day-yuva-samvad-samaroh-begins-in-hry-vidhan-sabha.html" target="_blank" rel="noopener" class="mh-pill">The Pioneer</a>
+          <a href="https://www.devdiscourse.com/article/entertainment/3331699-empowering-haryanas-youth-voices-for-digitalisation-and-equality?amp" target="_blank" rel="noopener" class="mh-pill">Dev Discourse</a>
+          <a href="/about/#media-presence" class="mh-pill">10+ More</a>
+        </div>
+        <div class="mh-links">
+          <a href="https://timesofindia.indiatimes.com/city/chandigarh/second-edition-of-haryana-yuva-samvad-begins-in-haryana-vidhan-sabha/articleshow/126589193.cms" target="_blank" rel="noopener" class="mh-link-card">
+            <span class="mh-link-icon">📰</span>
+            <div><div class="mh-link-title">Second Edition of Haryana Yuva Samvad Begins at Vidhan Sabha</div><div class="mh-link-outlet">Times of India · January 2026</div></div>
+            <span class="mh-link-arrow">→</span>
+          </a>
+          <a href="/about/#media-presence" class="mh-link-card">
+            <span class="mh-link-icon">📑</span>
+            <div><div class="mh-link-title">View Complete Media Coverage</div><div class="mh-link-outlet">About Page · All Press</div></div>
+            <span class="mh-link-arrow">→</span>
+          </a>
         </div>
       </div>
     </div>

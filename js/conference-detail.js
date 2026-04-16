@@ -1,18 +1,119 @@
 /* ══════════════════════════════════════════════════════════════
    CONFERENCE DETAIL — INTERACTIVE JS
-   Hero parallax · Scroll reveal · Word reveal · Gallery lightbox
+   Hero orbital collage · Scroll reveal · Word reveal · Gallery lightbox
    ══════════════════════════════════════════════════════════════ */
 
 (function () {
   'use strict';
 
-  // ─── Hero Ken Burns + Parallax ───
+  // ─── Orbital Gallery Hero ───
   var hero = document.querySelector('.conf-detail-hero');
   if (hero) {
-    // Trigger Ken Burns zoom-out after load
-    requestAnimationFrame(function () {
-      hero.classList.add('cd-loaded');
+    // Collect gallery images
+    var galleryImgs = [];
+    document.querySelectorAll('.cd-gallery-item img').forEach(function(img) {
+      galleryImgs.push(img.src);
     });
+
+    // Get cover image
+    var heroBgEl = hero.querySelector('.conf-detail-hero-bg');
+    var coverImg = heroBgEl ? heroBgEl.querySelector('img') : null;
+    var coverSrc = coverImg ? coverImg.src : '';
+
+    if (coverSrc || galleryImgs.length) {
+      var orbitalEl = document.createElement('div');
+      orbitalEl.className = 'cd-orbital';
+
+      // 1) Cover image — large center piece
+      if (coverSrc) {
+        var coverDiv = document.createElement('div');
+        coverDiv.className = 'cd-orb-cover';
+        var cImg = document.createElement('img');
+        cImg.src = coverSrc;
+        cImg.alt = 'Conference Cover';
+        cImg.loading = 'eager';
+        coverDiv.appendChild(cImg);
+        orbitalEl.appendChild(coverDiv);
+      }
+
+      // 2) Satellite images — positioned around the cover
+      // Predefined orbital slots with varied sizes, positions, rotations, aspect ratios
+      var slots = [
+        { top:'3%',  left:'2%',   w:'220px', h:'150px', rot:-4,  float:'cdFloat1', dur:'7s'  },
+        { top:'5%',  right:'3%',  w:'200px', h:'260px', rot:3,   float:'cdFloat2', dur:'8s'  },
+        { top:'15%', left:'22%',  w:'180px', h:'120px', rot:-2,  float:'cdFloat3', dur:'9s'  },
+        { top:'8%',  right:'25%', w:'160px', h:'200px', rot:5,   float:'cdFloat4', dur:'7.5s'},
+        { bottom:'22%', left:'1%',w:'240px', h:'160px', rot:2,   float:'cdFloat1', dur:'8.5s'},
+        { bottom:'8%', right:'1%',w:'200px', h:'140px', rot:-3,  float:'cdFloat2', dur:'9s'  },
+        { top:'45%', left:'0%',   w:'160px', h:'220px', rot:4,   float:'cdFloat3', dur:'7s'  },
+        { top:'40%', right:'0%',  w:'180px', h:'130px', rot:-5,  float:'cdFloat4', dur:'8s'  },
+        { bottom:'35%',left:'20%',w:'140px', h:'100px', rot:1,   float:'cdFloat1', dur:'9.5s'},
+        { bottom:'30%',right:'18%',w:'170px',h:'230px', rot:-2,  float:'cdFloat2', dur:'7.5s'},
+        { top:'2%',  left:'45%',  w:'130px', h:'90px',  rot:3,   float:'cdFloat3', dur:'8s'  },
+      ];
+
+      // Deduplicate if needed
+      var satImgs = galleryImgs.slice();
+      while (satImgs.length < slots.length && satImgs.length > 0) {
+        satImgs = satImgs.concat(galleryImgs);
+      }
+      satImgs = satImgs.slice(0, slots.length);
+
+      satImgs.forEach(function(src, i) {
+        var slot = slots[i];
+        var sat = document.createElement('div');
+        sat.className = 'cd-orb-sat';
+        sat.style.width = slot.w;
+        sat.style.height = slot.h;
+        if (slot.top) sat.style.top = slot.top;
+        if (slot.bottom) sat.style.bottom = slot.bottom;
+        if (slot.left) sat.style.left = slot.left;
+        if (slot.right) sat.style.right = slot.right;
+        sat.style.transform = 'rotate(' + slot.rot + 'deg)';
+        sat.style.animation = slot.float + ' ' + slot.dur + ' ease-in-out infinite, cdOrbSatIn .9s cubic-bezier(.25,.46,.45,.94) forwards';
+        sat.style.animationDelay = (0.3 + i * 0.12) + 's, ' + (0.3 + i * 0.12) + 's';
+
+        var img = document.createElement('img');
+        img.src = src;
+        img.alt = '';
+        img.loading = 'eager';
+        sat.appendChild(img);
+        orbitalEl.appendChild(sat);
+      });
+
+      // Insert orbital before overlay
+      var overlay = hero.querySelector('.conf-detail-hero-overlay');
+      hero.insertBefore(orbitalEl, overlay || hero.firstChild);
+
+      // Floating particles
+      var particlesDiv = document.createElement('div');
+      particlesDiv.className = 'cd-hero-particles';
+      for (var p = 0; p < 20; p++) {
+        var particle = document.createElement('div');
+        particle.className = 'cd-hero-particle';
+        particle.style.left = (Math.random() * 100) + '%';
+        particle.style.top = (Math.random() * 100) + '%';
+        particle.style.animationDelay = (Math.random() * 10) + 's';
+        particle.style.animationDuration = (6 + Math.random() * 8) + 's';
+        particlesDiv.appendChild(particle);
+      }
+      if (overlay && overlay.nextSibling) {
+        hero.insertBefore(particlesDiv, overlay.nextSibling);
+      } else {
+        hero.appendChild(particlesDiv);
+      }
+    }
+
+    // Parallax on orbital layer
+    var orbLayer = hero.querySelector('.cd-orbital');
+    if (orbLayer) {
+      window.addEventListener('scroll', function () {
+        var y = window.scrollY;
+        if (y < window.innerHeight * 1.2) {
+          orbLayer.style.transform = 'translateY(' + (y * 0.12) + 'px)';
+        }
+      }, { passive: true });
+    }
 
     // Add scroll cue if not already present
     if (!hero.querySelector('.cd-hero-scroll')) {
@@ -22,16 +123,9 @@
       hero.appendChild(cue);
     }
 
-    // Subtle parallax on hero background
-    var heroBg = hero.querySelector('.conf-detail-hero-bg');
-    if (heroBg) {
-      window.addEventListener('scroll', function () {
-        var y = window.scrollY;
-        if (y < window.innerHeight) {
-          heroBg.style.transform = 'translateY(' + (y * 0.3) + 'px)';
-        }
-      }, { passive: true });
-    }
+    requestAnimationFrame(function () {
+      hero.classList.add('cd-loaded');
+    });
   }
 
   // ─── Title Word Reveal ───

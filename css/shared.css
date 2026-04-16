@@ -474,4 +474,5 @@ footer {
 .cta-strip p {
   font-size:.88rem; color:var(--dim); max-width:500px;
   margin:0 auto 2rem; line-height:1.8;
+  text-align:justify; hyphens:auto;
 }

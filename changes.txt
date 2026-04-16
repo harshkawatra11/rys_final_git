@@ -1,0 +1,16 @@
+changes : 
+
+the highlights in the major highlights overall have to be made a little bigger to cover up the space
+
+the design of thee 2017 to today table is interesting just improve the visiblity of images and make them a little
+bigger or like a little more gap between the three images and making the size overall set of the images bigger to cover up the space
+
+THE DESIGN OF THE SEPERATEE CONFERENCE hero page is SHIT
+
+rebuilt it exactly the way it was in refrence and the cover image to be in the middle and others kind of rolling around it,
+you have complete design freedom just rebuild that section another way such that when the user enters that page it feels interesting 
+and not like "the whole website is like that only" , I want one cover in the middle highlighted properly and 
+other images to have a feel around it in different aspect ratios such that it has a *feel* of the conference
+
+to be honest right now this section just doesnt have it. 
+i give you complete design freedom again, make no mistakes

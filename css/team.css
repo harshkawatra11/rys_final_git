@@ -59,6 +59,7 @@
 }
 .founder-bio {
   font-size:.82rem; color:var(--dim); line-height:1.75; margin-bottom:1.2rem;
+  text-align:justify; hyphens:auto;
 }
 .founder-highlights { display:flex; gap:.5rem; flex-wrap:wrap; }
 .fh-pill {

@@ -14,34 +14,147 @@
 .conf-breadcrumb-sep { color: var(--border-gold); }
 .conf-breadcrumb-current { color: var(--saffron); font-weight: 600; }
 
-/* ─── DETAIL HERO (redesigned — cinematic fullscreen) ─── */
+/* ─── DETAIL HERO (Orbital gallery — cover center, images floating around) ─── */
 .conf-detail-hero {
   position: relative; overflow: hidden;
-  min-height: 85vh; display: flex; align-items: flex-end;
+  min-height: 100vh; display: flex; align-items: flex-end;
   padding: 0 5vw 4rem;
+  background: var(--navy, #0a1628);
 }
+
+/* Original hero background — hidden, data source only */
 .conf-detail-hero-bg {
   position: absolute; inset: 0; z-index: 0;
+  display: none;
 }
 .conf-detail-hero-bg img {
   width: 100%; height: 100%; object-fit: cover;
-  transform: scale(1.15);
-  filter: brightness(.38) saturate(.65);
-  transition: transform 12s cubic-bezier(.25,.46,.45,.94);
 }
-.conf-detail-hero.cd-loaded .conf-detail-hero-bg img {
-  transform: scale(1.02);
+
+/* ─── ORBITAL COLLAGE LAYER ─── */
+.cd-orbital {
+  position: absolute; inset: 0; z-index: 0;
+  display: flex; align-items: center; justify-content: center;
 }
+
+/* Cover image — large, centered, hero of the section */
+.cd-orb-cover {
+  position: absolute;
+  width: min(50vw, 520px); height: min(60vh, 440px);
+  left: 50%; top: 45%; transform: translate(-50%, -50%);
+  z-index: 2; overflow: hidden;
+  border: 1px solid rgba(184,137,42,.3);
+  box-shadow:
+    0 0 80px rgba(212,80,10,.12),
+    0 20px 80px rgba(0,0,0,.5),
+    inset 0 0 80px rgba(10,22,40,.3);
+  opacity: 0;
+  animation: cdOrbCoverIn 1.2s cubic-bezier(.25,.46,.45,.94) .2s forwards;
+}
+.cd-orb-cover img {
+  width: 100%; height: 100%; object-fit: cover; display: block;
+  filter: brightness(.7) saturate(.8);
+  transition: filter .6s ease, transform 8s ease;
+}
+.cd-detail-hero.cd-loaded .cd-orb-cover img,
+.conf-detail-hero.cd-loaded .cd-orb-cover img {
+  transform: scale(1.05);
+}
+.cd-orb-cover::after {
+  content: ''; position: absolute; inset: 0;
+  border: 1px solid rgba(184,137,42,.2);
+  pointer-events: none;
+}
+/* Subtle golden glow ring around cover */
+.cd-orb-cover::before {
+  content: ''; position: absolute; inset: -3px;
+  border: 1px solid rgba(184,137,42,.15);
+  box-shadow: 0 0 40px rgba(184,137,42,.08);
+  pointer-events: none; z-index: -1;
+}
+
+@keyframes cdOrbCoverIn {
+  from { opacity: 0; transform: translate(-50%, -50%) scale(.85); }
+  to   { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+}
+
+/* Satellite gallery images — positioned absolutely, floating */
+.cd-orb-sat {
+  position: absolute; overflow: hidden; z-index: 1;
+  box-shadow: 0 8px 40px rgba(0,0,0,.5);
+  border: 1px solid rgba(184,137,42,.12);
+  opacity: 0;
+  animation: cdOrbSatIn .9s cubic-bezier(.25,.46,.45,.94) forwards;
+  transition: transform .5s ease, box-shadow .5s ease, filter .5s ease;
+}
+.cd-orb-sat img {
+  width: 100%; height: 100%; object-fit: cover; display: block;
+  filter: brightness(.45) saturate(.55);
+  transition: filter .5s ease;
+}
+.cd-orb-sat:hover {
+  z-index: 5 !important;
+  transform: scale(1.12) !important;
+  box-shadow: 0 16px 60px rgba(212,80,10,.2), 0 0 40px rgba(0,0,0,.4) !important;
+}
+.cd-orb-sat:hover img {
+  filter: brightness(.75) saturate(.85);
+}
+
+/* Each satellite gets unique position, size, rotation, and float animation */
+.cd-orb-sat:nth-child(2)  { animation-delay: .3s; }
+.cd-orb-sat:nth-child(3)  { animation-delay: .45s; }
+.cd-orb-sat:nth-child(4)  { animation-delay: .55s; }
+.cd-orb-sat:nth-child(5)  { animation-delay: .65s; }
+.cd-orb-sat:nth-child(6)  { animation-delay: .75s; }
+.cd-orb-sat:nth-child(7)  { animation-delay: .85s; }
+.cd-orb-sat:nth-child(8)  { animation-delay: .95s; }
+.cd-orb-sat:nth-child(9)  { animation-delay: 1s; }
+.cd-orb-sat:nth-child(10) { animation-delay: 1.1s; }
+.cd-orb-sat:nth-child(11) { animation-delay: 1.15s; }
+.cd-orb-sat:nth-child(12) { animation-delay: 1.2s; }
+
+@keyframes cdOrbSatIn {
+  from { opacity: 0; transform: scale(.6) rotate(5deg); }
+  to   { opacity: 1; transform: scale(1) rotate(0deg); }
+}
+
+/* Gentle floating drift animations — different for each image */
+@keyframes cdFloat1 { 0%,100%{transform:translate(0,0) rotate(0deg)} 50%{transform:translate(8px,-12px) rotate(1.5deg)} }
+@keyframes cdFloat2 { 0%,100%{transform:translate(0,0) rotate(0deg)} 50%{transform:translate(-10px,8px) rotate(-1deg)} }
+@keyframes cdFloat3 { 0%,100%{transform:translate(0,0) rotate(0deg)} 50%{transform:translate(6px,10px) rotate(2deg)} }
+@keyframes cdFloat4 { 0%,100%{transform:translate(0,0) rotate(0deg)} 50%{transform:translate(-8px,-6px) rotate(-1.5deg)} }
+
+/* Vignette / dark overlay */
 .conf-detail-hero-overlay {
   position: absolute; inset: 0; z-index: 1;
   background:
     linear-gradient(0deg,
-      rgba(10,22,40,0.97) 0%,
-      rgba(10,22,40,0.6) 40%,
-      rgba(10,22,40,0.25) 70%,
-      rgba(10,22,40,0.4) 100%),
-    radial-gradient(ellipse 60% 50% at 30% 70%, rgba(212,80,10,.08) 0%, transparent 70%);
+      rgba(10,22,40,0.98) 0%,
+      rgba(10,22,40,0.65) 25%,
+      rgba(10,22,40,0.2) 50%,
+      rgba(10,22,40,0.35) 75%,
+      rgba(10,22,40,0.6) 100%),
+    radial-gradient(ellipse 50% 40% at 50% 45%, transparent 0%, rgba(10,22,40,.5) 100%);
+  pointer-events: none;
 }
+
+/* Floating golden particles */
+.cd-hero-particles {
+  position: absolute; inset: 0; z-index: 1;
+  pointer-events: none;
+}
+.cd-hero-particle {
+  position: absolute; width: 2px; height: 2px; border-radius: 50%;
+  background: rgba(184,137,42,.4);
+  animation: cdParticleFloat 10s ease-in-out infinite;
+}
+@keyframes cdParticleFloat {
+  0%, 100% { opacity: 0; transform: translateY(0) scale(0); }
+  15% { opacity: 1; transform: translateY(-20px) scale(1); }
+  85% { opacity: .4; transform: translateY(-80px) scale(.6); }
+}
+
 .conf-detail-hero-content {
   position: relative; z-index: 2;
   max-width: 860px;
@@ -230,6 +343,7 @@
   font-size: .88rem; color: var(--dim); line-height: 1.9;
   margin-bottom: 1rem;
   font-family: 'Mulish', sans-serif;
+  text-align: justify; hyphens: auto;
 }
 .conf-prose strong { color: var(--cream-mid); }
 
@@ -607,7 +721,10 @@
   .conf-sessions-grid { grid-template-columns: 1fr; }
   .conf-session-card.full { grid-column: span 1; }
   .conf-detail-stats { max-width: 100%; }
-  .conf-detail-hero { min-height: 75vw; padding-bottom: 3rem; }
+  .conf-detail-hero { min-height: 85vh; padding-bottom: 3rem; }
+  .cd-orb-cover { width: min(60vw, 360px); height: min(50vh, 320px); }
+  .cd-orb-sat { display: none; }
+  .cd-orb-sat:nth-child(-n+5) { display: block; }
   .cd-gallery-grid { grid-template-columns: repeat(auto-fill, minmax(200px,1fr)); }
   .cd-lb-prev, .cd-lb-next { width: 40px; height: 40px; font-size: 1.1rem; }
   .cd-lb-prev { left: .8rem; }
@@ -622,6 +739,9 @@
   .cd-gallery-grid { grid-template-columns: repeat(2, 1fr); gap: .5rem; }
   .cd-hero-scroll { display: none; }
   .cd-lb-prev, .cd-lb-next { width: 36px; height: 36px; }
+  .cd-orb-cover { width: 70vw; height: 35vh; }
+  .cd-orb-sat { display: none; }
+  .cd-orb-sat:nth-child(-n+3) { display: block; }
 }
 
 /* ─── KEY HIGHLIGHTS LIST (animated) ─── */
