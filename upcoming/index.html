@@ -46,55 +46,117 @@
     <main>
 
         <!-- ═══ HERO ═══ -->
-        <section class="upcoming-hero">
-            <div class="upcoming-hero-bg"></div>
-            <div class="upcoming-hero-overlay"></div>
+        <section class="uc-hero">
+            <!-- Cinematic background mosaic -->
+            <div class="uc-hero-mosaic">
+                <div class="uc-hero-mosaic-img" style="--i:0"><img src="/images/haryana_yuva_samvad_2026-cover.jpg" alt="" loading="eager"></div>
+                <div class="uc-hero-mosaic-img" style="--i:1"><img src="/images/sajag_yuva_manch_6-cover.png" alt="" loading="eager"></div>
+                <div class="uc-hero-mosaic-img" style="--i:2"><img src="/images/gorakhpur_yuva_samvad_2025-cover.jpg" alt="" loading="eager"></div>
+                <div class="uc-hero-mosaic-img" style="--i:3"><img src="/images/global_panchayat_2-cover.jpg" alt="" loading="eager"></div>
+                <div class="uc-hero-mosaic-img" style="--i:4"><img src="/images/delhi_yuva_samvad_2024-cover.jpg" alt="" loading="eager"></div>
+            </div>
+            <div class="uc-hero-vignette"></div>
+
+            <!-- Animated aurora gradient -->
+            <div class="uc-hero-aurora"></div>
+
+            <!-- Spinning Ashoka Chakra watermark -->
+            <svg class="uc-hero-chakra" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="100" cy="100" r="90" stroke="currentColor" stroke-width="1"/>
+                <circle cx="100" cy="100" r="12" fill="currentColor"/>
+                <g stroke="currentColor" stroke-width="1.2">
+                    <line x1="100" y1="10" x2="100" y2="190"/>
+                    <line x1="10" y1="100" x2="190" y2="100"/>
+                    <line x1="26.4" y1="26.4" x2="173.6" y2="173.6"/>
+                    <line x1="173.6" y1="26.4" x2="26.4" y2="173.6"/>
+                    <line x1="100" y1="10" x2="163.6" y2="36.4" />
+                    <line x1="100" y1="10" x2="36.4" y2="36.4" />
+                    <line x1="190" y1="100" x2="163.6" y2="36.4" />
+                    <line x1="190" y1="100" x2="163.6" y2="163.6" />
+                    <line x1="100" y1="190" x2="163.6" y2="163.6" />
+                    <line x1="100" y1="190" x2="36.4" y2="163.6" />
+                    <line x1="10" y1="100" x2="36.4" y2="163.6" />
+                    <line x1="10" y1="100" x2="36.4" y2="36.4" />
+                </g>
+            </svg>
+
+            <!-- Interactive particle canvas -->
             <canvas id="heroParticles"></canvas>
 
-            <!-- Floating decorations -->
-            <div class="uc-float-decor uc-float-decor--1"></div>
-            <div class="uc-float-decor uc-float-decor--2"></div>
-            <div class="uc-float-decor uc-float-decor--3"></div>
-            <div class="uc-float-decor uc-float-decor--4"></div>
-
-            <div class="upcoming-hero-content">
-                <div class="hero-eyebrow">
-                    <span class="hero-eyebrow-line"></span>
-                    <span>Upcoming Events</span>
-                    <span class="hero-eyebrow-line"></span>
-                </div>
-                <h1 id="heroTitle"></h1>
-                <p class="upcoming-hero-desc">Be part of the next chapter in India's largest youth-led parliamentary dialogue platform. Register now and join delegates from across the nation.</p>
-
-                <!-- Countdown to next event -->
-                <div class="uc-countdown" id="ucCountdown">
-                    <div class="uc-countdown-item">
-                        <span class="uc-countdown-num" data-countdown="days">--</span>
-                        <span class="uc-countdown-label">Days</span>
-                    </div>
-                    <span class="uc-countdown-sep">:</span>
-                    <div class="uc-countdown-item">
-                        <span class="uc-countdown-num" data-countdown="hours">--</span>
-                        <span class="uc-countdown-label">Hours</span>
-                    </div>
-                    <span class="uc-countdown-sep">:</span>
-                    <div class="uc-countdown-item">
-                        <span class="uc-countdown-num" data-countdown="mins">--</span>
-                        <span class="uc-countdown-label">Minutes</span>
-                    </div>
-                    <span class="uc-countdown-sep">:</span>
-                    <div class="uc-countdown-item">
-                        <span class="uc-countdown-num" data-countdown="secs">--</span>
-                        <span class="uc-countdown-label">Seconds</span>
-                    </div>
+            <!-- Content -->
+            <div class="uc-hero-content">
+                <div class="uc-hero-eyebrow">
+                    <span class="uc-hero-ey-line"></span>
+                    <span class="uc-hero-ey-text">Upcoming Events · 2026</span>
+                    <span class="uc-hero-ey-line"></span>
                 </div>
 
-                <a href="#spotlight" class="btn-fire uc-magnetic">⚑ Explore Events</a>
+                <h1 class="uc-hero-title" id="heroTitle"></h1>
+
+                <p class="uc-hero-sub">Be part of the next chapter in India's largest youth-led parliamentary dialogue platform. Register now and shape the nation's future.</p>
+
+                <!-- Live countdown -->
+                <div class="uc-hero-countdown" id="ucCountdown">
+                    <div class="uc-cd-block">
+                        <div class="uc-cd-flip">
+                            <span class="uc-cd-num" data-countdown="days">--</span>
+                        </div>
+                        <span class="uc-cd-label">Days</span>
+                    </div>
+                    <span class="uc-cd-colon">:</span>
+                    <div class="uc-cd-block">
+                        <div class="uc-cd-flip">
+                            <span class="uc-cd-num" data-countdown="hours">--</span>
+                        </div>
+                        <span class="uc-cd-label">Hours</span>
+                    </div>
+                    <span class="uc-cd-colon">:</span>
+                    <div class="uc-cd-block">
+                        <div class="uc-cd-flip">
+                            <span class="uc-cd-num" data-countdown="mins">--</span>
+                        </div>
+                        <span class="uc-cd-label">Minutes</span>
+                    </div>
+                    <span class="uc-cd-colon">:</span>
+                    <div class="uc-cd-block">
+                        <div class="uc-cd-flip">
+                            <span class="uc-cd-num" data-countdown="secs">--</span>
+                        </div>
+                        <span class="uc-cd-label">Seconds</span>
+                    </div>
+                </div>
+
+                <!-- Hero stat badges -->
+                <div class="uc-hero-badges">
+                    <div class="uc-hero-badge">
+                        <span class="uc-hero-badge-num">23+</span>
+                        <span class="uc-hero-badge-label">Conferences</span>
+                    </div>
+                    <div class="uc-hero-badge-sep"></div>
+                    <div class="uc-hero-badge">
+                        <span class="uc-hero-badge-num">1 Lakh+</span>
+                        <span class="uc-hero-badge-label">Students</span>
+                    </div>
+                    <div class="uc-hero-badge-sep"></div>
+                    <div class="uc-hero-badge">
+                        <span class="uc-hero-badge-num">9</span>
+                        <span class="uc-hero-badge-label">Years</span>
+                    </div>
+                </div>
+
+                <!-- CTAs -->
+                <div class="uc-hero-actions">
+                    <a href="#spotlight" class="btn-fire uc-magnetic">⚑ Explore Events</a>
+                    <a href="/contact/" class="btn-ghost uc-magnetic">Register Now →</a>
+                </div>
             </div>
 
-            <div class="uc-scroll-hint">
-                <span>Scroll</span>
-                <div class="uc-scroll-line"></div>
+            <!-- Scroll indicator -->
+            <div class="uc-hero-scroll">
+                <div class="uc-hero-scroll-mouse">
+                    <div class="uc-hero-scroll-wheel"></div>
+                </div>
+                <span>Scroll to explore</span>
             </div>
         </section>
 

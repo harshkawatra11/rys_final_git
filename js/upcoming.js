@@ -300,22 +300,25 @@
     observer.observe(statEls[0]);
   }
 
-  // ─── Parallax on hero floating decorations ───
+  // ─── Parallax on hero mosaic images + chakra ───
   function initHeroParallax() {
-    var decors = document.querySelectorAll('.uc-float-decor');
-    if (!decors.length) return;
-    var hero = document.querySelector('.upcoming-hero');
+    var hero = document.querySelector('.uc-hero');
     if (!hero) return;
+    var mosaic = hero.querySelectorAll('.uc-hero-mosaic-img img');
+    var chakra = hero.querySelector('.uc-hero-chakra');
 
     hero.addEventListener('mousemove', function (e) {
       var rect = hero.getBoundingClientRect();
       var x = (e.clientX - rect.left) / rect.width - 0.5;
       var y = (e.clientY - rect.top) / rect.height - 0.5;
 
-      decors.forEach(function (d, i) {
-        var factor = (i + 1) * 8;
-        d.style.transform = 'translate(' + (x * factor) + 'px, ' + (y * factor) + 'px)';
+      mosaic.forEach(function (img, i) {
+        var factor = (i + 1) * 3;
+        img.style.transform = 'scale(1.08) translate(' + (x * factor) + 'px, ' + (y * factor) + 'px)';
       });
+      if (chakra) {
+        chakra.style.transform = 'translate(calc(-50% + ' + (x * 12) + 'px), calc(-50% + ' + (y * 12) + 'px))';
+      }
     });
   }
 

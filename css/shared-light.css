@@ -127,12 +127,46 @@ html[data-theme="light"] .cd-lb-counter { color:var(--dim2); }
 html[data-theme="light"] .conf-key-highlights li { background:rgba(255,255,255,.6); }
 
 /* ─── Upcoming page light overrides ─── */
-html[data-theme="light"] .upcoming-hero-bg {
-  background:
-    radial-gradient(ellipse 80% 60% at 50% 40%, rgba(212,80,10,.05) 0%, transparent 55%),
-    radial-gradient(ellipse 90% 90% at 50% 50%, rgba(240,236,227,.8) 0%, var(--navy) 100%);
+/* Hero stays dark/cinematic even in light mode — override all tokens in scope */
+html[data-theme="light"] .uc-hero {
+  background: #0A1628;
+  --cream: #F5ECD7;
+  --cream-mid: #D4C9A8;
+  --dim: #A09880;
+  --dim2: #807868;
+  --border-gold: rgba(184,137,42,0.18);
+  --navy: #0A1628;
+  --navy-deep: #060F1C;
+  --navy-mid: #12203A;
+  --navy-card: #122247;
+  --glass-bg: rgba(10,22,40,0.6);
+  --saffron: #D4500A;
+  --saffron-light: #E87A3A;
+  --saffron-pale: rgba(212,80,10,0.08);
+  --gold-light: #B8892A;
+  --white: #FFFFFF;
 }
-html[data-theme="light"] .uc-countdown-item { background:rgba(255,255,255,.7); }
+/* Vignette: top = dark, bottom = light-mode page bg for seamless transition */
+html[data-theme="light"] .uc-hero-vignette {
+  background:
+    linear-gradient(180deg,
+      rgba(6,15,28,.92) 0%,
+      rgba(6,15,28,.45) 30%,
+      rgba(6,15,28,.35) 55%,
+      rgba(6,15,28,.78) 80%,
+      #FAF8F3 100%),
+    radial-gradient(ellipse 70% 50% at 50% 50%, transparent 0%, rgba(6,15,28,.65) 100%);
+}
+html[data-theme="light"] .uc-hero-mosaic-img img { filter: grayscale(40%) brightness(.35) saturate(.7); }
+html[data-theme="light"] .uc-hero-chakra { color: rgba(212,80,10,.04); }
+html[data-theme="light"] .uc-hero .btn-ghost {
+  color: #F5ECD7;
+  border-color: rgba(184,137,42,0.18);
+}
+html[data-theme="light"] .uc-hero .btn-ghost:hover {
+  color: #D4500A;
+  border-color: #D4500A;
+}
 html[data-theme="light"] .uc-spotlight-card { background:var(--navy-mid); }
 html[data-theme="light"] .uc-spotlight-img img { filter:brightness(.85) saturate(.9); }
 html[data-theme="light"] .upcoming-card { background:var(--navy-mid); }
@@ -140,8 +174,6 @@ html[data-theme="light"] .upcoming-card-img img { filter:brightness(.85) saturat
 html[data-theme="light"] .why-card { background:var(--navy-mid); }
 html[data-theme="light"] .highlight-stat { background:var(--navy-mid); }
 html[data-theme="light"] .uc-marquee-wrap { background:var(--navy-mid); }
-html[data-theme="light"] .uc-float-decor--1 { border-color:rgba(212,80,10,.08); }
-html[data-theme="light"] .uc-float-decor--2 { border-color:rgba(184,137,42,.08); }
 
 html[data-theme="light"] footer {
   background:var(--navy-mid);
