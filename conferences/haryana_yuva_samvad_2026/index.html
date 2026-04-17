@@ -55,343 +55,74 @@
 
     <main>
 
-        <!-- ═══ HERO — CUSTOM REDESIGN ═══ -->
-        <style>
-        .hys26-hero {
-          position: relative; overflow: hidden;
-          min-height: 100vh; display: flex;
-          align-items: center; justify-content: center;
-          text-align: center; background: #080b10;
-        }
-
-        /* ── CROSSFADE SLIDESHOW BG ── */
-        .hys26-slides {
-          position: absolute; inset: 0; z-index: 0;
-        }
-        .hys26-slide {
-          position: absolute; inset: 0;
-          opacity: 0; transition: opacity 1.8s ease-in-out;
-        }
-        .hys26-slide.active { opacity: 1; }
-        .hys26-slide img {
-          width: 100%; height: 100%; object-fit: cover; display: block;
-          filter: brightness(.38) saturate(.65);
-          transform: scale(1.06);
-          transition: transform 8s ease-out;
-        }
-        .hys26-slide.active img { transform: scale(1.0); }
-
-        /* Overlay layers */
-        .hys26-overlay {
-          position: absolute; inset: 0; z-index: 1; pointer-events: none;
-          background:
-            radial-gradient(ellipse 65% 55% at 50% 42%, transparent 0%, rgba(8,11,16,.6) 100%),
-            linear-gradient(180deg,
-              rgba(8,11,16,.55) 0%,
-              rgba(8,11,16,.1) 25%,
-              rgba(8,11,16,.05) 45%,
-              rgba(8,11,16,.2) 65%,
-              rgba(8,11,16,.95) 100%);
-        }
-        .hys26-hero::before {
-          content:''; position: absolute; inset: 0; z-index: 1;
-          background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.04'/%3E%3C/svg%3E");
-          pointer-events: none; opacity: .45;
-        }
-
-        /* ── CENTERED CONTENT ── */
-        .hys26-content {
-          position: relative; z-index: 2;
-          max-width: 900px; padding: 5rem 5vw 8rem;
-        }
-        .hys26-topline {
-          width: 48px; height: 1px; margin: 0 auto 2rem;
-          background: linear-gradient(90deg, transparent, #bf9032, transparent);
-          opacity: 0; animation: hys26FadeIn .8s ease .2s forwards;
-        }
-        .hys26-badges {
-          display: flex; justify-content: center; gap: .5rem;
-          flex-wrap: wrap; margin-bottom: 2rem;
-          opacity: 0; animation: hys26Rise .8s ease .4s forwards;
-        }
-        .hys26-badge {
-          font-family: 'Mulish', sans-serif;
-          font-size: .58rem; letter-spacing: .28em; text-transform: uppercase;
-          font-weight: 600; color: #bf9032;
-          border: 1px solid rgba(191,144,50,.35);
-          padding: .3rem .85rem;
-          background: rgba(191,144,50,.06);
-          backdrop-filter: blur(8px);
-        }
-        .hys26-title {
-          font-family: 'Cinzel', serif;
-          font-size: clamp(2.4rem, 6.5vw, 4.8rem);
-          font-weight: 700; color: #f5ecd7;
-          line-height: 1.08; letter-spacing: .02em;
-          margin: 0 0 .6rem;
-          opacity: 0; animation: hys26Rise 1s ease .6s forwards;
-        }
-        .hys26-title-hindi {
-          display: block;
-          font-family: 'IM Fell English', serif; font-style: italic;
-          font-size: clamp(1rem, 2.4vw, 1.5rem);
-          color: #c9b97a; letter-spacing: .04em;
-          margin-top: .5rem;
-          opacity: 0; animation: hys26Rise .7s ease 1s forwards;
-        }
-        .hys26-ornament {
-          display: flex; align-items: center; justify-content: center;
-          gap: .8rem; margin: 1.8rem auto;
-          opacity: 0; animation: hys26FadeIn .6s ease 1.15s forwards;
-        }
-        .hys26-ornament-line {
-          width: 60px; height: 1px;
-          background: linear-gradient(90deg, transparent, rgba(191,144,50,.45));
-        }
-        .hys26-ornament-line:last-child {
-          background: linear-gradient(90deg, rgba(191,144,50,.45), transparent);
-        }
-        .hys26-ornament-diamond {
-          width: 6px; height: 6px;
-          border: 1px solid rgba(191,144,50,.5);
-          transform: rotate(45deg); flex-shrink: 0;
-        }
-        .hys26-meta {
-          display: flex; justify-content: center; flex-wrap: wrap;
-          gap: .6rem 2rem; margin-bottom: 2.5rem;
-          opacity: 0; animation: hys26Rise .7s ease 1.3s forwards;
-        }
-        .hys26-meta-item {
-          font-family: 'Mulish', sans-serif;
-          font-size: .78rem; color: rgba(244,237,216,.8);
-          letter-spacing: .03em;
-          display: flex; align-items: center; gap: .45rem;
-        }
-        .hys26-meta-item span { font-size: .85em; }
-        .hys26-stats {
-          display: flex; justify-content: center; flex-wrap: wrap; gap: 0;
-          max-width: 640px; margin: 0 auto;
-          border: 1px solid rgba(191,144,50,.2);
-          background: rgba(8,11,16,.5);
-          backdrop-filter: blur(20px);
-          opacity: 0; animation: hys26Rise .7s ease 1.5s forwards;
-        }
-        .hys26-stat {
-          flex: 1; min-width: 110px; padding: 1.2rem 1rem;
-          text-align: center;
-          border-right: 1px solid rgba(191,144,50,.12);
-          transition: background .3s;
-        }
-        .hys26-stat:last-child { border-right: none; }
-        .hys26-stat:hover { background: rgba(191,144,50,.06); }
-        .hys26-stat-num {
-          font-family: 'Cinzel', serif;
-          font-size: 1.6rem; font-weight: 700;
-          color: #bf9032; display: block; line-height: 1;
-          white-space: nowrap;
-        }
-        .hys26-stat-label {
-          font-family: 'Mulish', sans-serif;
-          font-size: .52rem; letter-spacing: .2em; text-transform: uppercase;
-          color: rgba(191,144,50,.55); margin-top: .35rem; display: block;
-        }
-
-        /* ── FILMSTRIP — bottom thumbnail bar ── */
-        .hys26-filmstrip {
-          position: absolute; bottom: 0; left: 0; right: 0;
-          z-index: 3; padding: .9rem 3vw;
-          display: flex; justify-content: center; gap: 6px;
-          background: linear-gradient(180deg, transparent, rgba(8,11,16,.85) 40%);
-          opacity: 0; animation: hys26Rise .7s ease 1.8s forwards;
-        }
-        .hys26-thumb {
-          width: 72px; height: 48px; border-radius: 3px;
-          overflow: hidden; cursor: pointer;
-          border: 1.5px solid rgba(191,144,50,.15);
-          opacity: .45; transition: all .4s ease;
-          flex-shrink: 0;
-          position: relative;
-        }
-        .hys26-thumb::after {
-          content: ''; position: absolute; inset: 0;
-          background: rgba(8,11,16,.3);
-          transition: background .4s;
-        }
-        .hys26-thumb.active {
-          opacity: 1;
-          border-color: rgba(191,144,50,.7);
-          box-shadow: 0 0 12px rgba(191,144,50,.15);
-        }
-        .hys26-thumb.active::after { background: transparent; }
-        .hys26-thumb:hover { opacity: .85; }
-        .hys26-thumb img {
-          width: 100%; height: 100%; object-fit: cover; display: block;
-        }
-
-        /* Progress bar on active thumb */
-        .hys26-thumb-progress {
-          position: absolute; bottom: 0; left: 0; height: 2px;
-          background: #bf9032; z-index: 2; width: 0;
-          transition: none;
-        }
-        .hys26-thumb.active .hys26-thumb-progress {
-          animation: hys26Progress 5s linear forwards;
-        }
-
-        @keyframes hys26Progress {
-          from { width: 0; }
-          to   { width: 100%; }
-        }
-        @keyframes hys26Rise {
-          from { opacity: 0; transform: translateY(28px); }
-          to   { opacity: 1; transform: translateY(0); }
-        }
-        @keyframes hys26FadeIn {
-          from { opacity: 0; }
-          to   { opacity: 1; }
-        }
-
-        /* Counter overlay — top right */
-        .hys26-counter {
-          position: absolute; top: 5.5rem; right: 3vw; z-index: 3;
-          font-family: 'Cinzel', serif;
-          font-size: .7rem; color: rgba(191,144,50,.4);
-          letter-spacing: .15em;
-          opacity: 0; animation: hys26FadeIn .5s ease 2s forwards;
-        }
-        .hys26-counter-current {
-          font-size: 1.4rem; font-weight: 700;
-          color: rgba(191,144,50,.7);
-        }
-
-        /* ── Mobile ── */
-        @media (max-width: 680px) {
-          .hys26-hero { min-height: 100svh; }
-          .hys26-content { padding: 5rem 6vw 7rem; }
-          .hys26-meta { gap: .5rem 1.2rem; }
-          .hys26-stats { flex-wrap: wrap; max-width: 320px; }
-          .hys26-stat { min-width: 50%; border-bottom: 1px solid rgba(191,144,50,.12); }
-          .hys26-stat:nth-child(2) { border-right: none; }
-          .hys26-stat:nth-child(3),
-          .hys26-stat:nth-child(4) { border-bottom: none; }
-          .hys26-filmstrip { gap: 4px; padding: .7rem 2vw; }
-          .hys26-thumb { width: 52px; height: 35px; }
-          .hys26-counter { display: none; }
-        }
-        </style>
-
-        <section class="hys26-hero">
-          <!-- Crossfading slideshow backgrounds -->
-          <div class="hys26-slides">
-            <div class="hys26-slide active"><img src="/images/haryana_yuva_samvad_2026-cover.jpg" alt="Haryana Yuva Samvad 2026"></div>
-            <div class="hys26-slide"><img src="/images/haryana_yuva_samvad_2026-1.jpg" alt=""></div>
-            <div class="hys26-slide"><img src="/images/haryana_yuva_samvad_2026-2.jpg" alt=""></div>
-            <div class="hys26-slide"><img src="/images/haryana_yuva_samvad_2026-3.jpg" alt=""></div>
-            <div class="hys26-slide"><img src="/images/haryana_yuva_samvad_2026-4.jpg" alt=""></div>
-            <div class="hys26-slide"><img src="/images/haryana_yuva_samvad_2026-5.jpg" alt=""></div>
-            <div class="hys26-slide"><img src="/images/haryana_yuva_samvad_2026-6.jpg" alt=""></div>
-            <div class="hys26-slide"><img src="/images/haryana_yuva_samvad_2026-7.jpg" alt=""></div>
+        <!-- ═══ HERO ═══ -->
+        <section class="conf-hero">
+          <div class="conf-hero-slides">
+            <div class="conf-hero-slide active"><img src="/images/haryana_yuva_samvad_2026-cover.jpg" alt="Haryana Yuva Samvad 2026"></div>
+            <div class="conf-hero-slide"><img src="/images/haryana_yuva_samvad_2026-1.jpg" alt=""></div>
+            <div class="conf-hero-slide"><img src="/images/haryana_yuva_samvad_2026-2.jpg" alt=""></div>
+            <div class="conf-hero-slide"><img src="/images/haryana_yuva_samvad_2026-3.jpg" alt=""></div>
+            <div class="conf-hero-slide"><img src="/images/haryana_yuva_samvad_2026-4.jpg" alt=""></div>
+            <div class="conf-hero-slide"><img src="/images/haryana_yuva_samvad_2026-5.jpg" alt=""></div>
+            <div class="conf-hero-slide"><img src="/images/haryana_yuva_samvad_2026-6.jpg" alt=""></div>
+            <div class="conf-hero-slide"><img src="/images/haryana_yuva_samvad_2026-7.jpg" alt=""></div>
           </div>
-          <div class="hys26-overlay"></div>
-
-          <!-- Counter -->
-          <div class="hys26-counter"><span class="hys26-counter-current">01</span> / 08</div>
-
-          <div class="hys26-content">
-            <div class="hys26-topline"></div>
-            <div class="hys26-badges">
-              <span class="hys26-badge">Flagship</span>
-              <span class="hys26-badge">2nd Edition</span>
-              <span class="hys26-badge">2026</span>
+          <div class="conf-hero-overlay"></div>
+          <div class="conf-hero-counter"><span class="conf-hero-counter-current">01</span> / 08</div>
+          <div class="conf-hero-content">
+            <div class="conf-hero-topline"></div>
+            <div class="conf-hero-badges">
+              <span class="conf-hero-badge">Flagship</span>
+              <span class="conf-hero-badge">2nd Edition</span>
+              <span class="conf-hero-badge">2026</span>
             </div>
-            <h1 class="hys26-title">
+            <h1 class="conf-hero-title">
               Haryana Yuva Samvad
-              <span class="hys26-title-hindi">हरियाणा युवा संवाद, 2026</span>
+              <span class="conf-hero-title-hindi">हरियाणा युवा संवाद, 2026</span>
             </h1>
-            <div class="hys26-ornament">
-              <div class="hys26-ornament-line"></div>
-              <div class="hys26-ornament-diamond"></div>
-              <div class="hys26-ornament-line"></div>
+            <div class="conf-hero-ornament">
+              <div class="conf-hero-ornament-line"></div>
+              <div class="conf-hero-ornament-diamond"></div>
+              <div class="conf-hero-ornament-line"></div>
             </div>
-            <div class="hys26-meta">
-              <span class="hys26-meta-item"><span>📅</span> 16–17 January 2026</span>
-              <span class="hys26-meta-item"><span>📍</span> Haryana Vidhan Sabha, Chandigarh</span>
-              <span class="hys26-meta-item"><span>🏛</span> In association with the Haryana Vidhan Sabha Secretariat</span>
+            <div class="conf-hero-meta">
+              <span class="conf-hero-meta-item"><span>📅</span> 16–17 January 2026</span>
+              <span class="conf-hero-meta-item"><span>📍</span> Haryana Vidhan Sabha, Chandigarh</span>
+              <span class="conf-hero-meta-item"><span>🏛</span> In association with the Haryana Vidhan Sabha Secretariat</span>
             </div>
-            <div class="hys26-stats">
-              <div class="hys26-stat">
-                <span class="hys26-stat-num">60+</span>
-                <span class="hys26-stat-label">Participants</span>
-              </div>
-              <div class="hys26-stat">
-                <span class="hys26-stat-num">4</span>
-                <span class="hys26-stat-label">Sessions</span>
-              </div>
-              <div class="hys26-stat">
-                <span class="hys26-stat-num">~50%</span>
-                <span class="hys26-stat-label">Women</span>
-              </div>
-              <div class="hys26-stat">
-                <span class="hys26-stat-num">2</span>
-                <span class="hys26-stat-label">Days</span>
-              </div>
+            <div class="conf-hero-stats">
+              <div class="conf-hero-stat"><span class="conf-hero-stat-num">60+</span><span class="conf-hero-stat-label">Participants</span></div>
+              <div class="conf-hero-stat"><span class="conf-hero-stat-num">4</span><span class="conf-hero-stat-label">Sessions</span></div>
+              <div class="conf-hero-stat"><span class="conf-hero-stat-num">~50%</span><span class="conf-hero-stat-label">Women</span></div>
+              <div class="conf-hero-stat"><span class="conf-hero-stat-num">2</span><span class="conf-hero-stat-label">Days</span></div>
             </div>
           </div>
-
-          <!-- Filmstrip thumbnails -->
-          <div class="hys26-filmstrip">
-            <div class="hys26-thumb active" data-slide="0"><img src="/images/haryana_yuva_samvad_2026-cover.jpg" alt=""><div class="hys26-thumb-progress"></div></div>
-            <div class="hys26-thumb" data-slide="1"><img src="/images/haryana_yuva_samvad_2026-1.jpg" alt=""><div class="hys26-thumb-progress"></div></div>
-            <div class="hys26-thumb" data-slide="2"><img src="/images/haryana_yuva_samvad_2026-2.jpg" alt=""><div class="hys26-thumb-progress"></div></div>
-            <div class="hys26-thumb" data-slide="3"><img src="/images/haryana_yuva_samvad_2026-3.jpg" alt=""><div class="hys26-thumb-progress"></div></div>
-            <div class="hys26-thumb" data-slide="4"><img src="/images/haryana_yuva_samvad_2026-4.jpg" alt=""><div class="hys26-thumb-progress"></div></div>
-            <div class="hys26-thumb" data-slide="5"><img src="/images/haryana_yuva_samvad_2026-5.jpg" alt=""><div class="hys26-thumb-progress"></div></div>
-            <div class="hys26-thumb" data-slide="6"><img src="/images/haryana_yuva_samvad_2026-6.jpg" alt=""><div class="hys26-thumb-progress"></div></div>
-            <div class="hys26-thumb" data-slide="7"><img src="/images/haryana_yuva_samvad_2026-7.jpg" alt=""><div class="hys26-thumb-progress"></div></div>
+          <div class="conf-hero-filmstrip">
+            <div class="conf-hero-thumb active" data-slide="0"><img src="/images/haryana_yuva_samvad_2026-cover.jpg" alt=""><div class="conf-hero-thumb-progress"></div></div>
+            <div class="conf-hero-thumb" data-slide="1"><img src="/images/haryana_yuva_samvad_2026-1.jpg" alt=""><div class="conf-hero-thumb-progress"></div></div>
+            <div class="conf-hero-thumb" data-slide="2"><img src="/images/haryana_yuva_samvad_2026-2.jpg" alt=""><div class="conf-hero-thumb-progress"></div></div>
+            <div class="conf-hero-thumb" data-slide="3"><img src="/images/haryana_yuva_samvad_2026-3.jpg" alt=""><div class="conf-hero-thumb-progress"></div></div>
+            <div class="conf-hero-thumb" data-slide="4"><img src="/images/haryana_yuva_samvad_2026-4.jpg" alt=""><div class="conf-hero-thumb-progress"></div></div>
+            <div class="conf-hero-thumb" data-slide="5"><img src="/images/haryana_yuva_samvad_2026-5.jpg" alt=""><div class="conf-hero-thumb-progress"></div></div>
+            <div class="conf-hero-thumb" data-slide="6"><img src="/images/haryana_yuva_samvad_2026-6.jpg" alt=""><div class="conf-hero-thumb-progress"></div></div>
+            <div class="conf-hero-thumb" data-slide="7"><img src="/images/haryana_yuva_samvad_2026-7.jpg" alt=""><div class="conf-hero-thumb-progress"></div></div>
           </div>
         </section>
-
         <script>
         (function(){
-          var slides = document.querySelectorAll('.hys26-slide');
-          var thumbs = document.querySelectorAll('.hys26-thumb');
-          var counter = document.querySelector('.hys26-counter-current');
-          var current = 0;
-          var total = slides.length;
-          var interval = 5000;
-          var timer;
-
+          var slides = document.querySelectorAll('.conf-hero-slide');
+          var thumbs = document.querySelectorAll('.conf-hero-thumb');
+          var counter = document.querySelector('.conf-hero-counter-current');
+          var current = 0, total = slides.length, timer;
           function goTo(idx) {
-            slides[current].classList.remove('active');
-            thumbs[current].classList.remove('active');
+            slides[current].classList.remove('active'); thumbs[current].classList.remove('active');
             current = idx % total;
-            slides[current].classList.add('active');
-            thumbs[current].classList.add('active');
-            counter.textContent = String(current + 1).padStart(2, '0');
-            // Reset progress animation
-            thumbs.forEach(function(t) {
-              var bar = t.querySelector('.hys26-thumb-progress');
-              bar.style.animation = 'none';
-              bar.offsetHeight;
-              bar.style.animation = '';
-            });
+            slides[current].classList.add('active'); thumbs[current].classList.add('active');
+            if (counter) counter.textContent = String(current + 1).padStart(2, '0');
+            thumbs.forEach(function(t){ var b=t.querySelector('.conf-hero-thumb-progress'); b.style.animation='none'; b.offsetHeight; b.style.animation=''; });
           }
-
-          function next() { goTo(current + 1); }
-
-          function startTimer() {
-            clearInterval(timer);
-            timer = setInterval(next, interval);
-          }
-
-          thumbs.forEach(function(thumb) {
-            thumb.addEventListener('click', function() {
-              var idx = parseInt(this.getAttribute('data-slide'), 10);
-              goTo(idx);
-              startTimer();
-            });
-          });
-
+          function startTimer(){ clearInterval(timer); timer = setInterval(function(){ goTo(current+1); }, 5000); }
+          thumbs.forEach(function(thumb){ thumb.addEventListener('click', function(){ goTo(parseInt(this.getAttribute('data-slide'),10)); startTimer(); }); });
           startTimer();
         })();
         </script>
