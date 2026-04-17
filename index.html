@@ -1609,6 +1609,384 @@ footer {
   </div>
 </section>
 
+<!-- ══════════════════════════ UPCOMING CONFERENCES MINI ══════════════════════════ -->
+<style>
+/* ═══════════════════════════════════════════════
+   UPCOMING CONFERENCES — MINI SECTION (HOME)
+═══════════════════════════════════════════════ */
+.uc-mini {
+  position: relative;
+  padding: 5.5rem 5vw 5rem;
+  overflow: hidden;
+  background: linear-gradient(180deg, var(--navy) 0%, rgba(15,25,55,.98) 50%, var(--navy) 100%);
+}
+.uc-mini::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0; height: 1px;
+  background: linear-gradient(90deg, transparent 10%, var(--saffron) 50%, transparent 90%);
+  opacity: .4;
+}
+.uc-mini::after {
+  content: '';
+  position: absolute; bottom: 0; left: 0; right: 0; height: 1px;
+  background: linear-gradient(90deg, transparent 10%, var(--gold-light) 50%, transparent 90%);
+  opacity: .3;
+}
+
+/* ambient glows */
+.uc-mini-glow {
+  position: absolute; border-radius: 50%; filter: blur(120px); opacity: .06; pointer-events: none;
+}
+.uc-mini-glow--1 { width: 400px; height: 400px; top: -120px; right: -80px; background: var(--saffron); }
+.uc-mini-glow--2 { width: 300px; height: 300px; bottom: -80px; left: -60px; background: var(--gold); }
+
+.uc-mini-inner { max-width: 1100px; margin: 0 auto; position: relative; z-index: 1; }
+
+/* header */
+.uc-mini-eyebrow {
+  display: flex; align-items: center; gap: .6rem; justify-content: center;
+  margin-bottom: .6rem;
+}
+.uc-mini-eyebrow-line { width: 24px; height: 1px; background: var(--saffron); }
+.uc-mini-eyebrow span {
+  font-size: .6rem; letter-spacing: .28em; text-transform: uppercase;
+  color: var(--saffron); font-weight: 700;
+}
+.uc-mini-h2 {
+  font-family: 'Cinzel', serif;
+  font-size: clamp(1.6rem, 3.2vw, 2.6rem);
+  font-weight: 700; color: var(--cream);
+  text-align: center; margin-bottom: .5rem;
+  line-height: 1.2;
+}
+.uc-mini-h2 em {
+  font-family: 'IM Fell English', serif;
+  font-style: italic; font-weight: 400;
+  color: var(--saffron-light);
+}
+.uc-mini-sub {
+  text-align: center; font-size: .85rem; color: var(--dim2);
+  max-width: 560px; margin: 0 auto 2.8rem; line-height: 1.65;
+}
+.uc-mini-rule {
+  width: 50px; height: 2px;
+  background: linear-gradient(90deg, var(--saffron), var(--gold-light));
+  margin: 0 auto 2.5rem; border-radius: 2px;
+}
+
+/* event card grid */
+.uc-mini-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  margin-bottom: 2.8rem;
+}
+
+/* individual event card */
+.uc-mini-card {
+  background: rgba(15,31,61,.45);
+  backdrop-filter: blur(16px);
+  border: 1px solid var(--border-gold);
+  border-radius: 12px;
+  padding: 2rem 2rem 1.8rem;
+  position: relative;
+  overflow: hidden;
+  transition: transform .4s cubic-bezier(.22,1,.36,1), box-shadow .4s, border-color .4s;
+}
+.uc-mini-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 60px rgba(0,0,0,.25), 0 0 50px rgba(212,80,10,.06);
+  border-color: rgba(212,80,10,.35);
+}
+/* animated border */
+.uc-mini-card::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0; height: 2px;
+  background: linear-gradient(90deg, var(--saffron), var(--gold-light), var(--saffron));
+  background-size: 200% 100%;
+  animation: ucMiniShimmer 3s ease-in-out infinite;
+}
+@keyframes ucMiniShimmer {
+  0%   { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+/* number watermark */
+.uc-mini-card-num {
+  position: absolute; top: -12px; right: 16px;
+  font-family: 'Cinzel', serif; font-size: 6rem; font-weight: 900;
+  color: rgba(184,137,42,.04); line-height: 1; pointer-events: none;
+  transition: color .4s;
+}
+.uc-mini-card:hover .uc-mini-card-num { color: rgba(212,80,10,.07); }
+
+/* date badge */
+.uc-mini-date {
+  display: inline-flex; align-items: center; gap: .5rem;
+  font-size: .6rem; letter-spacing: .16em; text-transform: uppercase;
+  color: var(--gold-light); font-weight: 700;
+  margin-bottom: .7rem;
+  padding: .35rem .9rem;
+  background: rgba(184,137,42,.06);
+  border: 1px solid rgba(184,137,42,.12);
+  border-radius: 100px;
+}
+.uc-mini-date-pulse {
+  width: 6px; height: 6px; border-radius: 50%; background: var(--saffron);
+  animation: ucPulse 1.8s ease-in-out infinite;
+}
+@keyframes ucPulse {
+  0%, 100% { opacity: 1; box-shadow: 0 0 0 0 rgba(212,80,10,.4); }
+  50% { opacity: .6; box-shadow: 0 0 0 6px rgba(212,80,10,0); }
+}
+
+.uc-mini-title {
+  font-family: 'Cinzel', serif;
+  font-size: 1.2rem; font-weight: 700;
+  color: var(--cream); line-height: 1.35;
+  margin-bottom: .35rem;
+}
+.uc-mini-host {
+  font-size: .72rem; color: var(--dim2); margin-bottom: .8rem;
+  line-height: 1.5;
+}
+.uc-mini-host strong { color: var(--cream-mid); font-weight: 600; }
+.uc-mini-tagline {
+  font-family: 'IM Fell English', serif;
+  font-style: italic; font-size: .82rem;
+  color: var(--saffron-light); line-height: 1.5;
+  padding-left: .8rem; margin-bottom: 1rem;
+  border-left: 2px solid var(--saffron);
+  opacity: .85;
+}
+
+/* committee pills */
+.uc-mini-pills { display: flex; flex-wrap: wrap; gap: .4rem; margin-bottom: 1.2rem; }
+.uc-mini-pill {
+  font-size: .58rem; letter-spacing: .06em;
+  padding: .3rem .75rem; border-radius: 100px;
+  border: 1px solid var(--border-gold);
+  color: var(--dim); background: rgba(184,137,42,.04);
+  white-space: nowrap;
+  transition: all .25s;
+}
+.uc-mini-pill:hover {
+  background: rgba(212,80,10,.1); color: var(--cream);
+  border-color: var(--saffron); transform: translateY(-1px);
+}
+.uc-mini-pill--highlight {
+  border-color: rgba(212,80,10,.25);
+  color: var(--saffron); background: rgba(212,80,10,.06);
+}
+
+/* grade badge */
+.uc-mini-grades {
+  display: inline-flex; align-items: center; gap: .35rem;
+  font-size: .58rem; color: var(--gold-light); font-weight: 600;
+  letter-spacing: .08em; margin-bottom: 1rem;
+}
+.uc-mini-grades span {
+  width: 4px; height: 4px; border-radius: 50%;
+  background: var(--gold-light); opacity: .5;
+}
+
+/* cta row inside card */
+.uc-mini-card-actions {
+  display: flex; gap: .8rem; flex-wrap: wrap;
+}
+.uc-mini-cta {
+  display: inline-flex; align-items: center; gap: .4rem;
+  font-family: 'Cinzel', serif;
+  font-size: .58rem; font-weight: 700;
+  letter-spacing: .12em; text-transform: uppercase;
+  color: var(--white); background: var(--saffron);
+  padding: .65rem 1.6rem; border-radius: 2px;
+  text-decoration: none;
+  transition: transform .2s, box-shadow .2s;
+  position: relative; overflow: hidden;
+}
+.uc-mini-cta::before {
+  content: ''; position: absolute; inset: 0;
+  background: linear-gradient(120deg, rgba(255,255,255,.18) 0%, transparent 60%);
+  transform: translateX(-120%); transition: transform .4s;
+}
+.uc-mini-cta:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(212,80,10,.35); }
+.uc-mini-cta:hover::before { transform: translateX(0); }
+.uc-mini-cta-ghost {
+  display: inline-flex; align-items: center; gap: .4rem;
+  font-family: 'Cinzel', serif;
+  font-size: .58rem; font-weight: 700;
+  letter-spacing: .12em; text-transform: uppercase;
+  color: var(--cream); background: transparent;
+  border: 1px solid var(--border-gold);
+  padding: .65rem 1.6rem; border-radius: 2px;
+  text-decoration: none;
+  transition: border-color .25s, color .25s, background .25s;
+}
+.uc-mini-cta-ghost:hover {
+  border-color: var(--saffron); color: var(--saffron);
+  background: rgba(212,80,10,.05);
+}
+/* split variant — two register btns + separate detail link */
+.uc-mini-card-actions--split {
+  flex-direction: column; gap: .5rem;
+}
+.uc-mini-card-actions--split .uc-mini-cta,
+.uc-mini-card-actions--split .uc-mini-cta-ghost {
+  width: 100%; justify-content: center;
+}
+.uc-mini-detail-link {
+  display: inline-flex; align-items: center; gap: .3rem;
+  font-family: 'Cinzel', serif; font-size: .55rem; font-weight: 700;
+  letter-spacing: .12em; text-transform: uppercase;
+  color: var(--dim2); text-decoration: none;
+  margin-top: .1rem; padding: 0 .1rem;
+  transition: color .25s, gap .25s;
+}
+.uc-mini-detail-link:hover { color: var(--saffron); gap: .5rem; }
+
+/* bottom CTA */
+.uc-mini-footer {
+  text-align: center;
+}
+.uc-mini-footer-link {
+  display: inline-flex; align-items: center; gap: .5rem;
+  font-family: 'Cinzel', serif; font-size: .72rem;
+  font-weight: 700; letter-spacing: .14em; text-transform: uppercase;
+  color: var(--saffron); text-decoration: none;
+  transition: gap .3s, color .3s;
+}
+.uc-mini-footer-link:hover { gap: .8rem; color: var(--gold-light); }
+.uc-mini-footer-link .uc-mini-arrow {
+  display: inline-block; transition: transform .3s;
+}
+.uc-mini-footer-link:hover .uc-mini-arrow { transform: translateX(4px); }
+
+/* ─── Light mode ─── */
+html[data-theme="light"] .uc-mini {
+  background: linear-gradient(180deg, #FAF8F3 0%, #F0ECE3 50%, #FAF8F3 100%);
+}
+html[data-theme="light"] .uc-mini-card {
+  background: rgba(255,255,255,.65);
+  backdrop-filter: blur(12px);
+  border-color: rgba(184,137,42,.18);
+  box-shadow: 0 4px 24px rgba(0,0,0,.04);
+}
+html[data-theme="light"] .uc-mini-card:hover {
+  box-shadow: 0 16px 48px rgba(0,0,0,.08), 0 0 40px rgba(212,80,10,.04);
+  border-color: rgba(212,80,10,.3);
+}
+html[data-theme="light"] .uc-mini-card-num { color: rgba(184,137,42,.07); }
+html[data-theme="light"] .uc-mini-card:hover .uc-mini-card-num { color: rgba(212,80,10,.1); }
+html[data-theme="light"] .uc-mini-date {
+  background: rgba(184,137,42,.08);
+  border-color: rgba(184,137,42,.16);
+}
+html[data-theme="light"] .uc-mini-pill {
+  background: rgba(184,137,42,.06);
+  border-color: rgba(184,137,42,.18);
+  color: #555;
+}
+html[data-theme="light"] .uc-mini-pill:hover {
+  background: rgba(212,80,10,.08); color: var(--saffron);
+}
+html[data-theme="light"] .uc-mini-tagline { color: #B06C12; }
+html[data-theme="light"] .uc-mini-host strong { color: #3A3A3A; }
+
+@media(max-width: 768px) {
+  .uc-mini-grid { grid-template-columns: 1fr; }
+  .uc-mini-card { padding: 1.6rem 1.4rem 1.4rem; }
+  .uc-mini-card-num { font-size: 4rem; right: 10px; }
+  .uc-mini-title { font-size: 1.05rem; }
+}
+</style>
+
+<section class="uc-mini" id="upcoming">
+  <div class="uc-mini-glow uc-mini-glow--1"></div>
+  <div class="uc-mini-glow uc-mini-glow--2"></div>
+
+  <div class="uc-mini-inner">
+    <div class="uc-mini-eyebrow reveal">
+      <div class="uc-mini-eyebrow-line"></div>
+      <span>Upcoming Events · 2026</span>
+      <div class="uc-mini-eyebrow-line"></div>
+    </div>
+    <h2 class="uc-mini-h2 reveal">Upcoming <em>Conferences</em></h2>
+    <p class="uc-mini-sub reveal">Register now for the next editions of India's premier youth parliamentary platform — debate, discuss, and shape the future.</p>
+    <div class="uc-mini-rule reveal"></div>
+
+    <div class="uc-mini-grid">
+
+      <!-- ── Conference 1: Global Panchayat 3.0 ── -->
+      <div class="uc-mini-card reveal">
+        <span class="uc-mini-card-num">01</span>
+        <div class="uc-mini-date">
+          <span class="uc-mini-date-pulse"></span>
+          July 24–25, 2026
+        </div>
+        <h3 class="uc-mini-title">Global Panchayat 3.0</h3>
+        <p class="uc-mini-host">Hosted by <strong>JKG International School, Ghaziabad</strong> · In Association with Rajdhani Yuva Sansad</p>
+        <p class="uc-mini-tagline">"Debate. Discuss. Decide. Let your voice echo on issues that define the heart and soul of Bharat!"</p>
+        <div class="uc-mini-grades">
+          🎓 Grade 3rd to 12th <span></span> Multi-Committee
+        </div>
+        <div class="uc-mini-pills">
+          <span class="uc-mini-pill uc-mini-pill--highlight">AI Summit</span>
+          <span class="uc-mini-pill">Lok Sabha</span>
+          <span class="uc-mini-pill">UNSC</span>
+          <span class="uc-mini-pill">UPLA</span>
+          <span class="uc-mini-pill">Historic Stakeholders Meet</span>
+          <span class="uc-mini-pill">Hogwarts</span>
+          <span class="uc-mini-pill">Marvel</span>
+          <span class="uc-mini-pill">The Press</span>
+        </div>
+        <div class="uc-mini-card-actions uc-mini-card-actions--split">
+          <a href="https://forms.gle/zJFz83ecvsptoZ547" target="_blank" rel="noopener" class="uc-mini-cta">
+            🏫 JKG Students →
+          </a>
+          <a href="https://forms.gle/JjSxT95QNNNErBxL8" target="_blank" rel="noopener" class="uc-mini-cta-ghost">
+            🌏 Outside Students →
+          </a>
+          <a href="/upcoming/" class="uc-mini-detail-link">View full details ↗</a>
+        </div>
+      </div>
+
+      <!-- ── Conference 2: Junior United Nations & Yuva Sajhedari 3.0 ── -->
+      <div class="uc-mini-card reveal reveal-d1">
+        <span class="uc-mini-card-num">02</span>
+        <div class="uc-mini-date">
+          <span class="uc-mini-date-pulse"></span>
+          August 21–22, 2026
+        </div>
+        <h3 class="uc-mini-title">Junior United Nations & Yuva Sajhedari 3.0</h3>
+        <p class="uc-mini-host">Hosted by <strong>Silverline Prestige School, Ghaziabad</strong> · In Association with Rajdhani Yuva Sansad</p>
+        <p class="uc-mini-tagline">"Empowering the youngest voices through dialogue, trade, and artistic freedom."</p>
+        <div class="uc-mini-grades">
+          🎓 Grade 3rd to 8th <span></span> Two Events
+        </div>
+        <div class="uc-mini-pills">
+          <span class="uc-mini-pill uc-mini-pill--highlight">WTO</span>
+          <span class="uc-mini-pill">CBFC</span>
+          <span class="uc-mini-pill">Lok Sabha</span>
+          <span class="uc-mini-pill">United Nations</span>
+          <span class="uc-mini-pill">International Press</span>
+          <span class="uc-mini-pill">Creative Press</span>
+        </div>
+        <div class="uc-mini-card-actions">
+          <a href="https://forms.gle/esaySKJLtMzmcohd8" target="_blank" rel="noopener" class="uc-mini-cta">Register Now →</a>
+          <a href="/upcoming/" class="uc-mini-cta-ghost">View Details →</a>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="uc-mini-footer reveal">
+      <a href="/upcoming/" class="uc-mini-footer-link">
+        Explore All Upcoming Conferences <span class="uc-mini-arrow">→</span>
+      </a>
+    </div>
+  </div>
+</section>
+
 <!-- ══════════════════════════ MAJOR HIGHLIGHTS ══════════════════════════ -->
 <style>
   .mh{position:relative;padding:5rem 5vw 4rem;background:var(--navy-deep);overflow:hidden}

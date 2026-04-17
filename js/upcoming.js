@@ -167,8 +167,8 @@
 
   // ─── Countdown Timer ───
   function initCountdown() {
-    // Target: August 1, 2026 (placeholder for next event)
-    var target = new Date('2026-08-01T00:00:00+05:30').getTime();
+    // Target: July 24, 2026 — Global Panchayat 3.0
+    var target = new Date('2026-07-24T00:00:00+05:30').getTime();
 
     var daysEl = document.querySelector('[data-countdown="days"]');
     var hoursEl = document.querySelector('[data-countdown="hours"]');
