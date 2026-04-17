@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en" data-default-theme="dark">
 <head>
 <meta charset="UTF-8"/>
@@ -39,8 +39,8 @@
   --hero-glow-center: rgba(15,31,61,0.8);
   --img-overlay-start: rgba(10,22,40,0.4);
   --img-overlay-end: rgba(10,22,40,0.15);
-  --hfi-filter: brightness(.45) saturate(.65);
-  --hfi-filter-hover: brightness(.7) saturate(.9);
+  --hfi-filter: brightness(.65) saturate(.8);
+  --hfi-filter-hover: brightness(.85) saturate(1);
   --stats-bg: rgba(15,31,61,.85);
   --founder-overlay: rgba(10,22,40,.85);
   --carousel-overlay-start: rgba(10,22,40,0.92);
@@ -74,8 +74,8 @@ html[data-theme="light"] {
   --hero-glow-center: rgba(250,248,243,0.8);
   --img-overlay-start: rgba(250,248,243,0.4);
   --img-overlay-end: rgba(250,248,243,0.2);
-  --hfi-filter: brightness(.85) saturate(.85);
-  --hfi-filter-hover: brightness(1.05) saturate(1);
+  --hfi-filter: brightness(.95) saturate(.9);
+  --hfi-filter-hover: brightness(1.1) saturate(1);
   --stats-bg: var(--navy-mid);
   --founder-overlay: rgba(10,22,40,.85);
   --carousel-overlay-start: rgba(250,248,243,0.92);
@@ -98,28 +98,22 @@ html[data-theme="light"] footer { background:#EDE8DE; }
 /* ─── Light-mode hero section fixes ─── */
 html[data-theme="light"] .hero-vignette {
   background:
-    radial-gradient(ellipse 55% 65% at 50% 50%,
-      rgba(250,248,243,0.78) 0%,
-      rgba(250,248,243,0.30) 60%,
-      transparent 100%
-    ),
     linear-gradient(to top,
-      rgba(250,248,243,0.97) 0%,
-      rgba(250,248,243,0.60) 22%,
-      transparent 50%
-    ),
-    linear-gradient(to bottom,
-      rgba(250,248,243,0.90) 0%,
+      rgba(250,248,243,0.45) 0%,
       transparent 35%
     ),
-    linear-gradient(to right,
-      rgba(250,248,243,0.75) 0%,
-      transparent 30%
-    ),
-    linear-gradient(to left,
-      rgba(250,248,243,0.75) 0%,
-      transparent 30%
+    linear-gradient(to bottom,
+      rgba(250,248,243,0.25) 0%,
+      transparent 25%
     );
+}
+/* Light mode override for hero glass box */
+html[data-theme="light"] .hero-center {
+  background: rgba(250,248,243,.55);
+  border: 1px solid rgba(184,137,42,.15);
+  box-shadow: 0 20px 48px rgba(40,28,16,.08);
+  backdrop-filter: blur(8px);
+  border-radius: 6px;
 }
 html[data-theme="light"] .hero-center-glow {
   background: radial-gradient(
@@ -129,8 +123,8 @@ html[data-theme="light"] .hero-center-glow {
     transparent 70%
   );
 }
-html[data-theme="light"] .hero-image-wall-wrapper { opacity:0.35; }
-html[data-theme="light"] .h-img-box img { filter: brightness(1.1) contrast(1.0) saturate(0.7); }
+html[data-theme="light"] .hero-image-wall-wrapper { opacity:0.7; }
+html[data-theme="light"] .h-img-box img { filter: brightness(1.15) contrast(1.05) saturate(0.85); }
 html[data-theme="light"] .hero-ring { border-color: rgba(212,80,10,0.10); }
 html[data-theme="light"] .hero-ring--2 { border-color: rgba(184,137,42,0.08); }
 html[data-theme="light"] .hero-ring--3 { border-color: rgba(212,80,10,0.06); }
@@ -140,6 +134,7 @@ html[data-theme="light"] .scroll-cue-line { background: linear-gradient(#888, tr
 html[data-theme="light"] .carousel-overlay {
   background:linear-gradient(to top, rgba(10,22,40,0.88) 0%, rgba(10,22,40,0.35) 55%, transparent 100%);
 }
+html[data-theme="light"] .showcase-sec { background: #F0ECE3; }
 html[data-theme="light"] .carousel-overlay .carousel-heading,
 html[data-theme="light"] .carousel-overlay .carousel-tag { color: #F4EDD8; }
 html[data-theme="light"] .carousel-overlay .carousel-desc { color: rgba(244,237,216,0.7); }
@@ -309,8 +304,9 @@ html[data-theme="light"] .theme-toggle-knob { transform:translateX(24px); backgr
   flex-direction: column;
   align-items: center;
   text-align: center;
-  max-width: 780px;
-  padding: 7rem 2rem 3rem;
+  width: 90%;
+  max-width: 760px;
+  padding: 5rem 3.5rem;
 }
 
 .hero-eyebrow {
@@ -357,13 +353,13 @@ html[data-theme="light"] .theme-toggle-knob { transform:translateX(24px); backgr
 
 .hero-sub-quote {
   font-family: "Playwrite IE", serif;
-  font-size: clamp(1.05rem, 1.6vw, 1.35rem);
+  font-size: clamp(.95rem, 1.4vw, 1.25rem);
   color: var(--cream-mid);
   margin: 1.2rem 0 1.8rem;
   padding-left: 1.2rem;
   border-left: 2px solid var(--saffron);
   line-height: 1.55;
-  max-width: 700px;
+  max-width: 100%;
   text-align: left;
   opacity: 0; animation: fadeUp .8s .55s forwards;
 }
@@ -372,7 +368,7 @@ html[data-theme="light"] .theme-toggle-knob { transform:translateX(24px); backgr
   font-size: .92rem;
   color: var(--dim);
   line-height: 1.85;
-  max-width: 720px;
+  max-width: 100%;
   margin-bottom: 2rem;
   opacity: 0; animation: fadeUp .8s .7s forwards;
 }
@@ -440,7 +436,7 @@ html[data-theme="light"] .theme-toggle-knob { transform:translateX(24px); backgr
   overflow: hidden;
   pointer-events: none;
   /* Overall opacity — second transparency dial */
-  opacity: 0.55;
+  opacity: 0.75;
 }
 
 .hero-wall-col {
@@ -500,35 +496,35 @@ html[data-theme="light"] .theme-toggle-knob { transform:translateX(24px); backgr
   z-index: 2;
   pointer-events: none;
   background:
-    /* Strong centre glow — keeps text zone dark */
+    /* Lighter centre glow — lets images breathe */
     radial-gradient(ellipse 55% 65% at 50% 50%,
-      rgba(5,12,26,0.72) 0%,
-      rgba(5,12,26,0.20) 60%,
+      rgba(5,12,26,0.45) 0%,
+      rgba(5,12,26,0.10) 60%,
       transparent 100%
     ),
-    /* Gold warmth — bottom sweep */
+    /* Bottom sweep — reduced */
     linear-gradient(
       to top,
-      rgba(5,12,26,0.95) 0%,
-      rgba(5,12,26,0.55) 22%,
+      rgba(5,12,26,0.7) 0%,
+      rgba(5,12,26,0.3) 22%,
       transparent 50%
     ),
-    /* Gold warmth — top sweep */
+    /* Top sweep — reduced */
     linear-gradient(
       to bottom,
-      rgba(5,12,26,0.85) 0%,
+      rgba(5,12,26,0.6) 0%,
       transparent 35%
     ),
-    /* Edge darkness left */
+    /* Edge darkness left — reduced */
     linear-gradient(
       to right,
-      rgba(5,12,26,0.70) 0%,
+      rgba(5,12,26,0.45) 0%,
       transparent 30%
     ),
-    /* Edge darkness right */
+    /* Edge darkness right — reduced */
     linear-gradient(
       to left,
-      rgba(5,12,26,0.70) 0%,
+      rgba(5,12,26,0.45) 0%,
       transparent 30%
     );
 }
@@ -1591,7 +1587,7 @@ footer {
       <span>New Delhi · Est. 2017 · 23+ Grand Conferences</span>
       <div class="hero-eyebrow-line"></div>
     </div>
-    <div class="hero-tagline-hindi">'संवाद ही हल है।'</div>
+    <div class="hero-tagline-hindi">‘संवाद ही हल है।’</div>
     <h1 class="hero-h1">
       Rajdhani Yuva Sansad
     </h1>

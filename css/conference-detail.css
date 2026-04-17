@@ -1,4 +1,4 @@
-﻿/* ══════════════════════════════════════════════════════════════
+/* ══════════════════════════════════════════════════════════════
    CONFERENCE DETAIL PAGE — SPECIFIC STYLES
    ══════════════════════════════════════════════════════════════ */
 
@@ -17,9 +17,11 @@
 /* ─── DETAIL HERO (Orbital gallery — cover center, images floating around) ─── */
 .conf-detail-hero {
   position: relative; overflow: hidden;
-  min-height: 100vh; display: flex; align-items: flex-end;
-  padding: 0 5vw 4rem;
-  background: var(--navy, #0a1628);
+  min-height: 100vh; display: flex;
+  align-items: center; justify-content: center;
+  text-align: center;
+  padding: 5rem 5vw 7rem;
+  background: #080b10;
 }
 
 /* Original hero background — hidden, data source only */
@@ -49,13 +51,13 @@
 .cd-cine-cell,
 .cd-cine-center { overflow: hidden; position: relative; }
 
-/* Side cell images — slightly desaturated, zoom breathing */
+/* Side cell images — darkened for readability */
 .cd-cine-cell img {
   width: 100%; height: 100%; object-fit: cover; display: block;
-  filter: brightness(.58) saturate(.62);
+  filter: brightness(.5) saturate(.75);
   transition: filter .6s ease;
 }
-.cd-cine-cell:hover img { filter: brightness(.78) saturate(.82); }
+.cd-cine-cell:hover img { filter: brightness(.62) saturate(.85); }
 
 /* Breathing parallax — independent rhythm per cell */
 .cd-cine-left  .cd-cine-cell:nth-child(1) img { animation: cineBreathe1 13s ease-in-out infinite; }
@@ -114,7 +116,7 @@
 }
 .cd-cine-center img {
   width: 100%; height: 100%; object-fit: cover; display: block;
-  filter: brightness(.88) saturate(.93);
+  filter: brightness(.6) saturate(.8);
   animation: cineKenBurns 20s ease-in-out infinite;
 }
 @keyframes cineCoverIn {
@@ -152,18 +154,17 @@
   .cd-cine-wrap { grid-template-columns: 1fr; }
 }
 
-/* Vignette / dark overlay — heavy only at bottom for text, whisper-light elsewhere */
+/* Vignette / dark overlay — comprehensive for readability in all modes */
 .conf-detail-hero-overlay {
   position: absolute; inset: 0; z-index: 1;
   background:
-    linear-gradient(0deg,
-      rgba(10,22,40,0.93) 0%,
-      rgba(10,22,40,0.55) 16%,
-      rgba(10,22,40,0.08) 35%,
-      rgba(10,22,40,0.04) 55%,
-      rgba(10,22,40,0.1)  78%,
-      rgba(10,22,40,0.32) 100%),
-    radial-gradient(ellipse 60% 55% at 50% 48%, transparent 0%, rgba(10,22,40,.18) 100%);
+    radial-gradient(ellipse 70% 60% at 50% 45%, transparent 0%, rgba(8,11,16,.3) 100%),
+    linear-gradient(180deg,
+      rgba(8,11,16,.45) 0%,
+      rgba(8,11,16,.1) 22%,
+      rgba(8,11,16,.05) 42%,
+      rgba(8,11,16,.1) 65%,
+      rgba(8,11,16,.7) 100%);
   pointer-events: none;
 }
 
@@ -186,16 +187,19 @@
 .conf-detail-hero-content {
   position: relative; z-index: 2;
   max-width: 860px;
+  text-align: center;
+  display: flex; flex-direction: column; align-items: center;
 }
 
-/* Badge with glow */
+/* Badge — gold style matching HYS 2026 */
 .conf-detail-badge {
   display: inline-block;
-  font-size: .6rem; letter-spacing: .22em; text-transform: uppercase;
-  font-weight: 700; color: var(--saffron);
-  border: 1px solid rgba(212,80,10,.45);
-  padding: .35rem .9rem; margin-bottom: 1.2rem;
-  background: rgba(212,80,10,0.08);
+  font-size: .58rem; letter-spacing: .26em; text-transform: uppercase;
+  font-weight: 600; color: #bf9032;
+  border: 1px solid rgba(191,144,50,.38);
+  padding: .32rem .9rem; margin-bottom: 1.4rem;
+  background: rgba(191,144,50,.07);
+  backdrop-filter: blur(8px);
   opacity: 0; transform: translateY(20px);
   animation: cdFadeUp .8s ease forwards;
   animation-delay: .3s;
@@ -221,13 +225,14 @@
   animation-delay: 1.2s;
 }
 .conf-detail-meta-row {
-  display: flex; flex-wrap: wrap; gap: .8rem 1.5rem;
-  margin: 1.2rem 0 1.8rem;
+  display: flex; flex-wrap: wrap; gap: .7rem 1.6rem;
+  justify-content: center;
+  margin: 1.4rem 0 1.8rem;
   opacity: 0; animation: cdFadeUp .6s ease forwards;
   animation-delay: 1.4s;
 }
 .conf-detail-meta-item {
-  font-size: .74rem; color: #F4EDD8; letter-spacing: .04em;
+  font-size: .75rem; color: rgba(244,237,216,.85); letter-spacing: .04em;
   display: flex; align-items: center; gap: .4rem;
 }
 .conf-detail-meta-item span { font-size: .9em; }
@@ -248,30 +253,30 @@
   animation: cdScrollPulse 2s ease-in-out infinite;
 }
 
-/* ─── STATS STRIP (enhanced with glass + glow) ─── */
+/* ─── STATS STRIP — hardcoded dark (always on photo hero) ─── */
 .conf-detail-stats {
   display: flex; flex-wrap: wrap; gap: 0;
-  border: 1px solid rgba(184,137,42,.25);
-  background: rgba(10,22,40,0.55); backdrop-filter: blur(20px);
-  max-width: 780px;
+  border: 1px solid rgba(191,144,50,.22);
+  background: rgba(8,11,16,.52); backdrop-filter: blur(20px);
+  max-width: 700px; margin: 0 auto;
   opacity: 0; animation: cdFadeUp .6s ease forwards;
   animation-delay: 1.6s;
 }
 .conf-detail-stat {
-  flex: 1; min-width: 120px; padding: 1.2rem 1.3rem;
-  text-align: center; border-right: 1px solid rgba(184,137,42,.15);
+  flex: 1; min-width: 120px; padding: 1.1rem 1.2rem;
+  text-align: center; border-right: 1px solid rgba(191,144,50,.13);
   transition: background .3s;
 }
 .conf-detail-stat:last-child { border-right: none; }
-.conf-detail-stat:hover { background: rgba(212,80,10,.06); }
+.conf-detail-stat:hover { background: rgba(191,144,50,.06); }
 .conf-detail-stat-num {
-  font-family: 'Cinzel', serif; font-size: 1.5rem; font-weight: 700;
-  color: var(--saffron); display: block; line-height: 1;
+  font-family: 'Cinzel', serif; font-size: 1.45rem; font-weight: 700;
+  color: #bf9032; display: block; line-height: 1;
   white-space: nowrap;
 }
 .conf-detail-stat-label {
-  font-size: .58rem; letter-spacing: .18em; text-transform: uppercase;
-  color: var(--dim); margin-top: .3rem; display: block;
+  font-size: .55rem; letter-spacing: .19em; text-transform: uppercase;
+  color: rgba(191,144,50,.55); margin-top: .32rem; display: block;
 }
 
 @keyframes cdFadeUp {
@@ -281,6 +286,25 @@
 @keyframes cdScrollPulse {
   0%, 100% { opacity: .4; transform: scaleY(1); }
   50%      { opacity: .8; transform: scaleY(1.3); }
+}
+
+/* ─── GOLD ORNAMENT DIVIDER (injected by JS after h1) ─── */
+.cd-hero-ornament {
+  display: flex; align-items: center; justify-content: center;
+  gap: .8rem; margin: 1.4rem auto 0;
+  opacity: 0; animation: cdFadeUp .6s ease 1.2s forwards;
+}
+.cd-hero-orn-line {
+  width: 52px; height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(191,144,50,.5));
+}
+.cd-hero-orn-line-r {
+  background: linear-gradient(90deg, rgba(191,144,50,.5), transparent);
+}
+.cd-hero-orn-diamond {
+  width: 6px; height: 6px;
+  border: 1px solid rgba(191,144,50,.55);
+  transform: rotate(45deg); flex-shrink: 0;
 }
 
 /* ─── SCROLL-REVEAL ANIMATIONS ─── */
@@ -580,6 +604,7 @@
 .conf-session-card p {
   font-size: .78rem; color: var(--dim); line-height: 1.8;
   font-family: 'Mulish', sans-serif;
+  text-align: justify;
 }
 
 /* ─── SUGGESTIONS ─── */
@@ -749,7 +774,7 @@
   .conf-sessions-grid { grid-template-columns: 1fr; }
   .conf-session-card.full { grid-column: span 1; }
   .conf-detail-stats { max-width: 100%; }
-  .conf-detail-hero { min-height: 85vh; padding-bottom: 3rem; }
+  .conf-detail-hero { min-height: 88vh; padding: 5rem 5vw 6rem; }
   .cd-orb-cover { width: min(60vw, 360px); height: min(50vh, 320px); }
   .cd-orb-sat { display: none; }
   .cd-orb-sat:nth-child(-n+5) { display: block; }

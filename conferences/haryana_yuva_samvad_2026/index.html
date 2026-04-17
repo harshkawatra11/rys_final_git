@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en" data-default-theme="light">
 <head>
     <meta charset="UTF-8">
@@ -55,43 +55,346 @@
 
     <main>
 
-        <!-- ═══ HERO ═══ -->
-        <section class="conf-detail-hero">
-            <div class="conf-detail-hero-bg">
-                <img id="heroBgImg" src="/images/haryana_yuva_samvad_2026-cover.jpg" alt="Haryana Yuva Samvad 2026">
+        <!-- ═══ HERO — CUSTOM REDESIGN ═══ -->
+        <style>
+        .hys26-hero {
+          position: relative; overflow: hidden;
+          min-height: 100vh; display: flex;
+          align-items: center; justify-content: center;
+          text-align: center; background: #080b10;
+        }
+
+        /* ── CROSSFADE SLIDESHOW BG ── */
+        .hys26-slides {
+          position: absolute; inset: 0; z-index: 0;
+        }
+        .hys26-slide {
+          position: absolute; inset: 0;
+          opacity: 0; transition: opacity 1.8s ease-in-out;
+        }
+        .hys26-slide.active { opacity: 1; }
+        .hys26-slide img {
+          width: 100%; height: 100%; object-fit: cover; display: block;
+          filter: brightness(.38) saturate(.65);
+          transform: scale(1.06);
+          transition: transform 8s ease-out;
+        }
+        .hys26-slide.active img { transform: scale(1.0); }
+
+        /* Overlay layers */
+        .hys26-overlay {
+          position: absolute; inset: 0; z-index: 1; pointer-events: none;
+          background:
+            radial-gradient(ellipse 65% 55% at 50% 42%, transparent 0%, rgba(8,11,16,.6) 100%),
+            linear-gradient(180deg,
+              rgba(8,11,16,.55) 0%,
+              rgba(8,11,16,.1) 25%,
+              rgba(8,11,16,.05) 45%,
+              rgba(8,11,16,.2) 65%,
+              rgba(8,11,16,.95) 100%);
+        }
+        .hys26-hero::before {
+          content:''; position: absolute; inset: 0; z-index: 1;
+          background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.04'/%3E%3C/svg%3E");
+          pointer-events: none; opacity: .45;
+        }
+
+        /* ── CENTERED CONTENT ── */
+        .hys26-content {
+          position: relative; z-index: 2;
+          max-width: 900px; padding: 5rem 5vw 8rem;
+        }
+        .hys26-topline {
+          width: 48px; height: 1px; margin: 0 auto 2rem;
+          background: linear-gradient(90deg, transparent, #bf9032, transparent);
+          opacity: 0; animation: hys26FadeIn .8s ease .2s forwards;
+        }
+        .hys26-badges {
+          display: flex; justify-content: center; gap: .5rem;
+          flex-wrap: wrap; margin-bottom: 2rem;
+          opacity: 0; animation: hys26Rise .8s ease .4s forwards;
+        }
+        .hys26-badge {
+          font-family: 'Mulish', sans-serif;
+          font-size: .58rem; letter-spacing: .28em; text-transform: uppercase;
+          font-weight: 600; color: #bf9032;
+          border: 1px solid rgba(191,144,50,.35);
+          padding: .3rem .85rem;
+          background: rgba(191,144,50,.06);
+          backdrop-filter: blur(8px);
+        }
+        .hys26-title {
+          font-family: 'Cinzel', serif;
+          font-size: clamp(2.4rem, 6.5vw, 4.8rem);
+          font-weight: 700; color: #f5ecd7;
+          line-height: 1.08; letter-spacing: .02em;
+          margin: 0 0 .6rem;
+          opacity: 0; animation: hys26Rise 1s ease .6s forwards;
+        }
+        .hys26-title-hindi {
+          display: block;
+          font-family: 'IM Fell English', serif; font-style: italic;
+          font-size: clamp(1rem, 2.4vw, 1.5rem);
+          color: #c9b97a; letter-spacing: .04em;
+          margin-top: .5rem;
+          opacity: 0; animation: hys26Rise .7s ease 1s forwards;
+        }
+        .hys26-ornament {
+          display: flex; align-items: center; justify-content: center;
+          gap: .8rem; margin: 1.8rem auto;
+          opacity: 0; animation: hys26FadeIn .6s ease 1.15s forwards;
+        }
+        .hys26-ornament-line {
+          width: 60px; height: 1px;
+          background: linear-gradient(90deg, transparent, rgba(191,144,50,.45));
+        }
+        .hys26-ornament-line:last-child {
+          background: linear-gradient(90deg, rgba(191,144,50,.45), transparent);
+        }
+        .hys26-ornament-diamond {
+          width: 6px; height: 6px;
+          border: 1px solid rgba(191,144,50,.5);
+          transform: rotate(45deg); flex-shrink: 0;
+        }
+        .hys26-meta {
+          display: flex; justify-content: center; flex-wrap: wrap;
+          gap: .6rem 2rem; margin-bottom: 2.5rem;
+          opacity: 0; animation: hys26Rise .7s ease 1.3s forwards;
+        }
+        .hys26-meta-item {
+          font-family: 'Mulish', sans-serif;
+          font-size: .78rem; color: rgba(244,237,216,.8);
+          letter-spacing: .03em;
+          display: flex; align-items: center; gap: .45rem;
+        }
+        .hys26-meta-item span { font-size: .85em; }
+        .hys26-stats {
+          display: flex; justify-content: center; flex-wrap: wrap; gap: 0;
+          max-width: 640px; margin: 0 auto;
+          border: 1px solid rgba(191,144,50,.2);
+          background: rgba(8,11,16,.5);
+          backdrop-filter: blur(20px);
+          opacity: 0; animation: hys26Rise .7s ease 1.5s forwards;
+        }
+        .hys26-stat {
+          flex: 1; min-width: 110px; padding: 1.2rem 1rem;
+          text-align: center;
+          border-right: 1px solid rgba(191,144,50,.12);
+          transition: background .3s;
+        }
+        .hys26-stat:last-child { border-right: none; }
+        .hys26-stat:hover { background: rgba(191,144,50,.06); }
+        .hys26-stat-num {
+          font-family: 'Cinzel', serif;
+          font-size: 1.6rem; font-weight: 700;
+          color: #bf9032; display: block; line-height: 1;
+          white-space: nowrap;
+        }
+        .hys26-stat-label {
+          font-family: 'Mulish', sans-serif;
+          font-size: .52rem; letter-spacing: .2em; text-transform: uppercase;
+          color: rgba(191,144,50,.55); margin-top: .35rem; display: block;
+        }
+
+        /* ── FILMSTRIP — bottom thumbnail bar ── */
+        .hys26-filmstrip {
+          position: absolute; bottom: 0; left: 0; right: 0;
+          z-index: 3; padding: .9rem 3vw;
+          display: flex; justify-content: center; gap: 6px;
+          background: linear-gradient(180deg, transparent, rgba(8,11,16,.85) 40%);
+          opacity: 0; animation: hys26Rise .7s ease 1.8s forwards;
+        }
+        .hys26-thumb {
+          width: 72px; height: 48px; border-radius: 3px;
+          overflow: hidden; cursor: pointer;
+          border: 1.5px solid rgba(191,144,50,.15);
+          opacity: .45; transition: all .4s ease;
+          flex-shrink: 0;
+          position: relative;
+        }
+        .hys26-thumb::after {
+          content: ''; position: absolute; inset: 0;
+          background: rgba(8,11,16,.3);
+          transition: background .4s;
+        }
+        .hys26-thumb.active {
+          opacity: 1;
+          border-color: rgba(191,144,50,.7);
+          box-shadow: 0 0 12px rgba(191,144,50,.15);
+        }
+        .hys26-thumb.active::after { background: transparent; }
+        .hys26-thumb:hover { opacity: .85; }
+        .hys26-thumb img {
+          width: 100%; height: 100%; object-fit: cover; display: block;
+        }
+
+        /* Progress bar on active thumb */
+        .hys26-thumb-progress {
+          position: absolute; bottom: 0; left: 0; height: 2px;
+          background: #bf9032; z-index: 2; width: 0;
+          transition: none;
+        }
+        .hys26-thumb.active .hys26-thumb-progress {
+          animation: hys26Progress 5s linear forwards;
+        }
+
+        @keyframes hys26Progress {
+          from { width: 0; }
+          to   { width: 100%; }
+        }
+        @keyframes hys26Rise {
+          from { opacity: 0; transform: translateY(28px); }
+          to   { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes hys26FadeIn {
+          from { opacity: 0; }
+          to   { opacity: 1; }
+        }
+
+        /* Counter overlay — top right */
+        .hys26-counter {
+          position: absolute; top: 5.5rem; right: 3vw; z-index: 3;
+          font-family: 'Cinzel', serif;
+          font-size: .7rem; color: rgba(191,144,50,.4);
+          letter-spacing: .15em;
+          opacity: 0; animation: hys26FadeIn .5s ease 2s forwards;
+        }
+        .hys26-counter-current {
+          font-size: 1.4rem; font-weight: 700;
+          color: rgba(191,144,50,.7);
+        }
+
+        /* ── Mobile ── */
+        @media (max-width: 680px) {
+          .hys26-hero { min-height: 100svh; }
+          .hys26-content { padding: 5rem 6vw 7rem; }
+          .hys26-meta { gap: .5rem 1.2rem; }
+          .hys26-stats { flex-wrap: wrap; max-width: 320px; }
+          .hys26-stat { min-width: 50%; border-bottom: 1px solid rgba(191,144,50,.12); }
+          .hys26-stat:nth-child(2) { border-right: none; }
+          .hys26-stat:nth-child(3),
+          .hys26-stat:nth-child(4) { border-bottom: none; }
+          .hys26-filmstrip { gap: 4px; padding: .7rem 2vw; }
+          .hys26-thumb { width: 52px; height: 35px; }
+          .hys26-counter { display: none; }
+        }
+        </style>
+
+        <section class="hys26-hero">
+          <!-- Crossfading slideshow backgrounds -->
+          <div class="hys26-slides">
+            <div class="hys26-slide active"><img src="/images/haryana_yuva_samvad_2026-cover.jpg" alt="Haryana Yuva Samvad 2026"></div>
+            <div class="hys26-slide"><img src="/images/haryana_yuva_samvad_2026-1.jpg" alt=""></div>
+            <div class="hys26-slide"><img src="/images/haryana_yuva_samvad_2026-2.jpg" alt=""></div>
+            <div class="hys26-slide"><img src="/images/haryana_yuva_samvad_2026-3.jpg" alt=""></div>
+            <div class="hys26-slide"><img src="/images/haryana_yuva_samvad_2026-4.jpg" alt=""></div>
+            <div class="hys26-slide"><img src="/images/haryana_yuva_samvad_2026-5.jpg" alt=""></div>
+            <div class="hys26-slide"><img src="/images/haryana_yuva_samvad_2026-6.jpg" alt=""></div>
+            <div class="hys26-slide"><img src="/images/haryana_yuva_samvad_2026-7.jpg" alt=""></div>
+          </div>
+          <div class="hys26-overlay"></div>
+
+          <!-- Counter -->
+          <div class="hys26-counter"><span class="hys26-counter-current">01</span> / 08</div>
+
+          <div class="hys26-content">
+            <div class="hys26-topline"></div>
+            <div class="hys26-badges">
+              <span class="hys26-badge">Flagship</span>
+              <span class="hys26-badge">2nd Edition</span>
+              <span class="hys26-badge">2026</span>
             </div>
-            <div class="conf-detail-hero-overlay"></div>
-            <div class="conf-detail-hero-content">
-                <span class="conf-detail-badge">Flagship · 2nd Edition · 2026</span>
-                <h1>
-                    Haryana Yuva Samvad 2026
-                    <span class="hindi-sub">हरियाणा युवा संवाद, 2026</span>
-                </h1>
-                <div class="conf-detail-meta-row">
-                    <span class="conf-detail-meta-item"><span>📅</span> 16–17 January 2026</span>
-                    <span class="conf-detail-meta-item"><span>📍</span> Haryana Vidhan Sabha, Chandigarh</span>
-                    <span class="conf-detail-meta-item"><span>🏛</span> In association with the Haryana Vidhan Sabha Secretariat</span>
-                </div>
-                <div class="conf-detail-stats">
-                    <div class="conf-detail-stat">
-                        <span class="conf-detail-stat-num">60+</span>
-                        <span class="conf-detail-stat-label">Participants</span>
-                    </div>
-                    <div class="conf-detail-stat">
-                        <span class="conf-detail-stat-num">4</span>
-                        <span class="conf-detail-stat-label">Sessions</span>
-                    </div>
-                    <div class="conf-detail-stat">
-                        <span class="conf-detail-stat-num">~50%</span>
-                        <span class="conf-detail-stat-label">Women</span>
-                    </div>
-                    <div class="conf-detail-stat">
-                        <span class="conf-detail-stat-num">2</span>
-                        <span class="conf-detail-stat-label">Days</span>
-                    </div>
-                </div>
+            <h1 class="hys26-title">
+              Haryana Yuva Samvad
+              <span class="hys26-title-hindi">हरियाणा युवा संवाद, 2026</span>
+            </h1>
+            <div class="hys26-ornament">
+              <div class="hys26-ornament-line"></div>
+              <div class="hys26-ornament-diamond"></div>
+              <div class="hys26-ornament-line"></div>
             </div>
-            </section>
+            <div class="hys26-meta">
+              <span class="hys26-meta-item"><span>📅</span> 16–17 January 2026</span>
+              <span class="hys26-meta-item"><span>📍</span> Haryana Vidhan Sabha, Chandigarh</span>
+              <span class="hys26-meta-item"><span>🏛</span> In association with the Haryana Vidhan Sabha Secretariat</span>
+            </div>
+            <div class="hys26-stats">
+              <div class="hys26-stat">
+                <span class="hys26-stat-num">60+</span>
+                <span class="hys26-stat-label">Participants</span>
+              </div>
+              <div class="hys26-stat">
+                <span class="hys26-stat-num">4</span>
+                <span class="hys26-stat-label">Sessions</span>
+              </div>
+              <div class="hys26-stat">
+                <span class="hys26-stat-num">~50%</span>
+                <span class="hys26-stat-label">Women</span>
+              </div>
+              <div class="hys26-stat">
+                <span class="hys26-stat-num">2</span>
+                <span class="hys26-stat-label">Days</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Filmstrip thumbnails -->
+          <div class="hys26-filmstrip">
+            <div class="hys26-thumb active" data-slide="0"><img src="/images/haryana_yuva_samvad_2026-cover.jpg" alt=""><div class="hys26-thumb-progress"></div></div>
+            <div class="hys26-thumb" data-slide="1"><img src="/images/haryana_yuva_samvad_2026-1.jpg" alt=""><div class="hys26-thumb-progress"></div></div>
+            <div class="hys26-thumb" data-slide="2"><img src="/images/haryana_yuva_samvad_2026-2.jpg" alt=""><div class="hys26-thumb-progress"></div></div>
+            <div class="hys26-thumb" data-slide="3"><img src="/images/haryana_yuva_samvad_2026-3.jpg" alt=""><div class="hys26-thumb-progress"></div></div>
+            <div class="hys26-thumb" data-slide="4"><img src="/images/haryana_yuva_samvad_2026-4.jpg" alt=""><div class="hys26-thumb-progress"></div></div>
+            <div class="hys26-thumb" data-slide="5"><img src="/images/haryana_yuva_samvad_2026-5.jpg" alt=""><div class="hys26-thumb-progress"></div></div>
+            <div class="hys26-thumb" data-slide="6"><img src="/images/haryana_yuva_samvad_2026-6.jpg" alt=""><div class="hys26-thumb-progress"></div></div>
+            <div class="hys26-thumb" data-slide="7"><img src="/images/haryana_yuva_samvad_2026-7.jpg" alt=""><div class="hys26-thumb-progress"></div></div>
+          </div>
+        </section>
+
+        <script>
+        (function(){
+          var slides = document.querySelectorAll('.hys26-slide');
+          var thumbs = document.querySelectorAll('.hys26-thumb');
+          var counter = document.querySelector('.hys26-counter-current');
+          var current = 0;
+          var total = slides.length;
+          var interval = 5000;
+          var timer;
+
+          function goTo(idx) {
+            slides[current].classList.remove('active');
+            thumbs[current].classList.remove('active');
+            current = idx % total;
+            slides[current].classList.add('active');
+            thumbs[current].classList.add('active');
+            counter.textContent = String(current + 1).padStart(2, '0');
+            // Reset progress animation
+            thumbs.forEach(function(t) {
+              var bar = t.querySelector('.hys26-thumb-progress');
+              bar.style.animation = 'none';
+              bar.offsetHeight;
+              bar.style.animation = '';
+            });
+          }
+
+          function next() { goTo(current + 1); }
+
+          function startTimer() {
+            clearInterval(timer);
+            timer = setInterval(next, interval);
+          }
+
+          thumbs.forEach(function(thumb) {
+            thumb.addEventListener('click', function() {
+              var idx = parseInt(this.getAttribute('data-slide'), 10);
+              goTo(idx);
+              startTimer();
+            });
+          });
+
+          startTimer();
+        })();
+        </script>
 
         <!-- ═══ ABOUT THE CONFERENCE ═══ -->
         <section class="conf-sec">
@@ -99,7 +402,8 @@
                 <div class="conf-eyebrow">About the Conference</div>
                 <h2>A Landmark Conference at the Haryana Vidhan Sabha</h2>
                 <div class="conf-prose">
-                    <p>The second edition of the Haryana Yuva Samvad, was held on 16–17 January 2026 at the Haryana Vidhan Sabha, bringing together 70 young participants from across the country for two days of structured legislative engagement. Set within the Vidhan Sabha premises, the conference enabled policy deliberations, committee-style discussions, and rigorous debate on pressing issues of the state. The conference was honoured by the presence of Shri Harvinder Kalyan Ji, Hon'ble Speaker, Haryana Vidhan Sabha, whose interaction with the participants reinforced the significance of meaningful youth participation in democratic institutions. Building upon the foundation of its inaugural edition, Haryana Yuva Samvad 2026 reflected a marked advancement in depth, discipline, and institutional seriousness, strengthening its position as a credible platform for informed and responsible youth leadership.</p>
+                    <p>The second edition of the Haryana Yuva Samvad, was held on 16–17 January 2026 at the Haryana Vidhan Sabha, bringing together 70 young participants from across the country for two days of structured legislative engagement. Set within the Vidhan Sabha premises, the conference enabled policy deliberations, committee-style discussions, and rigorous debate on pressing issues of the state.</p>
+                        <p>The conference was honoured by the presence of Shri Harvinder Kalyan Ji, Hon'ble Speaker, Haryana Vidhan Sabha, whose interaction with the participants reinforced the significance of meaningful youth participation in democratic institutions. Building upon the foundation of its inaugural edition, Haryana Yuva Samvad 2026 reflected a marked advancement in depth, discipline, and institutional seriousness, strengthening its position as a credible platform for informed and responsible youth leadership.</p>
                     <p>A notable hallmark of this edition was <strong>gender inclusivity</strong>: nearly 50 percent of the participants were women, reflecting a progressive shift towards gender parity in public discourse — noted and appreciated by the Hon'ble Speaker himself.</p>
                 </div>
             </div>
@@ -111,8 +415,10 @@
                 <div class="conf-eyebrow">Message from the Hon'ble Speaker</div>
                 <h2>Shri Harvinder Kalyan Ji</h2>
                 <blockquote class="conf-quote">
-                    <p>"In a democratic framework, the 3 organs of government, the Legislature, the Executive, and the Judiciary function in close coordination, working tirelessly to ensure good governance, rule of law, and social stability. The Legislature, in particular, bears the responsibility of law-making, oversight, and representing the will of the people. Enhancing legislative efficiency is therefore essential for the smooth functioning of democracy and for addressing the evolving needs of society in a timely and effective manner.</p>
-                    <p>I am especially delighted to observe that nearly 50 percent of the participants in this initiative are women. This reflects a progressive and encouraging shift towards inclusivity and gender parity in public discourse. Empowering women and ensuring their active involvement is not merely a matter of representation, but a necessity for building a stronger and more resilient India. Initiatives such as Haryana Yuva Samvad by Rajdhani Yuva Sansad play a vital role in connecting the youth with the legislative process.</p>
+                    <p>"In a democratic framework, the 3 organs of government, the Legislature, the Executive, and the Judiciary function in close coordination, working tirelessly to ensure good governance, rule of law, and social stability.</p>
+                        <p>The Legislature, in particular, bears the responsibility of law-making, oversight, and representing the will of the people. Enhancing legislative efficiency is therefore essential for the smooth functioning of democracy and for addressing the evolving needs of society in a timely and effective manner.</p>
+                    <p>I am especially delighted to observe that nearly 50 percent of the participants in this initiative are women. This reflects a progressive and encouraging shift towards inclusivity and gender parity in public discourse.</p>
+                        <p>Empowering women and ensuring their active involvement is not merely a matter of representation, but a necessity for building a stronger and more resilient India. Initiatives such as Haryana Yuva Samvad by Rajdhani Yuva Sansad play a vital role in connecting the youth with the legislative process.</p>
                     <p>They not only enhance awareness about governance and policymaking but also inspire the youth to engage constructively, responsibly, and confidently in public life. I extend my best wishes to the participants for this commendable initiative. I am confident that such efforts will cultivate informed, responsible, and visionary leaders who will contribute meaningfully to the democratic &amp; developmental journey of our nation."</p>
                     <span class="conf-quote-attr">— Shri Harvinder Kalyan Ji, Hon'ble Speaker, Haryana Vidhan Sabha</span>
                 </blockquote>
@@ -126,7 +432,8 @@
                 <h2>Inaugural Ceremony</h2>
                 <div class="conf-prose" style="max-width:900px; margin-bottom:2rem;">
                     <p>The inaugural ceremony was graced by the esteemed presence of Shri Harvinder Kalyan Ji, Hon'ble Speaker, Haryana Vidhan Sabha; Shri Ram Narain Yadav Ji, Advisor to the Hon'ble Speaker, Haryana Vidhan Sabha; and Smt. Pooja Chaudhary Ji, Hon'ble Member of the Haryana Legislative Assembly. The conference commenced with the traditional lamp-lighting ceremony, symbolizing knowledge, learning, and new beginnings.</p>
-                    <p>The opening remarks by the Co-Founders of Rajdhani Yuva Sansad, Adv. Isha Kapoor and Adv. Jai Saini, outlined the vision and objectives of Haryana Yuva Samvad 2026, emphasising the importance of informed discourse on sustainability, governance, and policy innovation, while encouraging responsible youth engagement with contemporary state challenges. Shri Ram Narain Yadav Ji, Advisor to Hon'ble Speaker, drawing from his extensive experience, highlighted the significance of the Constitution of India, its historical evolution, foundational principles, and its role as the bedrock of the nation's democratic framework, stressing the importance of preserving and practicing constitutional values.</p>
+                    <p>The opening remarks by the Co-Founders of Rajdhani Yuva Sansad, Adv. Isha Kapoor and Adv. Jai Saini, outlined the vision and objectives of Haryana Yuva Samvad 2026, emphasising the importance of informed discourse on sustainability, governance, and policy innovation, while encouraging responsible youth engagement with contemporary state challenges.</p>
+                        <p>Shri Ram Narain Yadav Ji, Advisor to Hon'ble Speaker, drawing from his extensive experience, highlighted the significance of the Constitution of India, its historical evolution, foundational principles, and its role as the bedrock of the nation's democratic framework, stressing the importance of preserving and practicing constitutional values.</p>
                     <p>Smt. Pooja Chaudhary, Hon'ble Member of the Haryana Legislative Assembly, underscored the responsibility that accompanies democratic participation, particularly for the youth. The inaugural ceremony culminated with the address of the Hon'ble Speaker (Chief Guest), who emphasised the need to strengthen legislative efficiency and highlighted the pivotal role of informed and engaged young citizens in fostering a transparent, accountable, and effective legislative ecosystem, thereby formally inaugurating the conference.</p>
                 </div>
                 <div class="conf-guests-grid">
@@ -163,30 +470,40 @@
                 <div class="conf-sessions-grid">
                     <div class="conf-session-card">
                         <div class="conf-session-title" style="font-size:1.15rem;">Question Hour</div>
-                        <p>The conference commenced with the Question Hour, initiating focused legislative scrutiny on key issues of governance and sustainability, as participants posed hard-hitting questions to one another, driving the session from broad policy frameworks to direct accountability. Discussions centred on balancing industrial expansion with environmental protection and responsible resource utilization, positioning sustainability as a guiding principle for governance. Key concerns included the functioning of the State Environment Impact Assessment Authority, reportedly without a Chairperson since February 2025, with demands for clarity on appointments under the EIA Notification, 2006. The session further examined forest cover trends since 2019, particularly in districts like Karnal, alongside critical findings from the August 2025 CAG Performance Audit on Solid Waste Management, highlighting significant untreated municipal and legacy waste.</p>
-                        <p>The discourse further examined the environmental and economic costs of energy and industrial growth, including compliance with biomass co-firing mandates following proposed penalties on the Panipat Power Station, and measures to incentivize stubble management. Concerns over groundwater depletion, with a majority of blocks classified as over-exploited, and declining soil health, marked by imbalanced fertilizer use and low organic carbon, shaped discussions on sustainable agriculture and alternatives like bio-fertilizers and natural farming. The session also addressed inclusive development through SDG-based planning at the Panchayat level and farm tourism initiatives. Concluding on governance and accountability, the assembly deliberated on strengthening the education ecosystem for industry needs, enforcing the &ldquo;polluter pays&rdquo; principle, and exploring High Court-monitored investigations to ensure transparency in matters such as mining and procurement.</p>
+                        <p>The conference commenced with the Question Hour, initiating focused legislative scrutiny on key issues of governance and sustainability, as participants posed hard-hitting questions to one another, driving the session from broad policy frameworks to direct accountability. Discussions centred on balancing industrial expansion with environmental protection and responsible resource utilization, positioning sustainability as a guiding principle for governance.</p>
+                        <p>Key concerns included the functioning of the State Environment Impact Assessment Authority, reportedly without a Chairperson since February 2025, with demands for clarity on appointments under the EIA Notification, 2006. The session further examined forest cover trends since 2019, particularly in districts like Karnal, alongside critical findings from the August 2025 CAG Performance Audit on Solid Waste Management, highlighting significant untreated municipal and legacy waste.</p>
+                        <p>The discourse further examined the environmental and economic costs of energy and industrial growth, including compliance with biomass co-firing mandates following proposed penalties on the Panipat Power Station, and measures to incentivize stubble management. Concerns over groundwater depletion, with a majority of blocks classified as over-exploited, and declining soil health, marked by imbalanced fertilizer use and low organic carbon, shaped discussions on sustainable agriculture and alternatives like bio-fertilizers and natural farming.</p>
+                        <p>The session also addressed inclusive development through SDG-based planning at the Panchayat level and farm tourism initiatives. Concluding on governance and accountability, the assembly deliberated on strengthening the education ecosystem for industry needs, enforcing the &ldquo;polluter pays&rdquo; principle, and exploring High Court-monitored investigations to ensure transparency in matters such as mining and procurement.</p>
                     </div>
                     <div class="conf-session-card">
                         <div class="conf-session-title" style="font-size:1.15rem;">Session 1 &ndash; Opening Statements</div>
-                        <p>This session was dedicated to opening statements on Haryana's path towards sustainable growth, marked by focused deliberation on balancing industrial expansion with environmental protection and the responsible utilisation of natural resources. It established sustainability as a guiding principle for governance and development, with participants from the ruling side emphasising economic growth through planned industrialisation, alongside the role of technology, innovation, and policy reforms. At the same time, they acknowledged environmental challenges and highlighted initiatives such as green industries, renewable energy adoption, efficient land-use planning, and stronger regulatory mechanisms to minimise environmental impact.</p>
-                        <p>The opposition participants, while concurring with the objective of sustainable growth, adopted a critical approach, raising concerns over pollution, groundwater depletion, loss of agricultural land, and stress on natural resources. They further emphasised the need for greater transparency, public participation, and accountability in decision-making, along with stronger environmental safeguards and effective regulatory implementation. The session concluded with a shared recognition that Haryana's development requires a balanced and carefully calibrated approach, integrating economic expansion with environmental responsibility and prudent resource management, thereby setting a constructive and policy-oriented tone for the sessions that followed.</p>
+                        <p>This session was dedicated to opening statements on Haryana's path towards sustainable growth, marked by focused deliberation on balancing industrial expansion with environmental protection and the responsible utilisation of natural resources.</p>
+                        <p>It established sustainability as a guiding principle for governance and development, with participants from the ruling side emphasising economic growth through planned industrialisation, alongside the role of technology, innovation, and policy reforms. At the same time, they acknowledged environmental challenges and highlighted initiatives such as green industries, renewable energy adoption, efficient land-use planning, and stronger regulatory mechanisms to minimise environmental impact.</p>
+                        <p>The opposition participants, while concurring with the objective of sustainable growth, adopted a critical approach, raising concerns over pollution, groundwater depletion, loss of agricultural land, and stress on natural resources. They further emphasised the need for greater transparency, public participation, and accountability in decision-making, along with stronger environmental safeguards and effective regulatory implementation.</p>
+                        <p>The session concluded with a shared recognition that Haryana's development requires a balanced and carefully calibrated approach, integrating economic expansion with environmental responsibility and prudent resource management, thereby setting a constructive and policy-oriented tone for the sessions that followed.</p>
                     </div>
                     <div class="conf-session-card">
                         <div class="conf-session-title" style="font-size:1.15rem;">Session 2</div>
-                        <div class="conf-session-topic" style="font-size:.78rem; margin-bottom:.8rem;">Discussion on the need for Industrial Expansion, the Challenges associated &amp; the measures required to achieve the Vision 2030, with Special reference to Make In Haryana Industrial Policy, 2026.</div>
-                        <p>This session of the Haryana Yuva Samvad focused on a comprehensive discussion on the imperative of industrial expansion in Haryana, the challenges of rapid industrialisation, and strategic measures to achieve Vision 2030, with specific reference to the Make in Haryana Industrial Policy, 2026. The ruling side emphasised industrial growth as a key driver of economic development, employment generation, and technological advancement, highlighting policy initiatives such as infrastructure development, industrial clusters, single-window clearance systems, and incentives for startups and MSMEs. They further stressed aligning industrial expansion with sustainable development through green manufacturing, clean technologies, energy efficiency, and adherence to environmental norms to ensure inclusive and balanced regional growth.</p>
-                        <p>The opposition, while acknowledging the need for industrial expansion, adopted a critical approach by raising concerns regarding land acquisition disputes, displacement of local communities, environmental degradation, and unequal regional development. They also highlighted the need for stronger labour protections, skill development, and better coordination between industry and educational institutions, alongside greater transparency, accountability, and stakeholder consultation in policy implementation. The session concluded with a shared recognition of the need for a balanced approach that harmonises industrial growth with social equity and environmental sustainability, alongside robust policy implementation, skill-oriented education, and continuous review mechanisms to effectively realise Vision 2030.</p>
+
+                        <p>This session of the Haryana Yuva Samvad focused on a comprehensive discussion on the imperative of industrial expansion in Haryana, the challenges of rapid industrialisation, and strategic measures to achieve Vision 2030, with specific reference to the Make in Haryana Industrial Policy, 2026. The ruling side emphasised industrial growth as a key driver of economic development, employment generation, and technological advancement, highlighting policy initiatives such as infrastructure development, industrial clusters, single-window clearance systems, and incentives for startups and MSMEs.</p>
+                        <p>They further stressed aligning industrial expansion with sustainable development through green manufacturing, clean technologies, energy efficiency, and adherence to environmental norms to ensure inclusive and balanced regional growth.</p>
+                        <p>The opposition, while acknowledging the need for industrial expansion, adopted a critical approach by raising concerns regarding land acquisition disputes, displacement of local communities, environmental degradation, and unequal regional development. They also highlighted the need for stronger labour protections, skill development, and better coordination between industry and educational institutions, alongside greater transparency, accountability, and stakeholder consultation in policy implementation.</p>
+                        <p>The session concluded with a shared recognition of the need for a balanced approach that harmonises industrial growth with social equity and environmental sustainability, alongside robust policy implementation, skill-oriented education, and continuous review mechanisms to effectively realise Vision 2030.</p>
                     </div>
                     <div class="conf-session-card">
                         <div class="conf-session-title" style="font-size:1.15rem;">Session 3</div>
-                        <div class="conf-session-topic" style="font-size:.78rem; margin-bottom:.8rem;">Discussion on the challenges &amp; issues faced by Farmers, their environmental impact and the possible measures for Improvement with special reference to the Haryana State Environment Plan and the need to strengthen Agricultural Education in India.</div>
-                        <p>This session of the Haryana Yuva Samvad was devoted to an in-depth deliberation on the multifaceted challenges faced by farmers, the environmental consequences of prevailing agricultural practices, and the policy measures required for sustainable improvement, with specific reference to the Haryana State Environment Plan. The ruling side outlined structural and economic challenges such as groundwater depletion, soil degradation, excessive reliance on chemical fertilisers, and monocropping, while highlighting initiatives including promotion of millets, natural farming, soil health schemes, micro-irrigation, and awareness programmes to curb stubble burning. Emphasis was also placed on integrating climate-resilient practices, strengthening agricultural extension services, and aligning implementation mechanisms to ensure effective, ground-level impact.</p>
-                        <p>The opposition critically examined gaps between policy formulation and implementation, raising concerns over limited outreach of sustainability schemes, inadequate awareness among small and marginal farmers, and the continued economic vulnerability of agrarian communities. They further stressed the need to reform agricultural education through updated curricula, improved field-based training, and greater exposure to climate-smart practices. The session concluded with constructive engagement from both sides, recognising the need for a holistic, farmer-centric approach that balances economic viability with environmental responsibility, supported by strong policy execution and robust agricultural education, thereby reinforcing the importance of informed legislative discourse in addressing agrarian challenges.</p>
+
+                        <p>This session of the Haryana Yuva Samvad was devoted to an in-depth deliberation on the multifaceted challenges faced by farmers, the environmental consequences of prevailing agricultural practices, and the policy measures required for sustainable improvement, with specific reference to the Haryana State Environment Plan.</p>
+                        <p>The ruling side outlined structural and economic challenges such as groundwater depletion, soil degradation, excessive reliance on chemical fertilisers, and monocropping, while highlighting initiatives including promotion of millets, natural farming, soil health schemes, micro-irrigation, and awareness programmes to curb stubble burning. Emphasis was also placed on integrating climate-resilient practices, strengthening agricultural extension services, and aligning implementation mechanisms to ensure effective, ground-level impact.</p>
+                        <p>The opposition critically examined gaps between policy formulation and implementation, raising concerns over limited outreach of sustainability schemes, inadequate awareness among small and marginal farmers, and the continued economic vulnerability of agrarian communities. They further stressed the need to reform agricultural education through updated curricula, improved field-based training, and greater exposure to climate-smart practices.</p>
+                        <p>The session concluded with constructive engagement from both sides, recognising the need for a holistic, farmer-centric approach that balances economic viability with environmental responsibility, supported by strong policy execution and robust agricultural education, thereby reinforcing the importance of informed legislative discourse in addressing agrarian challenges.</p>
                     </div>
                     <div class="conf-session-card full">
                         <div class="conf-session-title" style="font-size:1.15rem;">Session 4 &ndash; Deliberation on Bill</div>
-                        <p>The last session of the Haryana Yuva Samvad was devoted to a structured and procedurally sound deliberation on a Bill, closely reflecting the functioning of a legislative assembly and providing participants with practical exposure to parliamentary procedures, debate, and decision-making. The session commenced with the Hon'ble Chief Minister formally introducing the Bill, outlining its objectives, scope, and legislative intent, while highlighting its relevance to contemporary governance challenges and public welfare. Members from the ruling side expressed strong support, emphasising the Bill's alignment with the government's developmental vision, its role in strengthening institutional mechanisms, addressing policy gaps, and ensuring administrative efficiency and long-term sustainability.</p>
-                        <p>The opposition, in keeping with its constitutional role, engaged in a detailed and critical examination of the Bill, raising concerns regarding ambiguities, procedural gaps, adequacy of safeguards, feasibility of implementation, and its implications for stakeholders, while maintaining a constructive approach aimed at improving the quality of legislation. Following comprehensive deliberation, the Bill was put to vote and passed with majority support, marking the successful conclusion of the session. The exercise underscored the spirit of consensus-building and procedural integrity, offering participants valuable insights into legislative functioning and reinforcing the importance of informed debate, accountability, and cooperation in governance.</p>
+                        <p>The last session of the Haryana Yuva Samvad was devoted to a structured and procedurally sound deliberation on a Bill, closely reflecting the functioning of a legislative assembly and providing participants with practical exposure to parliamentary procedures, debate, and decision-making.</p>
+                        <p>The session commenced with the Hon'ble Chief Minister formally introducing the Bill, outlining its objectives, scope, and legislative intent, while highlighting its relevance to contemporary governance challenges and public welfare. Members from the ruling side expressed strong support, emphasising the Bill's alignment with the government's developmental vision, its role in strengthening institutional mechanisms, addressing policy gaps, and ensuring administrative efficiency and long-term sustainability.</p>
+                        <p>The opposition, in keeping with its constitutional role, engaged in a detailed and critical examination of the Bill, raising concerns regarding ambiguities, procedural gaps, adequacy of safeguards, feasibility of implementation, and its implications for stakeholders, while maintaining a constructive approach aimed at improving the quality of legislation.</p>
+                        <p>Following comprehensive deliberation, the Bill was put to vote and passed with majority support, marking the successful conclusion of the session. The exercise underscored the spirit of consensus-building and procedural integrity, offering participants valuable insights into legislative functioning and reinforcing the importance of informed debate, accountability, and cooperation in governance.</p>
                     </div>
                 </div>
             </div>
@@ -248,8 +565,10 @@
                 <div class="conf-eyebrow">— Valedictory Ceremony —</div>
                 <h2>Valedictory Ceremony</h2>
                 <div class="conf-prose" style="max-width:900px; margin-bottom:2rem;">
-                    <p>The valedictory ceremony of Haryana Yuva Samvad 2026 was conducted in a dignified manner, marking the successful culmination of an enriching platform for youth-led deliberation and democratic engagement. The ceremony was graced by Shri Sushant Deep Rathi, Joint Secretary, Haryana Vidhan Sabha, along with the Co-Founders of Rajdhani Yuva Sansad, whose presence added significance to the occasion. The event recognised exemplary performances of participants, with Ms. Dhanya Sangwan (Independent) securing the First Position for her outstanding articulation and well-reasoned interventions, followed by Ms. Devishi Manhas, Hon'ble Chief Minister, in Second Position, Ms. Palki, Hon'ble Leader of Opposition, in Third Position, and Mr. Nitish, Hon'ble Chief Whip, in Fourth Position, each acknowledged for their impactful contributions during the sessions.</p>
-                    <p>The ceremony also acknowledged the collective efforts behind the successful organisation of the conference, with Rajdhani Yuva Sansad commended for its meticulous planning and commitment, and special appreciation extended to the Haryana Vidhan Sabha Secretariat for its administrative and logistical support. In their address, the Co-Founders reflected on the depth and quality of deliberations, emphasising the role of such platforms in nurturing informed, responsible, and engaged youth. The ceremony concluded on a note of gratitude and optimism, reaffirming the vision of Haryana Yuva Samvad as a significant initiative aimed at strengthening participatory governance and meaningful youth engagement in the democratic process.</p>
+                    <p>The valedictory ceremony of Haryana Yuva Samvad 2026 was conducted in a dignified manner, marking the successful culmination of an enriching platform for youth-led deliberation and democratic engagement. The ceremony was graced by Shri Sushant Deep Rathi, Joint Secretary, Haryana Vidhan Sabha, along with the Co-Founders of Rajdhani Yuva Sansad, whose presence added significance to the occasion.</p>
+                        <p>The event recognised exemplary performances of participants, with Ms. Dhanya Sangwan (Independent) securing the First Position for her outstanding articulation and well-reasoned interventions, followed by Ms. Devishi Manhas, Hon'ble Chief Minister, in Second Position, Ms. Palki, Hon'ble Leader of Opposition, in Third Position, and Mr. Nitish, Hon'ble Chief Whip, in Fourth Position, each acknowledged for their impactful contributions during the sessions.</p>
+                    <p>The ceremony also acknowledged the collective efforts behind the successful organisation of the conference, with Rajdhani Yuva Sansad commended for its meticulous planning and commitment, and special appreciation extended to the Haryana Vidhan Sabha Secretariat for its administrative and logistical support.</p>
+                        <p>In their address, the Co-Founders reflected on the depth and quality of deliberations, emphasising the role of such platforms in nurturing informed, responsible, and engaged youth. The ceremony concluded on a note of gratitude and optimism, reaffirming the vision of Haryana Yuva Samvad as a significant initiative aimed at strengthening participatory governance and meaningful youth engagement in the democratic process.</p>
                 </div>
                 <div class="conf-awards-grid">
                     <div class="conf-award-card">

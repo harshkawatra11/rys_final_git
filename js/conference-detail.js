@@ -137,6 +137,19 @@
         }
       });
     }
+
+    // ─── Inject gold ornament separator after h1 ───
+    var heroContent = document.querySelector('.conf-detail-hero-content');
+    var metaRow = heroContent ? heroContent.querySelector('.conf-detail-meta-row') : null;
+    if (heroContent && metaRow && !heroContent.querySelector('.cd-hero-ornament')) {
+      var ornament = document.createElement('div');
+      ornament.className = 'cd-hero-ornament';
+      ornament.innerHTML =
+        '<div class="cd-hero-orn-line"></div>' +
+        '<div class="cd-hero-orn-diamond"></div>' +
+        '<div class="cd-hero-orn-line cd-hero-orn-line-r"></div>';
+      heroContent.insertBefore(ornament, metaRow);
+    }
   }
 
   // ─── Scroll-Reveal for Sections ───

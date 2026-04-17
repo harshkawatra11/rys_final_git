@@ -1,4 +1,4 @@
-﻿/* ══════════════════════════════════════════════════════════════
+/* ══════════════════════════════════════════════════════════════
    CONFERENCES PAGE — SPECIFIC STYLES
    ══════════════════════════════════════════════════════════════ */
 
@@ -25,7 +25,7 @@
 .ch-strip img {
   height:100%; width:auto; aspect-ratio:16/10;
   object-fit:cover; display:block;
-  filter:grayscale(35%) brightness(.45);
+  filter:grayscale(10%) brightness(.72) saturate(.92);
 }
 .ch-strip-top { animation:chScrollLeft 60s linear infinite; }
 .ch-strip-bot { animation:chScrollRight 55s linear infinite; }
@@ -42,8 +42,8 @@
 .ch-vignette {
   position:absolute; inset:0; z-index:1; pointer-events:none;
   background:
-    linear-gradient(180deg, rgba(10,22,40,.9) 0%, rgba(10,22,40,.45) 30%, rgba(10,22,40,.45) 70%, rgba(10,22,40,.92) 100%),
-    radial-gradient(ellipse 65% 55% at 50% 50%, transparent 0%, rgba(10,22,40,.65) 100%);
+    linear-gradient(180deg, rgba(10,22,40,.6) 0%, rgba(10,22,40,.15) 30%, rgba(10,22,40,.15) 70%, rgba(10,22,40,.65) 100%),
+    radial-gradient(ellipse 65% 55% at 50% 50%, transparent 0%, rgba(10,22,40,.25) 100%);
 }
 
 /* ─── Particles ─── */
