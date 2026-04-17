@@ -275,7 +275,11 @@
     left: 50%; transform: translateX(-50%);
     z-index: 5;
     display: flex; flex-direction: column; align-items: center; gap: .6rem;
-    opacity: 0; animation: fadeUp .6s 2s forwards;
+    opacity: 0; animation: fadeUpCenter .6s 2s forwards;
+}
+@keyframes fadeUpCenter {
+    from { opacity: 0; transform: translate(-50%, 24px); }
+    to   { opacity: 1; transform: translate(-50%, 0); }
 }
 .uc-hero-scroll-mouse {
     width: 22px; height: 34px;
