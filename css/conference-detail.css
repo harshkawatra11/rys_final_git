@@ -816,3 +816,188 @@
 .conf-key-highlights li:hover {
   border-color: rgba(212,80,10,.25); transform: translateX(4px);
 }
+
+/* ─── DECORATIVE FLOATING IMAGE STACKS (Added to reduce text-heavy feel) ─── */
+.conf-sec-inner { position: relative; }
+.conf-deco-stack {
+  position: absolute; width: 240px; height: 240px;
+  top: 50%; transform: translateY(-50%);
+  pointer-events: none; z-index: 0; opacity: 0.9;
+}
+@media (max-width: 1400px) { .conf-deco-stack { display: none; } }
+.conf-deco-stack.left { left: -270px; }
+.conf-deco-stack.right { right: -270px; }
+.cds-img {
+  position: absolute; width: 180px; height: 125px;
+  border: 1px solid rgba(184,137,42,.3);
+  box-shadow: 0 10px 40px rgba(0,0,0,.35);
+  overflow: hidden; border-radius: 4px;
+}
+.cds-img img { width: 100%; height: 100%; object-fit: cover; filter: brightness(.85) saturate(0.95); }
+.cds-img.n1 { top:0; left:0; transform: rotate(-5deg); z-index: 1; }
+.cds-img.n2 { top:25px; left:45px; transform: rotate(4deg); z-index: 2; }
+.cds-img.n3 { top:60px; left:15px; transform: rotate(-3deg); z-index: 3; }
+
+/* ══════════════════════════════════════════════════════════════
+   INLINE IMAGE INTEGRATION — breaks up text-heavy sections
+   ══════════════════════════════════════════════════════════════ */
+
+/* ─── IMAGE ACCENT: floats beside prose text ─── */
+.conf-img-accent {
+  float: right;
+  width: 42%;
+  margin: 0.3rem 0 1.5rem 2.2rem;
+  position: relative;
+  z-index: 1;
+}
+.conf-img-accent.left {
+  float: left;
+  margin: 0.3rem 2.2rem 1.5rem 0;
+}
+.conf-img-accent-inner {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(184,137,42,.25);
+  box-shadow: 0 8px 40px rgba(0,0,0,.35), 0 2px 12px rgba(184,137,42,.06);
+}
+.conf-img-accent-inner::after {
+  content: '';
+  position: absolute; inset: 0;
+  background: linear-gradient(180deg, transparent 60%, rgba(8,11,16,.4) 100%);
+  pointer-events: none;
+}
+.conf-img-accent-inner img {
+  display: block; width: 100%; height: auto;
+  aspect-ratio: 4/3;
+  object-fit: cover;
+  filter: brightness(.88) saturate(.9);
+  transition: filter .5s ease, transform .6s ease;
+}
+.conf-img-accent-inner:hover img {
+  filter: brightness(1) saturate(1);
+  transform: scale(1.04);
+}
+.conf-img-accent-caption {
+  font-family: 'Mulish', sans-serif;
+  font-size: .58rem;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: rgba(191,144,50,.55);
+  text-align: center;
+  padding: .55rem 0 0;
+}
+
+@media (max-width: 800px) {
+  .conf-img-accent,
+  .conf-img-accent.left {
+    float: none;
+    width: 100%;
+    margin: 1.5rem 0;
+  }
+}
+
+/* ─── IMAGE BREAK STRIP: full-width mosaic between sections ─── */
+.conf-img-strip {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 3px;
+  padding: 0;
+  overflow: hidden;
+  position: relative;
+}
+.conf-img-strip::before {
+  content: '';
+  position: absolute; inset: 0; z-index: 1;
+  background:
+    linear-gradient(90deg, rgba(8,11,16,.6) 0%, transparent 12%, transparent 88%, rgba(8,11,16,.6) 100%),
+    linear-gradient(180deg, rgba(8,11,16,.3) 0%, transparent 30%, transparent 70%, rgba(8,11,16,.3) 100%);
+  pointer-events: none;
+}
+.conf-img-strip-item {
+  overflow: hidden;
+  position: relative;
+  aspect-ratio: 16/7;
+}
+.conf-img-strip-item img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  display: block;
+  filter: brightness(.65) saturate(.75);
+  transition: filter .6s ease, transform .8s ease;
+}
+.conf-img-strip-item:hover img {
+  filter: brightness(.85) saturate(.9);
+  transform: scale(1.06);
+}
+/* Golden seam lines */
+.conf-img-strip-item + .conf-img-strip-item::before {
+  content: '';
+  position: absolute; left: 0; top: 10%; bottom: 10%;
+  width: 1px;
+  background: linear-gradient(180deg, transparent, rgba(184,137,42,.35), transparent);
+  z-index: 2;
+}
+
+@media (max-width: 640px) {
+  .conf-img-strip {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .conf-img-strip-item { aspect-ratio: 16/9; }
+}
+
+/* ─── DUAL IMAGE PANEL: two images side by side within a section ─── */
+.conf-img-duo {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin: 2rem 0;
+  clear: both;
+}
+.conf-img-duo-item {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(184,137,42,.2);
+  aspect-ratio: 3/2;
+}
+.conf-img-duo-item img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  display: block;
+  filter: brightness(.82) saturate(.85);
+  transition: filter .5s, transform .7s cubic-bezier(.25,.46,.45,.94);
+}
+.conf-img-duo-item:hover img {
+  filter: brightness(.95) saturate(.95);
+  transform: scale(1.05);
+}
+.conf-img-duo-item::after {
+  content: '';
+  position: absolute; inset: 0;
+  border: 1px solid rgba(184,137,42,.12);
+  pointer-events: none;
+}
+
+@media (max-width: 640px) {
+  .conf-img-duo { grid-template-columns: 1fr; }
+}
+
+/* ─── SECTION BACKGROUND IMAGE PEEK ─── */
+.conf-sec-bg {
+  position: relative;
+  overflow: hidden;
+}
+.conf-sec-bg::before {
+  content: '';
+  position: absolute; inset: 0;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: .06;
+  filter: saturate(.4);
+  pointer-events: none;
+  z-index: 0;
+}
+.conf-sec-bg > * {
+  position: relative;
+  z-index: 1;
+}
