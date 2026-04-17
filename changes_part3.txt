@@ -1,0 +1,173 @@
+================================================================
+         CHANGES IN IDEAS IN ACTION SUMMIT 1.0
+================================================================
+
+--- PAGE 1 ---
+
+[SCREENSHOT/IMAGE 1 - Hero Banner of Ideas in Action Summit 1.0 Website]
+Description: A collage-style hero banner showing multiple photos of students
+engaged in debate sessions and committee activities inside a school setting.
+Overlaid text reads "Ideas in Action Summit 1.0" in bold stylized font.
+Below the title, key stats are displayed:
+  - Date: 31 August – 1 September 2024
+  - Venue: Nehru World School, Ghaziabad
+  - 300+ Participants
+  - 5 Committees
+  - 2 Days
+  - Multi-School Participation
+(Editor's Note: Photos need to be changed here — repeats are occurring.
+"Multi-School" label to be removed.)
+
+[SCREENSHOT/IMAGE 2 - "About the Conference" Section of Website]
+Description: A dark navy-blue website section titled "Where Ideas Meet Action"
+under the "About the Conference" label. The text reads:
+  "The inaugural Ideas in Action Summit 1.0 was held on 31st August and
+  1st September 2024 at Nehru World School, Ghaziabad. Bringing together
+  over 300 students from diverse schools, the summit created a dynamic
+  space for structured debate and collaborative policy-making.
+  The summit featured five diverse committees — from national legislative
+  debates to fictional diplomacy — each designed to challenge participants
+  to think critically about real-world issues spanning law, foreign policy,
+  and governance."
+
+----------------------------------------------------------------
+ABOUT THE CONFERENCE
+----------------------------------------------------------------
+
+The First Edition of Ideas in Action Summit 1.0 was organised by Nehru
+World School in association with Rajdhani Yuva Sansad from 31st August to
+1st September 2024. The event brought together participants for a series of
+dynamic debates and discussions centred on pressing global and national
+issues. Hosted at Nehru World School, the summit provided an inspiring and
+conducive environment for participants to engage deeply with diplomacy,
+policy-making, and leadership, establishing it as a landmark event in the
+academic calendar.
+
+(Editor's Note: "Ye thik hai bas ye short forms hatado or FULL forms krlo
+use" — Remove abbreviations, use full forms throughout.)
+
+================================================================
+
+--- PAGE 2 ---
+
+[SCREENSHOT/IMAGE 3 - Committees Section of Website]
+Description: A dark-themed website section displaying five committees in
+card/grid format. Each card shows the committee abbreviation, full name,
+agenda, and a brief description. Details are as follows:
+
+  1. LS — LOK SABHA
+     Agenda: Uniform Civil Code in India
+     Description: Delegates deliberated on the introduction of the Uniform
+     Civil Code, examining implications for personal law, religious freedom,
+     and national cohesion.
+
+  2. UNGA — UNITED NATIONS GENERAL ASSEMBLY
+     Agenda: Humanitarian Crisis in Gaza
+     Description: Delegates represented countries worldwide, debating urgent
+     ceasefire calls, aid corridors, and international accountability mechanisms.
+
+  3. HSM — HISTORICAL SECURITY COUNCIL
+     Agenda: The 1975 Emergency in India
+     Description: A gripping historical simulation re-examining the
+     constitutional crisis of 1975 — its causes, implications, and lessons
+     for democratic governance.
+
+  4. MV — MARVEL AVENGERS COMMITTEE
+     Agenda: The Sokovia Accords
+     Description: Delegates debated whether the Avengers should sign the
+     Sokovia Accords, blending policy logic with creative storytelling and
+     ethical reasoning.
+
+  5. IP — INTERNATIONAL PRESS
+     Agenda: Live Reporting & Digital Journalism
+     Description: Student journalists reported on committee sessions in real
+     time — drafting news articles, social media posts, and broadcasting
+     highlights.
+
+(Editor's Note: Replace short forms with full forms throughout.)
+
+----------------------------------------------------------------
+ADD ABOUT INAUGURAL
+----------------------------------------------------------------
+
+The Ideas in Action Summit 1.0 commenced with an atmosphere of excitement
+and anticipation as students, educators, and distinguished guests gathered
+at Nehru World School. The opening ceremony began with the ceremonial
+welcoming of the Co-Founders of Rajdhani Yuva Sansad along with their
+core team and the esteemed Executive Board Members. Each guest was
+honoured with a sapling, symbolising growth, sustainability, and the
+nurturing of ideas, aligning with the core values of the summit.
+
+The ceremony set a strong foundation for the two-day event, which saw an
+impressive turnout of over 300 students and executive members from various
+institutions.
+
+================================================================
+
+--- PAGE 3 ---
+
+----------------------------------------------------------------
+VALEDICTORY
+----------------------------------------------------------------
+
+The summit concluded on a high note with a well-organised valedictory
+ceremony that celebrated the success of the event and the remarkable
+efforts of all involved. Participants were recognised and awarded for their
+outstanding performances, while the organising committee was also
+appreciated for their dedication and seamless execution of the summit. The
+closing moments reflected a sense of accomplishment, acknowledging the
+quality of discussions and leaving participants motivated to carry forward
+the spirit of innovation, leadership, and meaningful engagement.
+
+----------------------------------------------------------------
+CHANGE IN YUVA SAJHEDARI 1.0
+----------------------------------------------------------------
+
+[SCREENSHOT/IMAGE 4 - Distinguished Guests / Eminent Dignitaries Section]
+Description: A dark navy-blue website section titled "Eminent Dignitaries"
+under the "Distinguished Guests" label. Two guest cards are shown:
+
+  1. Sh. Naresh Bahsal Ji — Member of Parliament (Guest of Honour)
+     [View Photos link below]
+
+  2. Dr. Kalpana Saini Ji — Hon'ble Member of Parliament, Rajya Sabha
+     (Guest of Honour)
+     [View Photos link below]
+
+EDITOR'S INSTRUCTIONS:
+  - REMOVE both existing guests (Sh. Naresh Bahsal Ji & Dr. Kalpana Saini Ji)
+  - ADD the following instead:
+      * Shri Arunendra Nath Verma — Retd. Wing Commander & Eminent Author
+      * Shiv Vats — (Keep designation same as existing format)
+
+----------------------------------------------------------------
+CHANGE IN SAJAG 5.0
+----------------------------------------------------------------
+
+================================================================
+
+--- PAGE 4 ---
+
+[SCREENSHOT/IMAGE 5 - Eminent Dignitaries Section for Sajag 5.0]
+Description: A dark navy-blue website section titled "Eminent Dignitaries"
+under the "Distinguished Guests" label. Five guest cards are displayed:
+
+  1. Dr. Kalpana Saini Ji — Hon'ble Member of Parliament, Rajya Sabha
+     (Chief Guest, Inaugural) [View Photos link below]
+
+  2. Sh. Naresh Bansal Ji — Member of Parliament (Guest of Honour)
+     [View Photos link below]
+
+  3. Adv. Piyush Gupta Ji — Advocate, Bar Council of Delhi (Valedictory)
+
+  4. Ms. Deepika Narayan Bhardwaj Ji — Documentary Filmmaker & Activist
+     (Valedictory)
+
+  5. Ms. Mehak Dhawan Ji — Youth Entrepreneur (Valedictory)
+
+EDITOR'S INSTRUCTION:
+  - REMOVE Sh. Naresh Bansal Ji from this section.
+
+================================================================
+                        END OF DOCUMENT
+================================================================

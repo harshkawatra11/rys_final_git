@@ -2,6 +2,207 @@
    CONFERENCE DETAIL PAGE — SPECIFIC STYLES
    ══════════════════════════════════════════════════════════════ */
 
+/* ═══════════════════════════════════════════════════════════════
+   SHARED CINEMATIC HERO  (.conf-hero)
+   Crossfading slideshow + filmstrip — used on every conference page
+   ═══════════════════════════════════════════════════════════════ */
+.conf-hero {
+  position: relative; overflow: hidden;
+  min-height: 100vh; display: flex;
+  align-items: center; justify-content: center;
+  text-align: center; background: #080b10;
+}
+
+/* ── CROSSFADE SLIDESHOW BG ── */
+.conf-hero-slides { position: absolute; inset: 0; z-index: 0; }
+.conf-hero-slide  { position: absolute; inset: 0; opacity: 0; transition: opacity 1.8s ease-in-out; }
+.conf-hero-slide.active { opacity: 1; }
+.conf-hero-slide img {
+  width: 100%; height: 100%; object-fit: cover; display: block;
+  filter: brightness(.38) saturate(.65);
+  transform: scale(1.06); transition: transform 8s ease-out;
+}
+.conf-hero-slide.active img { transform: scale(1.0); }
+
+/* Static fallback (no images) */
+.conf-hero-static-bg {
+  position: absolute; inset: 0; z-index: 0;
+  background:
+    radial-gradient(ellipse 80% 70% at 50% 40%, rgba(191,144,50,.06) 0%, transparent 70%),
+    #080b10;
+}
+
+/* Overlay layers */
+.conf-hero-overlay {
+  position: absolute; inset: 0; z-index: 1; pointer-events: none;
+  background:
+    radial-gradient(ellipse 65% 55% at 50% 42%, transparent 0%, rgba(8,11,16,.6) 100%),
+    linear-gradient(180deg,
+      rgba(8,11,16,.55) 0%,
+      rgba(8,11,16,.1) 25%,
+      rgba(8,11,16,.05) 45%,
+      rgba(8,11,16,.2) 65%,
+      rgba(8,11,16,.95) 100%);
+}
+.conf-hero::before {
+  content:''; position: absolute; inset: 0; z-index: 1;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.04'/%3E%3C/svg%3E");
+  pointer-events: none; opacity: .45;
+}
+
+/* ── CENTERED CONTENT ── */
+.conf-hero-content {
+  position: relative; z-index: 2;
+  max-width: 900px; padding: 5rem 5vw 8rem;
+}
+.conf-hero-topline {
+  width: 48px; height: 1px; margin: 0 auto 2rem;
+  background: linear-gradient(90deg, transparent, #bf9032, transparent);
+  opacity: 0; animation: confHeroFadeIn .8s ease .2s forwards;
+}
+.conf-hero-badges {
+  display: flex; justify-content: center; gap: .5rem;
+  flex-wrap: wrap; margin-bottom: 2rem;
+  opacity: 0; animation: confHeroRise .8s ease .4s forwards;
+}
+.conf-hero-badge {
+  font-family: 'Mulish', sans-serif;
+  font-size: .58rem; letter-spacing: .28em; text-transform: uppercase;
+  font-weight: 600; color: #bf9032;
+  border: 1px solid rgba(191,144,50,.35); padding: .3rem .85rem;
+  background: rgba(191,144,50,.06); backdrop-filter: blur(8px);
+}
+.conf-hero-title {
+  font-family: 'Cinzel', serif;
+  font-size: clamp(2.4rem, 6.5vw, 4.8rem);
+  font-weight: 700; color: #f5ecd7;
+  line-height: 1.08; letter-spacing: .02em; margin: 0 0 .6rem;
+  opacity: 0; animation: confHeroRise 1s ease .6s forwards;
+}
+.conf-hero-title-hindi {
+  display: block;
+  font-family: 'IM Fell English', serif; font-style: italic;
+  font-size: clamp(1rem, 2.4vw, 1.5rem);
+  color: #c9b97a; letter-spacing: .04em; margin-top: .5rem;
+  opacity: 0; animation: confHeroRise .7s ease 1s forwards;
+}
+.conf-hero-ornament {
+  display: flex; align-items: center; justify-content: center;
+  gap: .8rem; margin: 1.8rem auto;
+  opacity: 0; animation: confHeroFadeIn .6s ease 1.15s forwards;
+}
+.conf-hero-ornament-line {
+  width: 60px; height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(191,144,50,.45));
+}
+.conf-hero-ornament-line:last-child {
+  background: linear-gradient(90deg, rgba(191,144,50,.45), transparent);
+}
+.conf-hero-ornament-diamond {
+  width: 6px; height: 6px;
+  border: 1px solid rgba(191,144,50,.5);
+  transform: rotate(45deg); flex-shrink: 0;
+}
+.conf-hero-meta {
+  display: flex; justify-content: center; flex-wrap: wrap;
+  gap: .6rem 2rem; margin-bottom: 2.5rem;
+  opacity: 0; animation: confHeroRise .7s ease 1.3s forwards;
+}
+.conf-hero-meta-item {
+  font-family: 'Mulish', sans-serif;
+  font-size: .78rem; color: rgba(244,237,216,.8);
+  letter-spacing: .03em; display: flex; align-items: center; gap: .45rem;
+}
+.conf-hero-meta-item span { font-size: .85em; }
+.conf-hero-stats {
+  display: flex; justify-content: center; flex-wrap: wrap; gap: 0;
+  max-width: 640px; margin: 0 auto;
+  border: 1px solid rgba(191,144,50,.2);
+  background: rgba(8,11,16,.5); backdrop-filter: blur(20px);
+  opacity: 0; animation: confHeroRise .7s ease 1.5s forwards;
+}
+.conf-hero-stat {
+  flex: 1; min-width: 110px; padding: 1.2rem 1rem; text-align: center;
+  border-right: 1px solid rgba(191,144,50,.12); transition: background .3s;
+}
+.conf-hero-stat:last-child { border-right: none; }
+.conf-hero-stat:hover { background: rgba(191,144,50,.06); }
+.conf-hero-stat-num {
+  font-family: 'Cinzel', serif;
+  font-size: 1.6rem; font-weight: 700; color: #bf9032;
+  display: block; line-height: 1; white-space: nowrap;
+}
+.conf-hero-stat-label {
+  font-family: 'Mulish', sans-serif;
+  font-size: .52rem; letter-spacing: .2em; text-transform: uppercase;
+  color: rgba(191,144,50,.55); margin-top: .35rem; display: block;
+}
+
+/* ── FILMSTRIP ── */
+.conf-hero-filmstrip {
+  position: absolute; bottom: 0; left: 0; right: 0;
+  z-index: 3; padding: .9rem 3vw;
+  display: flex; justify-content: center; gap: 6px;
+  background: linear-gradient(180deg, transparent, rgba(8,11,16,.85) 40%);
+  opacity: 0; animation: confHeroRise .7s ease 1.8s forwards;
+}
+.conf-hero-thumb {
+  width: 72px; height: 48px; border-radius: 3px; overflow: hidden;
+  cursor: pointer; border: 1.5px solid rgba(191,144,50,.15);
+  opacity: .45; transition: all .4s ease; flex-shrink: 0; position: relative;
+}
+.conf-hero-thumb::after {
+  content: ''; position: absolute; inset: 0;
+  background: rgba(8,11,16,.3); transition: background .4s;
+}
+.conf-hero-thumb.active {
+  opacity: 1; border-color: rgba(191,144,50,.7);
+  box-shadow: 0 0 12px rgba(191,144,50,.15);
+}
+.conf-hero-thumb.active::after { background: transparent; }
+.conf-hero-thumb:hover { opacity: .85; }
+.conf-hero-thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.conf-hero-thumb-progress {
+  position: absolute; bottom: 0; left: 0; height: 2px;
+  background: #bf9032; z-index: 2; width: 0; transition: none;
+}
+.conf-hero-thumb.active .conf-hero-thumb-progress {
+  animation: confHeroProgress 5s linear forwards;
+}
+
+/* ── COUNTER ── */
+.conf-hero-counter {
+  position: absolute; top: 5.5rem; right: 3vw; z-index: 3;
+  font-family: 'Cinzel', serif;
+  font-size: .7rem; color: rgba(191,144,50,.4); letter-spacing: .15em;
+  opacity: 0; animation: confHeroFadeIn .5s ease 2s forwards;
+}
+.conf-hero-counter-current {
+  font-size: 1.4rem; font-weight: 700; color: rgba(191,144,50,.7);
+}
+
+/* ── KEYFRAMES ── */
+@keyframes confHeroProgress { from { width: 0; } to { width: 100%; } }
+@keyframes confHeroRise {
+  from { opacity: 0; transform: translateY(28px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes confHeroFadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+/* ── MOBILE ── */
+@media (max-width: 680px) {
+  .conf-hero { min-height: 100svh; }
+  .conf-hero-content { padding: 5rem 6vw 7rem; }
+  .conf-hero-meta { gap: .5rem 1.2rem; }
+  .conf-hero-stats { flex-wrap: wrap; max-width: 320px; }
+  .conf-hero-stat { min-width: 50%; border-bottom: 1px solid rgba(191,144,50,.12); }
+  .conf-hero-stat:nth-child(2) { border-right: none; }
+  .conf-hero-stat:nth-child(3), .conf-hero-stat:nth-child(4) { border-bottom: none; }
+  .conf-hero-filmstrip { gap: 4px; padding: .7rem 2vw; }
+  .conf-hero-thumb { width: 52px; height: 35px; }
+  .conf-hero-counter { display: none; }
+}
+
 /* ─── BREADCRUMB ─── */
 .conf-breadcrumb {
   padding: 5.5rem 5vw 0;
@@ -391,6 +592,10 @@
   letter-spacing: .03em;
 }
 .conf-sec h2 em { font-family: 'IM Fell English',serif; color: var(--saffron); }
+.conf-prose {
+  max-width: 900px; margin-inline: auto; margin-bottom: 2rem;
+  overflow: hidden;
+}
 .conf-prose p {
   font-size: .88rem; color: var(--dim); line-height: 1.9;
   margin-bottom: 1rem;
@@ -509,6 +714,7 @@
   font-family: 'IM Fell English', serif; font-style: italic;
   font-size: clamp(.88rem,1.5vw,1rem); color: var(--dim);
   line-height: 1.9; margin-bottom: .8rem;
+  text-align: justify; hyphens: auto;
 }
 .conf-quote-attr {
   display: block; font-size: .7rem; letter-spacing: .1em;
@@ -634,6 +840,7 @@
 .conf-suggestion p {
   font-size: .78rem; color: var(--dim); line-height: 1.8;
   font-family: 'Mulish', sans-serif;
+  text-align: justify; hyphens: auto;
 }
 
 /* ─── AWARDS GRID ─── */
@@ -817,14 +1024,9 @@
   border-color: rgba(212,80,10,.25); transform: translateX(4px);
 }
 
-/* ─── DECORATIVE FLOATING IMAGE STACKS (Added to reduce text-heavy feel) ─── */
+/* ─── DECORATIVE FLOATING IMAGE STACKS — hidden globally ─── */
 .conf-sec-inner { position: relative; }
-.conf-deco-stack {
-  position: absolute; width: 240px; height: 240px;
-  top: 50%; transform: translateY(-50%);
-  pointer-events: none; z-index: 0; opacity: 0.9;
-}
-@media (max-width: 1400px) { .conf-deco-stack { display: none; } }
+.conf-deco-stack { display: none !important; }
 .conf-deco-stack.left { left: -270px; }
 .conf-deco-stack.right { right: -270px; }
 .cds-img {
