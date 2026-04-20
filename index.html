@@ -1045,6 +1045,10 @@ html[data-theme="light"] .flagship-strip::after  { background:linear-gradient(to
   padding:1.8rem;
   transition:background .3s;
   position:relative; overflow:hidden;
+  display:grid;
+  grid-template-columns:minmax(200px,1.2fr) minmax(140px,.8fr);
+  align-items:center;
+  gap:1.2rem;
 }
 .dig-card::after {
   content:'';
@@ -1055,8 +1059,23 @@ html[data-theme="light"] .flagship-strip::after  { background:linear-gradient(to
 }
 .dig-card:hover { background:var(--dig-card-hover); }
 .dig-card:hover::after { transform:scaleY(1); transform-origin:top; }
+.dig-text { min-width:0; }
 .dig-name { font-family:'Cinzel',serif; font-size:1rem; font-weight:600; color:var(--cream); margin-bottom:.3rem; }
 .dig-role { font-size:.72rem; color:var(--gold-light); font-style:italic; line-height:1.4; }
+.dig-photo-wrap {
+  width:100%;
+  aspect-ratio:16/9;
+  border:2px solid var(--cream);
+  background:linear-gradient(180deg, rgba(8,16,42,.9), rgba(12,30,67,.95));
+  overflow:hidden;
+}
+.dig-photo {
+  width:100%;
+  height:100%;
+  display:block;
+  object-fit:cover;
+  object-position:top center;
+}
 
 /* MP photos row */
 .mp-photos-row {
@@ -1297,6 +1316,7 @@ footer {
   .timeline-grid { grid-template-columns:1fr 1fr; }
   .upcoming-inner { grid-template-columns:1fr; }
   .dig-grid { grid-template-columns:1fr 1fr; }
+  .dig-card { grid-template-columns:1fr; }
   .team-grid, .team-grid-b { grid-template-columns:1fr 1fr; }
   #cta-band { grid-template-columns:1fr; }
   .footer-grid { grid-template-columns:1fr 1fr; gap:2rem; }
@@ -1307,6 +1327,7 @@ footer {
 @media(max-width:600px){
   .timeline-grid { grid-template-columns:1fr; }
   .dig-grid { grid-template-columns:1fr; }
+  .dig-card { grid-template-columns:1fr; }
   .upcoming-facts { grid-template-columns:1fr 1fr; }
   .stats-band { grid-template-columns: repeat(2,1fr); }
   .stat-num { font-size: 2rem; }
@@ -2217,7 +2238,7 @@ html[data-theme="light"] .uc-mini-host strong { color: #3A3A3A; }
       </div>
     </div>
 
-    <div class="founders-content reveal reveal-right">
+    <div class="founders-content reveal reveal-right" style="text-align:justify;">
       <p>Rajdhani Yuva Sansad was founded in 2017 by two young law students with a clear purpose to serve the nation through structured dialogue rooted in parliamentary values, constitutional learning and international diplomacy. What began at the grassroots level, with both founders contributing as Panelists and Jury Members across multiple forums, has evolved into a platform impacting hundreds of thousands of young minds across India.
 
 Their journey spans institutional engagement across the states of Delhi, Uttar Pradesh, Rajasthan, Punjab, Madhya Pradesh, and Haryana, where they have consistently facilitated informed, policy-driven discourse.</p>
@@ -2676,16 +2697,6 @@ Their journey spans institutional engagement across the states of Delhi, Uttar P
       <div class="dig-card"><div class="dig-name">Shri Manoj Tiwari</div><div class="dig-role">Hon'ble Member of Parliament</div></div>
       <div class="dig-card"><div class="dig-name">Shri Naresh Bansal</div><div class="dig-role">Hon'ble Member of Parliament</div></div>
     </div>
-    <div class="mp-photos-row">
-      <div class="mp-photo-item"><img src="/images/kalpana_sainii.png" alt="Dr. Kalpana Saini"><div class="mp-photo-caption">Dr. Kalpana Saini</div></div>
-      <div class="mp-photos-divider"></div>
-      <div class="mp-video-item">
-        <video id="manoj-tiwari-video" src="/images/manoj-tiwari-video.mp4" playsinline loop preload="none"></video>
-        <div class="mp-photo-caption">Shri Manoj Tiwari</div>
-      </div>
-      <div class="mp-photos-divider"></div>
-      <div class="mp-photo-item"><img src="/images/naresh_bansal.jpg" alt="Shri Naresh Bansal"><div class="mp-photo-caption">Shri Naresh Bansal</div></div>
-    </div>
   </div>
 
   <div id="t4" class="dig-panel">
@@ -2940,10 +2951,78 @@ function switchTab(btn,id){
   document.querySelectorAll('.dig-panel').forEach(p=>p.classList.remove('active'));
   btn.classList.add('active');
   document.getElementById(id).classList.add('active');
-  // Play Manoj Tiwari video when MP tab (t3) is active, pause otherwise
-  const mpVid = document.getElementById('manoj-tiwari-video');
-  if(mpVid){ id==='t3' ? mpVid.play() : (mpVid.pause(), mpVid.currentTime=0); }
 }
+
+/* Add dignitary photos into each card */
+(function(){
+  const dignitaryPhotos = {
+    'Shri Arjun Ram Meghwal': '/images/union-minister-arjun-image.jpg',
+    'Shri Kamlesh Paswan': '/images/union-minister-kamlesh-image.jpg',
+    'Smt. Raksha Nikhil Khadse': '/images/union-minister-raksha-image.jpg',
+    'Shri Ajay Tamta': '/images/union-minister-ajay-image.jpg',
+    'Shri Harsh Malhotra': '/images/union-minister-harsh-image.jpg',
+    'Shri Harvinder Kalyan': '/images/speaker-and-legislators-harvinder-image.jpg',
+    'Shri Krishan Lal Middha': '/images/speaker-and-legislators-krishan-lal-image.jpg',
+    'Shri Ram Niwas Goel': '/images/speaker-and-legislators-ram-niwas-image.jpg',
+    'Smt. Geeta Bhukkal': '/images/speaker-and-legislators-geeta-image.jpg',
+    'Smt. Pooja Chaudhary': '/images/speaker-and-legislators-pooja-chaudhary-image.jpg',
+    'Smt. Bansuri Swaraj': '/images/member-of-parliament-bansuri-image.jpg',
+    'Dr. Kalpana Saini': '/images/member-of-parliament-kalpana-image.jpg',
+    'Shri Manoj Tiwari': '/images/member-of-parliament-manoj-image.jpg',
+    'Shri Naresh Bansal': '/images/member-of-parliament-naresh-image.jpg',
+    'HMJ Chandra Dhari Singh': '/images/legal-luminaries-chandra-image.png',
+    'HMJ Manoj Ohri': '/images/legal-luminaries-ohri-image.png',
+    'HMJ Vikas Mahajan': '/images/legal-luminaries-vikas-image.png',
+    'HMJ Sachin Dutta': '/images/legal-luminaries-sachin-image.png',
+    'Shri Chetan Sharma': '/images/legal-luminaries-chetan-image.png',
+    'Adv. Piyush Gupta': '/images/legal-luminaries-piyush-image.jpg',
+    'Smt. Monika Arora': '/images/legal-luminaries-monica-image.png',
+    'Shri Ashwini Upadhyay': '/images/legal-luminaries-ashwini-image.png',
+    'Shri K.K. Manan': '/images/legal-luminaries-kk-image.png',
+    'Smt. Aman Preet Passy, IRS': '/images/distinguished-personalities-aman-preet-image.png',
+    'Shri Arunendra Nath Verma': '/images/distinguished-personalities-arunendra-image.png',
+    'Dr. Janak Raj Jai': '/images/distinguished-personalities-janak-image.png',
+    'Shri Vijay Kumar Singh': '/images/distinguished-personalities-vijay-image.png',
+    'Prof. Dr. Seema Singh': '/images/distinguished-personalities-seema-image.png',
+    'Ms. Deepika Narayan Bhardwaj': '/images/distinguished-personalities-deepika-image.png',
+    'Shri Shiv Vats': '/images/distinguished-personalities-shiv-image.jpg',
+    'Shri Ram Narain Yadav': '/images/distinguished-personalities-ram-image.jpg',
+    'Shri Nikhil Wath': '/images/media-personalities-nikhil-image.png',
+    'Shri Deepak Tenguriya': '/images/media-personalities-deepak-image.png',
+    'Ms. Mehak Dhawan': '/images/media-personalities-mehak-image.png',
+    'Shri Bhim Jain': '/images/media-personalities-536ec8c5-258f-4ffd-8410-ded8b0640020-image.png'
+  };
+
+  document.querySelectorAll('#dignitaries .dig-card').forEach(card => {
+    const nameEl = card.querySelector('.dig-name');
+    const roleEl = card.querySelector('.dig-role');
+    if (!nameEl || !roleEl) return;
+
+    const name = nameEl.textContent.trim();
+    const src = dignitaryPhotos[name];
+    if (!src) return;
+
+    const textWrap = document.createElement('div');
+    textWrap.className = 'dig-text';
+    textWrap.appendChild(nameEl);
+    textWrap.appendChild(roleEl);
+
+    const imgWrap = document.createElement('div');
+    imgWrap.className = 'dig-photo-wrap';
+
+    const img = document.createElement('img');
+    img.className = 'dig-photo';
+    img.src = src;
+    img.alt = name;
+    img.loading = 'lazy';
+    img.decoding = 'async';
+    imgWrap.appendChild(img);
+
+    card.innerHTML = '';
+    card.appendChild(textWrap);
+    card.appendChild(imgWrap);
+  });
+})();
 
 /* ─ Interactive hero: mouse parallax on floating images ─ */
 (function(){
