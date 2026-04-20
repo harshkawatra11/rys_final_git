@@ -1205,3 +1205,128 @@
   position: relative;
   z-index: 1;
 }
+
+/* ═══════════════════════════════════════════════════════════════
+   MOBILE RESPONSIVE — CONFERENCE DETAIL (comprehensive)
+   ═══════════════════════════════════════════════════════════════ */
+
+@media (max-width: 768px) {
+  /* Hero: allow title to wrap naturally on narrow screens */
+  .conf-hero-title { white-space: normal; font-size: clamp(1.5rem, 6vw, 2.4rem); }
+
+  /* Section padding */
+  .conf-sec { padding: 3rem 1.2rem; }
+  .conf-breadcrumb { padding: 4.5rem 1.2rem 0; }
+
+  /* All body/prose text: left-align (justified text on narrow columns looks bad) */
+  .conf-prose p { text-align: left; hyphens: none; }
+  .conf-quote p { text-align: left; hyphens: none; }
+  .conf-session-card p { text-align: left; }
+  .conf-suggestion p { text-align: left; hyphens: none; }
+  .card-desc { text-align: left; hyphens: none; }
+
+  /* Section headings */
+  .conf-sec h2 { font-size: clamp(1.2rem, 5vw, 1.6rem); margin-bottom: 1.4rem; }
+
+  /* Sessions: single column */
+  .conf-sessions-grid { grid-template-columns: 1fr; gap: .9rem; }
+  .conf-session-card.full { grid-column: span 1; }
+  .conf-session-card { padding: 1.4rem 1.2rem; }
+  .conf-session-num { font-size: 1.6rem; margin-bottom: .6rem; }
+
+  /* Suggestions: compact */
+  .conf-suggestion { grid-template-columns: 34px 1fr; gap: .8rem; padding: 1.2rem; }
+
+  /* Quote: compact */
+  .conf-quote { padding: 1.6rem 1.4rem; }
+  .conf-quote::before { font-size: 4rem; }
+
+  /* Gallery: 2 columns */
+  .cd-gallery-grid { grid-template-columns: repeat(2, 1fr); gap: .5rem; }
+
+  /* Stats strip: 2-column wrap */
+  .conf-detail-stats { flex-wrap: wrap; max-width: 100%; }
+  .conf-detail-stat { min-width: 50%; flex: 1 1 50%; border-bottom: 1px solid rgba(191,144,50,.12); }
+  .conf-detail-stat:nth-child(even) { border-right: none; }
+  .conf-detail-stat:last-child, .conf-detail-stat:nth-last-child(2):nth-child(odd) { border-bottom: none; }
+
+  /* Hero stats: 2-column grid */
+  .conf-hero-stats { flex-wrap: wrap; }
+  .conf-hero-stat { min-width: 50%; flex: 1 1 50%; border-bottom: 1px solid rgba(191,144,50,.12); }
+  .conf-hero-stat:nth-child(even) { border-right: none; }
+  .conf-hero-stat:last-child,
+  .conf-hero-stat:nth-last-child(2):nth-child(odd) { border-bottom: none; }
+
+  /* Key highlights */
+  .conf-key-highlights li { padding: .8rem 1rem .8rem 2.2rem; font-size: .8rem; }
+
+  /* Team chips: smaller */
+  .conf-team-chip { font-size: .68rem; padding: .45rem .9rem; }
+
+  /* Guests grid: 1 column */
+  .conf-guests-grid { grid-template-columns: 1fr; }
+
+  /* Participation: 2 columns */
+  .conf-participation-grid { grid-template-columns: repeat(2, 1fr); }
+
+  /* Video: 1 column */
+  .conf-video-grid { grid-template-columns: 1fr; }
+
+  /* Press: 1 column */
+  .conf-press-grid { grid-template-columns: 1fr; }
+
+  /* MP photos: compact */
+  .conf-mp-photos img { width: 130px; height: 155px; }
+}
+
+@media (max-width: 480px) {
+  /* Hero */
+  .conf-hero-title { font-size: clamp(1.3rem, 7vw, 2rem); }
+  .conf-hero-title-hindi { font-size: clamp(.85rem, 4vw, 1.1rem); }
+  .conf-hero-content { padding: 4.5rem 4vw 7rem; }
+
+  /* Sections: tighter */
+  .conf-sec { padding: 2.4rem .9rem; }
+  .conf-sec h2 { font-size: clamp(1.1rem, 5.5vw, 1.4rem); margin-bottom: 1.1rem; }
+  .conf-prose p { font-size: .82rem; line-height: 1.75; }
+
+  /* Session cards */
+  .conf-session-card { padding: 1.1rem; }
+  .conf-session-num { font-size: 1.3rem; }
+  .conf-session-title { font-size: .78rem; }
+
+  /* Suggestion */
+  .conf-suggestion { grid-template-columns: 28px 1fr; gap: .65rem; padding: 1rem; }
+  .conf-suggestion-num { font-size: 1.1rem; }
+
+  /* Quote */
+  .conf-quote { padding: 1.2rem 1.1rem; }
+  .conf-quote p { font-size: .82rem; }
+
+  /* Awards: 2 col */
+  .conf-awards-grid { grid-template-columns: repeat(2, 1fr); }
+  .conf-award-card { padding: 1.4rem 1rem; }
+  .conf-award-pos { font-size: 1.5rem; }
+
+  /* Participation: 2 col compact */
+  .conf-participation-item { padding: 1.4rem .8rem; }
+  .conf-participation-num { font-size: 1.6rem; }
+  .conf-participation-label { font-size: .56rem; }
+
+  /* Gallery: 2 col */
+  .cd-gallery-grid { grid-template-columns: repeat(2, 1fr); gap: .4rem; }
+
+  /* Hero stats: 2×2 */
+  .conf-hero-stat { min-width: 50%; }
+  .conf-detail-stat { min-width: 50%; }
+  .conf-detail-stat-num { font-size: 1.2rem; }
+
+  /* Key highlights */
+  .conf-key-highlights li { font-size: .76rem; }
+
+  /* Guest card: compact */
+  .conf-guest-card { padding: 1rem; gap: .8rem; }
+  .conf-guest-icon { width: 38px; height: 38px; font-size: 1rem; }
+  .conf-guest-name { font-size: .72rem; }
+  .conf-guest-role { font-size: .64rem; }
+}

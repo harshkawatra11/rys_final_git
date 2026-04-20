@@ -890,9 +890,47 @@
     .uc-cd-num { font-size: 1.5rem; }
     .uc-hero-scroll { display: none; }
     .uc-hero-chakra { width: 80vw; height: 80vw; }
+
+    /* Spotlight */
+    .uc-spotlight-body { padding: 1.4rem 1.2rem; }
+    .uc-spotlight-title { font-size: clamp(1.2rem, 5vw, 1.6rem); }
+    .uc-spotlight-desc { font-size: .82rem; }
+
+    /* Section padding */
+    .uc-hero-content { padding: 6rem 1.2rem 2.5rem; }
+
+    /* Why cards: 2-col */
+    .why-grid { gap: 1rem; }
+    .why-card { padding: 1.6rem 1rem 1.4rem; }
+
+    /* CTA section */
+    .upcoming-cta { padding: 4rem 1.2rem; }
+    .upcoming-cta h2 { font-size: clamp(1.6rem, 6vw, 2.4rem); }
+    .upcoming-cta p { font-size: .84rem; }
 }
 @media (max-width: 480px) {
     .uc-hero-countdown { gap: .3rem; }
     .uc-cd-flip { min-width: 44px; }
     .uc-cd-num { font-size: 1.2rem; }
+    .uc-hero-mosaic { display: none; } /* skip mosaic, pure overlay bg on smallest screens */
+
+    /* Spotlight: full-width image */
+    .uc-spotlight-img { min-height: 180px; }
+    .uc-spotlight-body { padding: 1.2rem 1rem; }
+
+    /* Cards: compact */
+    .upcoming-card-body { padding: 1.1rem 1.2rem 1.3rem; }
+    .upcoming-card-title { font-size: .95rem; }
+    .upcoming-card-desc { font-size: .75rem; }
+
+    /* Highlights stats: 1 col */
+    .highlights-stats { grid-template-columns: 1fr; }
+    .highlight-stat { padding: 1.4rem 1rem; }
+    .highlight-stat-num { font-size: 2.1rem; }
+
+    /* Why grid: 1 col */
+    .why-grid { grid-template-columns: 1fr; }
+
+    /* Upcoming grid: 1 col */
+    .upcoming-grid { grid-template-columns: 1fr; gap: 1.2rem; }
 }

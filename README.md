@@ -1,80 +1,91 @@
-# Rajdhani Yuva Sansad — Official Website
+# Rajdhani Yuva Sansad - Official Website
 
-**Rajdhani Yuva Sansad (RYS)** is a youth-centric organisation founded in 2017 by two law students in New Delhi. We empower young minds through Model United Nations (MUN), Youth Parliaments, and policy-driven dialogue grounded in the Constitution of India.
+Rajdhani Yuva Sansad (RYS) is a youth-focused organization founded in 2017 in New Delhi. The platform presents RYS initiatives, conference archives, upcoming registrations, and contact channels.
 
----
+## Live Domain
 
-## Live Site
-
-> Hosted via GitHub Pages — link will be available after deployment.
-
----
-
-## Project Structure
-
-```
-rys_final_git/
-├── home/               # Landing page
-├── about/              # About RYS page
-├── conferences/        # All conferences index + individual detail pages
-├── contact/            # Contact page
-├── css/                # Shared and page-specific stylesheets
-├── js/                 # Shared and page-specific scripts
-├── rys-images/         # All image assets (organised by section)
-├── booklets_comp/      # Compressed conference booklets (PDF)
-├── rys-logo.png        # Site logo
-└── index.html          # Root redirect (if present)
-```
-
----
+- Production domain: `https://rajdhaniyuvasansad.com`
 
 ## Tech Stack
 
-- **HTML5** — semantic markup
-- **CSS3** — custom properties, responsive layouts
-- **Vanilla JavaScript** — no frameworks or build tools
-- **Google Fonts** — Cinzel, Mulish, IM Fell English, Playwrite IE
+- HTML5
+- CSS3
+- Vanilla JavaScript
+- Google Fonts
+- GitHub Pages deployment (GitHub Actions workflow)
 
-This is a fully **static site** — no server, no database, no build step required.
+This is a static website with no backend and no build step.
 
----
+## Current Structure
 
-## Running Locally
-
-Since this is a plain static site, you can open it directly in a browser or serve it with any static file server:
-
-```bash
-# Option 1 — open directly
-start home/index.html       # Windows
-open home/index.html        # macOS
-
-# Option 2 — VS Code Live Server extension
-# Right-click home/index.html → "Open with Live Server"
-
-# Option 3 — Python
-python -m http.server 8080
-# then visit http://localhost:8080/home/
+```text
+rys_final_git/
+|- index.html                    # Home page
+|- about/index.html
+|- conferences/index.html
+|- conferences/<event>/index.html
+|- contact/index.html
+|- upcoming/index.html
+|- css/
+|- js/
+|- images/
+|- booklets_comp/
+|- sitemap.xml
+|- robots.txt
+|- 404.html
+|- .github/workflows/deploy.yml
 ```
 
----
+## SEO and Hosting Files
 
-## Deploying to GitHub Pages
+The repository includes:
 
-1. Push this repository to GitHub.
-2. Go to **Settings → Pages**.
-3. Set **Source** to `Deploy from a branch`, branch `main`, folder `/ (root)`.
-4. GitHub will publish the site at `https://<your-username>.github.io/<repo-name>/home/`.
+- `sitemap.xml` (main routes + conference detail routes)
+- `robots.txt` (crawl allow + sitemap reference)
+- `404.html` (custom not-found page)
 
----
+If domain changes, update:
+
+1. all `<loc>` entries inside `sitemap.xml`
+2. `Sitemap:` line inside `robots.txt`
+
+## Run Locally
+
+Option 1 (direct open):
+
+- Open `index.html` in browser
+
+Option 2 (local server, recommended):
+
+```bash
+python -m http.server 8080
+```
+
+Then open:
+
+- `http://localhost:8080/`
+
+## Deploy
+
+Deployment workflow is configured in:
+
+- `.github/workflows/deploy.yml`
+
+Push to `main` to trigger GitHub Pages deployment.
+
+## Manual Post-Deploy Steps
+
+1. Add and verify site in Google Search Console
+2. Submit `https://rajdhaniyuvasansad.com/sitemap.xml`
+3. Connect GA4 property
+4. Ensure HTTPS certificate is active at domain/hosting layer
 
 ## Contributing
 
-Please read [CONTRIBUTING.md](.github/CONTRIBUTING.md) before opening pull requests.
-
----
+Please read `.github/CONTRIBUTING.md` before opening pull requests.
 
 ## License
 
-This project is licensed under the **MIT License** — see [LICENSE](LICENSE) for details.
+MIT License. See `LICENSE`.
 
-© 2017–2026 Rajdhani Yuva Sansad. All rights reserved.
+Copyright (c) 2017-2026 Rajdhani Yuva Sansad.

@@ -34,3 +34,9 @@ build/
 *.tmp
 *.bak
 *.orig
+
+# Local generated analysis artifacts
+rys-platform-*.txt
+HOSTING_READY_NOTES.txt
+BROKEN_LINKS_REPORT.txt
+PREDEPLOY_QA_REPORT.txt

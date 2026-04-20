@@ -156,11 +156,23 @@
 @media(max-width:768px) {
   .conf-hero { min-height:100svh; }
   .ch-strip { height:35%; }
-  .ch-h1 { font-size:clamp(1.8rem,8vw,2.8rem); }
+  .ch-h1 { font-size:clamp(1.8rem,8vw,2.8rem); white-space:normal; }
   .ch-desc { font-size:.84rem; }
   .ch-stats { gap:1.2rem; }
   .ch-stat-num { font-size:1.2rem; }
   .ch-stat-div { height:24px; }
+}
+@media(max-width:540px) {
+  /* 4 stats wrap into 2×2 grid — hide vertical dividers to avoid misalignment */
+  .ch-stats {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.2rem 1.4rem;
+    justify-items: center;
+  }
+  .ch-stat-div { display: none; }
+  .ch-stat-num { font-size: 1.3rem; }
+  .ch-stat-label { font-size: .5rem; letter-spacing: .1em; }
 }
 @media(max-width:480px) {
   .ch-actions { flex-direction:column; align-items:center; }
@@ -372,6 +384,27 @@
 }
 @media(max-width:600px) {
   .conf-cards-row { grid-template-columns:1fr; }
-  .filter-bar { flex-wrap:wrap; justify-content:center; }
+  .filter-bar { flex-wrap:wrap; justify-content:center; padding:.7rem 4vw; gap:.6rem; }
+  .filter-pill { padding:.4rem .85rem; font-size:.62rem; }
   .year-number { font-size:1.8rem; }
+  .card-desc { text-align:left; hyphens:none; }
+  .card-title { font-size:.95rem; }
+  .conf-card-compact { grid-template-columns:.35fr .65fr; }
+
+  /* Hero: allow title wrap on small mobile */
+  .ch-h1 { font-size:clamp(1.6rem,8vw,2.4rem); white-space:normal; }
+  .ch-content { padding:5rem 4vw 3.5rem; }
+  .ch-stats { gap:.8rem; }
+  .ch-stat-num { font-size:1.1rem; }
+  .ch-stat-div { height:20px; }
+  .ch-desc { font-size:.8rem; }
+
+  /* Type legend */
+  .type-legend { gap:1rem; padding:1rem 0; }
+  .legend-item { font-size:.65rem; }
+
+  /* Year group */
+  .year-group { margin-bottom:2.8rem; }
+  .year-header { margin-bottom:1.4rem; }
+  .year-number { font-size:1.7rem; }
 }

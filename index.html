@@ -1419,8 +1419,9 @@ footer {
   .dig-grid { grid-template-columns:1fr; }
   .dig-card { grid-template-columns:1fr; }
   .upcoming-facts { grid-template-columns:1fr 1fr; }
-  .stats-band { grid-template-columns: repeat(2,1fr); }
-  .stat-num { font-size: 2rem; }
+  .stats-band { grid-template-columns: repeat(3,1fr); }
+  .stat-num { font-size: 1.2rem; }
+  .stat-label { font-size: .48rem; letter-spacing: .08em; }
 }
 /* MOBILE NAV */
 .nav-mobile-toggle { display:none; flex-direction:column; gap:4px; background:none; border:none; cursor:pointer; z-index:2001; padding:0.5rem; }
@@ -1431,6 +1432,473 @@ footer {
 .mobile-nav-overlay a:hover { color:var(--saffron); }
 .mobile-nav-close { position:absolute; top:2rem; right:2rem; background:none; border:none; color:var(--cream); font-size:2rem; cursor:pointer; }
 @media(max-width:900px){ .nav-mobile-toggle { display:flex; } }
+
+/* Mobile polish overrides */
+@media (max-width: 768px) {
+  html, body { overflow-x: hidden; }
+
+  .cur, .cur-r { display: none; }
+  #prog { height: 1px; }
+
+  nav {
+    padding: .9rem 1rem;
+  }
+  .nav-logo img {
+    height: 30px !important;
+    width: auto !important;
+  }
+  .nav-logo-text {
+    font-size: .72rem;
+    line-height: 1.2;
+  }
+  .nav-logo-text span {
+    font-size: .48rem;
+    letter-spacing: .16em;
+  }
+  .mobile-nav-overlay a {
+    font-size: 1rem;
+  }
+
+  .sec {
+    padding: 3.4rem 1rem;
+  }
+  .sec-h2 {
+    font-size: clamp(1.55rem, 7vw, 2rem);
+    line-height: 1.2;
+  }
+  .sec-tag {
+    font-size: .58rem;
+    letter-spacing: .2em;
+  }
+
+  #hero {
+    min-height: auto;
+    padding-top: 5.6rem;
+    padding-bottom: 2.4rem;
+  }
+  .hero-center {
+    width: 100%;
+    max-width: 100%;
+    padding: 1.4rem 1rem 1.8rem;
+  }
+  .hero-h1 {
+    white-space: normal;
+    font-size: clamp(1.9rem, 9vw, 2.5rem);
+    line-height: 1.12;
+    gap: .2em;
+  }
+  .hero-sub-quote {
+    margin: .9rem 0 1.1rem;
+    font-size: .9rem;
+    line-height: 1.5;
+  }
+  .hero-desc {
+    font-size: .86rem;
+    line-height: 1.72;
+    margin-bottom: 1.2rem;
+  }
+  .hero-actions {
+    width: 100%;
+    gap: .65rem;
+  }
+  .hero-actions .btn-fire,
+  .hero-actions .btn-ghost {
+    width: 100%;
+    justify-content: center;
+    text-align: center;
+    padding: .82rem 1rem;
+  }
+  .hero-ring,
+  .chakra-bg {
+    display: none;
+  }
+  .scroll-cue {
+    display: none;
+  }
+
+  .stats-band {
+    margin-top: 0;
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .stats-band .stat {
+    min-height: auto;
+    padding: 1.2rem 0.4rem;
+  }
+  .stat-num {
+    font-size: 1.35rem;
+  }
+  .stat-label {
+    font-size: .5rem;
+    letter-spacing: .1em;
+  }
+
+  .uc-mini {
+    padding: 3.2rem 1rem 2.6rem;
+  }
+  .uc-mini-inner {
+    max-width: 100%;
+  }
+  .uc-mini-sub {
+    max-width: 34ch;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .uc-mini-grid {
+    gap: 1rem;
+  }
+  .uc-mini-card {
+    padding: 1.15rem 1rem 1rem;
+    border-radius: 10px;
+  }
+  .uc-mini-card-num {
+    font-size: 3.1rem;
+    right: 8px;
+    top: 4px;
+  }
+  .uc-mini-title {
+    font-size: .98rem;
+    line-height: 1.35;
+  }
+  .uc-mini-host,
+  .uc-mini-tagline {
+    font-size: .73rem;
+    line-height: 1.52;
+  }
+  .uc-mini-grades {
+    font-size: .68rem;
+    line-height: 1.45;
+    flex-wrap: wrap;
+    gap: .28rem;
+  }
+  .uc-mini-card-actions--split {
+    gap: .45rem;
+  }
+  .uc-mini-cta,
+  .uc-mini-cta-ghost {
+    width: 100%;
+    min-height: 42px;
+    font-size: .61rem;
+    letter-spacing: .1em;
+    padding: .75rem .7rem;
+    justify-content: center;
+    text-align: center;
+  }
+  .uc-mini-detail-link {
+    width: 100%;
+    justify-content: center;
+    padding-top: .3rem;
+  }
+
+  .mh {
+    padding: 3rem 1rem 2.6rem;
+  }
+  .mh-inner {
+    max-width: 100%;
+  }
+  .mh-gate-wrap {
+    height: 190px;
+    margin-bottom: 2.1rem;
+  }
+  .mh-title {
+    font-size: 1rem;
+  }
+  .mh-desc {
+    font-size: .77rem;
+    line-height: 1.6;
+  }
+  .mh-links {
+    grid-template-columns: 1fr;
+    gap: .6rem;
+  }
+  .mh-link-card {
+    padding: .82rem .9rem;
+    gap: .72rem;
+  }
+  .mh-link-title {
+    font-size: .72rem;
+    line-height: 1.35;
+  }
+
+  .showcase-sec {
+    padding: 3.2rem 1rem 2.6rem;
+  }
+  .carousel-wrap {
+    height: 330px;
+    border-radius: 8px;
+  }
+  .carousel-overlay {
+    padding: 1.1rem .95rem 2.5rem;
+  }
+  .carousel-tag {
+    font-size: .58rem;
+    letter-spacing: .13em;
+  }
+  .carousel-heading {
+    font-size: 1.08rem;
+    margin-bottom: .35rem;
+  }
+  .carousel-desc {
+    font-size: .73rem;
+    line-height: 1.45;
+    max-width: 95%;
+  }
+  .carousel-track {
+    width: 100%;
+    will-change: transform;
+  }
+  .carousel-slide {
+    flex: 0 0 100%;
+    min-width: 100%;
+    max-width: 100%;
+  }
+  .carousel-controls {
+    right: .7rem;
+    bottom: .75rem;
+    gap: .45rem;
+  }
+  .carousel-btn {
+    width: 32px;
+    height: 32px;
+    font-size: 1rem;
+  }
+  .carousel-dots {
+    bottom: .72rem;
+  }
+
+  .flagship-sec {
+    padding: 3.2rem 0 2.8rem;
+  }
+  .flagship-sec .sec-tag,
+  .flagship-sec .sec-h2 {
+    padding: 0 1rem;
+  }
+  .flagship-strip::before,
+  .flagship-strip::after {
+    width: 20px;
+  }
+  .flagship-scroll {
+    animation: none;
+    gap: .85rem;
+    overflow-x: auto;
+    width: 100%;
+    padding: 0 1rem 1rem;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+  }
+  .flagship-scroll::-webkit-scrollbar {
+    height: 4px;
+  }
+  .flagship-scroll::-webkit-scrollbar-thumb {
+    background: var(--saffron);
+    border-radius: 8px;
+  }
+  .flagship-card {
+    width: 78vw;
+    min-width: 78vw;
+    max-width: 78vw;
+    scroll-snap-align: start;
+    border-radius: 10px;
+  }
+  .flagship-card-img {
+    height: 165px;
+  }
+  .flagship-card-body {
+    padding: 1rem;
+  }
+  .flagship-card-name {
+    font-size: .93rem;
+  }
+  .flagship-card-desc {
+    font-size: .74rem;
+  }
+
+  .timeline-intro {
+    margin-bottom: 2rem;
+  }
+  .timeline-intro p {
+    font-size: .82rem;
+    line-height: 1.64;
+  }
+  .tc {
+    padding: 1.25rem 1rem;
+  }
+  .tc-num {
+    font-size: 2.35rem;
+    margin-bottom: .5rem;
+  }
+  .tc-year {
+    font-size: .57rem;
+  }
+  .tc-name {
+    font-size: .9rem;
+    line-height: 1.28;
+  }
+  .tc-detail {
+    font-size: .73rem;
+    line-height: 1.48;
+  }
+  .tc-venue {
+    font-size: .65rem;
+  }
+
+  .dig-tabs {
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: minmax(132px, 1fr);
+    overflow-x: auto;
+    scrollbar-width: thin;
+    -webkit-overflow-scrolling: touch;
+  }
+  .dig-tab {
+    min-height: 74px;
+    padding: .6rem .45rem;
+    font-size: .55rem;
+    letter-spacing: .08em;
+  }
+  .dig-tab .dt-icon {
+    font-size: 1rem;
+  }
+  .dig-grid {
+    grid-template-columns: 1fr;
+  }
+  .dig-card {
+    grid-template-columns: 1fr;
+    gap: .75rem;
+    padding: 1rem;
+  }
+  .dig-name {
+    font-size: .9rem;
+  }
+  .dig-role {
+    font-size: .68rem;
+  }
+  .dig-photo-wrap {
+    aspect-ratio: 4 / 3;
+    max-height: 220px;
+  }
+  .mp-photos-row {
+    gap: 1rem;
+    padding: 1rem 0;
+  }
+  .mp-photo-item img {
+    width: 100%;
+    max-width: 320px;
+    height: auto;
+    aspect-ratio: 16 / 9;
+  }
+
+  .team-sec {
+    padding: 3.2rem 1rem;
+  }
+  .team-grid,
+  .team-grid-b {
+    grid-template-columns: 1fr 1fr;
+    gap: .7rem;
+  }
+  .team-img {
+    height: 180px;
+    aspect-ratio: unset;
+  }
+  .team-img img {
+    height: 100%;
+  }
+  .team-card img {
+    height: 100%;
+  }
+  .team-info {
+    padding: .7rem .6rem .75rem;
+  }
+  .team-name {
+    font-size: .88rem;
+    line-height: 1.2;
+  }
+  .team-role {
+    font-size: .58rem;
+    line-height: 1.35;
+  }
+
+  #cta-band {
+    padding: 2.8rem 1rem;
+    gap: 1.4rem;
+  }
+  .cta-h2 {
+    font-size: 1.8rem;
+  }
+  .cta-sub {
+    font-size: .82rem;
+    line-height: 1.6;
+  }
+  .btn-ivory {
+    width: 100%;
+    text-align: center;
+    justify-content: center;
+  }
+
+  #sponsors-sec {
+    padding: 2.8rem 0 2.3rem;
+  }
+  .sponsors-heading {
+    margin-bottom: 1.4rem;
+    letter-spacing: .13em;
+  }
+  .sponsors-track {
+    gap: 1.2rem;
+  }
+  .sponsor-logo-wrap {
+    width: 108px;
+    height: 60px;
+  }
+  .sponsor-label {
+    font-size: .5rem;
+    letter-spacing: .1em;
+  }
+
+  footer {
+    padding: 2.8rem 1rem 1.4rem;
+  }
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: 1.3rem;
+    padding-bottom: 1.4rem;
+    margin-bottom: 1rem;
+  }
+  .footer-col h4 {
+    margin-bottom: .6rem;
+  }
+  .footer-col ul {
+    gap: .38rem;
+  }
+  .footer-bottom {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: .55rem;
+    font-size: .7rem;
+  }
+}
+
+@media (max-width: 420px) {
+  .hero-center {
+    padding: 1.15rem .86rem 1.55rem;
+  }
+  .hero-h1 {
+    font-size: 1.75rem;
+  }
+  .uc-mini-title {
+    font-size: .92rem;
+  }
+  .flagship-card {
+    width: 83vw;
+    min-width: 83vw;
+    max-width: 83vw;
+  }
+  .team-grid,
+  .team-grid-b {
+    grid-template-columns: 1fr;
+  }
+  .team-img {
+    height: 220px;
+  }
+}
 </style>
 </head>
 <body>
@@ -3328,6 +3796,7 @@ function switchTab(btn,id){
   var next  = document.getElementById('nextBtn');
   if(!track||!dots.length) return;
   var idx=0, total=dots.length, timer;
+  var touchStartX = 0, touchEndX = 0;
   function go(n){
     idx=(n+total)%total;
     track.style.transform='translateX(-'+idx*100+'%)';
@@ -3336,6 +3805,20 @@ function switchTab(btn,id){
   prev.addEventListener('click',function(){go(idx-1);resetTimer();});
   next.addEventListener('click',function(){go(idx+1);resetTimer();});
   dots.forEach(function(d){d.addEventListener('click',function(){go(+d.dataset.index);resetTimer();});});
+
+  /* Touch swipe */
+  track.addEventListener('touchstart', function(e){
+    touchStartX = e.changedTouches[0].clientX;
+  }, { passive: true });
+  track.addEventListener('touchend', function(e){
+    touchEndX = e.changedTouches[0].clientX;
+    var diff = touchStartX - touchEndX;
+    if (Math.abs(diff) > 40) {
+      go(diff > 0 ? idx + 1 : idx - 1);
+      resetTimer();
+    }
+  }, { passive: true });
+
   function resetTimer(){clearInterval(timer);timer=setInterval(function(){go(idx+1);},6000);}
   resetTimer();
 })();
