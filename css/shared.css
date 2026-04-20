@@ -4,10 +4,10 @@
 
 /* ─── DESIGN TOKENS ─── */
 :root {
-  --navy:        #0A1628;
-  --navy-deep:   #060F1C;
-  --navy-mid:    #0F1F3D;
-  --navy-light:  #162A4A;
+  --navy:        #020E24;
+  --navy-deep:   #010818;
+  --navy-mid:    #061733;
+  --navy-light:  #0B2145;
   --saffron:     #D4500A;
   --saffron-light:#E87A3A;
   --saffron-pale: rgba(212,80,10,0.08);
@@ -19,7 +19,7 @@
   --dim:         #F4EDD8;
   --dim2:        #C8C0A8;
   --border-gold: rgba(184,137,42,0.18);
-  --glass-bg:    rgba(10,22,40,0.65);
+  --glass-bg:    rgba(3,14,36,0.72);
   --glass-border:rgba(184,137,42,0.12);
 }
 
@@ -57,7 +57,7 @@ nav::before {
   z-index: 1001;
 }
 nav.stuck {
-  background: rgba(10,22,40,0.95);
+  background: rgba(4,10,22,0.95);
   backdrop-filter: blur(22px);
   padding: 1.1rem 5vw;
   box-shadow: 0 1px 0 var(--border-gold);
@@ -433,7 +433,7 @@ footer {
 /* ─── MOBILE NAV OVERLAY ─── */
 .mobile-nav-overlay {
   position:fixed; inset:0; z-index:2000;
-  background:rgba(6,15,28,0.97);
+  background:rgba(2,8,18,0.97);
   backdrop-filter:blur(24px);
   display:flex; flex-direction:column;
   align-items:center; justify-content:center;
