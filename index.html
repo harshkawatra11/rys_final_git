@@ -1032,7 +1032,8 @@ html[data-theme="light"] .flagship-strip::after  { background:linear-gradient(to
   transition:background .25s, color .25s;
   display:flex; flex-direction:column; align-items:center; gap:.3rem;
 }
-.dig-tab .dt-icon { font-size:1.5rem; }
+.dig-tab .dt-icon { font-size:1.5rem; line-height:1; display:inline-flex; align-items:center; justify-content:center; }
+.dig-tab .dt-icon img { width:1.6rem; height:1.6rem; object-fit:contain; display:block; }
 .dig-tab.active, .dig-tab:hover { background:var(--saffron-glow); color:var(--cream); border-bottom:2px solid var(--saffron); }
 
 .dig-panel { display:none; }
@@ -2747,9 +2748,9 @@ Their journey spans institutional engagement across the states of Delhi, Uttar P
   <h2 class="sec-h2 reveal">Esteemed Dignitaries</h2>
 
     <div class="dig-tabs reveal">
-    <button class="dig-tab active" onclick="switchTab(this,'t1')"><span class="dt-icon">🏛️</span> Union Ministers</button>
+    <button class="dig-tab active" onclick="switchTab(this,'t1')"><span class="dt-icon">🇮🇳</span> Union Ministers</button>
     <button class="dig-tab" onclick="switchTab(this,'t2')"><span class="dt-icon">📜</span> Speakers &amp; Legislators</button>
-    <button class="dig-tab" onclick="switchTab(this,'t3')"><span class="dt-icon">🏩</span> Members of Parliament</button>
+    <button class="dig-tab" onclick="switchTab(this,'t3')"><span class="dt-icon">🏛️</span> Members of Parliament</button>
     <button class="dig-tab" onclick="switchTab(this,'t4')"><span class="dt-icon">⚖️</span> Legal Luminaries</button>
     <button class="dig-tab" onclick="switchTab(this,'t5')"><span class="dt-icon">🌟</span> Distinguished Personalities</button>
     <button class="dig-tab" onclick="switchTab(this,'t6')"><span class="dt-icon">📺</span> Media Personalities</button>
@@ -2808,6 +2809,7 @@ Their journey spans institutional engagement across the states of Delhi, Uttar P
       <div class="dig-card"><div class="dig-name">Ms. Deepika Narayan Bhardwaj</div><div class="dig-role">Filmmaker</div></div>
       <div class="dig-card"><div class="dig-name">Shri Shiv Vats</div><div class="dig-role">Academician &amp; Content Creator</div></div>
       <div class="dig-card"><div class="dig-name">Shri Ram Narain Yadav</div><div class="dig-role">Advisor to the Hon'ble Speaker, Haryana Vidhan Sabha</div></div>
+      <div class="dig-card"><div class="dig-name">Adv. Atirek Shahi</div><div class="dig-role">Before the High Court of Judicature at Allahabad, Lucknow Bench</div></div>
     </div>
   </div>
 
@@ -3072,6 +3074,7 @@ function switchTab(btn,id){
     'Ms. Deepika Narayan Bhardwaj': '/images/distinguished-personalities-deepika-image.png',
     'Shri Shiv Vats': '/images/distinguished-personalities-shiv-image.jpg',
     'Shri Ram Narain Yadav': '/images/distinguished-personalities-ram-image.jpg',
+    'Adv. Atirek Shahi': '/images/atirek-shahi.jpeg',
     'Shri Nikhil Wath': '/images/media-personalities-nikhil-image.png',
     'Shri Deepak Tenguriya': '/images/media-personalities-deepak-image.png',
     'Ms. Mehak Dhawan': '/images/media-personalities-mehak-image.png',
