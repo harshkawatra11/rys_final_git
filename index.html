@@ -24,9 +24,9 @@
   --gold-pale:     rgba(184,137,42,0.15);
   --green:         #2D6A4F;
   --green-light:   #40916C;
-  --navy:          #071327;
-  --navy-mid:      #0B1A35;
-  --navy-card:     #102243;
+  --navy:          #050F21;
+  --navy-mid:      #08162F;
+  --navy-card:     #091125;
   --cream:         #F4EDD8;
   --cream-mid:     #EDE4C8;
   --cream-warm:    #F9F4E8;
@@ -36,24 +36,24 @@
   --border-gold:   rgba(184,137,42,0.25);
   --border-saffron:rgba(212,80,10,0.22);
   --shadow-deep:   0 24px 80px rgba(53, 33, 33, 0.55);
-  --hero-glow-center: rgba(11,26,53,0.84);
-  --img-overlay-start: rgba(7,19,39,0.46);
-  --img-overlay-end: rgba(7,19,39,0.20);
+  --hero-glow-center: rgba(8,22,47,0.86);
+  --img-overlay-start: rgba(5,15,33,0.52);
+  --img-overlay-end: rgba(5,15,33,0.24);
   --hfi-filter: brightness(.65) saturate(.8);
   --hfi-filter-hover: brightness(.85) saturate(1);
-  --stats-bg: rgba(11,26,53,.90);
-  --founder-overlay: rgba(7,19,39,.90);
-  --carousel-overlay-start: rgba(7,19,39,0.94);
-  --carousel-overlay-mid: rgba(7,19,39,0.30);
+  --stats-bg: rgba(8,22,47,.92);
+  --founder-overlay: rgba(5,15,33,.92);
+  --carousel-overlay-start: rgba(5,15,33,0.95);
+  --carousel-overlay-mid: rgba(5,15,33,0.34);
   --carousel-btn-border: rgba(244,237,216,0.25);
   --carousel-btn-bg: rgba(244,237,216,0.08);
   --carousel-dot: rgba(244,237,216,0.35);
-  --tc-hover-bg: rgba(16,34,67,.95);
+  --tc-hover-bg: rgba(13,29,61,.95);
   --tc-num: rgba(184,137,42,.12);
   --tc-num-hover: rgba(212,80,10,.18);
-  --upcoming-bg-end: rgba(11,26,53,.98);
-  --dig-card-hover: rgba(16,34,67,.92);
-  --ticker-bg: rgba(11,26,53,.66);
+  --upcoming-bg-end: rgba(8,22,47,.98);
+  --dig-card-hover: rgba(13,29,61,.93);
+  --ticker-bg: rgba(8,22,47,.70);
 }
 
 /* ─── Light mode overrides ─── */
@@ -3108,20 +3108,6 @@ function countUp(el){
 }
 
 /* ─ Governor Gate: scroll-triggered entrance ─ */
-(function(){
-  const gate = document.getElementById('mhGateWrap');
-  if (!gate) return;
-  const io = new IntersectionObserver(entries => {
-    entries.forEach(e => {
-      if (e.isIntersecting) {
-        gate.classList.add('gate-visible');
-        io.disconnect();
-      }
-    });
-  }, { threshold: 0.18 });
-  io.observe(gate);
-})();
-
 /* ─ Dignitary tabs ─ */
 function switchTab(btn,id){
   document.querySelectorAll('.dig-tab').forEach(t=>t.classList.remove('active'));

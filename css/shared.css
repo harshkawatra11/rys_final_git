@@ -4,10 +4,10 @@
 
 /* ─── DESIGN TOKENS ─── */
 :root {
-  --navy:        #020E24;
-  --navy-deep:   #010818;
-  --navy-mid:    #061733;
-  --navy-light:  #0B2145;
+  --navy:        #010A1C;
+  --navy-deep:   #000511;
+  --navy-mid:    #04122A;
+  --navy-light:  #081D3D;
   --saffron:     #D4500A;
   --saffron-light:#E87A3A;
   --saffron-pale: rgba(212,80,10,0.08);
@@ -19,7 +19,7 @@
   --dim:         #F4EDD8;
   --dim2:        #C8C0A8;
   --border-gold: rgba(184,137,42,0.18);
-  --glass-bg:    rgba(3,14,36,0.72);
+  --glass-bg:    rgba(1,10,28,0.76);
   --glass-border:rgba(184,137,42,0.12);
 }
 
