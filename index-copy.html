@@ -24,9 +24,9 @@
   --gold-pale:     rgba(184,137,42,0.15);
   --green:         #2D6A4F;
   --green-light:   #40916C;
-  --navy:          #0A1628;
-  --navy-mid:      #0F1F3D;
-  --navy-card:     #122247;
+  --navy:          #000000;
+  --navy-mid:      #0D0D0D;
+  --navy-card:     #141414;
   --cream:         #F4EDD8;
   --cream-mid:     #EDE4C8;
   --cream-warm:    #F9F4E8;
@@ -36,24 +36,24 @@
   --border-gold:   rgba(184,137,42,0.25);
   --border-saffron:rgba(212,80,10,0.22);
   --shadow-deep:   0 24px 80px rgba(53, 33, 33, 0.55);
-  --hero-glow-center: rgba(15,31,61,0.8);
-  --img-overlay-start: rgba(10,22,40,0.4);
-  --img-overlay-end: rgba(10,22,40,0.15);
-  --hfi-filter: brightness(.65) saturate(.8);
-  --hfi-filter-hover: brightness(.85) saturate(1);
-  --stats-bg: rgba(15,31,61,.85);
-  --founder-overlay: rgba(10,22,40,.85);
-  --carousel-overlay-start: rgba(10,22,40,0.92);
-  --carousel-overlay-mid: rgba(10,22,40,0.25);
+  --hero-glow-center: rgba(0,0,0,0.8);
+  --img-overlay-start: rgba(0,0,0,0.4);
+  --img-overlay-end: rgba(0,0,0,0.15);
+  --hfi-filter: brightness(.55) contrast(1.1) saturate(.65);
+  --hfi-filter-hover: brightness(.75) saturate(.85);
+  --stats-bg: rgba(0,0,0,.85);
+  --founder-overlay: rgba(0,0,0,.85);
+  --carousel-overlay-start: rgba(0,0,0,0.92);
+  --carousel-overlay-mid: rgba(0,0,0,0.25);
   --carousel-btn-border: rgba(244,237,216,0.25);
   --carousel-btn-bg: rgba(244,237,216,0.08);
   --carousel-dot: rgba(244,237,216,0.35);
-  --tc-hover-bg: rgba(18,34,71,.95);
+  --tc-hover-bg: rgba(0,0,0,.95);
   --tc-num: rgba(184,137,42,.12);
   --tc-num-hover: rgba(212,80,10,.18);
-  --upcoming-bg-end: rgba(15,25,55,.98);
-  --dig-card-hover: rgba(18,34,71,.9);
-  --ticker-bg: rgba(15,31,61,.6);
+  --upcoming-bg-end: rgba(0,0,0,.98);
+  --dig-card-hover: rgba(0,0,0,.9);
+  --ticker-bg: rgba(0,0,0,.6);
 }
 
 /* ─── Light mode overrides ─── */
@@ -125,21 +125,21 @@ html[data-theme="light"] .hero-center-glow {
 }
 html[data-theme="light"] .hero-image-wall-wrapper { opacity:0.7; }
 html[data-theme="light"] .h-img-box img { filter: brightness(1.15) contrast(1.05) saturate(0.85); }
-/* ── Dark mode: clean near-black navy overlay, no mixed colour bleeding ── */
+/* ── Dark mode: jet-black overlay ── */
 html:not([data-theme="light"]) .hero-vignette {
   background:
-    /* Flat near-black navy base tint over entire mosaic */
+    /* Jet-black base tint */
     linear-gradient(
-      rgba(3, 7, 20, 0.55),
-      rgba(3, 7, 20, 0.55)
+      rgba(0, 0, 0, 0.58),
+      rgba(0, 0, 0, 0.58)
     ),
-    /* Gentle bottom pull to ground the text */
-    linear-gradient(to top, rgba(3, 7, 20, 0.72) 0%, transparent 45%),
-    /* Gentle top edge */
-    linear-gradient(to bottom, rgba(3, 7, 20, 0.50) 0%, transparent 30%);
+    /* Bottom pull */
+    linear-gradient(to top, rgba(0, 0, 0, 0.75) 0%, transparent 45%),
+    /* Top edge */
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.52) 0%, transparent 30%);
 }
 html:not([data-theme="light"]) .h-img-box img {
-  filter: brightness(0.60) contrast(1.12) saturate(0.70);
+  filter: brightness(0.55) contrast(1.15) saturate(0.60);
 }
 html[data-theme="light"] .hero-ring { border-color: rgba(212,80,10,0.10); }
 html[data-theme="light"] .hero-ring--2 { border-color: rgba(184,137,42,0.08); }
@@ -206,7 +206,7 @@ nav::before {
   z-index: 1001;
 }
 nav.stuck {
-  background: rgba(10,22,40,0.95);
+  background: rgba(0,0,0,0.95);
   backdrop-filter: blur(22px);
   padding: 1.1rem 5vw;
   box-shadow: 0 1px 0 var(--border-gold);
@@ -1339,7 +1339,7 @@ footer {
 <style>
 #rys-loader {
   position:fixed; inset:0; z-index:99999;
-  background:#0A1628;
+  background:#000000;
   display:flex; align-items:center; justify-content:center;
   transition: opacity .6s cubic-bezier(.4,0,.2,1), visibility .6s;
   opacity:1; visibility:visible;
@@ -1634,7 +1634,7 @@ footer {
   position: relative;
   padding: 5.5rem 5vw 5rem;
   overflow: hidden;
-  background: linear-gradient(180deg, var(--navy) 0%, rgba(15,25,55,.98) 50%, var(--navy) 100%);
+  background: linear-gradient(180deg, var(--navy) 0%, rgba(0,0,0,.98) 50%, var(--navy) 100%);
 }
 .uc-mini::before {
   content: '';
@@ -1700,7 +1700,7 @@ footer {
 
 /* individual event card */
 .uc-mini-card {
-  background: rgba(15,31,61,.45);
+  background: rgba(0,0,0,.45);
   backdrop-filter: blur(16px);
   border: 1px solid var(--border-gold);
   border-radius: 12px;
