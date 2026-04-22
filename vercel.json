@@ -1,0 +1,15 @@
+{
+  "redirects": [
+    {
+      "source": "/(.*)",
+      "has": [
+        {
+          "type": "host",
+          "value": "www.rajdhaniyuvasansad.com"
+        }
+      ],
+      "destination": "https://rajdhaniyuvasansad.com/$1",
+      "permanent": true
+    }
+  ]
+}
