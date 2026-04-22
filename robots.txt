@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://rajdhaniyuvasansad.com/sitemap.xml
+Sitemap: https://www.rajdhaniyuvasansad.com/sitemap.xml

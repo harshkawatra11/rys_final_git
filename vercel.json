@@ -5,10 +5,10 @@
       "has": [
         {
           "type": "host",
-          "value": "www.rajdhaniyuvasansad.com"
+          "value": "rajdhaniyuvasansad.com"
         }
       ],
-      "destination": "https://rajdhaniyuvasansad.com/$1",
+      "destination": "https://www.rajdhaniyuvasansad.com/$1",
       "permanent": true
     }
   ]
