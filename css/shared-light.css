@@ -56,15 +56,11 @@ html[data-theme="light"] .ah-mosaic-img img {
   filter: grayscale(0%) brightness(1.45) saturate(0.95);
 }
 html[data-theme="light"] .ah-content {
-  background: rgba(5,12,26,.52);
-  border: 1px solid rgba(184,137,42,.18);
-  box-shadow: 0 20px 48px rgba(0,0,0,.35);
-  backdrop-filter: blur(8px);
+  background: rgba(255,255,255,0.65);
+  border: 1px solid rgba(184,137,42,.25);
+  box-shadow: 0 15px 40px rgba(0,0,0,.12), inset 0 1px 0 rgba(255,255,255,.6);
+  backdrop-filter: blur(14px);
   border-radius: 6px;
-  --cream: #F4EDD8;
-  --dim: rgba(244,237,216,.72);
-  --gold: #D4A84B;
-  --saffron: #E8640A;
 }
 html[data-theme="light"] .ah-chakra { color:rgba(166,124,16,.12); }
 html[data-theme="light"] .ah-subtitle p { color:#443A2E; }
@@ -114,16 +110,12 @@ html[data-theme="light"] .ch-strip img {
   filter: grayscale(0%) brightness(1.45) saturate(0.95);
 }
 html[data-theme="light"] .ch-content {
-  background: rgba(5,12,26,.52);
-  border: 1px solid rgba(184,137,42,.18);
-  box-shadow: 0 20px 48px rgba(0,0,0,.35);
-  backdrop-filter: blur(8px);
+  background: rgba(255,255,255,0.65);
+  border: 1px solid rgba(184,137,42,.25);
+  box-shadow: 0 15px 40px rgba(0,0,0,.12), inset 0 1px 0 rgba(255,255,255,.6);
+  backdrop-filter: blur(14px);
   border-radius: 6px;
   padding: 3rem 2rem 2.4rem;
-  --cream: #F4EDD8;
-  --dim: rgba(244,237,216,.72);
-  --gold: #D4A84B;
-  --saffron: #E8640A;
 }
 html[data-theme="light"] .ch-desc { color:#4B4133; }
 html[data-theme="light"] .ch-scroll span { color:#766A54; }
@@ -159,16 +151,12 @@ html[data-theme="light"] .cd-cine-cell:hover img {
   filter: brightness(1.50) saturate(1);
 }
 html[data-theme="light"] .conf-detail-hero-content {
-  background: rgba(5,12,26,.55);
-  border: 1px solid rgba(184,137,42,.20);
-  box-shadow: 0 20px 48px rgba(0,0,0,.40);
-  backdrop-filter: blur(9px);
+  background: rgba(255,255,255,0.65);
+  border: 1px solid rgba(184,137,42,.25);
+  box-shadow: 0 15px 40px rgba(0,0,0,.12), inset 0 1px 0 rgba(255,255,255,.6);
+  backdrop-filter: blur(14px);
   border-radius: 6px;
   padding: 2rem 2rem 1.6rem;
-  --cream: #F4EDD8;
-  --dim: rgba(244,237,216,.72);
-  --gold: #D4A84B;
-  --saffron: #E8640A;
 }
 html[data-theme="light"] .conf-detail-badge {
   color: #8C6518;
@@ -241,16 +229,12 @@ html[data-theme="light"] .uc-hero-vignette {
 html[data-theme="light"] .uc-hero-mosaic-img img { filter: grayscale(0%) brightness(1.45) saturate(0.95); }
 html[data-theme="light"] .uc-hero-chakra { color: rgba(166,124,16,.1); }
 html[data-theme="light"] .uc-hero-content {
-  background: rgba(5,12,26,.52);
-  border: 1px solid rgba(184,137,42,.18);
-  box-shadow: 0 20px 48px rgba(0,0,0,.35);
-  backdrop-filter: blur(8px);
+  background: rgba(255,255,255,0.65);
+  border: 1px solid rgba(184,137,42,.25);
+  box-shadow: 0 15px 40px rgba(0,0,0,.12), inset 0 1px 0 rgba(255,255,255,.6);
+  backdrop-filter: blur(14px);
   border-radius: 6px;
   padding: 3rem 2rem 2.4rem;
-  --cream: #F4EDD8;
-  --dim: rgba(244,237,216,.72);
-  --gold: #D4A84B;
-  --saffron: #E8640A;
 }
 html[data-theme="light"] .uc-hero-sub { color:#4B4133; }
 html[data-theme="light"] .uc-cd-flip {
