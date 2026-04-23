@@ -35,8 +35,8 @@
 .ah-vignette {
   position:absolute; inset:0; z-index:1; pointer-events:none;
   background:
-    linear-gradient(180deg, rgba(10,22,40,.35) 0%, rgba(10,22,40,.08) 30%, rgba(10,22,40,.08) 65%, rgba(10,22,40,.40) 100%),
-    radial-gradient(ellipse 70% 50% at 50% 50%, transparent 0%, rgba(10,22,40,.12) 100%);
+    linear-gradient(180deg, rgba(10,22,40,.55) 0%, rgba(10,22,40,.28) 30%, rgba(10,22,40,.32) 65%, rgba(10,22,40,.50) 100%),
+    radial-gradient(ellipse 70% 50% at 50% 50%, rgba(6,15,28,.18) 0%, rgba(10,22,40,.38) 100%);
 }
 
 /* ─── Ashoka Chakra ─── */
