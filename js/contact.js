@@ -47,8 +47,8 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // ─── Form Submit via EmailJS ───────────────────────────────────────────────
-  const EMAILJS_SERVICE_ID  = 'YOUR_SERVICE_ID';
-  const EMAILJS_TEMPLATE_ID = 'YOUR_TEMPLATE_ID';
+  const EMAILJS_SERVICE_ID  = 'service_fdeufne';
+  const EMAILJS_TEMPLATE_ID = 'template_wvqnpm9';
 
   const form = document.getElementById('contactForm');
   const formFields = document.getElementById('formFields');
