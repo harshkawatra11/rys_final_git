@@ -75,8 +75,8 @@ document.addEventListener('DOMContentLoaded', () => {
       btn.disabled        = true;
 
       const templateParams = {
-        from_name   : name,
-        from_email  : email,
+        name        : name,
+        email       : email,
         phone       : phone,
         subject     : subjectLabel,
         message     : message,
