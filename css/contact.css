@@ -150,6 +150,19 @@
 .form-submit-arrow { position:relative; z-index:1; font-size:1.1rem; transition:transform .3s; }
 .form-submit:hover .form-submit-arrow { transform:translateX(4px); }
 
+/* Button Loading Spinner */
+@keyframes spin { 100% { transform: rotate(360deg); } }
+.loading-spinner {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  border: 2px solid rgba(255,255,255,0.3);
+  border-radius: 50%;
+  border-top-color: var(--white);
+  animation: spin 0.8s linear infinite;
+  vertical-align: middle;
+}
+
 /* Success message */
 .form-success {
   display:none; text-align:center; padding:3rem 2rem;

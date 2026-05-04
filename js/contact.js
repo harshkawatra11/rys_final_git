@@ -60,6 +60,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
       const btn      = form.querySelector('.form-submit');
       const btnText  = btn.querySelector('.form-submit-text');
+      const btnArrow = btn.querySelector('.form-submit-arrow');
       const name     = document.getElementById('contactName').value.trim();
       const email    = document.getElementById('contactEmail').value.trim();
       const phone    = document.getElementById('contactPhone').value.trim() || 'Not provided';
@@ -69,7 +70,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
       // Button loading state
       btnText.textContent = 'Sending...';
-      btn.style.opacity   = '.7';
+      btnArrow.innerHTML = '<span class="loading-spinner"></span>';
+      btn.style.opacity   = '.8';
       btn.disabled        = true;
 
       const templateParams = {
@@ -85,12 +87,22 @@ document.addEventListener('DOMContentLoaded', () => {
         .then(() => {
           // Send WhatsApp notification after email succeeds
           sendWhatsAppNotification(name, email, phone, subjectLabel, message);
-          if (formFields) formFields.style.display = 'none';
-          if (formSuccess) formSuccess.classList.add('show');
+          
+          // Show tick on button
+          btnText.textContent = 'Sent!';
+          btnArrow.innerHTML = '&#10004;';
+          btn.style.opacity = '1';
+          
+          // Wait briefly, then show success container
+          setTimeout(() => {
+            if (formFields) formFields.style.display = 'none';
+            if (formSuccess) formSuccess.classList.add('show');
+          }, 1500);
         })
         .catch(err => {
           console.error('EmailJS error:', err);
           btnText.textContent = 'Failed — Try Again';
+          btnArrow.innerHTML = '&rarr;';
           btn.style.opacity   = '1';
           btn.disabled        = false;
         });
