@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en" data-default-theme="dark">
 <head>
 <!-- Google tag (gtag.js) -->
@@ -249,11 +249,55 @@ body:has(a:hover) .cur-r, body:has(button:hover) .cur-r { width:52px; height:52p
 ══════════════════════════════════════════ */
 #prog { position:fixed; top:0; left:0; height:2px; background:linear-gradient(90deg,var(--saffron),var(--gold-light)); z-index:3000; width:0%; transition:width .08s linear; }
 
+.top-announcement {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  height: 36px;
+  z-index: 1200;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  background: #000000;
+  color: #fff;
+  box-shadow: 0 1px 0 rgba(255,255,255,.18);
+}
+.top-announcement-track {
+  display: flex;
+  width: max-content;
+  animation: announcementMarquee 24s linear infinite;
+  will-change: transform;
+}
+.top-announcement-line {
+  display: inline-flex;
+  align-items: center;
+  gap: .75rem;
+  min-width: 100vw;
+  padding: 0 2rem;
+  white-space: nowrap;
+  font-size: .78rem;
+  font-weight: 700;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+.top-announcement a {
+  color: #fff;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  font-weight: 900;
+}
+.top-announcement:hover .top-announcement-track {
+  animation-play-state: paused;
+}
+@keyframes announcementMarquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
 /* ═══════════════════════════════════════
    NAV
 ══════════════════════════════════════════ */
 nav {
-  position: fixed; top:0; left:0; right:0; z-index:1000;
+  position: fixed; top:36px; left:0; right:0; z-index:1000;
   display: flex; align-items: center; justify-content: space-between;
   padding: 1.5rem 5vw;
   transition: background .4s, backdrop-filter .4s, box-shadow .4s, padding .4s;
@@ -264,7 +308,7 @@ nav::before {
   z-index: 1001;
 }
 nav.stuck {
-  background: rgba(10,22,40,0.95);
+  background: rgba(0,0,0,0.95);
   backdrop-filter: blur(22px);
   padding: 1.1rem 5vw;
   box-shadow: 0 1px 0 var(--border-gold);
@@ -453,6 +497,36 @@ html[data-theme="light"] .theme-toggle-knob { transform:translateX(24px); backgr
   display: flex; gap:1rem; flex-wrap:wrap;
   justify-content: center;
   opacity: 0; animation: fadeUp .8s .85s forwards;
+}
+
+.hero-join-placeholder {
+  width: min(100%, 460px);
+  margin-top: .85rem;
+  opacity: 0;
+  animation: fadeUp .8s 1s forwards;
+}
+.hero-join-placeholder a {
+  min-height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: .82rem 1.5rem;
+  border: 1px dashed rgba(255,255,255,.82);
+  background: rgba(5,15,33,.28);
+  color: var(--white);
+  font-family: 'Cinzel', serif;
+  font-size: .72rem;
+  font-weight: 700;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: border-color .25s, background .25s, color .25s, transform .2s;
+}
+.hero-join-placeholder a:hover {
+  border-color: var(--gold-light);
+  background: #000000;
+  color: #fff;
+  transform: translateY(-2px);
 }
 
 /* ─ Buttons ─ */
@@ -1500,6 +1574,15 @@ footer {
   nav {
     padding: .9rem 1rem;
   }
+  .top-announcement {
+    height: 34px;
+  }
+  .top-announcement-line {
+    min-width: 130vw;
+    padding: 0 1rem;
+    font-size: .64rem;
+    letter-spacing: .06em;
+  }
   .nav-logo img {
     height: 30px !important;
     width: auto !important;
@@ -1564,6 +1647,10 @@ footer {
     justify-content: center;
     text-align: center;
     padding: .82rem 1rem;
+  }
+  .hero-join-placeholder {
+    width: 100%;
+    margin-top: .7rem;
   }
   .hero-ring,
   .chakra-bg {
@@ -2076,6 +2163,19 @@ footer {
 <div class="cur" id="c"></div>
 <div class="cur-r" id="cr"></div>
 
+<div class="top-announcement" role="region" aria-label="Join Rajdhani Yuva Sansad">
+  <div class="top-announcement-track">
+    <div class="top-announcement-line">
+      <span>Step beyond participation and join Rajdhani Yuva Sansad :</span>
+      <a href="https://forms.gle/G657u6tLHMrBY9jh7" target="_blank" rel="noopener">Click Here</a>
+    </div>
+    <div class="top-announcement-line" aria-hidden="true">
+      <span>Step beyond participation and join Rajdhani Yuva Sansad :</span>
+      <a href="https://forms.gle/G657u6tLHMrBY9jh7" tabindex="-1">Click Here</a>
+    </div>
+  </div>
+</div>
+
 <!-- ══════════════════════════ NAV ══════════════════════════ -->
 <nav id="nav">
   <a href="/" class="nav-logo">
@@ -2296,6 +2396,9 @@ footer {
     <div class="hero-actions">
       <a href="/upcoming/" class="btn-fire">⚑ Explore Next Conference</a>
       <a href="#history" class="btn-ghost">23+ Grand Conferences →</a>
+    </div>
+    <div class="hero-join-placeholder">
+      <a href="https://forms.gle/G657u6tLHMrBY9jh7" target="_blank" rel="noopener">JOIN US</a>
     </div>
   </div>
 

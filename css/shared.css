@@ -57,7 +57,7 @@ nav::before {
   z-index: 1001;
 }
 nav.stuck {
-  background: rgba(4,10,22,0.95);
+  background: rgba(0,0,0,0.95);
   backdrop-filter: blur(22px);
   padding: 1.1rem 5vw;
   box-shadow: 0 1px 0 var(--border-gold);
