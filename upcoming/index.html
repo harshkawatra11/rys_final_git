@@ -536,6 +536,7 @@
         padding: 1rem 1.2rem; border-left: 2px solid var(--saffron);
         background: rgba(212,80,10,.04); border-radius: 0 6px 6px 0;
     }
+    .mys-inclusive-note strong { color: var(--cream); font-weight: 700; }
 
     /* ─── Mahila Yuva Samwad: Journey gallery ─── */
     .mys-journey { max-width: 1200px; margin: 0 auto; }
@@ -738,6 +739,8 @@
         <!-- ═══ MARQUEE ═══ -->
         <div class="uc-marquee-wrap">
             <div class="uc-marquee" id="ucMarquee">
+                <span>Mahila Yuva Samwad — July 31, 2026 <i class="uc-marquee-dot"></i></span>
+                <span>Haryana Vidhan Sabha · FREE · Ages 18–24 <i class="uc-marquee-dot"></i></span>
                 <span>Global Panchayat 3.0 — July 24–25, 2026 <i class="uc-marquee-dot"></i></span>
                 <span>Junior United Nations — August 21, 2026 <i class="uc-marquee-dot"></i></span>
                 <span>Yuva Sajhedari 3.0 — August 21–22, 2026 <i class="uc-marquee-dot"></i></span>
@@ -746,9 +749,9 @@
                 <span>Grade 3 to 12 · Registration Open <i class="uc-marquee-dot"></i></span>
                 <span>JKG International School · Silverline Prestige School <i class="uc-marquee-dot"></i></span>
                 <span>Debate. Discuss. Decide. <i class="uc-marquee-dot"></i></span>
-                <span>Mahila Yuva Samwad — July 31, 2026 <i class="uc-marquee-dot"></i></span>
-                <span>Haryana Vidhan Sabha · FREE · Ages 18–24 <i class="uc-marquee-dot"></i></span>
                 <!-- duplicate -->
+                <span>Mahila Yuva Samwad — July 31, 2026 <i class="uc-marquee-dot"></i></span>
+                <span>Haryana Vidhan Sabha · FREE · Ages 18–24 <i class="uc-marquee-dot"></i></span>
                 <span>Global Panchayat 3.0 — July 24–25, 2026 <i class="uc-marquee-dot"></i></span>
                 <span>Junior United Nations — August 21, 2026 <i class="uc-marquee-dot"></i></span>
                 <span>Yuva Sajhedari 3.0 — August 21–22, 2026 <i class="uc-marquee-dot"></i></span>
@@ -757,14 +760,18 @@
                 <span>Grade 3 to 12 · Registration Open <i class="uc-marquee-dot"></i></span>
                 <span>JKG International School · Silverline Prestige School <i class="uc-marquee-dot"></i></span>
                 <span>Debate. Discuss. Decide. <i class="uc-marquee-dot"></i></span>
-                <span>Mahila Yuva Samwad — July 31, 2026 <i class="uc-marquee-dot"></i></span>
-                <span>Haryana Vidhan Sabha · FREE · Ages 18–24 <i class="uc-marquee-dot"></i></span>
             </div>
         </div>
 
         <!-- ═══ STICKY CONFERENCE SWITCHER ═══ -->
         <nav class="conf-nav" aria-label="Conference Navigation">
-            <a href="#global-panchayat" class="conf-nav-tab active" id="tab-gp">
+            <a href="#mahila-yuva-samwad" class="conf-nav-tab active" id="tab-my">
+                <span class="conf-nav-tab-date">July 31, 2026</span>
+                <span class="conf-nav-tab-title">Mahila Yuva Samwad</span>
+                <span class="conf-nav-tab-badge"><span class="conf-nav-tab-badge-dot"></span> Ages 18–24</span>
+            </a>
+            <div class="conf-nav-sep"></div>
+            <a href="#global-panchayat" class="conf-nav-tab" id="tab-gp">
                 <span class="conf-nav-tab-date">July 24–25, 2026</span>
                 <span class="conf-nav-tab-title">Global Panchayat 3.0</span>
                 <span class="conf-nav-tab-badge"><span class="conf-nav-tab-badge-dot"></span> Grades 3–12</span>
@@ -775,20 +782,51 @@
                 <span class="conf-nav-tab-title">Junior UN & Yuva Sajhedari 3.0</span>
                 <span class="conf-nav-tab-badge"><span class="conf-nav-tab-badge-dot"></span> Grades 3–8</span>
             </a>
-            <div class="conf-nav-sep"></div>
-            <a href="#mahila-yuva-samwad" class="conf-nav-tab" id="tab-my">
-                <span class="conf-nav-tab-date">July 31, 2026</span>
-                <span class="conf-nav-tab-title">Mahila Yuva Samwad</span>
-                <span class="conf-nav-tab-badge"><span class="conf-nav-tab-badge-dot"></span> Ages 18–24</span>
-            </a>
         </nav>
 
         <!-- ═══ DUAL OVERVIEW CARDS ═══ -->
         <div class="conf-overview" id="conference-overview">
             <div class="conf-overview-grid">
 
-                <!-- ── Card 1: Global Panchayat 3.0 ── -->
-                <div class="conf-card conf-card--gp reveal" id="global-panchayat">
+                <!-- ── Card 1: Mahila Yuva Samwad ── -->
+                <div class="conf-card conf-card--my reveal" id="mahila-yuva-samwad">
+                    <div class="conf-card-img">
+                        <img src="/images/mahila_yuva_samwad_2026-cover.png" alt="Mahila Yuva Samwad" loading="lazy"
+                             onerror="this.src='/images/haryana_yuva_samvad_2026-cover.jpg'">
+                        <div class="conf-card-img-overlay"></div>
+                        <span class="conf-card-badge"><span class="conf-card-badge-dot"></span> Registration Open</span>
+                        <span class="conf-card-date-chip">📅 July 31, 2026</span>
+                    </div>
+                    <div class="conf-card-body">
+                        <p class="conf-card-tag">Haryana Vidhan Sabha · Special Edition</p>
+                        <h2 class="conf-card-name">Mahila Yuva Samwad</h2>
+                        <p class="conf-card-host">In association with <strong>Rajdhani Yuva Sansad</strong></p>
+                        <p class="conf-card-tagline">"Step into history — raise your voice, and lead with courage, conviction, and purpose."</p>
+                        <div class="conf-card-meta">
+                            <span class="conf-card-meta-item">📍 <strong>Haryana Vidhan Sabha</strong></span>
+                            <span class="conf-card-meta-item">👥 <strong>Ages 18–24</strong></span>
+                            <span class="conf-card-meta-item">🎟️ <strong>FREE Entry</strong></span>
+                        </div>
+
+                        <a href="#mahila-yuva-samwad-detail" class="conf-card-more">View event highlights &amp; journey ↓</a>
+                    </div>
+                    <div class="conf-card-reg" id="mys-reg">
+                        <p class="conf-card-reg-label">Registration is completely free</p>
+                        <div class="conf-card-reg-btns">
+                            <a href="https://docs.google.com/forms/d/e/1FAIpQLScmWZm7zxNqqGnpBrgnge17IuoMF6vOrvmH8Zm5RKkcb8QXFg/viewform" target="_blank" rel="noopener" class="conf-card-reg-btn conf-card-reg-btn--primary">
+                                <span class="conf-card-reg-icon">🕊️</span>
+                                <span class="conf-card-reg-text">
+                                    <span class="conf-card-reg-type">Register Now — It's FREE</span>
+                                    <span class="conf-card-reg-sub">Open to all · Ages 18–24 · Deadline July 20, 2026</span>
+                                </span>
+                                <span class="conf-card-reg-arrow">→</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ── Card 2: Global Panchayat 3.0 ── -->
+                <div class="conf-card conf-card--gp reveal reveal-d1" id="global-panchayat">
                     <div class="conf-card-img">
                         <img src="/images/global_panchayat_2-cover.jpg" alt="Global Panchayat 3.0" loading="lazy">
                         <div class="conf-card-img-overlay"></div>
@@ -831,8 +869,8 @@
                     </div>
                 </div>
 
-                <!-- ── Card 2: Junior UN & Yuva Sajhedari 3.0 ── -->
-                <div class="conf-card conf-card--ys reveal reveal-d1" id="junior-un">
+                <!-- ── Card 3: Junior UN & Yuva Sajhedari 3.0 ── -->
+                <div class="conf-card conf-card--ys reveal reveal-d2" id="junior-un">
                     <div class="conf-card-img">
                         <img src="/images/yuva_sajhedari_2-cover.jpg" alt="Junior United Nations & Yuva Sajhedari 3.0" loading="lazy"
                              onerror="this.src='/images/global_panchayat_2-cover.jpg'">
@@ -876,45 +914,139 @@
                     </div>
                 </div>
 
-                <!-- ── Card 3: Mahila Yuva Samwad ── -->
-                <div class="conf-card conf-card--my reveal reveal-d2" id="mahila-yuva-samwad">
-                    <div class="conf-card-img">
-                        <img src="/images/mahila_yuva_samwad_2026-cover.png" alt="Mahila Yuva Samwad" loading="lazy"
-                             onerror="this.src='/images/haryana_yuva_samvad_2026-cover.jpg'">
-                        <div class="conf-card-img-overlay"></div>
-                        <span class="conf-card-badge"><span class="conf-card-badge-dot"></span> Registration Open</span>
-                        <span class="conf-card-date-chip">📅 July 31, 2026</span>
-                    </div>
-                    <div class="conf-card-body">
-                        <p class="conf-card-tag">Haryana Vidhan Sabha · Special Edition</p>
-                        <h2 class="conf-card-name">Mahila Yuva Samwad</h2>
-                        <p class="conf-card-host">In association with <strong>Rajdhani Yuva Sansad</strong></p>
-                        <p class="conf-card-tagline">"Step into history — raise your voice, and lead with courage, conviction, and purpose."</p>
-                        <div class="conf-card-meta">
-                            <span class="conf-card-meta-item">📍 <strong>Haryana Vidhan Sabha</strong></span>
-                            <span class="conf-card-meta-item">👥 <strong>Ages 18–24</strong></span>
-                            <span class="conf-card-meta-item">🎟️ <strong>FREE Entry</strong></span>
-                        </div>
-
-                        <a href="#mahila-yuva-samwad-detail" class="conf-card-more">View event highlights &amp; journey ↓</a>
-                    </div>
-                    <div class="conf-card-reg" id="mys-reg">
-                        <p class="conf-card-reg-label">Registration is completely free</p>
-                        <div class="conf-card-reg-btns">
-                            <a href="https://docs.google.com/forms/d/e/1FAIpQLScmWZm7zxNqqGnpBrgnge17IuoMF6vOrvmH8Zm5RKkcb8QXFg/viewform" target="_blank" rel="noopener" class="conf-card-reg-btn conf-card-reg-btn--primary">
-                                <span class="conf-card-reg-icon">🕊️</span>
-                                <span class="conf-card-reg-text">
-                                    <span class="conf-card-reg-type">Register Now — It's FREE</span>
-                                    <span class="conf-card-reg-sub">Open to all · Ages 18–24 · Deadline July 20, 2026</span>
-                                </span>
-                                <span class="conf-card-reg-arrow">→</span>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
             </div>
         </div>
+
+        <!-- ═══ MAHILA YUVA SAMWAD — HIGHLIGHTS & JOURNEY ═══ -->
+        <section class="conf-detail-section" id="mahila-yuva-samwad-detail">
+            <div class="conf-detail-header">
+                <div class="conf-detail-icon">🕊️</div>
+                <div class="conf-detail-header-text">
+                    <p class="conf-detail-label">Mahila Yuva Samwad · July 31, 2026</p>
+                    <h2 class="conf-detail-title">Event Highlights &amp; Journey</h2>
+                </div>
+            </div>
+
+            <div class="mys-highlights">
+                <div class="mys-hl-item reveal">
+                    <span class="mys-hl-icon">📅</span>
+                    <p class="mys-hl-label">Date</p>
+                    <p class="mys-hl-value">31 July 2026</p>
+                </div>
+                <div class="mys-hl-item reveal reveal-d1">
+                    <span class="mys-hl-icon">⏰</span>
+                    <p class="mys-hl-label">Registration Deadline</p>
+                    <p class="mys-hl-value">20 July 2026</p>
+                </div>
+                <div class="mys-hl-item reveal reveal-d2">
+                    <span class="mys-hl-icon">🎟️</span>
+                    <p class="mys-hl-label">Registration Fee</p>
+                    <p class="mys-hl-value">Absolutely FREE</p>
+                </div>
+                <div class="mys-hl-item reveal">
+                    <span class="mys-hl-icon">📍</span>
+                    <p class="mys-hl-label">Venue</p>
+                    <p class="mys-hl-value">Haryana Vidhan Sabha</p>
+                </div>
+                <div class="mys-hl-item reveal reveal-d1">
+                    <span class="mys-hl-icon">👥</span>
+                    <p class="mys-hl-label">Eligibility</p>
+                    <p class="mys-hl-value">Ages 18–24 · All genders welcome</p>
+                </div>
+                <div class="mys-hl-item reveal reveal-d2">
+                    <span class="mys-hl-icon">🕯️</span>
+                    <p class="mys-hl-label">Occasion</p>
+                    <p class="mys-hl-value">Shaheedi Diwas of Shaheed Udham Singh Ji</p>
+                </div>
+                <div class="mys-hl-item reveal">
+                    <span class="mys-hl-icon">🏆</span>
+                    <p class="mys-hl-label">Prizes</p>
+                    <p class="mys-hl-value">Exciting Prizes Await</p>
+                </div>
+                <div class="mys-hl-item reveal reveal-d1">
+                    <span class="mys-hl-icon">🍽️</span>
+                    <p class="mys-hl-label">Refreshments</p>
+                    <p class="mys-hl-value">Complimentary for all delegates</p>
+                </div>
+            </div>
+
+            <p class="mys-inclusive-note reveal">📢 <strong>Mahila Yuva Samwad is open to both males and females (age 18–24). There are absolutely no restrictions based on gender.</strong> We look forward to welcoming enthusiastic young voices from across the country.</p>
+
+            <div class="mys-journey">
+                <div class="mys-journey-eyebrow">
+                    <span class="mys-journey-eyebrow-line"></span>
+                    <span>The Journey So Far — Haryana Yuva Samwad</span>
+                    <span class="mys-journey-eyebrow-line"></span>
+                </div>
+                <div class="mys-journey-track">
+                    <a class="mys-journey-card reveal" href="https://www.instagram.com/p/DH9AASiyOk7/?igsh=em96eGdrNm5rM3I3" target="_blank" rel="noopener">
+                        <div class="mys-journey-img" style="background-image:url('/images/haryana_yuva_samvad_2026-1.jpg')"></div>
+                        <div class="mys-journey-scrim"></div>
+                        <span class="mys-journey-badge">📸</span>
+                        <div class="mys-journey-caption">
+                            <span class="mys-journey-num">Moment 01</span>
+                            <span class="mys-journey-cta">Watch on Instagram ↗</span>
+                        </div>
+                    </a>
+                    <a class="mys-journey-card reveal reveal-d1" href="https://www.instagram.com/p/DH-lqZ0CsC0/?igsh=dGR4c3RnamRqdjQ=" target="_blank" rel="noopener">
+                        <div class="mys-journey-img" style="background-image:url('/images/haryana_yuva_samvad_2026-2.jpg')"></div>
+                        <div class="mys-journey-scrim"></div>
+                        <span class="mys-journey-badge">📸</span>
+                        <div class="mys-journey-caption">
+                            <span class="mys-journey-num">Moment 02</span>
+                            <span class="mys-journey-cta">Watch on Instagram ↗</span>
+                        </div>
+                    </a>
+                    <a class="mys-journey-card reveal reveal-d2" href="https://www.instagram.com/p/DIAkYfRyZdc/?igsh=b3B6bWJyem51MHlq" target="_blank" rel="noopener">
+                        <div class="mys-journey-img" style="background-image:url('/images/haryana_yuva_samvad_2026-3.jpg')"></div>
+                        <div class="mys-journey-scrim"></div>
+                        <span class="mys-journey-badge">📸</span>
+                        <div class="mys-journey-caption">
+                            <span class="mys-journey-num">Moment 03</span>
+                            <span class="mys-journey-cta">Watch on Instagram ↗</span>
+                        </div>
+                    </a>
+                    <a class="mys-journey-card reveal" href="https://www.instagram.com/p/DIDge58SRhX/?igsh=MWRtZ3B0ZHgyN3R2cA==" target="_blank" rel="noopener">
+                        <div class="mys-journey-img" style="background-image:url('/images/haryana_yuva_samvad_2026-4.jpg')"></div>
+                        <div class="mys-journey-scrim"></div>
+                        <span class="mys-journey-badge">📸</span>
+                        <div class="mys-journey-caption">
+                            <span class="mys-journey-num">Moment 04</span>
+                            <span class="mys-journey-cta">Watch on Instagram ↗</span>
+                        </div>
+                    </a>
+                    <a class="mys-journey-card reveal reveal-d1" href="https://www.instagram.com/reel/DIszBIMR0LD/?igsh=MXVoaWE4a2dwbTVxdw==" target="_blank" rel="noopener">
+                        <div class="mys-journey-img" style="background-image:url('/images/haryana_yuva_samvad_2026-5.jpg')"></div>
+                        <div class="mys-journey-scrim"></div>
+                        <span class="mys-journey-badge">▶️</span>
+                        <div class="mys-journey-caption">
+                            <span class="mys-journey-num">Reel 01</span>
+                            <span class="mys-journey-cta">Watch on Instagram ↗</span>
+                        </div>
+                    </a>
+                    <a class="mys-journey-card reveal reveal-d2" href="https://www.instagram.com/reel/DIKwiGVtyhD/?igsh=bTQ3N3hzZjQ2OXZt" target="_blank" rel="noopener">
+                        <div class="mys-journey-img" style="background-image:url('/images/haryana_yuva_samvad_2026-6.jpg')"></div>
+                        <div class="mys-journey-scrim"></div>
+                        <span class="mys-journey-badge">▶️</span>
+                        <div class="mys-journey-caption">
+                            <span class="mys-journey-num">Reel 02</span>
+                            <span class="mys-journey-cta">Watch on Instagram ↗</span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+            <!-- reg strip -->
+            <div class="conf-detail-reg">
+                <div class="conf-detail-reg-text">
+                    <p class="conf-detail-reg-label">Register for Mahila Yuva Samwad</p>
+                    <p class="conf-detail-reg-desc">Haryana Vidhan Sabha · July 31, 2026 · Deadline July 20, 2026 · FREE Entry</p>
+                </div>
+                <div class="conf-detail-reg-btns">
+                    <a href="https://docs.google.com/forms/d/e/1FAIpQLScmWZm7zxNqqGnpBrgnge17IuoMF6vOrvmH8Zm5RKkcb8QXFg/viewform" target="_blank" rel="noopener" class="conf-detail-reg-btn conf-detail-reg-btn--a">🕊️ Register Now — FREE</a>
+                </div>
+            </div>
+        </section>
 
         <!-- ═══ GLOBAL PANCHAYAT 3.0 — COMMITTEE DETAIL ═══ -->
         <section class="conf-detail-section" id="gp-committees">
@@ -1126,137 +1258,6 @@
             </div>
         </section>
 
-        <!-- ═══ MAHILA YUVA SAMWAD — HIGHLIGHTS & JOURNEY ═══ -->
-        <section class="conf-detail-section" id="mahila-yuva-samwad-detail">
-            <div class="conf-detail-header">
-                <div class="conf-detail-icon">🕊️</div>
-                <div class="conf-detail-header-text">
-                    <p class="conf-detail-label">Mahila Yuva Samwad · July 31, 2026</p>
-                    <h2 class="conf-detail-title">Event Highlights &amp; Journey</h2>
-                </div>
-            </div>
-
-            <div class="mys-highlights">
-                <div class="mys-hl-item reveal">
-                    <span class="mys-hl-icon">📅</span>
-                    <p class="mys-hl-label">Date</p>
-                    <p class="mys-hl-value">31 July 2026</p>
-                </div>
-                <div class="mys-hl-item reveal reveal-d1">
-                    <span class="mys-hl-icon">⏰</span>
-                    <p class="mys-hl-label">Registration Deadline</p>
-                    <p class="mys-hl-value">20 July 2026</p>
-                </div>
-                <div class="mys-hl-item reveal reveal-d2">
-                    <span class="mys-hl-icon">🎟️</span>
-                    <p class="mys-hl-label">Registration Fee</p>
-                    <p class="mys-hl-value">Absolutely FREE</p>
-                </div>
-                <div class="mys-hl-item reveal">
-                    <span class="mys-hl-icon">📍</span>
-                    <p class="mys-hl-label">Venue</p>
-                    <p class="mys-hl-value">Haryana Vidhan Sabha</p>
-                </div>
-                <div class="mys-hl-item reveal reveal-d1">
-                    <span class="mys-hl-icon">👥</span>
-                    <p class="mys-hl-label">Eligibility</p>
-                    <p class="mys-hl-value">Ages 18–24 · All genders welcome</p>
-                </div>
-                <div class="mys-hl-item reveal reveal-d2">
-                    <span class="mys-hl-icon">🕯️</span>
-                    <p class="mys-hl-label">Occasion</p>
-                    <p class="mys-hl-value">Shaheedi Diwas of Shaheed Udham Singh Ji</p>
-                </div>
-                <div class="mys-hl-item reveal">
-                    <span class="mys-hl-icon">🏆</span>
-                    <p class="mys-hl-label">Prizes</p>
-                    <p class="mys-hl-value">Exciting Prizes Await</p>
-                </div>
-                <div class="mys-hl-item reveal reveal-d1">
-                    <span class="mys-hl-icon">🍽️</span>
-                    <p class="mys-hl-label">Refreshments</p>
-                    <p class="mys-hl-value">Complimentary for all delegates</p>
-                </div>
-            </div>
-
-            <p class="mys-inclusive-note reveal">📢 Mahila Yuva Samwad is open to both males and females (age 18–24). There are absolutely no restrictions based on gender — we look forward to welcoming enthusiastic young voices from across the country.</p>
-
-            <div class="mys-journey">
-                <div class="mys-journey-eyebrow">
-                    <span class="mys-journey-eyebrow-line"></span>
-                    <span>The Journey So Far — Haryana Yuva Samwad</span>
-                    <span class="mys-journey-eyebrow-line"></span>
-                </div>
-                <div class="mys-journey-track">
-                    <a class="mys-journey-card reveal" href="https://www.instagram.com/p/DH9AASiyOk7/?igsh=em96eGdrNm5rM3I3" target="_blank" rel="noopener">
-                        <div class="mys-journey-img" style="background-image:url('/images/haryana_yuva_samvad_2026-1.jpg')"></div>
-                        <div class="mys-journey-scrim"></div>
-                        <span class="mys-journey-badge">📸</span>
-                        <div class="mys-journey-caption">
-                            <span class="mys-journey-num">Moment 01</span>
-                            <span class="mys-journey-cta">Watch on Instagram ↗</span>
-                        </div>
-                    </a>
-                    <a class="mys-journey-card reveal reveal-d1" href="https://www.instagram.com/p/DH-lqZ0CsC0/?igsh=dGR4c3RnamRqdjQ=" target="_blank" rel="noopener">
-                        <div class="mys-journey-img" style="background-image:url('/images/haryana_yuva_samvad_2026-2.jpg')"></div>
-                        <div class="mys-journey-scrim"></div>
-                        <span class="mys-journey-badge">📸</span>
-                        <div class="mys-journey-caption">
-                            <span class="mys-journey-num">Moment 02</span>
-                            <span class="mys-journey-cta">Watch on Instagram ↗</span>
-                        </div>
-                    </a>
-                    <a class="mys-journey-card reveal reveal-d2" href="https://www.instagram.com/p/DIAkYfRyZdc/?igsh=b3B6bWJyem51MHlq" target="_blank" rel="noopener">
-                        <div class="mys-journey-img" style="background-image:url('/images/haryana_yuva_samvad_2026-3.jpg')"></div>
-                        <div class="mys-journey-scrim"></div>
-                        <span class="mys-journey-badge">📸</span>
-                        <div class="mys-journey-caption">
-                            <span class="mys-journey-num">Moment 03</span>
-                            <span class="mys-journey-cta">Watch on Instagram ↗</span>
-                        </div>
-                    </a>
-                    <a class="mys-journey-card reveal" href="https://www.instagram.com/p/DIDge58SRhX/?igsh=MWRtZ3B0ZHgyN3R2cA==" target="_blank" rel="noopener">
-                        <div class="mys-journey-img" style="background-image:url('/images/haryana_yuva_samvad_2026-4.jpg')"></div>
-                        <div class="mys-journey-scrim"></div>
-                        <span class="mys-journey-badge">📸</span>
-                        <div class="mys-journey-caption">
-                            <span class="mys-journey-num">Moment 04</span>
-                            <span class="mys-journey-cta">Watch on Instagram ↗</span>
-                        </div>
-                    </a>
-                    <a class="mys-journey-card reveal reveal-d1" href="https://www.instagram.com/reel/DIszBIMR0LD/?igsh=MXVoaWE4a2dwbTVxdw==" target="_blank" rel="noopener">
-                        <div class="mys-journey-img" style="background-image:url('/images/haryana_yuva_samvad_2026-5.jpg')"></div>
-                        <div class="mys-journey-scrim"></div>
-                        <span class="mys-journey-badge">▶️</span>
-                        <div class="mys-journey-caption">
-                            <span class="mys-journey-num">Reel 01</span>
-                            <span class="mys-journey-cta">Watch on Instagram ↗</span>
-                        </div>
-                    </a>
-                    <a class="mys-journey-card reveal reveal-d2" href="https://www.instagram.com/reel/DIKwiGVtyhD/?igsh=bTQ3N3hzZjQ2OXZt" target="_blank" rel="noopener">
-                        <div class="mys-journey-img" style="background-image:url('/images/haryana_yuva_samvad_2026-6.jpg')"></div>
-                        <div class="mys-journey-scrim"></div>
-                        <span class="mys-journey-badge">▶️</span>
-                        <div class="mys-journey-caption">
-                            <span class="mys-journey-num">Reel 02</span>
-                            <span class="mys-journey-cta">Watch on Instagram ↗</span>
-                        </div>
-                    </a>
-                </div>
-            </div>
-
-            <!-- reg strip -->
-            <div class="conf-detail-reg">
-                <div class="conf-detail-reg-text">
-                    <p class="conf-detail-reg-label">Register for Mahila Yuva Samwad</p>
-                    <p class="conf-detail-reg-desc">Haryana Vidhan Sabha · July 31, 2026 · Deadline July 20, 2026 · FREE Entry</p>
-                </div>
-                <div class="conf-detail-reg-btns">
-                    <a href="https://docs.google.com/forms/d/e/1FAIpQLScmWZm7zxNqqGnpBrgnge17IuoMF6vOrvmH8Zm5RKkcb8QXFg/viewform" target="_blank" rel="noopener" class="conf-detail-reg-btn conf-detail-reg-btn--a">🕊️ Register Now — FREE</a>
-                </div>
-            </div>
-        </section>
-
         <!-- ═══ WHY ATTEND ═══ -->
         <section class="sec">
             <p class="sec-tag">Why Attend</p>
@@ -1342,12 +1343,12 @@
             <div>
                 <h4 class="footer-col-title">Upcoming Events</h4>
                 <ul class="footer-links">
+                    <li><a href="#mahila-yuva-samwad">Mahila Yuva Samwad</a></li>
                     <li><a href="#global-panchayat">Global Panchayat 3.0</a></li>
                     <li><a href="#junior-un">Junior UN &amp; Yuva Sajhedari 3.0</a></li>
-                    <li><a href="#mahila-yuva-samwad">Mahila Yuva Samwad</a></li>
+                    <li><a href="#mys-reg">Register — Mahila Yuva Samwad</a></li>
                     <li><a href="#gp-reg">Register — JKG Students</a></li>
                     <li><a href="#ys-reg">Register — Silverline Students</a></li>
-                    <li><a href="#mys-reg">Register — Mahila Yuva Samwad</a></li>
                 </ul>
             </div>
             <div>
@@ -1388,9 +1389,9 @@
 
         // Active tab on scroll
         var tabSections = [
+            { tab: document.getElementById('tab-my'), sec: document.getElementById('mahila-yuva-samwad') },
             { tab: document.getElementById('tab-gp'), sec: document.getElementById('global-panchayat') },
-            { tab: document.getElementById('tab-ys'), sec: document.getElementById('junior-un') },
-            { tab: document.getElementById('tab-my'), sec: document.getElementById('mahila-yuva-samwad') }
+            { tab: document.getElementById('tab-ys'), sec: document.getElementById('junior-un') }
         ].filter(function(pair) { return pair.tab && pair.sec; });
 
         if (tabSections.length) {
