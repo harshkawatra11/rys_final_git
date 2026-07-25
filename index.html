@@ -1330,7 +1330,7 @@ html[data-theme="light"] .flagship-strip::after  { background:linear-gradient(to
 ══════════════════════════════════════════ */
 #team { }
 .team-grid {
-  display:grid; grid-template-columns:repeat(4,1fr);
+  display:grid; grid-template-columns:repeat(3,1fr);
   gap:2px; background:var(--border-gold);
   border:1px solid var(--border-gold);
 }
@@ -1351,13 +1351,6 @@ html[data-theme="light"] .flagship-strip::after  { background:linear-gradient(to
 .team-name { font-family:'Cinzel',serif; font-size:1rem; font-weight:600; color:var(--cream); }
 .team-role { font-size:.67rem; letter-spacing:.12em; text-transform:uppercase; color:var(--saffron); margin-top:.2rem; }
 
-/* wide team row for 4 more members */
-.team-grid-b {
-  display:grid; grid-template-columns:repeat(4,1fr);
-  gap:2px; background:var(--border-gold);
-  border:1px solid var(--border-gold);
-  border-top:none;
-}
 
 /* ═══════════════════════════════════════
    MEDIA TICKER
@@ -1514,6 +1507,7 @@ footer {
 .reveal-d2 { transition-delay:.2s; }
 .reveal-d3 { transition-delay:.3s; }
 .reveal-d4 { transition-delay:.4s; }
+.reveal-d5 { transition-delay:.5s; }
 .reveal-left { opacity:0; transform:translateX(-30px); transition:opacity .75s ease, transform .75s ease; }
 .reveal-left.in { opacity:1; transform:translateX(0); }
 .reveal-right { opacity:0; transform:translateX(30px); transition:opacity .75s ease, transform .75s ease; }
@@ -1538,7 +1532,7 @@ footer {
   .upcoming-inner { grid-template-columns:1fr; }
   .dig-grid { grid-template-columns:1fr 1fr; }
   .dig-card { grid-template-columns:1fr; }
-  .team-grid, .team-grid-b { grid-template-columns:1fr 1fr; }
+  .team-grid { grid-template-columns:1fr 1fr; }
   #cta-band { grid-template-columns:1fr; }
   .footer-grid { grid-template-columns:1fr 1fr; gap:2rem; }
   nav { padding:1rem 4vw; }
@@ -1934,8 +1928,7 @@ footer {
   .team-sec {
     padding: 3.2rem 1rem;
   }
-  .team-grid,
-  .team-grid-b {
+  .team-grid {
     grid-template-columns: 1fr 1fr;
     gap: .7rem;
   }
@@ -2035,8 +2028,7 @@ footer {
     min-width: 83vw;
     max-width: 83vw;
   }
-  .team-grid,
-  .team-grid-b {
+  .team-grid {
     grid-template-columns: 1fr;
   }
   .team-img {
@@ -3639,23 +3631,13 @@ Their journey spans institutional engagement across the states of Delhi, Uttar P
       <div class="team-img"><img src="/images/dash-team-shreya.jpg" alt="Shreya Kapoor"></div>
       <div class="team-info"><div class="team-name">Ms. Shreya Kapoor</div><div class="team-role">Member, Core Team</div></div>
     </div>
-  </div>
-  <div class="team-grid-b">
-    <div class="team-card reveal">
+    <div class="team-card reveal reveal-d4">
       <div class="team-img"><img src="/images/dash-team-tanisha.jpg" alt="Tanisha Gupta"></div>
       <div class="team-info"><div class="team-name">Ms. Tanisha Gupta</div><div class="team-role">Member, Core Team</div></div>
     </div>
-    <div class="team-card reveal reveal-d1">
-      <div class="team-img"><img src="/images/dash-team-arsh.jpg" alt="Arsh Khan"></div>
-      <div class="team-info"><div class="team-name">Mr. Arsh Khan</div><div class="team-role">Member, Core Team</div></div>
-    </div>
-    <div class="team-card reveal reveal-d2">
+    <div class="team-card reveal reveal-d5">
       <div class="team-img"><img src="/images/dash-team-kartik.jpg" alt="Kartik Saraswat"></div>
       <div class="team-info"><div class="team-name">Mr. Kartik Saraswat</div><div class="team-role">Member, Core Team</div></div>
-    </div>
-    <div class="team-card reveal reveal-d3">
-      <div class="team-img"><img src="/images/dash-team-zigyasa.jpg" alt="Zigyasa Mishra"></div>
-      <div class="team-info"><div class="team-name">Ms. Zigyasa Mishra</div><div class="team-role">Member, Core Team</div></div>
     </div>
   </div>
 </section>
