@@ -167,8 +167,8 @@
 
   // ─── Countdown Timer ───
   function initCountdown() {
-    // Target: July 24, 2026 — Global Panchayat 3.0
-    var target = new Date('2026-07-24T00:00:00+05:30').getTime();
+    // Target: July 31, 2026 — Mahila Yuva Samwad
+    var target = new Date('2026-07-31T00:00:00+05:30').getTime();
 
     var daysEl = document.querySelector('[data-countdown="days"]');
     var hoursEl = document.querySelector('[data-countdown="hours"]');
