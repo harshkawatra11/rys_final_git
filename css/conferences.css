@@ -42,8 +42,8 @@
 .ch-vignette {
   position:absolute; inset:0; z-index:1; pointer-events:none;
   background:
-    linear-gradient(180deg, rgba(10,22,40,.55) 0%, rgba(10,22,40,.28) 30%, rgba(10,22,40,.28) 70%, rgba(10,22,40,.60) 100%),
-    radial-gradient(ellipse 65% 55% at 50% 50%, rgba(6,15,28,.22) 0%, rgba(10,22,40,.38) 100%);
+    linear-gradient(180deg, rgba(4,9,18,.86) 0%, rgba(4,9,18,.72) 30%, rgba(4,9,18,.72) 70%, rgba(4,9,18,.9) 100%),
+    radial-gradient(ellipse 65% 55% at 50% 50%, rgba(2,6,12,.6) 0%, rgba(4,9,18,.78) 100%);
 }
 
 /* ─── Particles ─── */
