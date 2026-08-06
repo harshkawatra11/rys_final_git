@@ -13,21 +13,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Upcoming Conferences — Rajdhani Yuva Sansad</title>
-    <meta name="description" content="Explore upcoming conferences by Rajdhani Yuva Sansad — Mahila Yuva Samwad and Junior United Nations & Yuva Sajhedari 3.0. Register as a delegate today.">
+    <meta name="description" content="Explore upcoming conferences by Rajdhani Yuva Sansad — Junior United Nations & Yuva Sajhedari 3.0. Register as a delegate today.">
     <link rel="canonical" href="https://www.rajdhaniyuvasansad.com/upcoming/">
     <!-- Open Graph -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://www.rajdhaniyuvasansad.com/upcoming/">
     <meta property="og:title" content="Upcoming Conferences — Rajdhani Yuva Sansad">
-    <meta property="og:description" content="Explore upcoming conferences by Rajdhani Yuva Sansad — Mahila Yuva Samwad and Junior United Nations & Yuva Sajhedari 3.0. Register as a delegate today.">
+    <meta property="og:description" content="Explore upcoming conferences by Rajdhani Yuva Sansad — Junior United Nations & Yuva Sajhedari 3.0. Register as a delegate today.">
     <meta property="og:image" content="https://www.rajdhaniyuvasansad.com/images/haryana_yuva_samvad_2026-cover.jpg">
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Upcoming Conferences — Rajdhani Yuva Sansad">
-    <meta name="twitter:description" content="Explore upcoming conferences by Rajdhani Yuva Sansad — Mahila Yuva Samwad and Junior United Nations & Yuva Sajhedari 3.0. Register as a delegate today.">
+    <meta name="twitter:description" content="Explore upcoming conferences by Rajdhani Yuva Sansad — Junior United Nations & Yuva Sajhedari 3.0. Register as a delegate today.">
     <meta name="twitter:image" content="https://www.rajdhaniyuvasansad.com/images/haryana_yuva_samvad_2026-cover.jpg">
     <!-- SEO -->
-    <meta name="keywords" content="Rajdhani Yuva Sansad upcoming, upcoming conferences, Mahila Yuva Samwad, Junior United Nations, Yuva Sajhedari, delegate registration, Model UN, Youth Parliament, MUN, student conference, youth conference, public speaking, leadership">
+    <meta name="keywords" content="Rajdhani Yuva Sansad upcoming, upcoming conferences, Junior United Nations, Yuva Sajhedari, delegate registration, Model UN, Youth Parliament, MUN, student conference, youth conference, public speaking, leadership">
     <meta name="robots" content="index, follow">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -47,75 +47,18 @@
 
     <style>
     /* ═══════════════════════════════════════════════════════════
-       UPCOMING PAGE — COMPLETE REDESIGN
-       Two-conference equal-weight tabbed layout
+       UPCOMING PAGE — single-conference layout
     ═══════════════════════════════════════════════════════════ */
 
-    /* ─── Conf-Switch Bar (sticky below nav) ─── */
-    .conf-nav {
-        position: sticky; top: 60px; z-index: 90;
-        background: var(--navy-deep);
-        border-bottom: 1px solid var(--border-gold);
-        display: flex; align-items: center; justify-content: center;
-        gap: 0; padding: 0;
-        backdrop-filter: blur(12px);
-    }
-    .conf-nav-tab {
-        flex: 1; max-width: 420px;
-        display: flex; flex-direction: column; align-items: center;
-        padding: .85rem 1.5rem .8rem;
-        cursor: pointer; border: none; background: transparent;
-        border-bottom: 2px solid transparent;
-        transition: background .25s, border-color .25s;
-        text-decoration: none;
-        position: relative;
-    }
-    .conf-nav-tab::after {
-        content: ''; position: absolute; bottom: -2px; left: 0; right: 0;
-        height: 2px; background: var(--saffron);
-        transform: scaleX(0); transition: transform .3s cubic-bezier(.22,1,.36,1);
-    }
-    .conf-nav-tab.active::after,
-    .conf-nav-tab:hover::after { transform: scaleX(1); }
-    .conf-nav-tab.active { background: rgba(212,80,10,.04); }
-    .conf-nav-tab-date {
-        font-size: .55rem; letter-spacing: .2em; text-transform: uppercase;
-        color: var(--gold-light); font-weight: 700; margin-bottom: .15rem;
-    }
-    .conf-nav-tab-title {
-        font-family: 'Cinzel', serif; font-size: .8rem; font-weight: 700;
-        color: var(--cream); white-space: nowrap; overflow: hidden;
-        text-overflow: ellipsis; max-width: 100%;
-    }
-    .conf-nav-tab.active .conf-nav-tab-title { color: var(--saffron); }
-    .conf-nav-sep {
-        width: 1px; height: 36px; background: var(--border-gold);
-        flex-shrink: 0;
-    }
-    /* badge pulse on both tabs */
-    .conf-nav-tab-badge {
-        display: inline-flex; align-items: center; gap: .3rem;
-        font-size: .5rem; color: var(--saffron);
-        font-weight: 700; letter-spacing: .12em; margin-top: .2rem;
-    }
-    .conf-nav-tab-badge-dot {
-        width: 5px; height: 5px; border-radius: 50%;
-        background: var(--saffron);
-        animation: tabPulse 1.8s ease-in-out infinite;
-    }
-    @keyframes tabPulse {
-        0%,100% { box-shadow: 0 0 0 0 rgba(212,80,10,.5); }
-        50%      { box-shadow: 0 0 0 5px rgba(212,80,10,0); }
-    }
-
-    /* ─── Overview Cards (both visible together) ─── */
+    /* ─── Overview Card ─── */
     .conf-overview {
         padding: 3.5rem 5vw 2rem;
         max-width: 1200px; margin: 0 auto;
     }
     .conf-overview-grid {
         display: grid;
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: minmax(0, 640px);
+        justify-content: center;
         gap: 2rem;
     }
     .conf-card {
@@ -132,24 +75,11 @@
         box-shadow: 0 24px 64px rgba(0,0,0,.3);
     }
     .conf-card--ys:hover  { border-color: rgba(184,137,42,.4); }
-    .conf-card--my:hover  { border-color: rgba(184,137,42,.4); }
 
     /* accent top-bar */
     .conf-card--ys::before {
         content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
         background: linear-gradient(90deg, var(--gold-light), var(--saffron));
-    }
-    .conf-card--my::before {
-        content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
-        background: linear-gradient(90deg, var(--saffron), var(--gold-light), var(--saffron));
-        background-size: 200% 100%;
-        animation: ucMiniShimmer 3s ease-in-out infinite;
-    }
-    .conf-card--my .conf-card-reg-btns {
-        flex-direction: row;
-    }
-    .conf-card--my .conf-card-reg-btn {
-        width: 100%;
     }
     @keyframes ucMiniShimmer {
         0%   { background-position: 200% 0; }
@@ -476,7 +406,6 @@
     }
 
     /* ─── Light Mode ─── */
-    html[data-theme="light"] .conf-nav { background: rgba(250,248,243,.95); }
     html[data-theme="light"] .conf-card { background: rgba(255,255,255,.7); }
     html[data-theme="light"] .conf-card-reg { border-top-color: rgba(184,137,42,.15); }
     html[data-theme="light"] .conf-grade-panel { background: rgba(255,255,255,.7); }
@@ -498,135 +427,10 @@
         .highlights-stats { grid-template-columns: 1fr 1fr; }
     }
     @media(max-width: 600px) {
-        .conf-nav-tab-title { font-size: .68rem; }
         .conf-detail-reg { flex-direction: column; align-items: flex-start; }
         .why-grid, .highlights-stats { grid-template-columns: 1fr; }
     }
 
-    /* ─── Mahila Yuva Samwad: Highlights grid ─── */
-    .mys-highlights {
-        max-width: 1200px; margin: 0 auto 3rem;
-        display: grid; grid-template-columns: repeat(4, 1fr);
-        gap: 1rem;
-    }
-    .mys-hl-item {
-        background: var(--navy-deep); border: 1px solid var(--border-gold);
-        border-radius: 8px; padding: 1.1rem 1rem;
-        transition: border-color .25s, transform .25s;
-    }
-    .mys-hl-item:hover { border-color: rgba(212,80,10,.28); transform: translateY(-2px); }
-    .mys-hl-icon { font-size: 1.3rem; margin-bottom: .5rem; display: block; }
-    .mys-hl-label {
-        font-size: .56rem; letter-spacing: .14em; text-transform: uppercase;
-        color: var(--gold-light); font-weight: 700; margin-bottom: .3rem;
-    }
-    .mys-hl-value {
-        font-family: 'Cinzel', serif; font-size: .88rem; font-weight: 700;
-        color: var(--cream); line-height: 1.4;
-    }
-
-    .mys-inclusive-note {
-        max-width: 1200px; margin: -1.4rem auto 2.4rem;
-        font-size: .78rem; color: var(--dim2); line-height: 1.65;
-        padding: 1rem 1.2rem; border-left: 2px solid var(--saffron);
-        background: rgba(212,80,10,.04); border-radius: 0 6px 6px 0;
-    }
-    .mys-inclusive-note strong { color: var(--cream); font-weight: 700; }
-
-    /* ─── Mahila Yuva Samwad: Journey gallery ─── */
-    .mys-journey { max-width: 1200px; margin: 0 auto; }
-    .mys-journey-eyebrow {
-        display: flex; align-items: center; gap: .8rem;
-        margin-bottom: 1.4rem;
-    }
-    .mys-journey-eyebrow-line {
-        flex: 1; height: 1px; background: linear-gradient(90deg, var(--border-gold), transparent);
-    }
-    .mys-journey-eyebrow span {
-        font-family: 'Cinzel', serif; font-size: .68rem; letter-spacing: .2em; text-transform: uppercase;
-        color: var(--gold-light); font-weight: 700; white-space: nowrap;
-    }
-    .mys-journey-track {
-        display: grid; grid-template-columns: repeat(6, 1fr);
-        gap: 1rem;
-    }
-    .mys-journey-card {
-        position: relative; aspect-ratio: 3 / 4.6; border-radius: 10px;
-        overflow: hidden; display: block; text-decoration: none;
-        border: 1px solid var(--border-gold);
-        animation: mysFloat 5s ease-in-out infinite;
-        transition: border-color .3s, transform .4s cubic-bezier(.22,1,.36,1);
-    }
-    .mys-journey-card:nth-child(2) { animation-delay: .3s; }
-    .mys-journey-card:nth-child(3) { animation-delay: .6s; }
-    .mys-journey-card:nth-child(4) { animation-delay: .9s; }
-    .mys-journey-card:nth-child(5) { animation-delay: 1.2s; }
-    .mys-journey-card:nth-child(6) { animation-delay: 1.5s; }
-    .mys-journey-card::before {
-        content: ''; position: absolute; inset: 0; z-index: 1;
-        padding: 1.5px; border-radius: 10px;
-        background: linear-gradient(120deg, var(--saffron), var(--gold-light), var(--saffron));
-        background-size: 200% 100%;
-        -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-        -webkit-mask-composite: xor; mask-composite: exclude;
-        opacity: 0; transition: opacity .4s;
-        animation: ucMiniShimmer 3s ease-in-out infinite;
-    }
-    .mys-journey-card:hover { transform: translateY(-6px); border-color: transparent; }
-    .mys-journey-card:hover::before { opacity: 1; }
-    .mys-journey-img {
-        position: absolute; inset: 0; width: 100%; height: 100%;
-        background-size: cover; background-position: center;
-        transition: transform .7s cubic-bezier(.22,1,.36,1);
-    }
-    .mys-journey-card:hover .mys-journey-img { transform: scale(1.1); }
-    .mys-journey-scrim {
-        position: absolute; inset: 0; z-index: 1;
-        background: linear-gradient(180deg, rgba(11,20,38,.05) 0%, rgba(11,20,38,.35) 55%, rgba(11,20,38,.92) 100%);
-    }
-    .mys-journey-badge {
-        position: absolute; top: 10px; right: 10px; z-index: 2;
-        width: 30px; height: 30px; border-radius: 50%;
-        background: rgba(11,20,38,.55); backdrop-filter: blur(6px);
-        border: 1px solid rgba(255,255,255,.18);
-        display: flex; align-items: center; justify-content: center;
-        font-size: .8rem; color: var(--cream);
-    }
-    .mys-journey-caption {
-        position: absolute; left: 0; right: 0; bottom: 0; z-index: 2;
-        padding: .8rem .8rem .9rem;
-        transform: translateY(4px); transition: transform .35s;
-    }
-    .mys-journey-num {
-        font-family: 'Cinzel', serif; font-size: .58rem; letter-spacing: .12em;
-        text-transform: uppercase; color: var(--gold-light); font-weight: 700;
-        display: block; margin-bottom: .2rem;
-    }
-    .mys-journey-cta {
-        font-size: .64rem; color: var(--cream); opacity: 0;
-        display: flex; align-items: center; gap: .3rem;
-        transition: opacity .35s;
-    }
-    .mys-journey-card:hover .mys-journey-cta { opacity: 1; }
-    .mys-journey-card:hover .mys-journey-caption { transform: translateY(0); }
-
-    @keyframes mysFloat {
-        0%, 100% { transform: translateY(0); }
-        50% { transform: translateY(-5px); }
-    }
-    @media (prefers-reduced-motion: reduce) {
-        .mys-journey-card, .mys-journey-card::before, .mys-journey-img, .conf-card--my::before {
-            animation: none !important; transition: none !important;
-        }
-    }
-    @media(max-width: 900px) {
-        .mys-highlights { grid-template-columns: 1fr 1fr; }
-        .mys-journey-track { grid-template-columns: repeat(3, 1fr); }
-    }
-    @media(max-width: 600px) {
-        .mys-highlights { grid-template-columns: 1fr; }
-        .mys-journey-track { grid-template-columns: repeat(2, 1fr); }
-    }
     </style>
 
 </head>
@@ -693,9 +497,9 @@
                     <span class="uc-hero-ey-line"></span>
                 </div>
                 <h1 class="uc-hero-title" id="heroTitle"></h1>
-                <p class="uc-hero-sub">2 upcoming conferences — both registration forms open now. Find your event below and secure your spot.</p>
+                <p class="uc-hero-sub">1 upcoming conference — registration is open now. Find the event below and secure your spot.</p>
 
-                <!-- Countdown to Mahila Yuva Samwad -->
+                <!-- Countdown to Junior UN & Yuva Sajhedari 3.0 -->
                 <div class="uc-hero-countdown" id="ucCountdown">
                     <div class="uc-cd-block">
                         <div class="uc-cd-flip"><span class="uc-cd-num" data-countdown="days">--</span></div>
@@ -717,11 +521,11 @@
                         <span class="uc-cd-label">Seconds</span>
                     </div>
                 </div>
-                <p style="font-size:.62rem;color:var(--dim2);text-align:center;margin-top:-.6rem;letter-spacing:.1em;">Until Mahila Yuva Samwad — July 31, 2026</p>
+                <p style="font-size:.62rem;color:var(--dim2);text-align:center;margin-top:-.6rem;letter-spacing:.1em;">Until Junior UN &amp; Yuva Sajhedari 3.0 — August 21, 2026</p>
 
                 <div class="uc-hero-actions">
-                    <a href="#conference-overview" class="btn-fire uc-magnetic">⚑ View Both Conferences</a>
-                    <a href="#mys-reg" class="btn-ghost uc-magnetic">Register Now →</a>
+                    <a href="#conference-overview" class="btn-fire uc-magnetic">⚑ View Conference Details</a>
+                    <a href="#ys-reg" class="btn-ghost uc-magnetic">Register Now →</a>
                 </div>
             </div>
 
@@ -734,8 +538,6 @@
         <!-- ═══ MARQUEE ═══ -->
         <div class="uc-marquee-wrap">
             <div class="uc-marquee" id="ucMarquee">
-                <span>Mahila Yuva Samwad — July 31, 2026 <i class="uc-marquee-dot"></i></span>
-                <span>Haryana Vidhan Sabha · FREE · Ages 16–24 <i class="uc-marquee-dot"></i></span>
                 <span>Junior United Nations — August 21, 2026 <i class="uc-marquee-dot"></i></span>
                 <span>Yuva Sajhedari 3.0 — August 21–22, 2026 <i class="uc-marquee-dot"></i></span>
                 <span>UNSC · WTO · CBFC <i class="uc-marquee-dot"></i></span>
@@ -743,8 +545,6 @@
                 <span>Silverline Prestige School <i class="uc-marquee-dot"></i></span>
                 <span>Empowering Young Voices <i class="uc-marquee-dot"></i></span>
                 <!-- duplicate -->
-                <span>Mahila Yuva Samwad — July 31, 2026 <i class="uc-marquee-dot"></i></span>
-                <span>Haryana Vidhan Sabha · FREE · Ages 16–24 <i class="uc-marquee-dot"></i></span>
                 <span>Junior United Nations — August 21, 2026 <i class="uc-marquee-dot"></i></span>
                 <span>Yuva Sajhedari 3.0 — August 21–22, 2026 <i class="uc-marquee-dot"></i></span>
                 <span>UNSC · WTO · CBFC <i class="uc-marquee-dot"></i></span>
@@ -754,64 +554,12 @@
             </div>
         </div>
 
-        <!-- ═══ STICKY CONFERENCE SWITCHER ═══ -->
-        <nav class="conf-nav" aria-label="Conference Navigation">
-            <a href="#mahila-yuva-samwad" class="conf-nav-tab active" id="tab-my">
-                <span class="conf-nav-tab-date">July 31, 2026</span>
-                <span class="conf-nav-tab-title">Mahila Yuva Samwad</span>
-                <span class="conf-nav-tab-badge"><span class="conf-nav-tab-badge-dot"></span> Ages 16–24</span>
-            </a>
-            <div class="conf-nav-sep"></div>
-            <a href="#junior-un" class="conf-nav-tab" id="tab-ys">
-                <span class="conf-nav-tab-date">August 21–22, 2026</span>
-                <span class="conf-nav-tab-title">Junior UN & Yuva Sajhedari 3.0</span>
-                <span class="conf-nav-tab-badge"><span class="conf-nav-tab-badge-dot"></span> Grades 3–8</span>
-            </a>
-        </nav>
-
-        <!-- ═══ DUAL OVERVIEW CARDS ═══ -->
+        <!-- ═══ OVERVIEW CARD ═══ -->
         <div class="conf-overview" id="conference-overview">
             <div class="conf-overview-grid">
 
-                <!-- ── Card 1: Mahila Yuva Samwad ── -->
-                <div class="conf-card conf-card--my reveal" id="mahila-yuva-samwad">
-                    <div class="conf-card-img">
-                        <img src="/images/mahila_yuva_samwad_2026-cover.png" alt="Mahila Yuva Samwad" loading="lazy"
-                             onerror="this.src='/images/haryana_yuva_samvad_2026-cover.jpg'">
-                        <div class="conf-card-img-overlay"></div>
-                        <span class="conf-card-badge"><span class="conf-card-badge-dot"></span> Registration Open</span>
-                        <span class="conf-card-date-chip">📅 July 31, 2026</span>
-                    </div>
-                    <div class="conf-card-body">
-                        <p class="conf-card-tag">Haryana Vidhan Sabha · Special Edition</p>
-                        <h2 class="conf-card-name">Mahila Yuva Samwad</h2>
-                        <p class="conf-card-host">In association with <strong>Rajdhani Yuva Sansad</strong></p>
-                        <p class="conf-card-tagline">"Step into history — raise your voice, and lead with courage, conviction, and purpose."</p>
-                        <div class="conf-card-meta">
-                            <span class="conf-card-meta-item">📍 <strong>Haryana Vidhan Sabha</strong></span>
-                            <span class="conf-card-meta-item">👥 <strong>Ages 16–24</strong></span>
-                            <span class="conf-card-meta-item">🎟️ <strong>FREE Entry</strong></span>
-                        </div>
-
-                        <a href="#mahila-yuva-samwad-detail" class="conf-card-more">View event highlights &amp; journey ↓</a>
-                    </div>
-                    <div class="conf-card-reg" id="mys-reg">
-                        <p class="conf-card-reg-label">Registration is completely free</p>
-                        <div class="conf-card-reg-btns">
-                            <a href="https://docs.google.com/forms/d/e/1FAIpQLScmWZm7zxNqqGnpBrgnge17IuoMF6vOrvmH8Zm5RKkcb8QXFg/viewform" target="_blank" rel="noopener" class="conf-card-reg-btn conf-card-reg-btn--primary">
-                                <span class="conf-card-reg-icon">🕊️</span>
-                                <span class="conf-card-reg-text">
-                                    <span class="conf-card-reg-type">Register Now — It's FREE</span>
-                                    <span class="conf-card-reg-sub">Open to all · Ages 16–24 · Deadline July 20, 2026</span>
-                                </span>
-                                <span class="conf-card-reg-arrow">→</span>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- ── Card 2: Junior UN & Yuva Sajhedari 3.0 ── -->
-                <div class="conf-card conf-card--ys reveal reveal-d1" id="junior-un">
+                <!-- ── Junior UN & Yuva Sajhedari 3.0 ── -->
+                <div class="conf-card conf-card--ys reveal" id="junior-un">
                     <div class="conf-card-img">
                         <img src="/images/yuva_sajhedari_2-cover.jpg" alt="Junior United Nations & Yuva Sajhedari 3.0" loading="lazy"
                              onerror="this.src='/images/global_panchayat_2-cover.jpg'">
@@ -858,136 +606,6 @@
             </div>
         </div>
 
-        <!-- ═══ MAHILA YUVA SAMWAD — HIGHLIGHTS & JOURNEY ═══ -->
-        <section class="conf-detail-section" id="mahila-yuva-samwad-detail">
-            <div class="conf-detail-header">
-                <div class="conf-detail-icon">🕊️</div>
-                <div class="conf-detail-header-text">
-                    <p class="conf-detail-label">Mahila Yuva Samwad · July 31, 2026</p>
-                    <h2 class="conf-detail-title">Event Highlights &amp; Journey</h2>
-                </div>
-            </div>
-
-            <div class="mys-highlights">
-                <div class="mys-hl-item reveal">
-                    <span class="mys-hl-icon">📅</span>
-                    <p class="mys-hl-label">Date</p>
-                    <p class="mys-hl-value">31 July 2026</p>
-                </div>
-                <div class="mys-hl-item reveal reveal-d1">
-                    <span class="mys-hl-icon">⏰</span>
-                    <p class="mys-hl-label">Registration Deadline</p>
-                    <p class="mys-hl-value">20 July 2026</p>
-                </div>
-                <div class="mys-hl-item reveal reveal-d2">
-                    <span class="mys-hl-icon">🎟️</span>
-                    <p class="mys-hl-label">Registration Fee</p>
-                    <p class="mys-hl-value">Absolutely FREE</p>
-                </div>
-                <div class="mys-hl-item reveal">
-                    <span class="mys-hl-icon">📍</span>
-                    <p class="mys-hl-label">Venue</p>
-                    <p class="mys-hl-value">Haryana Vidhan Sabha</p>
-                </div>
-                <div class="mys-hl-item reveal reveal-d1">
-                    <span class="mys-hl-icon">👥</span>
-                    <p class="mys-hl-label">Eligibility</p>
-                    <p class="mys-hl-value">Ages 16–24 · All genders welcome</p>
-                </div>
-                <div class="mys-hl-item reveal reveal-d2">
-                    <span class="mys-hl-icon">🕯️</span>
-                    <p class="mys-hl-label">Occasion</p>
-                    <p class="mys-hl-value">Shaheedi Diwas of Shaheed Udham Singh Ji</p>
-                </div>
-                <div class="mys-hl-item reveal">
-                    <span class="mys-hl-icon">🏆</span>
-                    <p class="mys-hl-label">Prizes</p>
-                    <p class="mys-hl-value">Exciting Prizes Await</p>
-                </div>
-                <div class="mys-hl-item reveal reveal-d1">
-                    <span class="mys-hl-icon">🍽️</span>
-                    <p class="mys-hl-label">Refreshments</p>
-                    <p class="mys-hl-value">Complimentary for all delegates</p>
-                </div>
-            </div>
-
-            <p class="mys-inclusive-note reveal">📢 <strong>Mahila Yuva Samwad is open to both males and females (age 16–24). There are absolutely no restrictions based on gender.</strong> We look forward to welcoming enthusiastic young voices from across the country.</p>
-
-            <div class="mys-journey">
-                <div class="mys-journey-eyebrow">
-                    <span class="mys-journey-eyebrow-line"></span>
-                    <span>The Journey So Far — Haryana Yuva Samwad</span>
-                    <span class="mys-journey-eyebrow-line"></span>
-                </div>
-                <div class="mys-journey-track">
-                    <a class="mys-journey-card reveal" href="https://www.instagram.com/p/DH9AASiyOk7/?igsh=em96eGdrNm5rM3I3" target="_blank" rel="noopener">
-                        <div class="mys-journey-img" style="background-image:url('/images/haryana_yuva_samvad_2026-1.jpg')"></div>
-                        <div class="mys-journey-scrim"></div>
-                        <span class="mys-journey-badge">📸</span>
-                        <div class="mys-journey-caption">
-                            <span class="mys-journey-num">Moment 01</span>
-                            <span class="mys-journey-cta">Watch on Instagram ↗</span>
-                        </div>
-                    </a>
-                    <a class="mys-journey-card reveal reveal-d1" href="https://www.instagram.com/p/DH-lqZ0CsC0/?igsh=dGR4c3RnamRqdjQ=" target="_blank" rel="noopener">
-                        <div class="mys-journey-img" style="background-image:url('/images/haryana_yuva_samvad_2026-2.jpg')"></div>
-                        <div class="mys-journey-scrim"></div>
-                        <span class="mys-journey-badge">📸</span>
-                        <div class="mys-journey-caption">
-                            <span class="mys-journey-num">Moment 02</span>
-                            <span class="mys-journey-cta">Watch on Instagram ↗</span>
-                        </div>
-                    </a>
-                    <a class="mys-journey-card reveal reveal-d2" href="https://www.instagram.com/p/DIAkYfRyZdc/?igsh=b3B6bWJyem51MHlq" target="_blank" rel="noopener">
-                        <div class="mys-journey-img" style="background-image:url('/images/haryana_yuva_samvad_2026-3.jpg')"></div>
-                        <div class="mys-journey-scrim"></div>
-                        <span class="mys-journey-badge">📸</span>
-                        <div class="mys-journey-caption">
-                            <span class="mys-journey-num">Moment 03</span>
-                            <span class="mys-journey-cta">Watch on Instagram ↗</span>
-                        </div>
-                    </a>
-                    <a class="mys-journey-card reveal" href="https://www.instagram.com/p/DIDge58SRhX/?igsh=MWRtZ3B0ZHgyN3R2cA==" target="_blank" rel="noopener">
-                        <div class="mys-journey-img" style="background-image:url('/images/haryana_yuva_samvad_2026-4.jpg')"></div>
-                        <div class="mys-journey-scrim"></div>
-                        <span class="mys-journey-badge">📸</span>
-                        <div class="mys-journey-caption">
-                            <span class="mys-journey-num">Moment 04</span>
-                            <span class="mys-journey-cta">Watch on Instagram ↗</span>
-                        </div>
-                    </a>
-                    <a class="mys-journey-card reveal reveal-d1" href="https://www.instagram.com/reel/DIszBIMR0LD/?igsh=MXVoaWE4a2dwbTVxdw==" target="_blank" rel="noopener">
-                        <div class="mys-journey-img" style="background-image:url('/images/haryana_yuva_samvad_2026-5.jpg')"></div>
-                        <div class="mys-journey-scrim"></div>
-                        <span class="mys-journey-badge">▶️</span>
-                        <div class="mys-journey-caption">
-                            <span class="mys-journey-num">Reel 01</span>
-                            <span class="mys-journey-cta">Watch on Instagram ↗</span>
-                        </div>
-                    </a>
-                    <a class="mys-journey-card reveal reveal-d2" href="https://www.instagram.com/reel/DIKwiGVtyhD/?igsh=bTQ3N3hzZjQ2OXZt" target="_blank" rel="noopener">
-                        <div class="mys-journey-img" style="background-image:url('/images/haryana_yuva_samvad_2026-6.jpg')"></div>
-                        <div class="mys-journey-scrim"></div>
-                        <span class="mys-journey-badge">▶️</span>
-                        <div class="mys-journey-caption">
-                            <span class="mys-journey-num">Reel 02</span>
-                            <span class="mys-journey-cta">Watch on Instagram ↗</span>
-                        </div>
-                    </a>
-                </div>
-            </div>
-
-            <!-- reg strip -->
-            <div class="conf-detail-reg">
-                <div class="conf-detail-reg-text">
-                    <p class="conf-detail-reg-label">Register for Mahila Yuva Samwad</p>
-                    <p class="conf-detail-reg-desc">Haryana Vidhan Sabha · July 31, 2026 · Deadline July 20, 2026 · FREE Entry</p>
-                </div>
-                <div class="conf-detail-reg-btns">
-                    <a href="https://docs.google.com/forms/d/e/1FAIpQLScmWZm7zxNqqGnpBrgnge17IuoMF6vOrvmH8Zm5RKkcb8QXFg/viewform" target="_blank" rel="noopener" class="conf-detail-reg-btn conf-detail-reg-btn--a">🕊️ Register Now — FREE</a>
-                </div>
-            </div>
-        </section>
         <!-- ═══ JUNIOR UN & YUVA SAJHEDARI 3.0 — COMMITTEE DETAIL ═══ -->
         <section class="conf-detail-section" id="ys-committees">
             <div class="conf-detail-header">
@@ -1152,9 +770,7 @@
             <div>
                 <h4 class="footer-col-title">Upcoming Events</h4>
                 <ul class="footer-links">
-                    <li><a href="#mahila-yuva-samwad">Mahila Yuva Samwad</a></li>
                     <li><a href="#junior-un">Junior UN &amp; Yuva Sajhedari 3.0</a></li>
-                    <li><a href="#mys-reg">Register — Mahila Yuva Samwad</a></li>
                     <li><a href="#ys-reg">Register — Silverline Students</a></li>
                 </ul>
             </div>
@@ -1181,46 +797,15 @@
     <script src="/js/shared.js" defer></script>
     <script src="/js/upcoming.js" defer></script>
 
-    <!-- Accordion toggle + sticky tab highlight -->
+    <!-- Accordion toggle -->
     <script>
     (function() {
-        // Accordion
         document.querySelectorAll('.conf-grade-trigger').forEach(function(btn) {
             btn.addEventListener('click', function() {
                 var panel = btn.parentElement;
                 var isOpen = panel.classList.contains('open');
                 panel.classList.toggle('open', !isOpen);
                 btn.setAttribute('aria-expanded', String(!isOpen));
-            });
-        });
-
-        // Active tab on scroll
-        var tabSections = [
-            { tab: document.getElementById('tab-my'), sec: document.getElementById('mahila-yuva-samwad') },
-            { tab: document.getElementById('tab-ys'), sec: document.getElementById('junior-un') }
-        ].filter(function(pair) { return pair.tab && pair.sec; });
-
-        if (tabSections.length) {
-            var io = new IntersectionObserver(function(entries) {
-                entries.forEach(function(e) {
-                    if (e.isIntersecting) {
-                        tabSections.forEach(function(pair) {
-                            pair.tab.classList.toggle('active', pair.sec === e.target);
-                        });
-                    }
-                });
-            }, { rootMargin: '-40% 0px -40% 0px' });
-            tabSections.forEach(function(pair) { io.observe(pair.sec); });
-        }
-
-        // Smooth scroll for conf-nav links
-        document.querySelectorAll('.conf-nav-tab').forEach(function(a) {
-            a.addEventListener('click', function(e) {
-                var target = document.querySelector(a.getAttribute('href'));
-                if (target) {
-                    e.preventDefault();
-                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                }
             });
         });
     })();

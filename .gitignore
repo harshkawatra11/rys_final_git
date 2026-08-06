@@ -40,3 +40,6 @@ rys-platform-*.txt
 HOSTING_READY_NOTES.txt
 BROKEN_LINKS_REPORT.txt
 PREDEPLOY_QA_REPORT.txt
+
+# Raw photo exports (source images already processed into /images/)
+Global and Yuva SAMVAD photos-*/
