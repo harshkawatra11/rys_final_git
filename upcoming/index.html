@@ -12,22 +12,22 @@
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Upcoming Conferences — Rajdhani Yuva Sansad</title>
-    <meta name="description" content="Explore upcoming conferences by Rajdhani Yuva Sansad — Junior United Nations & Yuva Sajhedari 3.0. Register as a delegate today.">
+    <title>Upcoming Conference — 3rd National Lawyers' Parliament Festival | Rajdhani Yuva Sansad</title>
+    <meta name="description" content="3rd National Lawyers' Parliament Festival 2026 by Lawyers for Justice, in association with Rajdhani Yuva Sansad — 21 November 2026. Free registration for final-year law students and practicing advocates.">
     <link rel="canonical" href="https://www.rajdhaniyuvasansad.com/upcoming/">
     <!-- Open Graph -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://www.rajdhaniyuvasansad.com/upcoming/">
-    <meta property="og:title" content="Upcoming Conferences — Rajdhani Yuva Sansad">
-    <meta property="og:description" content="Explore upcoming conferences by Rajdhani Yuva Sansad — Junior United Nations & Yuva Sajhedari 3.0. Register as a delegate today.">
-    <meta property="og:image" content="https://www.rajdhaniyuvasansad.com/images/haryana_yuva_samvad_2026-cover.jpg">
+    <meta property="og:title" content="3rd National Lawyers' Parliament Festival 2026 — Rajdhani Yuva Sansad">
+    <meta property="og:description" content="3rd National Lawyers' Parliament Festival 2026 by Lawyers for Justice, in association with Rajdhani Yuva Sansad — 21 November 2026. Free registration for final-year law students and practicing advocates.">
+    <meta property="og:image" content="https://www.rajdhaniyuvasansad.com/images/nlpf_2026-cover.png">
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Upcoming Conferences — Rajdhani Yuva Sansad">
-    <meta name="twitter:description" content="Explore upcoming conferences by Rajdhani Yuva Sansad — Junior United Nations & Yuva Sajhedari 3.0. Register as a delegate today.">
-    <meta name="twitter:image" content="https://www.rajdhaniyuvasansad.com/images/haryana_yuva_samvad_2026-cover.jpg">
+    <meta name="twitter:title" content="3rd National Lawyers' Parliament Festival 2026 — Rajdhani Yuva Sansad">
+    <meta name="twitter:description" content="3rd National Lawyers' Parliament Festival 2026 by Lawyers for Justice, in association with Rajdhani Yuva Sansad — 21 November 2026. Free registration for final-year law students and practicing advocates.">
+    <meta name="twitter:image" content="https://www.rajdhaniyuvasansad.com/images/nlpf_2026-cover.png">
     <!-- SEO -->
-    <meta name="keywords" content="Rajdhani Yuva Sansad upcoming, upcoming conferences, Junior United Nations, Yuva Sajhedari, delegate registration, Model UN, Youth Parliament, MUN, student conference, youth conference, public speaking, leadership">
+    <meta name="keywords" content="Rajdhani Yuva Sansad upcoming, National Lawyers Parliament Festival, Lawyers for Justice, One Nation One Election, final-year law students, practicing advocates, legal conference, moot parliament, student conference, public speaking, leadership">
     <meta name="robots" content="index, follow">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -284,81 +284,6 @@
         color: var(--cream); line-height: 1.25;
     }
 
-    /* Grade accordion */
-    .conf-grade-acc {
-        max-width: 1200px; margin: 0 auto;
-        display: flex; flex-direction: column; gap: .8rem;
-    }
-    .conf-grade-panel {
-        border: 1px solid var(--border-gold);
-        border-radius: 10px; overflow: hidden;
-        background: var(--navy-mid);
-    }
-    .conf-grade-trigger {
-        width: 100%; display: flex; align-items: center; gap: 1rem;
-        padding: 1rem 1.2rem; cursor: pointer;
-        background: transparent; border: none; text-align: left;
-        transition: background .2s;
-    }
-    .conf-grade-trigger:hover { background: rgba(212,80,10,.04); }
-    .conf-grade-panel.open .conf-grade-trigger { background: rgba(212,80,10,.05); }
-    .conf-grade-badge {
-        font-size: .56rem; font-weight: 700; letter-spacing: .16em;
-        text-transform: uppercase; color: var(--gold-light);
-        padding: .28rem .75rem; border-radius: 2px;
-        background: rgba(184,137,42,.07); border: 1px solid rgba(184,137,42,.14);
-        white-space: nowrap; flex-shrink: 0;
-    }
-    .conf-grade-name {
-        font-family: 'Cinzel', serif; font-size: .9rem; font-weight: 700;
-        color: var(--cream); flex: 1;
-    }
-    .conf-grade-count {
-        font-size: .62rem; color: var(--dim2); white-space: nowrap; flex-shrink: 0;
-    }
-    .conf-grade-chevron {
-        color: var(--saffron); font-size: .75rem; flex-shrink: 0;
-        transition: transform .35s cubic-bezier(.22,1,.36,1);
-    }
-    .conf-grade-panel.open .conf-grade-chevron { transform: rotate(180deg); }
-
-    .conf-grade-body {
-        display: none; padding: 0 1.2rem 1.2rem;
-    }
-    .conf-grade-panel.open .conf-grade-body { display: block; }
-
-    /* committee cards inside accordion */
-    .conf-committee-grid {
-        display: grid; grid-template-columns: repeat(2, 1fr);
-        gap: 1rem; margin-top: .8rem;
-    }
-    .conf-committee-item {
-        background: var(--navy-deep); border: 1px solid var(--border-gold);
-        border-radius: 8px; padding: 1rem 1rem .9rem;
-        transition: border-color .25s, transform .25s;
-    }
-    .conf-committee-item:hover {
-        border-color: rgba(212,80,10,.28); transform: translateY(-2px);
-    }
-    .conf-committee-item::before {
-        content: ''; display: block; width: 28px; height: 2px;
-        background: linear-gradient(90deg, var(--saffron), var(--gold-light));
-        margin-bottom: .6rem; border-radius: 2px;
-    }
-    .conf-committee-name {
-        font-family: 'Cinzel', serif; font-size: .82rem; font-weight: 700;
-        color: var(--cream); margin-bottom: .35rem; line-height: 1.3;
-    }
-    .conf-committee-agenda {
-        font-size: .7rem; color: var(--dim2); line-height: 1.6;
-    }
-    .conf-committee-agenda strong {
-        color: var(--saffron); font-size: .6rem; font-weight: 700;
-        letter-spacing: .08em; text-transform: uppercase;
-    }
-    .conf-committee-roles { font-size: .68rem; color: var(--dim); font-style: italic; }
-    .conf-committee-roles strong { color: var(--cream-mid); font-style: normal; }
-
     /* reg strip at bottom of detail section */
     .conf-detail-reg {
         max-width: 1200px; margin: 2rem auto 0;
@@ -401,15 +326,13 @@
         gap: 1.5rem; max-width: 1200px; margin: 0 auto;
     }
     .highlights-stats {
-        display: grid; grid-template-columns: repeat(4,1fr);
-        gap: 1.5rem; max-width: 1200px; margin: 0 auto;
+        display: grid; grid-template-columns: repeat(3,1fr);
+        gap: 1.5rem; max-width: 900px; margin: 0 auto;
     }
 
     /* ─── Light Mode ─── */
     html[data-theme="light"] .conf-card { background: rgba(255,255,255,.7); }
     html[data-theme="light"] .conf-card-reg { border-top-color: rgba(184,137,42,.15); }
-    html[data-theme="light"] .conf-grade-panel { background: rgba(255,255,255,.7); }
-    html[data-theme="light"] .conf-committee-item { background: rgba(250,248,243,.85); }
     html[data-theme="light"] .conf-detail-reg { background: rgba(212,80,10,.03); }
     html[data-theme="light"] .conf-card-reg-btn--secondary {
         background: rgba(255,255,255,.5);
@@ -422,7 +345,6 @@
     /* ─── Responsive ─── */
     @media(max-width: 900px) {
         .conf-overview-grid { grid-template-columns: 1fr; }
-        .conf-committee-grid { grid-template-columns: 1fr; }
         .why-grid { grid-template-columns: 1fr 1fr; }
         .highlights-stats { grid-template-columns: 1fr 1fr; }
     }
@@ -465,14 +387,17 @@
     </div>
 
     <main>
-        <!-- ═══ HERO ═══ -->
+        <!-- ═══ HERO — The Docket Opens ═══ -->
         <section class="uc-hero">
             <div class="uc-hero-mosaic">
-                <div class="uc-hero-mosaic-img" style="--i:0"><img src="/images/haryana_yuva_samvad_2026-cover.jpg" alt="Haryana Yuva Samvad 2026 at Chandigarh" loading="eager" fetchpriority="high"></div>
-                <div class="uc-hero-mosaic-img" style="--i:1"><img src="/images/global_panchayat_2-cover.jpg" alt="Global Panchayat 2.0 conference" loading="lazy"></div>
-                <div class="uc-hero-mosaic-img" style="--i:2"><img src="/images/gorakhpur_yuva_samvad_2025-cover.jpg" alt="Gorakhpur Yuva Samvad 2025" loading="lazy"></div>
-                <div class="uc-hero-mosaic-img" style="--i:3"><img src="/images/sajag_yuva_manch_6-cover.png" alt="Sajag Yuva Manch 6.0" loading="lazy"></div>
-                <div class="uc-hero-mosaic-img" style="--i:4"><img src="/images/delhi_yuva_samvad_2024-cover.jpg" alt="Delhi Yuva Samvad 2024" loading="lazy"></div>
+                <div class="uc-hero-mosaic-img uc-hm-a" style="--i:0"><img src="/images/nlpf_2023-5.jpg" alt="1st National Lawyers' Parliament Festival" loading="eager" fetchpriority="high"></div>
+                <div class="uc-hero-mosaic-img uc-hm-b" style="--i:1"><img src="/images/nlpf_2024-3.jpg" alt="2nd National Lawyers' Parliament Festival" loading="eager"></div>
+                <div class="uc-hero-mosaic-img uc-hm-c" style="--i:2"><img src="/images/nlpf_2023-cover.png" alt="1st National Lawyers' Parliament Festival cover" loading="lazy"></div>
+                <div class="uc-hero-mosaic-img uc-hm-d" style="--i:3"><img src="/images/nlpf_2024-cover.png" alt="2nd National Lawyers' Parliament Festival cover" loading="lazy"></div>
+                <div class="uc-hero-mosaic-img uc-hm-e" style="--i:4"><img src="/images/nlpf_2023-7.jpg" alt="" loading="lazy"></div>
+                <div class="uc-hero-mosaic-img uc-hm-f" style="--i:5"><img src="/images/nlpf_2024-5.jpg" alt="" loading="lazy"></div>
+                <div class="uc-hero-mosaic-img uc-hm-g" style="--i:6"><img src="/images/nlpf_2023-8.jpg" alt="" loading="lazy"></div>
+                <div class="uc-hero-mosaic-img uc-hm-h" style="--i:7"><img src="/images/nlpf_2024-2.jpg" alt="" loading="lazy"></div>
             </div>
             <div class="uc-hero-vignette"></div>
             <div class="uc-hero-aurora"></div>
@@ -491,15 +416,12 @@
             <canvas id="heroParticles"></canvas>
 
             <div class="uc-hero-content">
-                <div class="uc-hero-eyebrow">
-                    <span class="uc-hero-ey-line"></span>
-                    <span class="uc-hero-ey-text">Upcoming Events · 2026</span>
-                    <span class="uc-hero-ey-line"></span>
-                </div>
-                <h1 class="uc-hero-title" id="heroTitle"></h1>
-                <p class="uc-hero-sub">1 upcoming conference — registration is open now. Find the event below and secure your spot.</p>
+                <div class="uc-hero-ribbon">⚖ Flagship Conference · Upcoming 2026</div>
 
-                <!-- Countdown to Junior UN & Yuva Sajhedari 3.0 -->
+                <h1 class="uc-hero-title" id="heroTitle"></h1>
+                <p class="uc-hero-sub">3rd National Lawyers' Parliament Festival — <em>"One Nation, One Election"</em> · 21 November 2026 · Free Entry</p>
+
+                <!-- Countdown to 3rd National Lawyers' Parliament Festival -->
                 <div class="uc-hero-countdown" id="ucCountdown">
                     <div class="uc-cd-block">
                         <div class="uc-cd-flip"><span class="uc-cd-num" data-countdown="days">--</span></div>
@@ -521,11 +443,10 @@
                         <span class="uc-cd-label">Seconds</span>
                     </div>
                 </div>
-                <p style="font-size:.62rem;color:var(--dim2);text-align:center;margin-top:-.6rem;letter-spacing:.1em;">Until Junior UN &amp; Yuva Sajhedari 3.0 — August 21, 2026</p>
 
                 <div class="uc-hero-actions">
-                    <a href="#conference-overview" class="btn-fire uc-magnetic">⚑ View Conference Details</a>
-                    <a href="#ys-reg" class="btn-ghost uc-magnetic">Register Now →</a>
+                    <a href="#nlpf-reg" class="btn-fire uc-magnetic">⚖ Register Now — It's Free →</a>
+                    <a href="#nlpf-2026-highlights" class="btn-ghost uc-magnetic">View Festival Highlights</a>
                 </div>
             </div>
 
@@ -538,19 +459,19 @@
         <!-- ═══ MARQUEE ═══ -->
         <div class="uc-marquee-wrap">
             <div class="uc-marquee" id="ucMarquee">
-                <span>Junior United Nations — August 21, 2026 <i class="uc-marquee-dot"></i></span>
-                <span>Yuva Sajhedari 3.0 — August 21–22, 2026 <i class="uc-marquee-dot"></i></span>
-                <span>UNSC · WTO · CBFC <i class="uc-marquee-dot"></i></span>
-                <span>Grade 3 to 8 · Registration Open <i class="uc-marquee-dot"></i></span>
-                <span>Silverline Prestige School <i class="uc-marquee-dot"></i></span>
-                <span>Empowering Young Voices <i class="uc-marquee-dot"></i></span>
+                <span>3rd National Lawyers' Parliament Festival — November 21, 2026 <i class="uc-marquee-dot"></i></span>
+                <span>One Nation, One Election · एक देश, एक चुनाव <i class="uc-marquee-dot"></i></span>
+                <span>Lawyers for Justice <i class="uc-marquee-dot"></i></span>
+                <span>FREE Registration · Prizes · Food · Kits <i class="uc-marquee-dot"></i></span>
+                <span>Final-Year Law Students &amp; Advocates <i class="uc-marquee-dot"></i></span>
+                <span>Registration Open <i class="uc-marquee-dot"></i></span>
                 <!-- duplicate -->
-                <span>Junior United Nations — August 21, 2026 <i class="uc-marquee-dot"></i></span>
-                <span>Yuva Sajhedari 3.0 — August 21–22, 2026 <i class="uc-marquee-dot"></i></span>
-                <span>UNSC · WTO · CBFC <i class="uc-marquee-dot"></i></span>
-                <span>Grade 3 to 8 · Registration Open <i class="uc-marquee-dot"></i></span>
-                <span>Silverline Prestige School <i class="uc-marquee-dot"></i></span>
-                <span>Empowering Young Voices <i class="uc-marquee-dot"></i></span>
+                <span>3rd National Lawyers' Parliament Festival — November 21, 2026 <i class="uc-marquee-dot"></i></span>
+                <span>One Nation, One Election · एक देश, एक चुनाव <i class="uc-marquee-dot"></i></span>
+                <span>Lawyers for Justice <i class="uc-marquee-dot"></i></span>
+                <span>FREE Registration · Prizes · Food · Kits <i class="uc-marquee-dot"></i></span>
+                <span>Final-Year Law Students &amp; Advocates <i class="uc-marquee-dot"></i></span>
+                <span>Registration Open <i class="uc-marquee-dot"></i></span>
             </div>
         </div>
 
@@ -558,44 +479,36 @@
         <div class="conf-overview" id="conference-overview">
             <div class="conf-overview-grid">
 
-                <!-- ── Junior UN & Yuva Sajhedari 3.0 ── -->
-                <div class="conf-card conf-card--ys reveal" id="junior-un">
+                <!-- ── 3rd National Lawyers' Parliament Festival 2026 ── -->
+                <div class="conf-card conf-card--ys reveal" id="nlpf-2026">
                     <div class="conf-card-img">
-                        <img src="/images/yuva_sajhedari_2-cover.jpg" alt="Junior United Nations & Yuva Sajhedari 3.0" loading="lazy"
-                             onerror="this.src='/images/global_panchayat_2-cover.jpg'">
+                        <img src="/images/nlpf_2026-cover.png" alt="3rd National Lawyers' Parliament Festival 2026" loading="lazy"
+                             onerror="this.src='/images/nlpf_2024-cover.png'">
                         <div class="conf-card-img-overlay"></div>
                         <span class="conf-card-badge"><span class="conf-card-badge-dot"></span> Registration Open</span>
-                        <span class="conf-card-date-chip">📅 Aug 21–22, 2026</span>
+                        <span class="conf-card-date-chip">📅 Nov 21, 2026</span>
                     </div>
                     <div class="conf-card-body">
-                        <p class="conf-card-tag">Rajdhani Yuva Sansad · Two-Event Conference</p>
-                        <h2 class="conf-card-name">Junior UN & Yuva Sajhedari 3.0</h2>
-                        <p class="conf-card-host">Hosted by <strong>Silverline Prestige School, Nehru Nagar, Ghaziabad</strong></p>
-                        <p class="conf-card-tagline">"Empowering the youngest voices through dialogue, trade, and artistic freedom."</p>
+                        <p class="conf-card-tag">Lawyers for Justice · 3rd Edition</p>
+                        <h2 class="conf-card-name">3rd National Lawyers' Parliament Festival</h2>
+                        <p class="conf-card-host">Organised by <strong>Lawyers for Justice</strong>, in association with Rajdhani Yuva Sansad</p>
+                        <p class="conf-card-tagline">"Deliberating One Nation, One Election — एक देश, एक चुनाव."</p>
                         <div class="conf-card-meta">
-                            <span class="conf-card-meta-item">🎓 <strong>Grade 3 – 8</strong></span>
-                            <span class="conf-card-meta-item">🏛 <strong>5 Committees</strong></span>
-                            <span class="conf-card-meta-item">📍 <strong>Ghaziabad</strong></span>
+                            <span class="conf-card-meta-item">📚 <strong>Final-Year Law Students &amp; Advocates</strong></span>
+                            <span class="conf-card-meta-item">🆓 <strong>FREE Entry</strong></span>
+                            <span class="conf-card-meta-item">🏆 <strong>Prizes &amp; Kits</strong></span>
                         </div>
 
-                        <a href="#ys-committees" class="conf-card-more">View all committees & agendas ↓</a>
+                        <a href="#nlpf-2026-highlights" class="conf-card-more">View festival highlights ↓</a>
                     </div>
-                    <div class="conf-card-reg" id="ys-reg">
-                        <p class="conf-card-reg-label">Select your registration form</p>
+                    <div class="conf-card-reg" id="nlpf-reg">
+                        <p class="conf-card-reg-label">Registration is completely free</p>
                         <div class="conf-card-reg-btns">
-                            <a href="https://forms.gle/kiWNGFmMKVppS9qGA" target="_blank" rel="noopener" class="conf-card-reg-btn conf-card-reg-btn--primary">
-                                <span class="conf-card-reg-icon">🏫</span>
+                            <a href="https://forms.gle/aa4PeZGewSz7fYpJ7" target="_blank" rel="noopener" class="conf-card-reg-btn conf-card-reg-btn--primary">
+                                <span class="conf-card-reg-icon">⚖</span>
                                 <span class="conf-card-reg-text">
-                                    <span class="conf-card-reg-type">Silverline Prestige School Students</span>
-                                    <span class="conf-card-reg-sub">Studying at Silverline Prestige School</span>
-                                </span>
-                                <span class="conf-card-reg-arrow">→</span>
-                            </a>
-                            <a href="https://forms.gle/esaySKJLtMzmcohd8" target="_blank" rel="noopener" class="conf-card-reg-btn conf-card-reg-btn--secondary">
-                                <span class="conf-card-reg-icon">🌏</span>
-                                <span class="conf-card-reg-text">
-                                    <span class="conf-card-reg-type">Outside Students</span>
-                                    <span class="conf-card-reg-sub">From any other school</span>
+                                    <span class="conf-card-reg-type">Register Now — It's FREE</span>
+                                    <span class="conf-card-reg-sub">Prizes · Food · Participant &amp; Stationery Kits for all</span>
                                 </span>
                                 <span class="conf-card-reg-arrow">→</span>
                             </a>
@@ -606,81 +519,64 @@
             </div>
         </div>
 
-        <!-- ═══ JUNIOR UN & YUVA SAJHEDARI 3.0 — COMMITTEE DETAIL ═══ -->
-        <section class="conf-detail-section" id="ys-committees">
+        <!-- ═══ 3RD NLPF — FESTIVAL HIGHLIGHTS ═══ -->
+        <section class="conf-detail-section" id="nlpf-2026-highlights">
             <div class="conf-detail-header">
-                <div class="conf-detail-icon">🌐</div>
+                <div class="conf-detail-icon">⚖</div>
                 <div class="conf-detail-header-text">
-                    <p class="conf-detail-label">Junior UN &amp; Yuva Sajhedari 3.0 · August 21–22, 2026</p>
-                    <h2 class="conf-detail-title">Committees &amp; Agendas</h2>
+                    <p class="conf-detail-label">3rd National Lawyers' Parliament Festival · November 21, 2026</p>
+                    <h2 class="conf-detail-title">Festival Highlights</h2>
                 </div>
             </div>
 
-            <div class="conf-grade-acc">
+            <p style="max-width:900px;margin:0 auto 2rem;font-size:.85rem;color:var(--dim2);line-height:1.7;">Building on the success of our first two editions — the <a href="/conferences/#nlpf-1" style="color:var(--saffron);">1st National Lawyers' Parliament Festival</a> and the <a href="/conferences/#nlpf-2" style="color:var(--saffron);">2nd National Lawyers' Parliament Festival</a> — Lawyers for Justice, in association with Rajdhani Yuva Sansad, brings together practicing advocates and final-year law students from across the country to deliberate on the agenda, <strong>"One Nation, One Election" (एक देश, एक चुनाव)</strong> — a major proposed reform of India's electoral system, raising important questions of constitutional law, federalism, and democratic practice.</p>
 
-                <!-- Part A: JUN Grades 3–5 -->
-                <div class="conf-grade-panel open">
-                    <button class="conf-grade-trigger" aria-expanded="true">
-                        <span class="conf-grade-badge">🕊 Part A — Grades 3–5 · Aug 21</span>
-                        <span class="conf-grade-name">Junior United Nations</span>
-                        <span class="conf-grade-count">3 committees</span>
-                        <span class="conf-grade-chevron">▾</span>
-                    </button>
-                    <div class="conf-grade-body">
-                        <div class="conf-committee-grid">
-                            <div class="conf-committee-item">
-                                <p class="conf-committee-name">The United Nations <small style="color:var(--dim2);font-family:inherit;font-size:.65em;">(Grade 3)</small></p>
-                                <p class="conf-committee-agenda"><strong>Agenda:</strong> Need for Peace, Kindness, and Friendship in the World.</p>
-                            </div>
-                            <div class="conf-committee-item">
-                                <p class="conf-committee-name">Lok Sabha <small style="color:var(--dim2);font-family:inherit;font-size:.65em;">(Grades 4–5)</small></p>
-                                <p class="conf-committee-agenda"><strong>Agenda:</strong> Discussion on Ways to Promote Sports and Physical Fitness Nationwide.</p>
-                            </div>
-                            <div class="conf-committee-item">
-                                <p class="conf-committee-name">Creative Press <small style="color:var(--dim2);font-family:inherit;font-size:.65em;">(Grades 4–5)</small></p>
-                                <p class="conf-committee-roles"><strong>Roles:</strong> Photo Journalists, Memers, Caricaturists, Journalists, Vloggers.</p>
-                            </div>
-                        </div>
-                    </div>
+            <div class="why-grid">
+                <div class="why-card uc-stagger">
+                    <div class="why-icon">🗓️</div>
+                    <h3>21 November 2026</h3>
+                    <p>Mark your calendar — the festival convenes for a full day of parliamentary deliberation.</p>
                 </div>
-
-                <!-- Part B: Yuva Sajhedari Grades 6–8 -->
-                <div class="conf-grade-panel open">
-                    <button class="conf-grade-trigger" aria-expanded="true">
-                        <span class="conf-grade-badge">⚖ Part B — Grades 6–8 · Aug 21–22</span>
-                        <span class="conf-grade-name">Yuva Sajhedari 3.0 — WTO · CBFC · Int'l Press</span>
-                        <span class="conf-grade-count">3 committees</span>
-                        <span class="conf-grade-chevron">▾</span>
-                    </button>
-                    <div class="conf-grade-body">
-                        <div class="conf-committee-grid">
-                            <div class="conf-committee-item">
-                                <p class="conf-committee-name">World Trade Organisation (WTO)</p>
-                                <p class="conf-committee-agenda"><strong>Agenda:</strong> Deliberation on the Strait of Hormuz and its Implications for Global Trade and International Security.</p>
-                            </div>
-                            <div class="conf-committee-item">
-                                <p class="conf-committee-name">Central Board of Film Certification (CBFC)</p>
-                                <p class="conf-committee-agenda"><strong>Agenda:</strong> Deliberation on Artistic Freedom in India — Promoting and Protecting Freedom of Expression.</p>
-                            </div>
-                            <div class="conf-committee-item">
-                                <p class="conf-committee-name">International Press</p>
-                                <p class="conf-committee-roles"><strong>Roles:</strong> Photo Journalists, Memers, Caricaturists, Journalists, Vloggers.</p>
-                            </div>
-                        </div>
-                    </div>
+                <div class="why-card uc-stagger">
+                    <div class="why-icon">🆓</div>
+                    <h3>No Registration Fees</h3>
+                    <p>Absolutely free to register and participate — no cost barrier to entry.</p>
                 </div>
-
+                <div class="why-card uc-stagger">
+                    <div class="why-icon">📚</div>
+                    <h3>Who Can Apply</h3>
+                    <p>Open to final-year law students and practicing advocates from across the country.</p>
+                </div>
+                <div class="why-card uc-stagger">
+                    <div class="why-icon">🏆</div>
+                    <h3>Prizes for Winners</h3>
+                    <p>Exciting prizes await participants who distinguish themselves in the debate.</p>
+                </div>
+                <div class="why-card uc-stagger">
+                    <div class="why-icon">🍽️</div>
+                    <h3>Food Provided</h3>
+                    <p>Meals provided for all participants throughout the day.</p>
+                </div>
+                <div class="why-card uc-stagger">
+                    <div class="why-icon">📝</div>
+                    <h3>Kits for All</h3>
+                    <p>Participant and stationery kits provided to every registered delegate.</p>
+                </div>
+                <div class="why-card uc-stagger">
+                    <div class="why-icon">⚖</div>
+                    <h3>The Agenda</h3>
+                    <p>"One Nation, One Election" — examined through a constitutional and federal lens.</p>
+                </div>
             </div>
 
             <!-- reg strip -->
             <div class="conf-detail-reg">
                 <div class="conf-detail-reg-text">
-                    <p class="conf-detail-reg-label">Register for Junior UN &amp; Yuva Sajhedari 3.0</p>
-                    <p class="conf-detail-reg-desc">Silverline Prestige School, Nehru Nagar, Ghaziabad · August 21–22, 2026</p>
+                    <p class="conf-detail-reg-label">Register for the 3rd National Lawyers' Parliament Festival</p>
+                    <p class="conf-detail-reg-desc">Organised by Lawyers for Justice, in association with Rajdhani Yuva Sansad · November 21, 2026 · FREE Entry</p>
                 </div>
                 <div class="conf-detail-reg-btns">
-                    <a href="https://forms.gle/kiWNGFmMKVppS9qGA" target="_blank" rel="noopener" class="conf-detail-reg-btn conf-detail-reg-btn--a">🏫 Silverline Students</a>
-                    <a href="https://forms.gle/esaySKJLtMzmcohd8" target="_blank" rel="noopener" class="conf-detail-reg-btn conf-detail-reg-btn--b">🌏 Outside Students</a>
+                    <a href="https://forms.gle/aa4PeZGewSz7fYpJ7" target="_blank" rel="noopener" class="conf-detail-reg-btn conf-detail-reg-btn--a">⚖ Register Now — FREE</a>
                 </div>
             </div>
         </section>
@@ -703,8 +599,8 @@
                 </div>
                 <div class="why-card uc-stagger">
                     <div class="why-icon">🌐</div>
-                    <h3>International Diplomacy</h3>
-                    <p>Engage in cross-cultural dialogue and global policy discussions at the highest level.</p>
+                    <h3>Legal &amp; Policy Insight</h3>
+                    <p>Engage with landmark legal reforms and their real-world constitutional implications.</p>
                 </div>
                 <div class="why-card uc-stagger">
                     <div class="why-icon">🎓</div>
@@ -717,11 +613,11 @@
         <!-- ═══ STATS ═══ -->
         <section class="sec sec-alt">
             <p class="sec-tag">Track Record</p>
-            <h2 class="sec-h2">23+ Grand Conferences &amp; Counting</h2>
+            <h2 class="sec-h2">25+ Grand Conferences &amp; Counting</h2>
             <div class="uc-divider"></div>
             <div class="highlights-stats">
                 <div class="highlight-stat uc-stagger">
-                    <span class="highlight-stat-num" data-count="23+">0</span>
+                    <span class="highlight-stat-num" data-count="25+">0</span>
                     <span class="highlight-stat-label">Grand Conferences</span>
                 </div>
                 <div class="highlight-stat uc-stagger">
@@ -734,7 +630,7 @@
                 </div>
             </div>
             <div style="text-align:center;margin-top:3rem;">
-                <a href="/conferences/" class="btn-fire uc-magnetic">View All 23 Grand Conferences →</a>
+                <a href="/conferences/" class="btn-fire uc-magnetic">View All 25 Grand Conferences →</a>
             </div>
         </section>
 
@@ -770,8 +666,8 @@
             <div>
                 <h4 class="footer-col-title">Upcoming Events</h4>
                 <ul class="footer-links">
-                    <li><a href="#junior-un">Junior UN &amp; Yuva Sajhedari 3.0</a></li>
-                    <li><a href="#ys-reg">Register — Silverline Students</a></li>
+                    <li><a href="#nlpf-2026">3rd National Lawyers' Parliament Festival</a></li>
+                    <li><a href="#nlpf-reg">Register — It's FREE</a></li>
                 </ul>
             </div>
             <div>
@@ -796,19 +692,5 @@
 
     <script src="/js/shared.js" defer></script>
     <script src="/js/upcoming.js" defer></script>
-
-    <!-- Accordion toggle -->
-    <script>
-    (function() {
-        document.querySelectorAll('.conf-grade-trigger').forEach(function(btn) {
-            btn.addEventListener('click', function() {
-                var panel = btn.parentElement;
-                var isOpen = panel.classList.contains('open');
-                panel.classList.toggle('open', !isOpen);
-                btn.setAttribute('aria-expanded', String(!isOpen));
-            });
-        });
-    })();
-    </script>
 </body>
 </html>

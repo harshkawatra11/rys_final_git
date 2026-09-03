@@ -167,8 +167,8 @@
 
   // ─── Countdown Timer ───
   function initCountdown() {
-    // Target: August 21, 2026 — Junior UN & Yuva Sajhedari 3.0
-    var target = new Date('2026-08-21T00:00:00+05:30').getTime();
+    // Target: November 21, 2026 — 3rd National Lawyers' Parliament Festival
+    var target = new Date('2026-11-21T00:00:00+05:30').getTime();
 
     var daysEl = document.querySelector('[data-countdown="days"]');
     var hoursEl = document.querySelector('[data-countdown="hours"]');

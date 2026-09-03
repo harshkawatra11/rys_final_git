@@ -4,7 +4,7 @@
    ══════════════════════════════════════════════════════════════ */
 
 /* ═══════════════════════════════════════════════════
-   HERO — Cinematic Mosaic + Aurora + Chakra
+   HERO — "The Docket Opens": single cinematic portrait
    ═══════════════════════════════════════════════════ */
 .uc-hero {
     position: relative;
@@ -16,12 +16,13 @@
     background: var(--navy-deep);
 }
 
-/* ─── Background Photo Mosaic ─── */
+/* ─── Background Photo — "The Archive Wall" bento collage ─── */
 .uc-hero-mosaic {
     position: absolute; inset: 0; z-index: 0;
     display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    gap: 0;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    gap: 3px;
 }
 .uc-hero-mosaic-img {
     position: relative; overflow: hidden;
@@ -29,58 +30,64 @@
 .uc-hero-mosaic-img img {
     width: 100%; height: 100%;
     object-fit: cover;
-    filter: grayscale(0%) brightness(1.45) saturate(0.95);
-    transform: scale(1.08);
-    animation: mosaicDrift 20s ease-in-out infinite alternate;
-    animation-delay: calc(var(--i) * -4s);
+    filter: grayscale(10%) brightness(.82) contrast(1.1) saturate(1.05);
+    transform: scale(1.02);
+    animation: kenBurns 24s ease-in-out infinite alternate;
+    animation-delay: calc(var(--i) * -3s);
 }
-@keyframes mosaicDrift {
-    0%   { transform: scale(1.08) translate(0, 0); }
-    33%  { transform: scale(1.12) translate(-1%, 1%); }
-    66%  { transform: scale(1.06) translate(1%, -0.5%); }
-    100% { transform: scale(1.10) translate(-0.5%, 0.5%); }
+@keyframes kenBurns {
+    0%   { transform: scale(1.02) translate(0, 0); }
+    100% { transform: scale(1.1) translate(-1.5%, -1.5%); }
 }
 
-/* ─── Vignette ─── */
+/* bento placement — one anchor, one tall, six supporting tiles */
+.uc-hm-a { grid-column: 1 / 3; grid-row: 1 / 3; }
+.uc-hm-b { grid-column: 3 / 4; grid-row: 1 / 3; }
+.uc-hm-c { grid-column: 4 / 5; grid-row: 1 / 2; }
+.uc-hm-d { grid-column: 4 / 5; grid-row: 2 / 3; }
+.uc-hm-e { grid-column: 1 / 2; grid-row: 3 / 4; }
+.uc-hm-f { grid-column: 2 / 3; grid-row: 3 / 4; }
+.uc-hm-g { grid-column: 3 / 4; grid-row: 3 / 4; }
+.uc-hm-h { grid-column: 4 / 5; grid-row: 3 / 4; }
+
+/* ─── Vignette — deep, legible over a busier collage ─── */
 .uc-hero-vignette {
     position: absolute; inset: 0; z-index: 1;
     background:
         linear-gradient(180deg,
-            rgba(6,15,28,.55) 0%,
-            rgba(6,15,28,.28) 30%,
-            rgba(6,15,28,.32) 55%,
-            rgba(6,15,28,.50) 85%,
-            var(--navy) 100%),
-        radial-gradient(ellipse 70% 50% at 50% 50%, rgba(6,15,28,.20) 0%, rgba(6,15,28,.38) 100%);
+            rgba(4,9,18,.9) 0%,
+            rgba(4,9,18,.62) 30%,
+            rgba(4,9,18,.68) 62%,
+            rgba(4,9,18,.94) 100%),
+        radial-gradient(ellipse 60% 55% at 50% 42%, rgba(2,6,12,.55) 0%, rgba(4,9,18,.86) 100%);
     pointer-events: none;
 }
 
-/* ─── Animated Aurora ─── */
+/* ─── Animated Aurora (subtle warmth) ─── */
 .uc-hero-aurora {
     position: absolute; inset: 0; z-index: 1;
     pointer-events: none;
     background:
-        radial-gradient(ellipse 70% 45% at 30% 60%, rgba(212,80,10,.08) 0%, transparent 60%),
-        radial-gradient(ellipse 50% 40% at 70% 35%, rgba(184,137,42,.06) 0%, transparent 55%),
-        radial-gradient(ellipse 40% 30% at 50% 80%, rgba(212,80,10,.05) 0%, transparent 50%);
-    animation: auroraShift 12s ease-in-out infinite alternate;
+        radial-gradient(ellipse 60% 40% at 30% 65%, rgba(212,80,10,.06) 0%, transparent 60%),
+        radial-gradient(ellipse 45% 35% at 72% 30%, rgba(184,137,42,.05) 0%, transparent 55%);
+    animation: auroraShift 14s ease-in-out infinite alternate;
 }
 @keyframes auroraShift {
-    0%   { opacity: .6; transform: translateX(-2%) translateY(1%); }
-    50%  { opacity: 1;  transform: translateX(2%) translateY(-1%); }
-    100% { opacity: .7; transform: translateX(-1%) translateY(2%); }
+    0%   { opacity: .5; transform: translateX(-2%) translateY(1%); }
+    50%  { opacity: .85; transform: translateX(2%) translateY(-1%); }
+    100% { opacity: .6; transform: translateX(-1%) translateY(2%); }
 }
 
-/* ─── Ashoka Chakra watermark ─── */
+/* ─── Ashoka Chakra — quiet background emblem ─── */
 .uc-hero-chakra {
     position: absolute;
     left: 50%; top: 50%;
     transform: translate(-50%, -50%);
-    width: min(60vw, 500px);
-    height: min(60vw, 500px);
-    color: rgba(212,80,10,.04);
+    width: min(70vw, 620px);
+    height: min(70vw, 620px);
+    color: rgba(184,137,42,.05);
     z-index: 1;
-    animation: spinSlow 80s linear infinite;
+    animation: spinSlow 90s linear infinite;
     pointer-events: none;
 }
 @keyframes spinSlow { to { transform: translate(-50%,-50%) rotate(360deg); } }
@@ -94,40 +101,38 @@
 .uc-hero-content {
     position: relative; z-index: 5;
     text-align: center;
-    max-width: 860px;
-    padding: 7rem 2rem 4rem;
+    max-width: 720px;
+    padding: 5.5rem 2rem 3.5rem;
 }
 
-/* Eyebrow */
-.uc-hero-eyebrow {
-    display: flex; align-items: center; gap: .8rem;
-    justify-content: center;
-    margin-bottom: 1.6rem;
-    opacity: 0; animation: fadeUp .6s .2s forwards;
+/* ─── Ribbon: single top tag (replaces old eyebrow + ribbon pair) ─── */
+.uc-hero-ribbon {
+    display: inline-flex; align-items: center; gap: .5rem;
+    font-family: 'Cinzel', serif;
+    font-size: .64rem; font-weight: 700;
+    letter-spacing: .16em; text-transform: uppercase;
+    color: var(--navy-deep);
+    background: linear-gradient(120deg, var(--gold-light), var(--saffron-light), var(--gold-light));
+    background-size: 200% 100%;
+    padding: .45rem 1.2rem;
+    border-radius: 3px;
+    margin-bottom: 1.2rem;
+    opacity: 0; animation: fadeUp .6s .2s forwards, ribbonShimmer 5s ease-in-out infinite;
+    box-shadow: 0 6px 24px rgba(212,80,10,.18);
 }
-.uc-hero-ey-line {
-    width: 32px; height: 1px;
-    background: linear-gradient(90deg, transparent, var(--saffron));
-}
-.uc-hero-ey-line:last-child {
-    background: linear-gradient(90deg, var(--saffron), transparent);
-}
-.uc-hero-ey-text {
-    font-size: .62rem;
-    letter-spacing: .24em;
-    text-transform: uppercase;
-    color: var(--saffron);
-    font-weight: 600;
+@keyframes ribbonShimmer {
+    0%,100% { background-position: 0% 50%; }
+    50%     { background-position: 100% 50%; }
 }
 
 /* Title */
 .uc-hero-title {
     font-family: 'Cinzel', serif;
-    font-size: clamp(2.6rem, 5.5vw, 4.8rem);
+    font-size: clamp(2rem, 4vw, 3.2rem);
     font-weight: 700;
     color: var(--cream);
     line-height: 1.15;
-    margin-bottom: 1.5rem;
+    margin-bottom: .9rem;
     perspective: 800px;
     word-spacing: 0.12em;
 }
@@ -157,47 +162,42 @@
     50%     { background-position: 100% 50%; }
 }
 
-/* Subtitle */
+/* Subtitle — event name, agenda, date, fee: one merged line */
 .uc-hero-sub {
-    font-size: .95rem;
-    color: var(--dim);
-    line-height: 1.85;
-    max-width: 580px;
-    margin: 0 auto 2.2rem;
-    opacity: 0; animation: fadeUp .8s 1s forwards;
+    font-family: 'IM Fell English', serif;
+    font-size: clamp(.9rem, 1.6vw, 1.05rem);
+    color: var(--saffron-light);
+    line-height: 1.6;
+    max-width: 560px;
+    margin: 0 auto 2rem;
+    opacity: 0; animation: fadeUp .8s .5s forwards;
 }
+.uc-hero-sub em { color: var(--gold-light); font-style: italic; }
 
-/* ─── Countdown ─── */
+/* ─── Countdown — refined ledger frame ─── */
 .uc-hero-countdown {
-    display: flex; gap: .6rem; justify-content: center; align-items: flex-start;
-    margin-bottom: 2.4rem;
-    opacity: 0; animation: fadeUp .7s 1.2s forwards;
+    display: flex; gap: .5rem; justify-content: center; align-items: flex-start;
+    margin-bottom: 2rem;
+    opacity: 0; animation: fadeUp .7s .75s forwards;
 }
 .uc-cd-block { text-align: center; }
 .uc-cd-flip {
-    min-width: 64px;
-    padding: .65rem .5rem;
-    background: rgba(10,22,40,.7);
+    min-width: 62px;
+    padding: .6rem .5rem .5rem;
+    background: rgba(4,9,18,.55);
     backdrop-filter: blur(20px);
-    border: 1px solid var(--border-gold);
-    border-radius: 6px;
+    border: 1px solid rgba(184,137,42,.35);
+    border-radius: 4px;
     position: relative;
     overflow: hidden;
-    box-shadow: 0 8px 32px rgba(0,0,0,.25), inset 0 1px 0 rgba(255,255,255,.03);
+    box-shadow: 0 8px 32px rgba(0,0,0,.3), inset 0 1px 0 rgba(255,255,255,.03);
 }
 .uc-cd-flip::before {
     content: '';
-    position: absolute; top: 0; left: 0; right: 0; height: 2px;
+    position: absolute; top: 0; left: 0; right: 0; height: 1.5px;
     background: linear-gradient(90deg, transparent, var(--saffron), transparent);
     opacity: 0;
     animation: cdShine 3s ease-in-out infinite;
-}
-.uc-cd-flip::after {
-    content: '';
-    position: absolute; left: 0; right: 0; top: 50%;
-    height: 1px;
-    background: rgba(184,137,42,.06);
-    pointer-events: none;
 }
 @keyframes cdShine {
     0%,100% { opacity: 0; }
@@ -206,7 +206,7 @@
 .uc-cd-num {
     display: block;
     font-family: 'Cinzel', serif;
-    font-size: 1.9rem;
+    font-size: 1.7rem;
     font-weight: 700;
     color: var(--cream);
     line-height: 1;
@@ -215,57 +215,26 @@
 }
 .uc-cd-label {
     display: block;
-    font-size: .5rem;
+    font-size: .48rem;
     letter-spacing: .2em;
     text-transform: uppercase;
     color: var(--dim2);
-    margin-top: .45rem;
+    margin-top: .4rem;
 }
 .uc-cd-colon {
     font-family: 'Cinzel', serif;
-    font-size: 1.5rem;
+    font-size: 1.3rem;
     color: var(--saffron);
-    margin-top: .6rem;
+    margin-top: .55rem;
     opacity: .6;
     animation: colonBlink 1s step-end infinite;
 }
 @keyframes colonBlink { 50% { opacity: 0; } }
 
-/* ─── Hero Stat Badges ─── */
-.uc-hero-badges {
-    display: flex; gap: 1.5rem; justify-content: center; align-items: center;
-    margin-bottom: 2.5rem;
-    opacity: 0; animation: fadeUp .7s 1.4s forwards;
-}
-.uc-hero-badge {
-    text-align: center;
-    padding: .5rem .8rem;
-}
-.uc-hero-badge-num {
-    display: block;
-    font-family: 'Cinzel', serif;
-    font-size: 1.2rem;
-    font-weight: 700;
-    color: var(--saffron);
-    line-height: 1;
-}
-.uc-hero-badge-label {
-    display: block;
-    font-size: .5rem;
-    letter-spacing: .18em;
-    text-transform: uppercase;
-    color: var(--dim2);
-    margin-top: .2rem;
-}
-.uc-hero-badge-sep {
-    width: 1px; height: 28px;
-    background: var(--border-gold);
-}
-
 /* ─── Hero Actions ─── */
 .uc-hero-actions {
     display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;
-    opacity: 0; animation: fadeUp .7s 1.6s forwards;
+    opacity: 0; animation: fadeUp .7s 1s forwards;
 }
 
 /* ─── Scroll Mouse Indicator ─── */
@@ -876,16 +845,24 @@
 
 /* ─── RESPONSIVE POLISH ─── */
 @media (max-width: 900px) {
-    .uc-hero-mosaic { grid-template-columns: repeat(3, 1fr); }
-    .uc-hero-mosaic-img:nth-child(n+4) { display: none; }
-    .uc-hero-content { padding: 7rem 1.5rem 3rem; }
+    .uc-hero-content { padding: 6rem 1.5rem 3rem; }
+    /* collage collapses to a clean 2x2 — drop the six supporting tiles */
+    .uc-hero-mosaic { grid-template-columns: repeat(2, 1fr); grid-template-rows: repeat(2, 1fr); }
+    .uc-hm-a { grid-column: 1 / 2; grid-row: 1 / 2; }
+    .uc-hm-b { grid-column: 2 / 3; grid-row: 1 / 2; }
+    .uc-hm-c { grid-column: 1 / 2; grid-row: 2 / 3; }
+    .uc-hm-d { grid-column: 2 / 3; grid-row: 2 / 3; }
+    .uc-hm-e, .uc-hm-f, .uc-hm-g, .uc-hm-h { display: none; }
 }
 @media (max-width: 600px) {
-    .uc-hero-mosaic { grid-template-columns: repeat(2, 1fr); }
-    .uc-hero-mosaic-img:nth-child(n+3) { display: none; }
-    .uc-hero-title { font-size: clamp(2rem, 8vw, 3rem); }
-    .uc-hero-badges { gap: .8rem; }
-    .uc-hero-badge-num { font-size: 1rem; }
+    /* collage collapses to a single anchor photo — a busy bento is illegible this narrow */
+    .uc-hero-mosaic { grid-template-columns: 1fr; grid-template-rows: 1fr; }
+    .uc-hm-a { grid-column: 1 / 2; grid-row: 1 / 2; }
+    .uc-hm-b, .uc-hm-c, .uc-hm-d { display: none; }
+
+    .uc-hero-title { font-size: clamp(1.7rem, 8vw, 2.6rem); }
+    .uc-hero-ribbon { font-size: .58rem; padding: .4rem .9rem; }
+    .uc-hero-sub { font-size: .82rem; }
     .uc-cd-flip { min-width: 52px; padding: .5rem .4rem; }
     .uc-cd-num { font-size: 1.5rem; }
     .uc-hero-scroll { display: none; }
@@ -897,7 +874,7 @@
     .uc-spotlight-desc { font-size: .82rem; }
 
     /* Section padding */
-    .uc-hero-content { padding: 6rem 1.2rem 2.5rem; }
+    .uc-hero-content { padding: 5.5rem 1.2rem 2.5rem; }
 
     /* Why cards: 2-col */
     .why-grid { gap: 1rem; }
@@ -912,7 +889,6 @@
     .uc-hero-countdown { gap: .3rem; }
     .uc-cd-flip { min-width: 44px; }
     .uc-cd-num { font-size: 1.2rem; }
-    .uc-hero-mosaic { display: none; } /* skip mosaic, pure overlay bg on smallest screens */
 
     /* Spotlight: full-width image */
     .uc-spotlight-img { min-height: 180px; }
