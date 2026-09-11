@@ -2439,7 +2439,7 @@ footer {
 }
 
 /* ═══ Flagship notice panel — single bespoke event ═══ */
-.uc-flagship-wrap { margin-bottom: 2.8rem; }
+.uc-flagship-wrap { display: flex; flex-direction: column; gap: 2rem; margin-bottom: 2.8rem; }
 .uc-flagship-card {
   position: relative;
   display: block;
@@ -2471,6 +2471,7 @@ footer {
   transition: transform 1.2s cubic-bezier(.22,1,.36,1);
 }
 .uc-flagship-card:hover .uc-flagship-bg img { transform: scale(1.08); }
+.uc-flagship-bg img.uc-poster-portrait { object-position: 50% 18%; }
 .uc-flagship-scrim {
   position: absolute; inset: 0; z-index: 1;
   background:
@@ -2616,14 +2617,76 @@ html[data-theme="light"] .uc-flagship-card {
       <span>Upcoming Events · 2026</span>
       <div class="uc-mini-eyebrow-line"></div>
     </div>
-    <h2 class="uc-mini-h2 reveal">Upcoming Conference</h2>
-    <p class="uc-mini-sub reveal">Register now for the next edition of India's premier youth parliamentary platform — debate, discuss, and shape the future.</p>
+    <h2 class="uc-mini-h2 reveal">Upcoming Conferences</h2>
+    <p class="uc-mini-sub reveal">Register now for the next editions of India's premier youth parliamentary platform — debate, discuss, and shape the future.</p>
     <div class="uc-mini-rule reveal"></div>
 
     <div class="uc-flagship-wrap">
 
-      <!-- ── 3rd National Lawyers' Parliament Festival 2026 ── -->
+      <!-- ── Haryana Yuva Samwad 4.0 ── -->
       <div class="uc-flagship-card reveal">
+        <div class="uc-flagship-bg"><img class="uc-poster-portrait" src="/images/haryana_yuva_samvad_4-cover.jpg" alt="Haryana Yuva Samwad 4.0" loading="lazy"></div>
+        <div class="uc-flagship-scrim"></div>
+        <div class="uc-flagship-corner uc-flagship-corner--tl"></div>
+        <div class="uc-flagship-corner uc-flagship-corner--br"></div>
+
+        <div class="uc-flagship-content">
+          <span class="uc-flagship-badge"><span class="uc-flagship-badge-dot"></span> Registration Open</span>
+          <h3 class="uc-flagship-title">Haryana Yuva Samwad 4.0</h3>
+          <p class="uc-flagship-host">Hosted by <strong>Haryana Vidhan Sabha</strong> · In Association with Rajdhani Yuva Sansad</p>
+          <div class="uc-flagship-rule"></div>
+          <p class="uc-flagship-agenda">"Nari Shakti Vandan Adhiniyam and Women's Empowerment: Strengthening Women's Representation and Meaningful Participation in Democratic Governance."</p>
+
+          <div class="uc-flagship-meta">
+            <span>📅 First Week of November 2026</span>
+            <span class="uc-flagship-meta-sep"></span>
+            <span>👥 Ages 16–24</span>
+            <span class="uc-flagship-meta-sep"></span>
+            <span>🆓 FREE Entry</span>
+          </div>
+
+          <div class="uc-flagship-actions">
+            <a href="https://forms.gle/im8ydFxxfShqZxEf6" target="_blank" rel="noopener" class="uc-flagship-cta" onclick="window.gtag && window.gtag('event', 'register_click', {'conference': 'Haryana Yuva Samwad 4.0', 'student_type': 'General'})">
+              🪷 Register Now — It's FREE →
+            </a>
+            <a href="/upcoming/#hys-4" class="uc-flagship-more">View full details ↗</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── Haryana Yuva Samwad 5.0 ── -->
+      <div class="uc-flagship-card reveal reveal-d1">
+        <div class="uc-flagship-bg"><img class="uc-poster-portrait" src="/images/haryana_yuva_samvad_5-cover.jpg" alt="Haryana Yuva Samwad 5.0" loading="lazy"></div>
+        <div class="uc-flagship-scrim"></div>
+        <div class="uc-flagship-corner uc-flagship-corner--tl"></div>
+        <div class="uc-flagship-corner uc-flagship-corner--br"></div>
+
+        <div class="uc-flagship-content">
+          <span class="uc-flagship-badge"><span class="uc-flagship-badge-dot"></span> Registration Open</span>
+          <h3 class="uc-flagship-title">Haryana Yuva Samwad 5.0</h3>
+          <p class="uc-flagship-host">Hosted by <strong>Haryana Vidhan Sabha</strong> · In Association with Rajdhani Yuva Sansad</p>
+          <div class="uc-flagship-rule"></div>
+          <p class="uc-flagship-agenda">"Environmental Protection and Sustainable Development: Advancing Constitutional Responsibility and Collective Action."</p>
+
+          <div class="uc-flagship-meta">
+            <span>📅 Middle of November 2026</span>
+            <span class="uc-flagship-meta-sep"></span>
+            <span>👥 Ages 16–24</span>
+            <span class="uc-flagship-meta-sep"></span>
+            <span>🆓 FREE Entry</span>
+          </div>
+
+          <div class="uc-flagship-actions">
+            <a href="https://forms.gle/im8ydFxxfShqZxEf6" target="_blank" rel="noopener" class="uc-flagship-cta" onclick="window.gtag && window.gtag('event', 'register_click', {'conference': 'Haryana Yuva Samwad 5.0', 'student_type': 'General'})">
+              🪷 Register Now — It's FREE →
+            </a>
+            <a href="/upcoming/#hys-5" class="uc-flagship-more">View full details ↗</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── 3rd National Lawyers' Parliament Festival 2026 ── -->
+      <div class="uc-flagship-card reveal reveal-d2">
         <div class="uc-flagship-bg"><img src="/images/nlpf_2026-cover.png" alt="3rd National Lawyers' Parliament Festival 2026" loading="lazy"></div>
         <div class="uc-flagship-scrim"></div>
         <div class="uc-flagship-corner uc-flagship-corner--tl"></div>
@@ -2637,7 +2700,7 @@ html[data-theme="light"] .uc-flagship-card {
           <p class="uc-flagship-agenda">"Deliberating One Nation, One Election — एक देश, एक चुनाव."</p>
 
           <div class="uc-flagship-meta">
-            <span>📅 November 21, 2026</span>
+            <span>📅 November 28, 2026</span>
             <span class="uc-flagship-meta-sep"></span>
             <span>⚖ Final-Year Law Students &amp; Advocates</span>
             <span class="uc-flagship-meta-sep"></span>
