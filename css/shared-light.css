@@ -13,14 +13,16 @@ html[data-theme="light"] {
   --cream:       #1A1A1A;
   --cream-mid:   #3A3A3A;
   --dim:         #555;
-  --dim2:        #888;
+  --dim2:        #5A5A5A;
   --white:       #FFFFFF;
+  --gold-text:   #7D5A0B;
+  --saffron-text:#B5440A;
 }
 html[data-theme="light"] body { background:var(--navy); color:var(--dim); }
 html[data-theme="light"] ::selection { background:var(--saffron); color:#fff; }
 html[data-theme="light"] nav.stuck { background:rgba(250,248,243,0.95); }
 html[data-theme="light"] .nav-logo-text { color:var(--cream); }
-html[data-theme="light"] .nav-logo-text span { color:var(--gold); }
+html[data-theme="light"] .nav-logo-text span { color:var(--gold-text); }
 html[data-theme="light"] .nav-links a { color:var(--dim); }
 html[data-theme="light"] .nav-links a:hover { color:var(--cream); }
 html[data-theme="light"] .nav-mobile-toggle span { background:var(--cream); }
@@ -187,12 +189,12 @@ html[data-theme="light"] .cd-lightbox img {
   box-shadow:0 20px 80px rgba(0,0,0,.15);
 }
 html[data-theme="light"] .cd-lb-close { color:var(--dim); }
-html[data-theme="light"] .cd-lb-close:hover { color:var(--saffron); }
+html[data-theme="light"] .cd-lb-close:hover { color:var(--saffron-text); }
 html[data-theme="light"] .cd-lb-prev, html[data-theme="light"] .cd-lb-next {
   background:rgba(250,248,243,.8); border-color:rgba(184,137,42,.2); color:var(--dim);
 }
 html[data-theme="light"] .cd-lb-prev:hover, html[data-theme="light"] .cd-lb-next:hover {
-  background:rgba(212,80,10,.1); color:var(--saffron);
+  background:rgba(212,80,10,.1); color:var(--saffron-text);
 }
 html[data-theme="light"] .cd-lb-counter { color:var(--dim2); }
 html[data-theme="light"] .conf-key-highlights li { background:rgba(255,255,255,.6); }
@@ -292,3 +294,7 @@ html[data-theme="light"] .team-avatar { background:linear-gradient(135deg,var(--
 /* Toggle knob flips to sun in light mode */
 html[data-theme="light"] .theme-toggle-btn { background:rgba(212,80,10,0.10); border-color:rgba(212,80,10,0.30); }
 html[data-theme="light"] .theme-toggle-knob { transform:translateX(24px); background:#D4500A; color:#fff; }
+
+/* typography-pass: contrast */
+html[data-theme="light"] .conf-card-tagline,
+html[data-theme="light"] .card-subtitle { color: var(--saffron-text); }

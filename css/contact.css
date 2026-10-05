@@ -26,11 +26,11 @@
 }
 .strip-icon { font-size:1.5rem; margin-bottom:.7rem; }
 .strip-label {
-  font-size:.6rem; letter-spacing:.18em; text-transform:uppercase;
-  color:var(--saffron); font-weight:700; margin-bottom:.3rem;
+  font-size:.75rem; letter-spacing:.18em; text-transform:uppercase;
+  color:var(--saffron-text); font-weight:700; margin-bottom:.3rem;
 }
 .strip-value {
-  font-size:.78rem; color:var(--dim); line-height:1.5;
+  font-size:.95rem; color:var(--dim); line-height:1.5;
   word-break:break-all;
 }
 
@@ -57,13 +57,13 @@
   background:var(--saffron-pale);
 }
 .dept-title {
-  font-family:'Cinzel',serif; font-size:.78rem; font-weight:700;
+  font-family:'Cinzel',serif; font-size:1rem; font-weight:700;
   color:var(--cream); letter-spacing:.04em; margin-bottom:.3rem;
 }
-.dept-desc { font-size:.78rem; color:var(--dim); line-height:1.7; }
+.dept-desc { font-size:.95rem; color:var(--dim); line-height:1.7; }
 .dept-contact { padding-left:3.4rem; }
 .dept-contact a {
-  font-size:.76rem; color:var(--saffron); transition:color .25s;
+  font-size:.9rem; color:var(--saffron-text); transition:color .25s;
   letter-spacing:.02em;
 }
 .dept-contact a:hover { color:var(--saffron-light); }
@@ -88,11 +88,11 @@
 }
 .social-card-icon { font-size:2rem; }
 .social-card-name {
-  font-size:.68rem; letter-spacing:.16em; text-transform:uppercase;
+  font-size:.8rem; letter-spacing:.16em; text-transform:uppercase;
   color:var(--dim); font-weight:700;
   transition:color .25s;
 }
-.social-card:hover .social-card-name { color:var(--saffron); }
+.social-card:hover .social-card-name { color:var(--saffron-text); }
 
 /* --- CONTACT FORM --- */
 .contact-form-wrap {
@@ -101,16 +101,16 @@
 }
 .form-header { margin-bottom:2rem; }
 .form-title {
-  font-family:'Cinzel',serif; font-size:1rem; font-weight:700;
+  font-family:'Cinzel',serif; font-size:1.2rem; font-weight:700;
   color:var(--cream); margin-bottom:.3rem;
 }
 .form-subtitle {
-  font-size:.78rem; color:var(--dim);
+  font-size:.9rem; color:var(--dim);
 }
 .form-row { display:grid; grid-template-columns:1fr 1fr; gap:1rem; margin-bottom:1rem; }
 .form-group { margin-bottom:1rem; }
 .form-label {
-  display:block; font-size:.66rem; letter-spacing:.14em;
+  display:block; font-size:.8rem; letter-spacing:.14em;
   text-transform:uppercase; color:var(--dim); font-weight:600;
   margin-bottom:.4rem;
 }
@@ -118,7 +118,7 @@
   width:100%; padding:.85rem 1rem;
   background:rgba(10,22,40,0.6);
   border:1px solid var(--border-gold);
-  color:var(--cream); font-family:'Inter',sans-serif; font-size:.82rem;
+  color:var(--cream); font-family:'Mulish',sans-serif; font-size:1rem;
   transition:border-color .25s, box-shadow .25s;
   outline:none;
 }
@@ -133,7 +133,7 @@
 .form-submit {
   width:100%; padding:1rem; margin-top:.5rem;
   background:var(--saffron); color:var(--white);
-  border:none; font-family:'Cinzel',serif; font-size:.72rem;
+  border:none; font-family:'Cinzel',serif; font-size:.85rem;
   font-weight:700; letter-spacing:.14em; text-transform:uppercase;
   cursor:pointer; position:relative; overflow:hidden;
   transition:background .25s, transform .2s, box-shadow .2s;
@@ -176,7 +176,7 @@
   font-family:'Cinzel',serif; font-size:1.2rem; font-weight:700;
   color:var(--cream); margin-bottom:.5rem;
 }
-.form-success p { font-size:.82rem; color:var(--dim); }
+.form-success p { font-size:.95rem; color:var(--dim); }
 
 /* --- FAQ SECTION --- */
 .faq-grid { max-width:800px; margin:0 auto; }
@@ -187,16 +187,16 @@
 .faq-question {
   display:flex; justify-content:space-between; align-items:center;
   padding:1.5rem 0; cursor:pointer;
-  font-family:'Cinzel',serif; font-size:.82rem; font-weight:600;
+  font-family:'Cinzel',serif; font-size:1.1rem; font-weight:600;
   color:var(--cream); letter-spacing:.04em;
   transition:color .25s;
   background:none; border:none; width:100%; text-align:left;
 }
-.faq-question:hover { color:var(--saffron); }
+.faq-question:hover { color:var(--saffron-text); }
 .faq-arrow {
   font-size:.8rem; color:var(--dim); transition:transform .3s;
 }
-.faq-item.open .faq-arrow { transform:rotate(180deg); color:var(--saffron); }
+.faq-item.open .faq-arrow { transform:rotate(180deg); color:var(--saffron-text); }
 .faq-answer {
   max-height:0; overflow:hidden;
   transition:max-height .4s ease, padding .3s;
@@ -205,7 +205,7 @@
   max-height:300px; padding-bottom:1.5rem;
 }
 .faq-answer p {
-  font-size:.82rem; color:var(--dim); line-height:1.85;
+  font-size:1rem; color:var(--dim); line-height:1.85;
 }
 
 /* --- RESPONSIVE --- */
