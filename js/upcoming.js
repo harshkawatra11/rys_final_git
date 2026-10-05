@@ -19,12 +19,14 @@
     words.forEach(function (w, i) {
       var span = document.createElement('span');
       span.className = 'uc-word' + (w.highlight ? ' uc-highlight' : '');
-      span.textContent = w.text + ' ';
+      span.textContent = w.text;
       span.style.animationDelay = (0.3 + i * 0.18) + 's';
       el.appendChild(span);
       if (w.linebreak) {
         var br = document.createElement('br');
         el.appendChild(br);
+      } else if (i < words.length - 1) {
+        el.appendChild(document.createTextNode(' '));
       }
     });
   }
@@ -322,6 +324,73 @@
     });
   }
 
+  // ─── Conference tabs: hover / click / keyboard / deep links ───
+  function initConferenceTabs() {
+    var tablist = document.querySelector('.uc-tabs');
+    if (!tablist) return;
+    var tabs = Array.prototype.slice.call(tablist.querySelectorAll('.uc-tab'));
+    var hoverTimer = null;
+
+    function activate(tab, focus) {
+      tabs.forEach(function (t) {
+        var on = t === tab;
+        t.classList.toggle('is-active', on);
+        t.setAttribute('aria-selected', on ? 'true' : 'false');
+        t.tabIndex = on ? 0 : -1;
+        var panel = document.getElementById(t.getAttribute('aria-controls'));
+        if (!panel) return;
+        panel.hidden = !on;
+        if (on) {
+          panel.querySelectorAll('.uc-stagger, .reveal').forEach(function (el) { el.classList.add('visible'); });
+        }
+      });
+      if (focus) tab.focus();
+    }
+
+    tabs.forEach(function (tab, i) {
+      tab.addEventListener('click', function () { activate(tab); });
+      tab.addEventListener('mouseenter', function () {
+        clearTimeout(hoverTimer);
+        hoverTimer = setTimeout(function () { activate(tab); }, 120);
+      });
+      tab.addEventListener('mouseleave', function () { clearTimeout(hoverTimer); });
+      tab.addEventListener('keydown', function (e) {
+        var next = null;
+        if (e.key === 'ArrowRight' || e.key === 'ArrowDown') next = tabs[(i + 1) % tabs.length];
+        else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') next = tabs[(i - 1 + tabs.length) % tabs.length];
+        else if (e.key === 'Home') next = tabs[0];
+        else if (e.key === 'End') next = tabs[tabs.length - 1];
+        if (next) { e.preventDefault(); activate(next, true); }
+      });
+    });
+
+    function revealTarget(id) {
+      if (!id) return null;
+      var target = document.getElementById(id);
+      if (!target) return null;
+      var panel = target.closest('.uc-panel');
+      if (panel && panel.hidden) {
+        var tab = document.getElementById(panel.getAttribute('aria-labelledby'));
+        if (tab) activate(tab);
+      }
+      return target;
+    }
+
+    // In-page "#..." links: show the owning panel first (capture phase runs before shared.js smooth-scroll).
+    document.addEventListener('click', function (e) {
+      var a = e.target.closest ? e.target.closest('a[href^="#"]') : null;
+      if (a) revealTarget(decodeURIComponent(a.getAttribute('href').slice(1)));
+    }, true);
+
+    // Deep links from other pages / site search, e.g. /upcoming/#hys-5 or /upcoming/#nlpf-reg
+    function fromHash() {
+      var target = revealTarget(decodeURIComponent(location.hash.slice(1)));
+      if (target) setTimeout(function () { target.scrollIntoView({ behavior: 'smooth', block: 'start' }); }, 80);
+    }
+    window.addEventListener('hashchange', fromHash);
+    fromHash();
+  }
+
   // ─── Init All ───
   document.addEventListener('DOMContentLoaded', function () {
     initHeroTitle();
@@ -330,6 +399,7 @@
     initCountdown();
     initTiltCards();
     initStaggerReveal();
+    initConferenceTabs();
     initMagneticButtons();
     initUpcomingCounters();
     initHeroParallax();

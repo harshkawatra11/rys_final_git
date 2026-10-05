@@ -413,3 +413,16 @@
 @media (max-width:768px) {
   .card-desc { text-align: left; }
 }
+
+/* ─── Ashoka Chakra behind the hero (mirrors .ah-chakra on the About page) ─── */
+.ch-chakra {
+  position:absolute; width:min(45vw,520px); height:min(45vw,520px);
+  top:50%; left:50%; transform:translate(-50%,-50%);
+  color:rgba(184,137,42,.16); z-index:1;
+  animation:chChakraSpin 180s linear infinite;
+  pointer-events:none;
+}
+@keyframes chChakraSpin { to { transform:translate(-50%,-50%) rotate(360deg); } }
+html[data-theme="light"] .ch-chakra { color:rgba(166,124,16,.12); }
+@media (max-width:600px) { .ch-chakra { width:80vw; height:80vw; } }
+@media (prefers-reduced-motion: reduce) { .ch-chakra { animation:none; } }

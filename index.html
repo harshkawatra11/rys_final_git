@@ -178,7 +178,7 @@ html[data-theme="light"] .hero-center {
   backdrop-filter: blur(16px) saturate(1.2);
   border-radius: 8px;
   padding: 4.5rem 3rem; /* slightly tighter to expose more background */
-  max-width: 850px;
+  max-width: 1040px;
 }
 html[data-theme="light"] .hero-center-glow {
   display: none; /* Removed the shapeless fuzzy glow */
@@ -506,7 +506,7 @@ html[data-theme="light"] .theme-toggle-knob { transform:translateX(24px); backgr
   align-items: center;
   text-align: center;
   width: 98%;
-  max-width: 900px;
+  max-width: 1040px;
   padding: 5rem 3.5rem;
 }
 
@@ -530,7 +530,7 @@ html[data-theme="light"] .theme-toggle-knob { transform:translateX(24px); backgr
 
 .hero-h1 {
   font-family: 'Cinzel', serif;
-  font-size: clamp(2.4rem, 5vw, 4.2rem);
+  font-size: clamp(2.6rem, 5.6vw, 4.8rem);
   font-weight: 700;
   line-height: 1.1;
   color: var(--cream);
@@ -566,7 +566,7 @@ html[data-theme="light"] .theme-toggle-knob { transform:translateX(24px); backgr
 .hero-entity-line {
   font-family: 'IM Fell English', serif;
   font-style: italic;
-  font-size: clamp(.95rem, 1.2vw, 1.1rem);
+  font-size: clamp(1.15rem, 1.6vw, 1.45rem);
   color: var(--gold-text);
   opacity: 0; animation: fadeUp .7s .42s forwards;
   letter-spacing: .01em;
@@ -595,6 +595,10 @@ html[data-theme="light"] .theme-toggle-knob { transform:translateX(24px); backgr
   color: var(--dim);
   line-height: 1.85;
   max-width: 100%;
+  text-align: justify;
+  text-align-last: center;
+  hyphens: auto;
+  -webkit-hyphens: auto;
   margin-bottom: 2rem;
   opacity: 0; animation: fadeUp .8s .7s forwards;
 }
@@ -872,6 +876,7 @@ html[data-theme="light"] .theme-toggle-knob { transform:translateX(24px); backgr
   color:var(--cream); margin-bottom:3rem;
 }
 .sec-h2 em { color:var(--saffron-light); font-style:italic; font-family:'IM Fell English',serif; font-weight:400; }
+.sec-h2.sec-h2--lg { font-size:clamp(2.4rem,4.6vw,4.2rem); }
 .sec-cream .sec-h2 { color:var(--navy); }
 .sec-cream .sec-h2 em { color:var(--saffron-text); }
 
@@ -1714,6 +1719,9 @@ footer {
     font-size: clamp(1.55rem, 7vw, 2rem);
     line-height: 1.2;
   }
+  .sec-h2.sec-h2--lg {
+    font-size: clamp(1.8rem, 8vw, 2.4rem);
+  }
   .sec-tag {
     font-size: .75rem;
     letter-spacing: .2em;
@@ -2096,7 +2104,7 @@ footer {
     padding: 1.15rem .86rem 1.55rem;
   }
   .hero-h1 {
-    font-size: 1.75rem;
+    font-size: 1.85rem;
   }
   .uc-flagship-title {
     font-size: 1.25rem;
@@ -2526,7 +2534,7 @@ footer {
 }
 .uc-mini-h2 {
   font-family: 'Cinzel', serif;
-  font-size: clamp(1.6rem, 3.2vw, 2.6rem);
+  font-size: clamp(2rem, 4.2vw, 3.6rem);
   font-weight: 700; color: var(--cream);
   text-align: center; margin-bottom: .5rem;
   line-height: 1.2;
@@ -2538,8 +2546,9 @@ footer {
 }
 .uc-mini-sub {
   text-align: center; font-size: 1rem; color: var(--dim2);
-  max-width: 560px; margin: 0 auto 2.8rem; line-height: 1.65;
+  max-width: none; margin: 0 auto 2.8rem; line-height: 1.65;
 }
+@media (min-width: 900px) { .uc-mini-sub { white-space: nowrap; } }
 .uc-mini-rule {
   width: 50px; height: 2px;
   background: linear-gradient(90deg, var(--saffron), var(--gold-light));
@@ -2726,7 +2735,7 @@ html[data-theme="light"] .uc-flagship-card {
       <div class="uc-mini-eyebrow-line"></div>
     </div>
     <h2 class="uc-mini-h2 reveal">Upcoming Conferences</h2>
-    <p class="uc-mini-sub reveal">Register now for the next editions of India's premier youth parliamentary platform — debate, discuss, and shape the future.</p>
+    <p class="uc-mini-sub reveal">Register now for the next editions of India's premier youth parliamentary platform.</p>
     <div class="uc-mini-rule reveal"></div>
 
     <div class="uc-flagship-wrap">
@@ -2841,7 +2850,7 @@ html[data-theme="light"] .uc-flagship-card {
   .mh::after{content:'';position:absolute;bottom:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--gold-light),transparent)}
   .mh-inner{max-width:1100px;margin:0 auto;position:relative;z-index:1}
   .mh-tag{font-family:'Cinzel',serif;font-size:.8rem;letter-spacing:.35em;text-transform:uppercase;color:var(--gold-text);text-align:center;margin-bottom:.6rem}
-  .mh-h2{font-family:'Cinzel',serif;font-size:clamp(1.6rem,3.5vw,2.4rem);font-weight:700;color:var(--cream);text-align:center;margin-bottom:.8rem}
+  .mh-h2{font-family:'Cinzel',serif;font-size:clamp(2rem,4.2vw,3.6rem);font-weight:700;color:var(--cream);text-align:center;margin-bottom:.8rem}
   .mh-rule{width:60px;height:2px;background:linear-gradient(90deg,var(--saffron),var(--gold));margin:0 auto 3rem;border-radius:2px}
 
   /* ── timeline spine ── */
@@ -3177,7 +3186,7 @@ Their journey spans institutional engagement across the states of Delhi, Uttar P
       </div>
 
       <div class="vision-quote">
-        <p>The vision is to spread the powerful message that <strong>'संवाद ही हल है।'</strong> — through critical thinking, respectful discourse, and a deep understanding of national issues, empowering youth to be torchbearers of change.</p>
+        <p>The vision is to spread the powerful message that <strong>‘संवाद ही हल है।’</strong> — through critical thinking, respectful discourse, and a deep understanding of national issues, empowering youth to be torchbearers of change.</p>
         <cite>— Adv. Isha Kapoor &amp; Adv. Jai Saini, Co-Founders</cite>
       </div>
 
@@ -3188,7 +3197,7 @@ Their journey spans institutional engagement across the states of Delhi, Uttar P
 <!-- ══════════════════════════ CONFERENCE SHOWCASE CAROUSEL ══════════════════════════ -->
 <section class="showcase-sec" id="showcase">
   <div class="sec-tag reveal">Institutional Highlights</div>
-  <h2 class="sec-h2 reveal">Conference Showcase</h2>
+  <h2 class="sec-h2 sec-h2--lg reveal">Conference Showcase</h2>
   <p style="text-align:center;font-size:.95rem;color:var(--gold-text);margin-top:-1.5rem;margin-bottom:1rem;letter-spacing:.08em;">Click for After-Movie</p>
 
   <div class="carousel-wrap" style="margin-top:2.5rem;">
@@ -3366,7 +3375,7 @@ Their journey spans institutional engagement across the states of Delhi, Uttar P
  
 <section class="flagship-sec sec-alt">
   <div class="sec-tag reveal">Our Portfolio</div>
-  <h2 class="sec-h2 reveal">Flagship Conferences</h2>
+  <h2 class="sec-h2 sec-h2--lg reveal">Flagship Conferences</h2>
 
   <div class="flagship-strip">
     <div class="flagship-scroll" id="flagshipScroll">
@@ -3743,7 +3752,7 @@ Their journey spans institutional engagement across the states of Delhi, Uttar P
         Rajdhani Yuva Sansad
         <span>New Delhi</span>
       </div>
-      <p>Empowering India's youth through constitutional dialogue, committee simulations, and policy-focused national forums since 2017. 'संवाद ही हल है।'</p>
+      <p>Empowering India's youth through constitutional dialogue, committee simulations, and policy-focused national forums since 2017. ‘संवाद ही हल है।’</p>
     </div>
     <div class="footer-col">
       <h4>Navigate</h4>
@@ -3778,7 +3787,7 @@ Their journey spans institutional engagement across the states of Delhi, Uttar P
   <div class="footer-bottom">
     <span>© 2026 Rajdhani Yuva Sansad. All Rights Reserved.</span>
     <div style="display:flex;align-items:center;gap:1rem;">
-      <span style="font-family:'IM Fell English',serif;font-style:italic;color:var(--saffron-text);">'संवाद ही हल है।'</span>
+      <span style="font-family:'IM Fell English',serif;font-style:italic;color:var(--saffron-text);">‘संवाद ही हल है।’</span>
       <div class="footer-tricolor">
         <div class="tricolor-dot td-s"></div>
         <div class="tricolor-dot td-w"></div>

@@ -353,6 +353,104 @@
         .why-grid, .highlights-stats { grid-template-columns: 1fr; }
     }
 
+
+    /* ═══ Conference tabs (client audit) ═══ */
+    .uc-tabs-sec { padding: 4rem 5vw 5rem; scroll-margin-top: 90px; }
+    .uc-tabs-head { text-align: center; max-width: 900px; margin: 0 auto 2.2rem; }
+    .uc-tabs-head .sec-h2 { margin-bottom: .8rem; }
+    .uc-tabs-hint { font-size: 1rem; color: var(--dim2); line-height: 1.6; }
+    .uc-tabs {
+        display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1rem;
+        max-width: 1240px; margin: 0 auto;
+    }
+    .uc-tab {
+        position: relative; display: flex; align-items: center; gap: .9rem;
+        width: 100%; padding: 1.1rem 1.3rem; text-align: left; cursor: pointer;
+        background: var(--navy-mid); color: inherit; font: inherit;
+        border: 1px solid var(--border-gold); border-radius: 12px;
+        transition: border-color .25s, background .25s, transform .25s, box-shadow .25s;
+    }
+    .uc-tab:hover { border-color: rgba(212,80,10,.55); transform: translateY(-2px); }
+    .uc-tab:focus-visible { outline: 2px solid var(--saffron); outline-offset: 3px; }
+    .uc-tab.is-active {
+        border-color: var(--saffron);
+        background: linear-gradient(135deg, rgba(212,80,10,.14), rgba(184,137,42,.06));
+        box-shadow: 0 10px 30px rgba(212,80,10,.18);
+    }
+    .uc-tab.is-active::after {
+        content: ''; position: absolute; left: 50%; bottom: -9px; width: 16px; height: 16px;
+        background: var(--saffron); transform: translateX(-50%) rotate(45deg); border-radius: 2px;
+    }
+    .uc-tab-icon { font-size: 1.7rem; line-height: 1; flex-shrink: 0; }
+    .uc-tab-text { display: flex; flex-direction: column; gap: .2rem; min-width: 0; flex: 1; }
+    .uc-tab-name { font-family: 'Cinzel', serif; font-size: 1.05rem; font-weight: 700; color: var(--cream); line-height: 1.3; }
+    .uc-tab-date { font-size: .9rem; color: var(--dim2); }
+    .uc-tab-status {
+        display: inline-flex; align-items: center; gap: .35rem; flex-shrink: 0;
+        font-size: .75rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--gold-text);
+    }
+    .uc-tab-dot { width: 7px; height: 7px; border-radius: 50%; background: #22c55e; box-shadow: 0 0 0 3px rgba(34,197,94,.2); }
+
+    .uc-panels { max-width: 1240px; margin: 2.2rem auto 0; }
+    .uc-panel { animation: ucPanelIn .45s cubic-bezier(.22,1,.36,1); }
+    .uc-panel[hidden] { display: none; }
+    @keyframes ucPanelIn { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: none; } }
+    .uc-panel [id] { scroll-margin-top: 100px; }
+    .uc-panel-top {
+        display: grid; grid-template-columns: minmax(0, 400px) minmax(0, 1fr);
+        gap: 2.5rem; align-items: start; margin-bottom: 2.8rem;
+    }
+    .uc-panel-intro .conf-detail-header { max-width: none; margin: 0 0 1.2rem; }
+    .uc-panel-lead {
+        font-size: 1.05rem; color: var(--dim2); line-height: 1.85;
+        text-align: justify; hyphens: auto; -webkit-hyphens: auto;
+    }
+    .uc-panel .why-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 1.5rem; max-width: none; margin: 0 0 3rem; }
+    .uc-panel .why-grid > .why-card { flex: 0 1 calc((100% - 3rem) / 3); }
+    .uc-panel .conf-detail-reg { max-width: none; margin: 2.8rem 0 0; }
+
+    .uc-prev { border-top: 1px solid var(--border-gold); padding-top: 2.4rem; }
+    .uc-prev-head { text-align: center; margin-bottom: 1.8rem; }
+    .uc-prev-label {
+        font-size: .75rem; letter-spacing: .22em; text-transform: uppercase;
+        color: var(--gold-text); font-weight: 700; margin-bottom: .35rem;
+    }
+    .uc-prev-title { font-family: 'Cinzel', serif; font-size: clamp(1.3rem, 2.2vw, 1.8rem); font-weight: 700; color: var(--cream); }
+    .uc-prev-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 1.5rem; }
+    .uc-prev-card {
+        flex: 0 1 calc((100% - 3rem) / 3); min-width: 260px;
+        display: flex; flex-direction: column; text-decoration: none; color: inherit;
+        background: var(--navy-mid); border: 1px solid var(--border-gold); border-radius: 12px; overflow: hidden;
+        transition: border-color .25s, transform .25s, box-shadow .25s;
+    }
+    .uc-prev-card:hover { border-color: var(--saffron); transform: translateY(-4px); box-shadow: 0 14px 34px rgba(0,0,0,.25); }
+    .uc-prev-card img { width: 100%; height: 170px; object-fit: cover; display: block; }
+    .uc-prev-body { padding: 1.2rem 1.3rem 1.4rem; display: flex; flex-direction: column; gap: .45rem; flex: 1; }
+    .uc-prev-ed { font-size: .75rem; letter-spacing: .16em; text-transform: uppercase; color: var(--saffron-text); font-weight: 700; }
+    .uc-prev-name { font-family: 'Cinzel', serif; font-size: 1.1rem; font-weight: 700; color: var(--cream); line-height: 1.3; }
+    .uc-prev-meta { font-size: .9rem; color: var(--gold-text); }
+    .uc-prev-desc { font-size: .95rem; color: var(--dim2); line-height: 1.7; }
+    .uc-prev-stats { font-size: .85rem; color: var(--cream); font-weight: 600; margin-top: auto; padding-top: .4rem; }
+    .uc-prev-link { font-size: .8rem; letter-spacing: .12em; text-transform: uppercase; color: var(--saffron-text); font-weight: 700; }
+
+    html[data-theme="light"] .uc-tab,
+    html[data-theme="light"] .uc-prev-card { background: rgba(255,255,255,.75); }
+
+    @media (max-width: 1000px) {
+        .uc-panel-top { grid-template-columns: 1fr; }
+        .uc-panel-top .conf-card { max-width: 460px; width: 100%; margin: 0 auto; }
+        .uc-panel .why-grid > .why-card { flex-basis: calc((100% - 1.5rem) / 2); }
+        .uc-prev-card { flex-basis: calc((100% - 1.5rem) / 2); }
+    }
+    @media (max-width: 760px) {
+        .uc-tabs { grid-template-columns: 1fr; }
+        .uc-tab.is-active::after { display: none; }
+    }
+    @media (max-width: 600px) {
+        .uc-tabs-sec { padding: 3rem 1rem 3.5rem; }
+        .uc-panel .why-grid > .why-card, .uc-prev-card { flex-basis: 100%; min-width: 0; }
+        .uc-panel-lead { text-align: left; }
+    }
     </style>
 
 </head>
@@ -451,297 +549,448 @@
             </div>
         </div>
 
-        <!-- ═══ OVERVIEW CARD ═══ -->
-        <div class="conf-overview" id="conference-overview">
-            <div class="conf-overview-grid">
+        <!-- ═══ CONFERENCE TABS — one panel per upcoming conference ═══ -->
+        <section class="uc-tabs-sec" id="conference-overview">
+            <div class="uc-tabs-head">
+                <p class="sec-tag">Choose Your Conference</p>
+                <h2 class="sec-h2">Three Flagship Conferences</h2>
+                <p class="uc-tabs-hint">Hover over or tap a conference to see its full details, highlights and previous editions.</p>
+            </div>
 
-                <!-- ── Haryana Yuva Samwad 4.0 ── -->
-                <div class="conf-card conf-card--ys reveal" id="hys-4">
-                    <div class="conf-card-img">
-                        <img class="uc-poster-portrait" src="/images/haryana_yuva_samvad_4-cover.jpg" alt="Haryana Yuva Samwad 4.0" loading="lazy"
-                             onerror="this.src='/images/haryana_yuva_samvad_2026-cover.jpg'">
-                        <div class="conf-card-img-overlay"></div>
-                        <span class="conf-card-badge"><span class="conf-card-badge-dot"></span> Registration Open</span>
-                        <span class="conf-card-date-chip">📅 First Week of Nov 2026</span>
-                    </div>
-                    <div class="conf-card-body">
-                        <p class="conf-card-tag">Haryana Vidhan Sabha · 4th Edition</p>
-                        <h2 class="conf-card-name">Haryana Yuva Samwad 4.0</h2>
-                        <p class="conf-card-host">Organised by <strong>Haryana Vidhan Sabha</strong>, in association with Rajdhani Yuva Sansad</p>
-                        <p class="conf-card-tagline">"Nari Shakti Vandan Adhiniyam and Women's Empowerment: Strengthening Women's Representation and Meaningful Participation in Democratic Governance."</p>
-                        <div class="conf-card-meta">
-                            <span class="conf-card-meta-item">👥 <strong>Ages 16–24</strong></span>
-                            <span class="conf-card-meta-item">🆓 <strong>FREE Entry</strong></span>
-                            <span class="conf-card-meta-item">🏆 <strong>Prizes &amp; Refreshments</strong></span>
+            <div class="uc-tabs" role="tablist" aria-label="Upcoming conferences">
+                <button class="uc-tab is-active" type="button" role="tab" id="tab-hys-4" aria-selected="true" aria-controls="panel-hys-4" tabindex="0">
+                    <span class="uc-tab-icon" aria-hidden="true">🪷</span>
+                    <span class="uc-tab-text">
+                        <span class="uc-tab-name">Haryana Yuva Samwad 4.0</span>
+                        <span class="uc-tab-date">First Week of November 2026</span>
+                    </span>
+                    <span class="uc-tab-status"><span class="uc-tab-dot"></span>Open</span>
+                </button>
+                <button class="uc-tab" type="button" role="tab" id="tab-hys-5" aria-selected="false" aria-controls="panel-hys-5" tabindex="-1">
+                    <span class="uc-tab-icon" aria-hidden="true">🌿</span>
+                    <span class="uc-tab-text">
+                        <span class="uc-tab-name">Haryana Yuva Samwad 5.0</span>
+                        <span class="uc-tab-date">Middle of November 2026</span>
+                    </span>
+                    <span class="uc-tab-status"><span class="uc-tab-dot"></span>Open</span>
+                </button>
+                <button class="uc-tab" type="button" role="tab" id="tab-nlpf-2026" aria-selected="false" aria-controls="panel-nlpf-2026" tabindex="-1">
+                    <span class="uc-tab-icon" aria-hidden="true">⚖</span>
+                    <span class="uc-tab-text">
+                        <span class="uc-tab-name">3rd National Lawyers' Parliament Festival</span>
+                        <span class="uc-tab-date">28 November 2026</span>
+                    </span>
+                    <span class="uc-tab-status"><span class="uc-tab-dot"></span>Open</span>
+                </button>
+            </div>
+
+            <div class="uc-panels">
+
+                <!-- ══ PANEL: Haryana Yuva Samwad 4.0 ══ -->
+                <div class="uc-panel" role="tabpanel" id="panel-hys-4" aria-labelledby="tab-hys-4" tabindex="0">
+                    <div class="uc-panel-top">
+                        <div class="conf-card conf-card--ys" id="hys-4">
+                            <div class="conf-card-img">
+                                <img class="uc-poster-portrait" src="/images/haryana_yuva_samvad_4-cover.jpg" alt="Haryana Yuva Samwad 4.0" loading="lazy"
+                                     onerror="this.src='/images/haryana_yuva_samvad_2026-cover.jpg'">
+                                <div class="conf-card-img-overlay"></div>
+                                <span class="conf-card-badge"><span class="conf-card-badge-dot"></span> Registration Open</span>
+                                <span class="conf-card-date-chip">📅 First Week of Nov 2026</span>
+                            </div>
+                            <div class="conf-card-body">
+                                <p class="conf-card-tag">Haryana Vidhan Sabha · 4th Edition</p>
+                                <h2 class="conf-card-name">Haryana Yuva Samwad 4.0</h2>
+                                <p class="conf-card-host">Organised by <strong>Haryana Vidhan Sabha</strong>, in association with Rajdhani Yuva Sansad</p>
+                                <p class="conf-card-tagline">"Nari Shakti Vandan Adhiniyam and Women's Empowerment: Strengthening Women's Representation and Meaningful Participation in Democratic Governance."</p>
+                                <div class="conf-card-meta">
+                                    <span class="conf-card-meta-item">👥 <strong>Ages 16–24</strong></span>
+                                    <span class="conf-card-meta-item">🆓 <strong>FREE Entry</strong></span>
+                                    <span class="conf-card-meta-item">🏆 <strong>Prizes &amp; Refreshments</strong></span>
+                                </div>
+
+                                <a href="#hys-4-highlights" class="conf-card-more">View conference highlights ↓</a>
+                            </div>
+                            <div class="conf-card-reg" id="hys-4-reg">
+                                <p class="conf-card-reg-label">Registration is completely free</p>
+                                <div class="conf-card-reg-btns">
+                                    <a href="https://forms.gle/im8ydFxxfShqZxEf6" target="_blank" rel="noopener" class="conf-card-reg-btn conf-card-reg-btn--primary">
+                                        <span class="conf-card-reg-icon">🪷</span>
+                                        <span class="conf-card-reg-text">
+                                            <span class="conf-card-reg-type">Register Now — It's FREE</span>
+                                            <span class="conf-card-reg-sub">Exciting Prizes &amp; Refreshments Await</span>
+                                        </span>
+                                        <span class="conf-card-reg-arrow">→</span>
+                                    </a>
+                                </div>
+                            </div>
                         </div>
 
-                        <a href="#hys-4-highlights" class="conf-card-more">View conference highlights ↓</a>
+                        <div class="uc-panel-intro" id="hys-4-highlights">
+                            <div class="conf-detail-header">
+                                <div class="conf-detail-icon">🪷</div>
+                                <div class="conf-detail-header-text">
+                                    <p class="conf-detail-label">Haryana Yuva Samwad 4.0 · First Week of November 2026</p>
+                                    <h2 class="conf-detail-title">Conference Highlights</h2>
+                                </div>
+                            </div>
+                            <p class="uc-panel-lead">Haryana Yuva Samwad has always been a platform for young voices to engage, deliberate, and experience democracy beyond the classroom. Continuing this legacy, Haryana Yuva Samwad 4.0 brings together young minds from across the country for an engaging democratic experience, fostering meaningful dialogue, thoughtful deliberation, and confident leadership. This edition focuses on the transformative role of women in strengthening India's democratic institutions, encouraging participants to explore representation, participation, leadership, and the importance of ensuring that women have a meaningful voice in governance.</p>
+                        </div>
                     </div>
-                    <div class="conf-card-reg" id="hys-4-reg">
-                        <p class="conf-card-reg-label">Registration is completely free</p>
-                        <div class="conf-card-reg-btns">
-                            <a href="https://forms.gle/im8ydFxxfShqZxEf6" target="_blank" rel="noopener" class="conf-card-reg-btn conf-card-reg-btn--primary">
-                                <span class="conf-card-reg-icon">🪷</span>
-                                <span class="conf-card-reg-text">
-                                    <span class="conf-card-reg-type">Register Now — It's FREE</span>
-                                    <span class="conf-card-reg-sub">Exciting Prizes &amp; Refreshments Await</span>
-                                </span>
-                                <span class="conf-card-reg-arrow">→</span>
+
+                    <div class="why-grid">
+                        <div class="why-card uc-stagger">
+                            <div class="why-icon">🗓️</div>
+                            <h3>First Week of November 2026</h3>
+                            <p>Exact date to be announced — mark the first week of November on your calendar.</p>
+                        </div>
+                        <div class="why-card uc-stagger">
+                            <div class="why-icon">🆓</div>
+                            <h3>No Registration Fees</h3>
+                            <p>Absolutely free to register and participate — no cost barrier to entry.</p>
+                        </div>
+                        <div class="why-card uc-stagger">
+                            <div class="why-icon">👥</div>
+                            <h3>Who Can Apply</h3>
+                            <p>Open to young citizens aged 16–24 years from across the country.</p>
+                        </div>
+                        <div class="why-card uc-stagger">
+                            <div class="why-icon">📍</div>
+                            <h3>Haryana Vidhan Sabha</h3>
+                            <p>Held within the prestigious premises of the Haryana Vidhan Sabha.</p>
+                        </div>
+                        <div class="why-card uc-stagger">
+                            <div class="why-icon">🏆</div>
+                            <h3>Prizes &amp; Refreshments</h3>
+                            <p>Exciting prizes and refreshments await every participant.</p>
+                        </div>
+                        <div class="why-card uc-stagger">
+                            <div class="why-icon">🪷</div>
+                            <h3>The Theme</h3>
+                            <p>Nari Shakti Vandan Adhiniyam and Women's Empowerment — strengthening women's representation in democratic governance.</p>
+                        </div>
+                    </div>
+
+                    <div class="uc-prev">
+                        <div class="uc-prev-head">
+                            <p class="uc-prev-label">Previous Editions</p>
+                            <h3 class="uc-prev-title">How We Conducted Haryana Yuva Samvad</h3>
+                        </div>
+                        <div class="uc-prev-grid">
+                            <a class="uc-prev-card" href="/conferences/haryana_yuva_samvad_2025/">
+                                <img src="/images/haryana_yuva_samvad_2025-cover.jpg" alt="Haryana Yuva Samvad 2025" loading="lazy">
+                                <div class="uc-prev-body">
+                                    <span class="uc-prev-ed">1st Edition · 2025</span>
+                                    <h4 class="uc-prev-name">Haryana Yuva Samvad 2025</h4>
+                                    <p class="uc-prev-meta">📅 2–3 April 2025 · 📍 Haryana Vidhan Sabha, Chandigarh</p>
+                                    <p class="uc-prev-desc">Haryana Yuva Samvad was held on 2nd–3rd April 2025 at the Haryana Legislative Assembly, bringing together a distinguished cohort of young participants from across India.</p>
+                                    <p class="uc-prev-stats">60+ Participants · 4 Sessions · 2 Days</p>
+                                    <span class="uc-prev-link">View proceedings →</span>
+                                </div>
+                            </a>
+                            <a class="uc-prev-card" href="/conferences/haryana_yuva_samvad_2026/">
+                                <img src="/images/haryana_yuva_samvad_2026-cover.jpg" alt="Haryana Yuva Samvad 2026" loading="lazy">
+                                <div class="uc-prev-body">
+                                    <span class="uc-prev-ed">2nd Edition · 2026</span>
+                                    <h4 class="uc-prev-name">Haryana Yuva Samvad 2026</h4>
+                                    <p class="uc-prev-meta">📅 16–17 January 2026 · 📍 Haryana Vidhan Sabha, Chandigarh</p>
+                                    <p class="uc-prev-desc">The second edition of the Haryana Yuva Samvad, was held on 16–17 January 2026 at the Haryana Vidhan Sabha, bringing together 70 young participants from across the country for two days of structured legislative engagement.</p>
+                                    <p class="uc-prev-stats">4 Sessions · ~50% Women · 2 Days</p>
+                                    <span class="uc-prev-link">View proceedings →</span>
+                                </div>
+                            </a>
+                            <a class="uc-prev-card" href="/conferences/mahila_yuva_samwad_2026/">
+                                <img src="/images/mahila_yuva_samwad_2026-cover.jpg" alt="Mahila Yuva Samwad 2026" loading="lazy">
+                                <div class="uc-prev-body">
+                                    <span class="uc-prev-ed">Special Edition · 2026</span>
+                                    <h4 class="uc-prev-name">Mahila Yuva Samwad 2026</h4>
+                                    <p class="uc-prev-meta">📅 31 July 2026 · 📍 Haryana Vidhan Sabha</p>
+                                    <p class="uc-prev-desc">On the occasion of Shaheedi Diwas of Shaheed Sardar Udham Singh Ji, the Haryana Vidhan Sabha, in association with Rajdhani Yuva Sansad, organised Yuva Samvad 2026 – महिला सशक्तीकरण को समर्पित on 31 July 2026, bringing together over 85 meticulously selected young participants from various states and cities across the country.</p>
+                                    <p class="uc-prev-stats">85+ Participants · 2 Sessions · 1 Day</p>
+                                    <span class="uc-prev-link">View proceedings →</span>
+                                </div>
                             </a>
                         </div>
                     </div>
+
+                    <div class="conf-detail-reg">
+                        <div class="conf-detail-reg-text">
+                            <p class="conf-detail-reg-label">Register for Haryana Yuva Samwad 4.0</p>
+                            <p class="conf-detail-reg-desc">Organised by Haryana Vidhan Sabha, in association with Rajdhani Yuva Sansad · First Week of November 2026 · FREE Entry</p>
+                        </div>
+                        <div class="conf-detail-reg-btns">
+                            <a href="https://forms.gle/im8ydFxxfShqZxEf6" target="_blank" rel="noopener" class="conf-detail-reg-btn conf-detail-reg-btn--a">🪷 Register Now — FREE</a>
+                        </div>
+                    </div>
                 </div>
 
-                <!-- ── Haryana Yuva Samwad 5.0 ── -->
-                <div class="conf-card conf-card--ys reveal reveal-d1" id="hys-5">
-                    <div class="conf-card-img">
-                        <img class="uc-poster-portrait" src="/images/haryana_yuva_samvad_5-cover.jpg" alt="Haryana Yuva Samwad 5.0" loading="lazy"
-                             onerror="this.src='/images/haryana_yuva_samvad_2026-cover.jpg'">
-                        <div class="conf-card-img-overlay"></div>
-                        <span class="conf-card-badge"><span class="conf-card-badge-dot"></span> Registration Open</span>
-                        <span class="conf-card-date-chip">📅 Middle of Nov 2026</span>
-                    </div>
-                    <div class="conf-card-body">
-                        <p class="conf-card-tag">Haryana Vidhan Sabha · 5th Edition</p>
-                        <h2 class="conf-card-name">Haryana Yuva Samwad 5.0</h2>
-                        <p class="conf-card-host">Organised by <strong>Haryana Vidhan Sabha</strong>, in association with Rajdhani Yuva Sansad</p>
-                        <p class="conf-card-tagline">"Environmental Protection and Sustainable Development: Advancing Constitutional Responsibility and Collective Action."</p>
-                        <div class="conf-card-meta">
-                            <span class="conf-card-meta-item">👥 <strong>Ages 16–24</strong></span>
-                            <span class="conf-card-meta-item">🆓 <strong>FREE Entry</strong></span>
-                            <span class="conf-card-meta-item">🏆 <strong>Prizes &amp; Refreshments</strong></span>
+                <!-- ══ PANEL: Haryana Yuva Samwad 5.0 ══ -->
+                <div class="uc-panel" role="tabpanel" id="panel-hys-5" aria-labelledby="tab-hys-5" tabindex="0" hidden>
+                    <div class="uc-panel-top">
+                        <div class="conf-card conf-card--ys" id="hys-5">
+                            <div class="conf-card-img">
+                                <img class="uc-poster-portrait" src="/images/haryana_yuva_samvad_5-cover.jpg" alt="Haryana Yuva Samwad 5.0" loading="lazy"
+                                     onerror="this.src='/images/haryana_yuva_samvad_2026-cover.jpg'">
+                                <div class="conf-card-img-overlay"></div>
+                                <span class="conf-card-badge"><span class="conf-card-badge-dot"></span> Registration Open</span>
+                                <span class="conf-card-date-chip">📅 Middle of Nov 2026</span>
+                            </div>
+                            <div class="conf-card-body">
+                                <p class="conf-card-tag">Haryana Vidhan Sabha · 5th Edition</p>
+                                <h2 class="conf-card-name">Haryana Yuva Samwad 5.0</h2>
+                                <p class="conf-card-host">Organised by <strong>Haryana Vidhan Sabha</strong>, in association with Rajdhani Yuva Sansad</p>
+                                <p class="conf-card-tagline">"Environmental Protection and Sustainable Development: Advancing Constitutional Responsibility and Collective Action."</p>
+                                <div class="conf-card-meta">
+                                    <span class="conf-card-meta-item">👥 <strong>Ages 16–24</strong></span>
+                                    <span class="conf-card-meta-item">🆓 <strong>FREE Entry</strong></span>
+                                    <span class="conf-card-meta-item">🏆 <strong>Prizes &amp; Refreshments</strong></span>
+                                </div>
+
+                                <a href="#hys-5-highlights" class="conf-card-more">View conference highlights ↓</a>
+                            </div>
+                            <div class="conf-card-reg" id="hys-5-reg">
+                                <p class="conf-card-reg-label">Registration is completely free</p>
+                                <div class="conf-card-reg-btns">
+                                    <a href="https://forms.gle/im8ydFxxfShqZxEf6" target="_blank" rel="noopener" class="conf-card-reg-btn conf-card-reg-btn--primary">
+                                        <span class="conf-card-reg-icon">🪷</span>
+                                        <span class="conf-card-reg-text">
+                                            <span class="conf-card-reg-type">Register Now — It's FREE</span>
+                                            <span class="conf-card-reg-sub">Exciting Prizes &amp; Refreshments Await</span>
+                                        </span>
+                                        <span class="conf-card-reg-arrow">→</span>
+                                    </a>
+                                </div>
+                            </div>
                         </div>
 
-                        <a href="#hys-5-highlights" class="conf-card-more">View conference highlights ↓</a>
+                        <div class="uc-panel-intro" id="hys-5-highlights">
+                            <div class="conf-detail-header">
+                                <div class="conf-detail-icon">🌿</div>
+                                <div class="conf-detail-header-text">
+                                    <p class="conf-detail-label">Haryana Yuva Samwad 5.0 · Middle of November 2026</p>
+                                    <h2 class="conf-detail-title">Conference Highlights</h2>
+                                </div>
+                            </div>
+                            <p class="uc-panel-lead">Haryana Yuva Samwad has always created a space where young minds come together to engage, deliberate, exchange ideas, and experience democracy beyond the classroom. Continuing this legacy, HYS 5.0 brings another powerful conversation to the floor. This conference invites young minds to explore the constitutional responsibility of environmental protection, the challenges of sustainable development, and the importance of collective action in building a greener and more sustainable future.</p>
+                        </div>
                     </div>
-                    <div class="conf-card-reg" id="hys-5-reg">
-                        <p class="conf-card-reg-label">Registration is completely free</p>
-                        <div class="conf-card-reg-btns">
-                            <a href="https://forms.gle/im8ydFxxfShqZxEf6" target="_blank" rel="noopener" class="conf-card-reg-btn conf-card-reg-btn--primary">
-                                <span class="conf-card-reg-icon">🪷</span>
-                                <span class="conf-card-reg-text">
-                                    <span class="conf-card-reg-type">Register Now — It's FREE</span>
-                                    <span class="conf-card-reg-sub">Exciting Prizes &amp; Refreshments Await</span>
-                                </span>
-                                <span class="conf-card-reg-arrow">→</span>
+
+                    <div class="why-grid">
+                        <div class="why-card uc-stagger">
+                            <div class="why-icon">🗓️</div>
+                            <h3>Middle of November 2026</h3>
+                            <p>Exact date to be announced — mark the middle of November on your calendar.</p>
+                        </div>
+                        <div class="why-card uc-stagger">
+                            <div class="why-icon">🆓</div>
+                            <h3>No Registration Fees</h3>
+                            <p>Absolutely free to register and participate — no cost barrier to entry.</p>
+                        </div>
+                        <div class="why-card uc-stagger">
+                            <div class="why-icon">👥</div>
+                            <h3>Who Can Apply</h3>
+                            <p>Open to young citizens aged 16–24 years from across the country.</p>
+                        </div>
+                        <div class="why-card uc-stagger">
+                            <div class="why-icon">📍</div>
+                            <h3>Haryana Vidhan Sabha</h3>
+                            <p>Held within the prestigious premises of the Haryana Vidhan Sabha.</p>
+                        </div>
+                        <div class="why-card uc-stagger">
+                            <div class="why-icon">🏆</div>
+                            <h3>Prizes &amp; Refreshments</h3>
+                            <p>Exciting prizes and refreshments await every participant.</p>
+                        </div>
+                        <div class="why-card uc-stagger">
+                            <div class="why-icon">🌿</div>
+                            <h3>The Theme</h3>
+                            <p>Environmental Protection and Sustainable Development — advancing constitutional responsibility and collective action.</p>
+                        </div>
+                    </div>
+
+                    <div class="uc-prev">
+                        <div class="uc-prev-head">
+                            <p class="uc-prev-label">Previous Editions</p>
+                            <h3 class="uc-prev-title">How We Conducted Haryana Yuva Samvad</h3>
+                        </div>
+                        <div class="uc-prev-grid">
+                            <a class="uc-prev-card" href="/conferences/haryana_yuva_samvad_2025/">
+                                <img src="/images/haryana_yuva_samvad_2025-cover.jpg" alt="Haryana Yuva Samvad 2025" loading="lazy">
+                                <div class="uc-prev-body">
+                                    <span class="uc-prev-ed">1st Edition · 2025</span>
+                                    <h4 class="uc-prev-name">Haryana Yuva Samvad 2025</h4>
+                                    <p class="uc-prev-meta">📅 2–3 April 2025 · 📍 Haryana Vidhan Sabha, Chandigarh</p>
+                                    <p class="uc-prev-desc">Haryana Yuva Samvad was held on 2nd–3rd April 2025 at the Haryana Legislative Assembly, bringing together a distinguished cohort of young participants from across India.</p>
+                                    <p class="uc-prev-stats">60+ Participants · 4 Sessions · 2 Days</p>
+                                    <span class="uc-prev-link">View proceedings →</span>
+                                </div>
+                            </a>
+                            <a class="uc-prev-card" href="/conferences/haryana_yuva_samvad_2026/">
+                                <img src="/images/haryana_yuva_samvad_2026-cover.jpg" alt="Haryana Yuva Samvad 2026" loading="lazy">
+                                <div class="uc-prev-body">
+                                    <span class="uc-prev-ed">2nd Edition · 2026</span>
+                                    <h4 class="uc-prev-name">Haryana Yuva Samvad 2026</h4>
+                                    <p class="uc-prev-meta">📅 16–17 January 2026 · 📍 Haryana Vidhan Sabha, Chandigarh</p>
+                                    <p class="uc-prev-desc">The second edition of the Haryana Yuva Samvad, was held on 16–17 January 2026 at the Haryana Vidhan Sabha, bringing together 70 young participants from across the country for two days of structured legislative engagement.</p>
+                                    <p class="uc-prev-stats">4 Sessions · ~50% Women · 2 Days</p>
+                                    <span class="uc-prev-link">View proceedings →</span>
+                                </div>
+                            </a>
+                            <a class="uc-prev-card" href="/conferences/mahila_yuva_samwad_2026/">
+                                <img src="/images/mahila_yuva_samwad_2026-cover.jpg" alt="Mahila Yuva Samwad 2026" loading="lazy">
+                                <div class="uc-prev-body">
+                                    <span class="uc-prev-ed">Special Edition · 2026</span>
+                                    <h4 class="uc-prev-name">Mahila Yuva Samwad 2026</h4>
+                                    <p class="uc-prev-meta">📅 31 July 2026 · 📍 Haryana Vidhan Sabha</p>
+                                    <p class="uc-prev-desc">On the occasion of Shaheedi Diwas of Shaheed Sardar Udham Singh Ji, the Haryana Vidhan Sabha, in association with Rajdhani Yuva Sansad, organised Yuva Samvad 2026 – महिला सशक्तीकरण को समर्पित on 31 July 2026, bringing together over 85 meticulously selected young participants from various states and cities across the country.</p>
+                                    <p class="uc-prev-stats">85+ Participants · 2 Sessions · 1 Day</p>
+                                    <span class="uc-prev-link">View proceedings →</span>
+                                </div>
                             </a>
                         </div>
                     </div>
+
+                    <div class="conf-detail-reg">
+                        <div class="conf-detail-reg-text">
+                            <p class="conf-detail-reg-label">Register for Haryana Yuva Samwad 5.0</p>
+                            <p class="conf-detail-reg-desc">Organised by Haryana Vidhan Sabha, in association with Rajdhani Yuva Sansad · Middle of November 2026 · FREE Entry</p>
+                        </div>
+                        <div class="conf-detail-reg-btns">
+                            <a href="https://forms.gle/im8ydFxxfShqZxEf6" target="_blank" rel="noopener" class="conf-detail-reg-btn conf-detail-reg-btn--a">🪷 Register Now — FREE</a>
+                        </div>
+                    </div>
                 </div>
 
-                <!-- ── 3rd National Lawyers' Parliament Festival 2026 ── -->
-                <div class="conf-card conf-card--ys reveal reveal-d2" id="nlpf-2026">
-                    <div class="conf-card-img">
-                        <img src="/images/nlpf_2026-cover.png" alt="3rd National Lawyers' Parliament Festival 2026" loading="lazy"
-                             onerror="this.src='/images/nlpf_2024-cover.png'">
-                        <div class="conf-card-img-overlay"></div>
-                        <span class="conf-card-badge"><span class="conf-card-badge-dot"></span> Registration Open</span>
-                        <span class="conf-card-date-chip">📅 Nov 28, 2026</span>
-                    </div>
-                    <div class="conf-card-body">
-                        <p class="conf-card-tag">Lawyers for Justice · 3rd Edition</p>
-                        <h2 class="conf-card-name">3rd National Lawyers' Parliament Festival</h2>
-                        <p class="conf-card-host">Organised by <strong>Lawyers for Justice</strong>, in association with Rajdhani Yuva Sansad</p>
-                        <p class="conf-card-tagline">"Deliberating One Nation, One Election — एक देश, एक चुनाव."</p>
-                        <div class="conf-card-meta">
-                            <span class="conf-card-meta-item">📚 <strong>Final-Year Law Students &amp; Advocates</strong></span>
-                            <span class="conf-card-meta-item">🆓 <strong>FREE Entry</strong></span>
-                            <span class="conf-card-meta-item">🏆 <strong>Prizes &amp; Kits</strong></span>
+                <!-- ══ PANEL: 3rd National Lawyers' Parliament Festival ══ -->
+                <div class="uc-panel" role="tabpanel" id="panel-nlpf-2026" aria-labelledby="tab-nlpf-2026" tabindex="0" hidden>
+                    <div class="uc-panel-top">
+                        <div class="conf-card conf-card--ys" id="nlpf-2026">
+                            <div class="conf-card-img">
+                                <img src="/images/nlpf_2026-cover.png" alt="3rd National Lawyers' Parliament Festival 2026" loading="lazy"
+                                     onerror="this.src='/images/nlpf_2024-cover.png'">
+                                <div class="conf-card-img-overlay"></div>
+                                <span class="conf-card-badge"><span class="conf-card-badge-dot"></span> Registration Open</span>
+                                <span class="conf-card-date-chip">📅 Nov 28, 2026</span>
+                            </div>
+                            <div class="conf-card-body">
+                                <p class="conf-card-tag">Lawyers for Justice · 3rd Edition</p>
+                                <h2 class="conf-card-name">3rd National Lawyers' Parliament Festival</h2>
+                                <p class="conf-card-host">Organised by <strong>Lawyers for Justice</strong>, in association with Rajdhani Yuva Sansad</p>
+                                <p class="conf-card-tagline">"Deliberating One Nation, One Election — एक देश, एक चुनाव."</p>
+                                <div class="conf-card-meta">
+                                    <span class="conf-card-meta-item">📚 <strong>Final-Year Law Students &amp; Advocates</strong></span>
+                                    <span class="conf-card-meta-item">🆓 <strong>FREE Entry</strong></span>
+                                    <span class="conf-card-meta-item">🏆 <strong>Prizes &amp; Kits</strong></span>
+                                </div>
+
+                                <a href="#nlpf-2026-highlights" class="conf-card-more">View festival highlights ↓</a>
+                            </div>
+                            <div class="conf-card-reg" id="nlpf-reg">
+                                <p class="conf-card-reg-label">Registration is completely free</p>
+                                <div class="conf-card-reg-btns">
+                                    <a href="https://forms.gle/aa4PeZGewSz7fYpJ7" target="_blank" rel="noopener" class="conf-card-reg-btn conf-card-reg-btn--primary">
+                                        <span class="conf-card-reg-icon">⚖</span>
+                                        <span class="conf-card-reg-text">
+                                            <span class="conf-card-reg-type">Register Now — It's FREE</span>
+                                            <span class="conf-card-reg-sub">Prizes · Food · Participant &amp; Stationery Kits for all</span>
+                                        </span>
+                                        <span class="conf-card-reg-arrow">→</span>
+                                    </a>
+                                </div>
+                            </div>
                         </div>
 
-                        <a href="#nlpf-2026-highlights" class="conf-card-more">View festival highlights ↓</a>
+                        <div class="uc-panel-intro" id="nlpf-2026-highlights">
+                            <div class="conf-detail-header">
+                                <div class="conf-detail-icon">⚖</div>
+                                <div class="conf-detail-header-text">
+                                    <p class="conf-detail-label">3rd National Lawyers' Parliament Festival · November 28, 2026</p>
+                                    <h2 class="conf-detail-title">Festival Highlights</h2>
+                                </div>
+                            </div>
+                            <p class="uc-panel-lead">Building on the success of our first two editions — the <a href="/conferences/#nlpf-1" style="color:var(--saffron-text);">1st National Lawyers' Parliament Festival</a> and the <a href="/conferences/#nlpf-2" style="color:var(--saffron-text);">2nd National Lawyers' Parliament Festival</a> — Lawyers for Justice, in association with Rajdhani Yuva Sansad, brings together practicing advocates and final-year law students from across the country to deliberate on the agenda, <strong>"One Nation, One Election" (एक देश, एक चुनाव)</strong> — a major proposed reform of India's electoral system, raising important questions of constitutional law, federalism, and democratic practice.</p>
+                        </div>
                     </div>
-                    <div class="conf-card-reg" id="nlpf-reg">
-                        <p class="conf-card-reg-label">Registration is completely free</p>
-                        <div class="conf-card-reg-btns">
-                            <a href="https://forms.gle/aa4PeZGewSz7fYpJ7" target="_blank" rel="noopener" class="conf-card-reg-btn conf-card-reg-btn--primary">
-                                <span class="conf-card-reg-icon">⚖</span>
-                                <span class="conf-card-reg-text">
-                                    <span class="conf-card-reg-type">Register Now — It's FREE</span>
-                                    <span class="conf-card-reg-sub">Prizes · Food · Participant &amp; Stationery Kits for all</span>
-                                </span>
-                                <span class="conf-card-reg-arrow">→</span>
+
+                    <div class="why-grid">
+                        <div class="why-card uc-stagger">
+                            <div class="why-icon">🗓️</div>
+                            <h3>28 November 2026</h3>
+                            <p>Mark your calendar — the festival convenes for a full day of parliamentary deliberation.</p>
+                        </div>
+                        <div class="why-card uc-stagger">
+                            <div class="why-icon">🆓</div>
+                            <h3>No Registration Fees</h3>
+                            <p>Absolutely free to register and participate — no cost barrier to entry.</p>
+                        </div>
+                        <div class="why-card uc-stagger">
+                            <div class="why-icon">📚</div>
+                            <h3>Who Can Apply</h3>
+                            <p>Open to final-year law students and practicing advocates from across the country.</p>
+                        </div>
+                        <div class="why-card uc-stagger">
+                            <div class="why-icon">🏆</div>
+                            <h3>Prizes for Winners</h3>
+                            <p>Exciting prizes await participants who distinguish themselves in the debate.</p>
+                        </div>
+                        <div class="why-card uc-stagger">
+                            <div class="why-icon">🍽️</div>
+                            <h3>Food Provided</h3>
+                            <p>Meals provided for all participants throughout the day.</p>
+                        </div>
+                        <div class="why-card uc-stagger">
+                            <div class="why-icon">📝</div>
+                            <h3>Kits for All</h3>
+                            <p>Participant and stationery kits provided to every registered delegate.</p>
+                        </div>
+                        <div class="why-card uc-stagger">
+                            <div class="why-icon">⚖</div>
+                            <h3>The Agenda</h3>
+                            <p>"One Nation, One Election" — examined through a constitutional and federal lens.</p>
+                        </div>
+                    </div>
+
+                    <div class="uc-prev">
+                        <div class="uc-prev-head">
+                            <p class="uc-prev-label">Previous Editions</p>
+                            <h3 class="uc-prev-title">How We Conducted the National Lawyers' Parliament Festival</h3>
+                        </div>
+                        <div class="uc-prev-grid">
+                            <a class="uc-prev-card" href="/conferences/nlpf_2023/">
+                                <img src="/images/nlpf_2023-cover.png" alt="1st National Lawyers' Parliament Festival 2023" loading="lazy">
+                                <div class="uc-prev-body">
+                                    <span class="uc-prev-ed">Inaugural Edition · 2023</span>
+                                    <h4 class="uc-prev-name">1st National Lawyers' Parliament Festival 2023</h4>
+                                    <p class="uc-prev-meta">📅 29 April 2023 · 📍 Indian Society of International Law, New Delhi</p>
+                                    <p class="uc-prev-desc">The inaugural National Lawyers' Parliament Festival was held on 29th April 2023 at the Indian Society of International Law, New Delhi.</p>
+                                    <p class="uc-prev-stats">~350 Participants · 1 Day</p>
+                                    <span class="uc-prev-link">View proceedings →</span>
+                                </div>
+                            </a>
+                            <a class="uc-prev-card" href="/conferences/nlpf_2024/">
+                                <img src="/images/nlpf_2024-cover.png" alt="2nd National Lawyers' Parliament Festival 2024" loading="lazy">
+                                <div class="uc-prev-body">
+                                    <span class="uc-prev-ed">2nd Edition · 2024</span>
+                                    <h4 class="uc-prev-name">2nd National Lawyers' Parliament Festival 2024</h4>
+                                    <p class="uc-prev-meta">📅 24 November 2024 · 📍 India International Centre, New Delhi</p>
+                                    <p class="uc-prev-desc">The Second National Lawyers' Parliament Festival was held on 24th November 2024 at the India International Centre, New Delhi, bringing together some of the brightest legal minds from across the country.</p>
+                                    <p class="uc-prev-stats">~500 Participants · 1000+ Applications · 1 Day</p>
+                                    <span class="uc-prev-link">View proceedings →</span>
+                                </div>
                             </a>
                         </div>
                     </div>
+
+                    <div class="conf-detail-reg">
+                        <div class="conf-detail-reg-text">
+                            <p class="conf-detail-reg-label">Register for the 3rd National Lawyers' Parliament Festival</p>
+                            <p class="conf-detail-reg-desc">Organised by Lawyers for Justice, in association with Rajdhani Yuva Sansad · November 28, 2026 · FREE Entry</p>
+                        </div>
+                        <div class="conf-detail-reg-btns">
+                            <a href="https://forms.gle/aa4PeZGewSz7fYpJ7" target="_blank" rel="noopener" class="conf-detail-reg-btn conf-detail-reg-btn--a">⚖ Register Now — FREE</a>
+                        </div>
+                    </div>
                 </div>
 
-            </div>
-        </div>
-
-        <!-- ═══ HARYANA YUVA SAMWAD 4.0 — HIGHLIGHTS ═══ -->
-        <section class="conf-detail-section" id="hys-4-highlights">
-            <div class="conf-detail-header">
-                <div class="conf-detail-icon">🪷</div>
-                <div class="conf-detail-header-text">
-                    <p class="conf-detail-label">Haryana Yuva Samwad 4.0 · First Week of November 2026</p>
-                    <h2 class="conf-detail-title">Conference Highlights</h2>
-                </div>
-            </div>
-
-            <p style="max-width:900px;margin:0 auto 2rem;font-size:1rem;color:var(--dim2);line-height:1.7;">Haryana Yuva Samwad has always been a platform for young voices to engage, deliberate, and experience democracy beyond the classroom. Continuing this legacy, Haryana Yuva Samwad 4.0 brings together young minds from across the country for an engaging democratic experience, fostering meaningful dialogue, thoughtful deliberation, and confident leadership. This edition focuses on the transformative role of women in strengthening India's democratic institutions, encouraging participants to explore representation, participation, leadership, and the importance of ensuring that women have a meaningful voice in governance.</p>
-
-            <div class="why-grid">
-                <div class="why-card uc-stagger">
-                    <div class="why-icon">🗓️</div>
-                    <h3>First Week of November 2026</h3>
-                    <p>Exact date to be announced — mark the first week of November on your calendar.</p>
-                </div>
-                <div class="why-card uc-stagger">
-                    <div class="why-icon">🆓</div>
-                    <h3>No Registration Fees</h3>
-                    <p>Absolutely free to register and participate — no cost barrier to entry.</p>
-                </div>
-                <div class="why-card uc-stagger">
-                    <div class="why-icon">👥</div>
-                    <h3>Who Can Apply</h3>
-                    <p>Open to young citizens aged 16–24 years from across the country.</p>
-                </div>
-                <div class="why-card uc-stagger">
-                    <div class="why-icon">📍</div>
-                    <h3>Haryana Vidhan Sabha</h3>
-                    <p>Held within the prestigious premises of the Haryana Vidhan Sabha.</p>
-                </div>
-                <div class="why-card uc-stagger">
-                    <div class="why-icon">🏆</div>
-                    <h3>Prizes &amp; Refreshments</h3>
-                    <p>Exciting prizes and refreshments await every participant.</p>
-                </div>
-                <div class="why-card uc-stagger">
-                    <div class="why-icon">🪷</div>
-                    <h3>The Theme</h3>
-                    <p>Nari Shakti Vandan Adhiniyam and Women's Empowerment — strengthening women's representation in democratic governance.</p>
-                </div>
-            </div>
-
-            <!-- reg strip -->
-            <div class="conf-detail-reg">
-                <div class="conf-detail-reg-text">
-                    <p class="conf-detail-reg-label">Register for Haryana Yuva Samwad 4.0</p>
-                    <p class="conf-detail-reg-desc">Organised by Haryana Vidhan Sabha, in association with Rajdhani Yuva Sansad · First Week of November 2026 · FREE Entry</p>
-                </div>
-                <div class="conf-detail-reg-btns">
-                    <a href="https://forms.gle/im8ydFxxfShqZxEf6" target="_blank" rel="noopener" class="conf-detail-reg-btn conf-detail-reg-btn--a">🪷 Register Now — FREE</a>
-                </div>
-            </div>
-        </section>
-
-        <!-- ═══ HARYANA YUVA SAMWAD 5.0 — HIGHLIGHTS ═══ -->
-        <section class="conf-detail-section" id="hys-5-highlights">
-            <div class="conf-detail-header">
-                <div class="conf-detail-icon">🌿</div>
-                <div class="conf-detail-header-text">
-                    <p class="conf-detail-label">Haryana Yuva Samwad 5.0 · Middle of November 2026</p>
-                    <h2 class="conf-detail-title">Conference Highlights</h2>
-                </div>
-            </div>
-
-            <p style="max-width:900px;margin:0 auto 2rem;font-size:1rem;color:var(--dim2);line-height:1.7;">Haryana Yuva Samwad has always created a space where young minds come together to engage, deliberate, exchange ideas, and experience democracy beyond the classroom. Continuing this legacy, HYS 5.0 brings another powerful conversation to the floor. This conference invites young minds to explore the constitutional responsibility of environmental protection, the challenges of sustainable development, and the importance of collective action in building a greener and more sustainable future.</p>
-
-            <div class="why-grid">
-                <div class="why-card uc-stagger">
-                    <div class="why-icon">🗓️</div>
-                    <h3>Middle of November 2026</h3>
-                    <p>Exact date to be announced — mark the middle of November on your calendar.</p>
-                </div>
-                <div class="why-card uc-stagger">
-                    <div class="why-icon">🆓</div>
-                    <h3>No Registration Fees</h3>
-                    <p>Absolutely free to register and participate — no cost barrier to entry.</p>
-                </div>
-                <div class="why-card uc-stagger">
-                    <div class="why-icon">👥</div>
-                    <h3>Who Can Apply</h3>
-                    <p>Open to young citizens aged 16–24 years from across the country.</p>
-                </div>
-                <div class="why-card uc-stagger">
-                    <div class="why-icon">📍</div>
-                    <h3>Haryana Vidhan Sabha</h3>
-                    <p>Held within the prestigious premises of the Haryana Vidhan Sabha.</p>
-                </div>
-                <div class="why-card uc-stagger">
-                    <div class="why-icon">🏆</div>
-                    <h3>Prizes &amp; Refreshments</h3>
-                    <p>Exciting prizes and refreshments await every participant.</p>
-                </div>
-                <div class="why-card uc-stagger">
-                    <div class="why-icon">🌿</div>
-                    <h3>The Theme</h3>
-                    <p>Environmental Protection and Sustainable Development — advancing constitutional responsibility and collective action.</p>
-                </div>
-            </div>
-
-            <!-- reg strip -->
-            <div class="conf-detail-reg">
-                <div class="conf-detail-reg-text">
-                    <p class="conf-detail-reg-label">Register for Haryana Yuva Samwad 5.0</p>
-                    <p class="conf-detail-reg-desc">Organised by Haryana Vidhan Sabha, in association with Rajdhani Yuva Sansad · Middle of November 2026 · FREE Entry</p>
-                </div>
-                <div class="conf-detail-reg-btns">
-                    <a href="https://forms.gle/im8ydFxxfShqZxEf6" target="_blank" rel="noopener" class="conf-detail-reg-btn conf-detail-reg-btn--a">🪷 Register Now — FREE</a>
-                </div>
-            </div>
-        </section>
-
-        <!-- ═══ 3RD NLPF — FESTIVAL HIGHLIGHTS ═══ -->
-        <section class="conf-detail-section" id="nlpf-2026-highlights">
-            <div class="conf-detail-header">
-                <div class="conf-detail-icon">⚖</div>
-                <div class="conf-detail-header-text">
-                    <p class="conf-detail-label">3rd National Lawyers' Parliament Festival · November 28, 2026</p>
-                    <h2 class="conf-detail-title">Festival Highlights</h2>
-                </div>
-            </div>
-
-            <p style="max-width:900px;margin:0 auto 2rem;font-size:1rem;color:var(--dim2);line-height:1.7;">Building on the success of our first two editions — the <a href="/conferences/#nlpf-1" style="color:var(--saffron-text);">1st National Lawyers' Parliament Festival</a> and the <a href="/conferences/#nlpf-2" style="color:var(--saffron-text);">2nd National Lawyers' Parliament Festival</a> — Lawyers for Justice, in association with Rajdhani Yuva Sansad, brings together practicing advocates and final-year law students from across the country to deliberate on the agenda, <strong>"One Nation, One Election" (एक देश, एक चुनाव)</strong> — a major proposed reform of India's electoral system, raising important questions of constitutional law, federalism, and democratic practice.</p>
-
-            <div class="why-grid">
-                <div class="why-card uc-stagger">
-                    <div class="why-icon">🗓️</div>
-                    <h3>28 November 2026</h3>
-                    <p>Mark your calendar — the festival convenes for a full day of parliamentary deliberation.</p>
-                </div>
-                <div class="why-card uc-stagger">
-                    <div class="why-icon">🆓</div>
-                    <h3>No Registration Fees</h3>
-                    <p>Absolutely free to register and participate — no cost barrier to entry.</p>
-                </div>
-                <div class="why-card uc-stagger">
-                    <div class="why-icon">📚</div>
-                    <h3>Who Can Apply</h3>
-                    <p>Open to final-year law students and practicing advocates from across the country.</p>
-                </div>
-                <div class="why-card uc-stagger">
-                    <div class="why-icon">🏆</div>
-                    <h3>Prizes for Winners</h3>
-                    <p>Exciting prizes await participants who distinguish themselves in the debate.</p>
-                </div>
-                <div class="why-card uc-stagger">
-                    <div class="why-icon">🍽️</div>
-                    <h3>Food Provided</h3>
-                    <p>Meals provided for all participants throughout the day.</p>
-                </div>
-                <div class="why-card uc-stagger">
-                    <div class="why-icon">📝</div>
-                    <h3>Kits for All</h3>
-                    <p>Participant and stationery kits provided to every registered delegate.</p>
-                </div>
-                <div class="why-card uc-stagger">
-                    <div class="why-icon">⚖</div>
-                    <h3>The Agenda</h3>
-                    <p>"One Nation, One Election" — examined through a constitutional and federal lens.</p>
-                </div>
-            </div>
-
-            <!-- reg strip -->
-            <div class="conf-detail-reg">
-                <div class="conf-detail-reg-text">
-                    <p class="conf-detail-reg-label">Register for the 3rd National Lawyers' Parliament Festival</p>
-                    <p class="conf-detail-reg-desc">Organised by Lawyers for Justice, in association with Rajdhani Yuva Sansad · November 28, 2026 · FREE Entry</p>
-                </div>
-                <div class="conf-detail-reg-btns">
-                    <a href="https://forms.gle/aa4PeZGewSz7fYpJ7" target="_blank" rel="noopener" class="conf-detail-reg-btn conf-detail-reg-btn--a">⚖ Register Now — FREE</a>
-                </div>
             </div>
         </section>
 
