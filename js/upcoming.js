@@ -393,15 +393,8 @@
 
   // ─── Init All ───
   document.addEventListener('DOMContentLoaded', function () {
-    initHeroTitle();
-    initHeroParticles();
-    initCtaParticles();
-    initCountdown();
-    initTiltCards();
-    initStaggerReveal();
-    initConferenceTabs();
-    initMagneticButtons();
-    initUpcomingCounters();
-    initHeroParallax();
+    [initHeroTitle, initHeroParticles, initCtaParticles, initCountdown, initTiltCards,
+     initStaggerReveal, initConferenceTabs, initMagneticButtons, initUpcomingCounters, initHeroParallax]
+      .forEach(function (fn) { try { fn(); } catch (e) { console.error('[upcoming]', fn.name, e); } });
   });
 })();
