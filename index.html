@@ -914,16 +914,11 @@ html[data-theme="light"] .theme-toggle-knob { transform:translateX(24px); backgr
   transition: filter .5s, transform .6s;
 }
 .founder-card:hover .founder-img-frame img { filter:brightness(.95) saturate(1); transform:scale(1.03); }
-.founder-img-frame::after {
-  content:'';
-  position:absolute; inset:0;
-  background:linear-gradient(to top,var(--founder-overlay) 0%,transparent 50%);
-}
-.founder-img-overlay {
-  position:absolute; bottom:1.5rem; left:1.5rem; right:1.5rem; z-index:2;
-}
-.fi-name { font-family:'Cinzel',serif; font-size:1.3rem; font-weight:700; color:var(--white); }
-.fi-title { font-size:.85rem; letter-spacing:.14em; text-transform:uppercase; color:var(--gold-text); margin-top:.2rem; }
+/* Names and designations sit below the portraits for clear reading. */
+.founder-caption { padding: 0 .15rem 1rem; }
+.fi-name { font-family:'Cinzel',serif; font-size:clamp(1rem,1.5vw,1.3rem); font-weight:700; color:var(--cream); }
+.fi-title { font-size:1.05rem; font-weight:700; letter-spacing:.08em; text-transform:uppercase; color:var(--gold-text); margin-top:.55rem; }
+.fi-foundation { font-size:.8rem; line-height:1.5; color:var(--dim2); margin-top:.2rem; }
 
 .founder-corner-accent {
   position:absolute; top:-8px; right:-8px;
@@ -2452,15 +2447,6 @@ footer {
 
   <!-- Centred content -->
   <div class="hero-center">
-    <img src="/images/rajdhani-changemakers-logo.png" alt="Rajdhani Changemakers Foundation" class="hero-foundation-logo" loading="lazy">
-    <div style="display:inline-block;margin-bottom:0.75rem;padding:0.3rem 1rem;border:1px solid var(--gold);border-radius:999px;font-family:'Mulish',sans-serif;font-size:.8rem;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:var(--gold-text);background:rgba(184,137,42,0.10);">
-      &#10022; Official Website of Rajdhani Yuva Sansad
-    </div>
-    <div class="hero-eyebrow">
-      <div class="hero-eyebrow-line"></div>
-      <span>New Delhi · Est. 2017 · 25+ Grand Conferences</span>
-      <div class="hero-eyebrow-line"></div>
-    </div>
     <div class="hero-tagline-hindi">‘संवाद ही हल है।’</div>
     <h1 class="hero-h1">
       Rajdhani Yuva Sansad
@@ -2472,6 +2458,11 @@ footer {
     <p class="hero-desc">
       Founded in 2017 by Adv. Isha Kapoor and Adv. Jai Saini, RYS is committed to empowering India's youth through constitutional literacy, parliamentary values, international diplomacy, and policy-driven national dialogue. From school halls to some of India's greatest legislative venues, we make informed, articulate, and responsible individuals who are prepared to lead with purpose and conviction.
     </p>
+    <div class="hero-eyebrow">
+      <div class="hero-eyebrow-line"></div>
+      <span>New Delhi · Est. 2017 · 25+ Grand Conferences</span>
+      <div class="hero-eyebrow-line"></div>
+    </div>
     <div class="hero-actions-group">
       <div class="hero-actions">
         <a href="/upcoming/" class="btn-fire">⚑ Explore Next Conference</a>
@@ -3120,20 +3111,22 @@ html[data-theme="light"] .uc-flagship-card {
       <div class="founder-card reveal reveal-left">
         <div class="founder-img-frame">
           <img src="/images/adv-isha-kapoor.jpg" alt="Adv. Isha Kapoor">
-          <div class="founder-img-overlay">
-            <div class="fi-name">Adv. Isha Kapoor</div>
-            <div class="fi-title">Co-Founder, RYS</div>
-          </div>
+        </div>
+        <div class="founder-caption">
+          <div class="fi-name">Adv. Isha Kapoor</div>
+          <div class="fi-title">Director</div>
+          <div class="fi-foundation">Rajdhani ChangeMakers Foundation</div>
         </div>
         <div class="founder-corner-accent"></div>
       </div>
       <div class="founder-card reveal reveal-left reveal-d1">
         <div class="founder-img-frame">
           <img src="/images/adv-jai-saini.jpg" alt="Adv. Jai Saini">
-          <div class="founder-img-overlay">
-            <div class="fi-name">Adv. Jai Saini</div>
-            <div class="fi-title">Co-Founder, RYS</div>
-          </div>
+        </div>
+        <div class="founder-caption">
+          <div class="fi-name">Adv. Jai Saini</div>
+          <div class="fi-title">Director</div>
+          <div class="fi-foundation">Rajdhani ChangeMakers Foundation</div>
         </div>
         <div class="founder-corner-accent"></div>
       </div>
