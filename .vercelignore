@@ -1,0 +1,16 @@
+# Deploy the site, not its local Pages staging copy or development tooling.
+dist/
+build/
+scripts/
+.git/
+.github/
+.vercel/
+.vscode/
+.idea/
+node_modules/
+__pycache__/
+*.pyc
+*.log
+.env
+.env.*
+Global and Yuva SAMVAD photos-*/
