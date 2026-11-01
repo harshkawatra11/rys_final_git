@@ -34,6 +34,8 @@ build/
 *.tmp
 *.bak
 *.orig
+__pycache__/
+*.pyc
 
 # Local generated analysis artifacts
 rys-platform-*.txt

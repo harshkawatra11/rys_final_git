@@ -12,7 +12,7 @@
     // Collect gallery images
     var galleryImgs = [];
     document.querySelectorAll('.cd-gallery-item img').forEach(function(img) {
-      galleryImgs.push(img.src);
+      galleryImgs.push(img.dataset.collageSrc || img.currentSrc || img.src);
     });
 
     // Get cover image
@@ -191,7 +191,7 @@
       function openLightbox(index) {
         currentIndex = index;
         var img = galleryItems[index].querySelector('img');
-        lbImg.src = img.src;
+        lbImg.src = img.dataset.fullSrc || img.currentSrc || img.src;
         lbImg.alt = img.alt;
         lbCounter.textContent = (index + 1) + ' / ' + galleryItems.length;
         lightbox.classList.add('open');
@@ -208,7 +208,7 @@
         var img = galleryItems[currentIndex].querySelector('img');
         lbImg.style.opacity = '0';
         setTimeout(function () {
-          lbImg.src = img.src;
+          lbImg.src = img.dataset.fullSrc || img.currentSrc || img.src;
           lbImg.alt = img.alt;
           lbCounter.textContent = (currentIndex + 1) + ' / ' + galleryItems.length;
           lbImg.style.opacity = '1';
