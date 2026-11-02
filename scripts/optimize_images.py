@@ -11,6 +11,8 @@ from pathlib import Path
 import argparse
 import json
 import re
+import subprocess
+import sys
 
 from PIL import Image, ImageOps
 
@@ -169,6 +171,8 @@ def main():
         item = manifest.get(match[1])
         return item["variants"][-1]["url"] if item else match[0]
     for path in files:
+        if path.name == "home-image-data.js":
+            continue  # Generated below; keep each responsive candidate at its actual width.
         source = path.read_text(encoding="utf-8")
         # Reconnect existing variants to their source so replacing an original
         # automatically updates its hash and all responsive variants next time.
@@ -177,6 +181,8 @@ def main():
         updated = SOURCE_RE.sub(replace_ref, updated)
         if source != updated:
             path.write_text(updated, encoding="utf-8")
+    if (ROOT / "scripts/home-image-sources.json").exists():
+        subprocess.run([sys.executable, str(ROOT / "scripts/prepare_home_images.py")], check=True)
     before = sum(i["original_bytes"] for i in manifest.values())
     after = sum(i["variants"][-1]["bytes"] for i in manifest.values())
     print(f"{len(manifest)} originals preserved; largest web versions: {before/1024**2:.1f} MB -> {after/1024**2:.1f} MB ({100*(1-after/before):.1f}% smaller)")

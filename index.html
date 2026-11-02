@@ -1017,9 +1017,10 @@ html[data-theme="light"] .theme-toggle-knob { transform:translateX(24px); backgr
 .showcase-sec { padding:6rem 5vw 5rem; background:var(--navy); position:relative; overflow:hidden; }
 .showcase-sec .sec-tag,
 .showcase-sec .sec-h2 { text-align:center; }
-.carousel-wrap { position:relative; max-width:1200px; margin:0 auto; overflow:hidden; border-radius:10px; height:520px; }
+/* Clip without creating a native scroll container that can shift focused slides. */
+.carousel-wrap { position:relative; max-width:1200px; margin:0 auto; overflow:clip; border-radius:10px; height:520px; }
 .carousel-track { display:flex; height:100%; transition:transform .6s cubic-bezier(.77,0,.175,1); }
-.carousel-slide { min-width:100%; height:100%; position:relative; flex-shrink:0; display:block; text-decoration:none; color:inherit; cursor:pointer; }
+.carousel-slide { flex:0 0 100%; min-width:0; max-width:100%; height:100%; position:relative; display:block; text-decoration:none; color:inherit; cursor:pointer; background-size:cover; background-position:center; }
 .carousel-slide img { width:100%; height:100%; object-fit:cover; display:block; transition:filter .4s; }
 .carousel-slide:hover img { filter:brightness(1.05); }
 .carousel-overlay {
@@ -3864,127 +3865,6 @@ function switchTab(btn,id){
   document.getElementById(id).classList.add('active');
 }
 
-/* Add dignitary photos into each card */
-(function(){
-  const dignitaryPhotos = {
-    'Shri Arjun Ram Meghwal': '/images/optimized/union-minister-arjun-image-52a0e405f8b6-1062w.webp',
-    'Shri Kamlesh Paswan': '/images/optimized/union-minister-kamlesh-image-d666a431719a-1010w.webp',
-    'Smt. Raksha Nikhil Khadse': '/images/optimized/union-minister-raksha-image-c69fa99d81ac-925w.webp',
-    'Shri Ajay Tamta': '/images/optimized/union-minister-ajay-image-cd2efd31f8b9-1001w.webp',
-    'Shri Harsh Malhotra': '/images/optimized/union-minister-harsh-image-6ceeec24cdda-1600w.webp',
-    'Shri Harvinder Kalyan': '/images/optimized/speaker-and-legislators-harvinder-image-56635210627e-1600w.webp',
-    'Shri Krishan Lal Middha': '/images/optimized/speaker-and-legislators-krishan-lal-image-0592b2cd66cf-1600w.webp',
-    'Shri Ram Niwas Goel': '/images/optimized/speaker-and-legislators-ram-niwas-image-4e3f5d93e35c-1600w.webp',
-    'Smt. Geeta Bhukkal': '/images/optimized/speaker-and-legislators-geeta-image-3d1d568a82b5-1182w.webp',
-    'Smt. Pooja Chaudhary': '/images/optimized/speaker-and-legislators-pooja-chaudhary-image-82ca3a62e7da-1600w.webp',
-    'Smt. Bansuri Swaraj': '/images/optimized/member-of-parliament-bansuri-image-964dc4e5b535-1600w.webp',
-    'Dr. Kalpana Saini': '/images/optimized/member-of-parliament-kalpana-image-a24c49171c48-1600w.webp',
-    'Shri Manoj Tiwari': '/images/optimized/member-of-parliament-manoj-image-f5960f907a55-1600w.webp',
-    'Shri Naresh Bansal': '/images/optimized/member-of-parliament-naresh-image-a9ca9ace03e9-1600w.webp',
-    'HMJ Chandra Dhari Singh': '/images/optimized/legal-luminaries-chandra-image-50e64f45802f-1600w.webp',
-    'HMJ Manoj Ohri': '/images/optimized/legal-luminaries-ohri-image-94a23a57dffa-1600w.webp',
-    'HMJ Vikas Mahajan': '/images/optimized/legal-luminaries-vikas-image-b8dd70bcdfb0-1600w.webp',
-    'HMJ Sachin Dutta': '/images/optimized/legal-luminaries-sachin-image-8256bf8d8cac-1600w.webp',
-    'Shri Chetan Sharma': '/images/optimized/legal-luminaries-chetan-image-7c50de001b98-1600w.webp',
-    'Adv. Piyush Gupta': '/images/optimized/legal-luminaries-piyush-image-e77a773c5487-1600w.webp',
-    'Smt. Monika Arora': '/images/optimized/legal-luminaries-monica-image-e436edaf6880-1600w.webp',
-    'Shri Ashwini Upadhyay': '/images/optimized/legal-luminaries-ashwini-image-7152e1e0008c-1600w.webp',
-    'Shri K.K. Manan': '/images/optimized/legal-luminaries-kk-image-1d604ff16897-1600w.webp',
-    'Smt. Aman Preet Passy, IRS': '/images/optimized/distinguished-personalities-aman-preet-image-1fb23ce1d327-1600w.webp',
-    'Shri Arunendra Nath Verma': '/images/optimized/distinguished-personalities-arunendra-image-0740fed19a81-1600w.webp',
-    'Dr. Janak Raj Jai': '/images/optimized/distinguished-personalities-janak-image-cafdf3025282-1600w.webp',
-    'Shri Vijay Kumar Singh': '/images/optimized/distinguished-personalities-vijay-image-620bd96af13f-1600w.webp',
-    'Prof. Dr. Seema Singh': '/images/optimized/distinguished-personalities-seema-image-568948b2b66d-1600w.webp',
-    'Ms. Deepika Narayan Bhardwaj': '/images/optimized/distinguished-personalities-deepika-image-ec272c1c9bbe-1600w.webp',
-    'Shri Shiv Vats': '/images/optimized/distinguished-personalities-shiv-image-d5fe25e8eff3-1600w.webp',
-    'Shri Ram Narain Yadav': '/images/optimized/distinguished-personalities-ram-image-3d107b8b03e0-1600w.webp',
-    'Adv. Atirek Shahi': '/images/optimized/atirek-shahi-d1c24cf07c43-1098w.webp',
-    'Shri Nikhil Wath': '/images/optimized/media-personalities-nikhil-image-c340d559cc3b-1600w.webp',
-    'Shri Deepak Tenguriya': '/images/optimized/media-personalities-deepak-image-b90699365846-1600w.webp',
-    'Ms. Mehak Dhawan': '/images/optimized/media-personalities-mehak-image-8c001c8aab97-1600w.webp',
-    'Shri Bhim Jain': '/images/optimized/media-personalities-536ec8c5-258f-4ffd-8410-ded8b0640020-image-d2bd09d3c6f6-1600w.webp'
-  };
-
-  document.querySelectorAll('#dignitaries .dig-card').forEach(card => {
-    const nameEl = card.querySelector('.dig-name');
-    const roleEl = card.querySelector('.dig-role');
-    if (!nameEl || !roleEl) return;
-
-    const name = nameEl.textContent.trim();
-    const src = dignitaryPhotos[name];
-    if (!src) return;
-
-    const textWrap = document.createElement('div');
-    textWrap.className = 'dig-text';
-    textWrap.appendChild(nameEl);
-    textWrap.appendChild(roleEl);
-
-    const imgWrap = document.createElement('div');
-    imgWrap.className = 'dig-photo-wrap';
-
-    const img = document.createElement('img');
-    img.className = 'dig-photo';
-    img.src = src;
-    img.alt = name;
-    img.loading = 'lazy';
-    img.decoding = 'async';
-    imgWrap.appendChild(img);
-
-    card.innerHTML = '';
-    card.appendChild(textWrap);
-    card.appendChild(imgWrap);
-  });
-})();
-
-/* ── Dignitary photo: 3D tilt + sparkles + ripple ── */
-(function(){
-  document.querySelectorAll('#dignitaries .dig-card').forEach(card => {
-    const wrap = card.querySelector('.dig-photo-wrap');
-    if (!wrap) return;
-
-    let tiltRAF = null;
-    let isHovered = false;
-
-    /* 3D magnetic tilt on mouse move */
-    card.addEventListener('mousemove', e => {
-      if (!isHovered) return;
-      if (tiltRAF) cancelAnimationFrame(tiltRAF);
-      tiltRAF = requestAnimationFrame(() => {
-        const rect = wrap.getBoundingClientRect();
-        const cx = (e.clientX - rect.left) / rect.width  - .5;
-        const cy = (e.clientY - rect.top)  / rect.height - .5;
-        const rx =  cy * -15;
-        const ry =  cx *  18;
-        wrap.style.transform = `scale(1.11) translateY(-7px) rotateX(${rx}deg) rotateY(${ry}deg)`;
-      });
-    });
-
-    /* Reset tilt on leave */
-    card.addEventListener('mouseleave', () => {
-      isHovered = false;
-      if (tiltRAF) cancelAnimationFrame(tiltRAF);
-      wrap.style.transform = '';
-    });
-
-    /* Mark hover state on enter */
-    card.addEventListener('mouseenter', () => {
-      isHovered = true;
-    });
-
-    /* Click ripple */
-    wrap.addEventListener('click', e => {
-      const rect = wrap.getBoundingClientRect();
-      const x = e.clientX - rect.left;
-      const y = e.clientY - rect.top;
-      const r = document.createElement('span');
-      r.className = 'dig-ripple';
-      r.style.cssText = `width:60px;height:60px;left:${x - 30}px;top:${y - 30}px;`;
-      wrap.appendChild(r);
-      r.addEventListener('animationend', () => r.remove(), {once:true});
-    });
-  });
-})();
-
 /* ─ Interactive hero: mouse parallax on floating images ─ */
 (function(){
   const heroEl = document.getElementById('hero');
@@ -4066,41 +3946,6 @@ function switchTab(btn,id){
 })();
 </script>
 <script>
-// ─ Conference Showcase Carousel ─
-(function(){
-  var track = document.getElementById('carouselTrack');
-  var dots  = document.querySelectorAll('#carouselDots .carousel-dot');
-  var prev  = document.getElementById('prevBtn');
-  var next  = document.getElementById('nextBtn');
-  if(!track||!dots.length) return;
-  var idx=0, total=dots.length, timer;
-  var touchStartX = 0, touchEndX = 0;
-  function go(n){
-    idx=(n+total)%total;
-    track.style.transform='translateX(-'+idx*100+'%)';
-    dots.forEach(function(d,i){d.classList.toggle('active',i===idx);});
-  }
-  prev.addEventListener('click',function(){go(idx-1);resetTimer();});
-  next.addEventListener('click',function(){go(idx+1);resetTimer();});
-  dots.forEach(function(d){d.addEventListener('click',function(){go(+d.dataset.index);resetTimer();});});
-
-  /* Touch swipe */
-  track.addEventListener('touchstart', function(e){
-    touchStartX = e.changedTouches[0].clientX;
-  }, { passive: true });
-  track.addEventListener('touchend', function(e){
-    touchEndX = e.changedTouches[0].clientX;
-    var diff = touchStartX - touchEndX;
-    if (Math.abs(diff) > 40) {
-      go(diff > 0 ? idx + 1 : idx - 1);
-      resetTimer();
-    }
-  }, { passive: true });
-
-  function resetTimer(){clearInterval(timer);timer=setInterval(function(){go(idx+1);},6000);}
-  resetTimer();
-})();
-
 // ─ Flagship Infinite Scroll – duplicate cards ─
 (function(){
   var scrl = document.getElementById('flagshipScroll');
@@ -4158,6 +4003,8 @@ if (mobileToggle && mobileOverlay) {
   }, 2000);
 })();
 </script>
+<script src="/js/home-image-data.js" defer></script>
+<script src="/js/home-images.js" defer></script>
 <script src="/js/search-data.js"></script>
 <script src="/js/search.js"></script>
 </body>
