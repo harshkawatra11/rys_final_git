@@ -2,6 +2,9 @@
    CONTACT PAGE - SPECIFIC STYLES
    ============================== */
 
+/* Keep offscreen reveal animations from widening the tablet viewport. */
+main { overflow-x: clip; }
+
 /* --- CONTACT STRIP --- */
 .contact-strip {
   padding:0 5vw;

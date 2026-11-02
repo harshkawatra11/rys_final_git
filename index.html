@@ -228,6 +228,8 @@ html[data-theme="light"] .tc-explore .btn-fire {
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 html { scroll-behavior: smooth; overflow-x: hidden; font-size: 16px; }
 body { background: var(--navy); color: var(--cream); font-family: 'Mulish', sans-serif; font-weight: 400; overflow-x: hidden; }
+/* Preserve proportions when responsive widths override intrinsic image dimensions. */
+img { height: auto; }
 
 ::-webkit-scrollbar { width: 3px; }
 ::-webkit-scrollbar-track { background: var(--navy); }
@@ -962,7 +964,7 @@ html[data-theme="light"] .theme-toggle-knob { transform:translateX(24px); backgr
   overflow:hidden;
 }
 .pub-book-cover:hover { transform:translateY(-4px) scale(1.02); box-shadow:0 8px 32px rgba(212,80,10,.2); }
-.pub-book-cover img { width:100%; display:block; }
+.pub-book-cover img { width:100%; height:auto; display:block; }
 .pub-grid { display:grid; grid-template-columns:1fr 1fr; gap:.8rem; }
 @media(max-width:640px){ .pub-grid { grid-template-columns:1fr; } }
 .pub-card {
